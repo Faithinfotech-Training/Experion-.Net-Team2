@@ -46,7 +46,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentNo)
-                    .HasName("PK__APPOINTM__49B320A9AD2EE569");
+                    .HasName("PK__APPOINTM__49B320A9B13DCE10");
 
                 entity.ToTable("APPOINTMENT");
 
@@ -80,7 +80,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.BillNo)
-                    .HasName("PK__BILL__0856FE9FD783FD44");
+                    .HasName("PK__BILL__0856FE9FBF65D8DF");
 
                 entity.ToTable("BILL");
 
@@ -168,7 +168,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Labreport>(entity =>
             {
                 entity.HasKey(e => e.ReportNo)
-                    .HasName("PK__LABREPOR__B1071D74D50F90C8");
+                    .HasName("PK__LABREPOR__B1071D745FB84CF4");
 
                 entity.ToTable("LABREPORT");
 
@@ -379,7 +379,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Prescriptionformedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionNo)
-                    .HasName("PK__PRESCRIP__837543F45A17C88B");
+                    .HasName("PK__PRESCRIP__837543F4E5918887");
 
                 entity.ToTable("PRESCRIPTIONFORMEDICINE");
 
@@ -409,7 +409,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Roles>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__ROLES__5AC4D22243908D23");
+                    .HasName("PK__ROLES__5AC4D22204151F14");
 
                 entity.ToTable("ROLES");
 
@@ -507,7 +507,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Testdetails>(entity =>
             {
                 entity.HasKey(e => e.TestNo)
-                    .HasName("PK__TESTDETA__77E228084A8B7A16");
+                    .HasName("PK__TESTDETA__77E2280863CB4153");
 
                 entity.ToTable("TESTDETAILS");
 
