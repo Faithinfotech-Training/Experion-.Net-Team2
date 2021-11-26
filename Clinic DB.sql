@@ -171,38 +171,6 @@ CREATE TABLE TESTDETAILS(
 	ISACTIVE BIT);
 
 
-<<<<<<< HEAD
-CREATE TABLE LabReport(
-	Report_No INT PRIMARY KEY IDENTITY(1,1),
-	Report_Title NVARCHAR(70),
-	Description NVARCHAR(100),
-	Patient_Id INT FOREIGN KEY REFERENCES PatientInfo(Patient_Id),
-	Doctor_Id INT FOREIGN KEY REFERENCES DoctorInfo(Doctor_Id),
-	Clinic_Id INT FOREIGN KEY REFERENCES ClinicInfo(Clinic_Id),
-	Lab_Technician_Id int FOREIGN KEY REFERENCES LabTechnician_Info(Lab_Technician_Id),
-	IsActive BIT	
-)
-
-CREATE TABLE TestDetails_Info(
-	Test_No INT PRIMARY KEY IDENTITY(1,1),
-	Test_Name NVARCHAR(70),
-	Test_DateTime DATETIME,
-	Test_Unit NVARCHAR(70),
-	Test_Amount MONEY,
-	Test_Description NVARCHAR(70),
-	IsActive BIT
-)
-
-
-CREATE TABLE Test_Info(
-	Test_Id INT PRIMARY KEY IDENTITY(1,1),
-	Test_No INT FOREIGN KEY REFERENCES TestDetails_Info(Test_No),
-	Range NVARCHAR(50),
-	DESCRIPTION NVARCHAR(100),
-	Report_No INT FOREIGN KEY REFERENCES LabReport(Report_No),
-	IsActive BIT
-)
-=======
 --Test--
 CREATE TABLE TEST(
 	TEST_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -213,4 +181,3 @@ CREATE TABLE TEST(
 	REPORT_NO INT CONSTRAINT fk_rep1 FOREIGN KEY
   REFERENCES LABREPORT(REPORT_NO),
 	ISACTIVE BIT);
->>>>>>> fa11fd4f09272742e55f57727e3a910a216dc733
