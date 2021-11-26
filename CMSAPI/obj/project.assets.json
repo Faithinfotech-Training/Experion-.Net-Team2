@@ -6497,11 +6497,20 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\annie.abraham\\.nuget\\packages\\": {}
+=======
+<<<<<<< HEAD
+    "C:\\Users\\haizon.cruz\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\roshni.at\\.nuget\\packages\\": {}
+>>>>>>> 84512a0d9e4c5d97212b4bd971759f23e78d992f
+>>>>>>> a32f30cf1a8073b0f8c9f141f12096939a08514a
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
       "projectName": "CMSAPI",
       "projectPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
@@ -6510,6 +6519,27 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\annie.abraham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+<<<<<<< HEAD
+      "projectUniqueName": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "projectName": "CMSAPI",
+      "projectPath": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "packagesPath": "C:\\Users\\haizon.cruz\\.nuget\\packages\\",
+      "outputPath": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\haizon.cruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "projectName": "CMSAPI",
+      "projectPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "packagesPath": "C:\\Users\\roshni.at\\.nuget\\packages\\",
+      "outputPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\roshni.at\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 84512a0d9e4c5d97212b4bd971759f23e78d992f
+>>>>>>> a32f30cf1a8073b0f8c9f141f12096939a08514a
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
