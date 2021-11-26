@@ -46,7 +46,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentNo)
-                    .HasName("PK__APPOINTM__49B320A9412374F1");
+                    .HasName("PK__APPOINTM__49B320A9AD2EE569");
 
                 entity.ToTable("APPOINTMENT");
 
@@ -80,7 +80,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.BillNo)
-                    .HasName("PK__BILL__0856FE9F478B61EE");
+                    .HasName("PK__BILL__0856FE9FD783FD44");
 
                 entity.ToTable("BILL");
 
@@ -168,7 +168,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Labreport>(entity =>
             {
                 entity.HasKey(e => e.ReportNo)
-                    .HasName("PK__LABREPOR__B1071D74CDBD8A2F");
+                    .HasName("PK__LABREPOR__B1071D74D50F90C8");
 
                 entity.ToTable("LABREPORT");
 
@@ -188,6 +188,10 @@ namespace CMSAPI.Models
                 entity.Property(e => e.LabtechnicianId).HasColumnName("LABTECHNICIAN_ID");
 
                 entity.Property(e => e.PatientId).HasColumnName("PATIENT_ID");
+
+                entity.Property(e => e.ReportDate)
+                    .HasColumnName("REPORT_DATE")
+                    .HasColumnType("date");
 
                 entity.Property(e => e.ReportTitle)
                     .IsRequired()
@@ -375,7 +379,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Prescriptionformedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionNo)
-                    .HasName("PK__PRESCRIP__837543F4DDDBD1E1");
+                    .HasName("PK__PRESCRIP__837543F45A17C88B");
 
                 entity.ToTable("PRESCRIPTIONFORMEDICINE");
 
@@ -405,7 +409,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Roles>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__ROLES__5AC4D22241C528D9");
+                    .HasName("PK__ROLES__5AC4D22243908D23");
 
                 entity.ToTable("ROLES");
 
@@ -474,6 +478,14 @@ namespace CMSAPI.Models
 
                 entity.Property(e => e.ReportNo).HasColumnName("REPORT_NO");
 
+                entity.Property(e => e.TestAmount)
+                    .HasColumnName("TEST_AMOUNT")
+                    .HasColumnType("money");
+
+                entity.Property(e => e.TestDateTime)
+                    .HasColumnName("TEST_DATE_TIME")
+                    .HasColumnType("datetime");
+
                 entity.Property(e => e.TestDescription)
                     .IsRequired()
                     .HasColumnName("TEST_DESCRIPTION")
@@ -495,21 +507,13 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Testdetails>(entity =>
             {
                 entity.HasKey(e => e.TestNo)
-                    .HasName("PK__TESTDETA__77E2280847239B99");
+                    .HasName("PK__TESTDETA__77E228084A8B7A16");
 
                 entity.ToTable("TESTDETAILS");
 
                 entity.Property(e => e.TestNo).HasColumnName("TEST_NO");
 
                 entity.Property(e => e.Isactive).HasColumnName("ISACTIVE");
-
-                entity.Property(e => e.TestAmount)
-                    .HasColumnName("TEST_AMOUNT")
-                    .HasColumnType("money");
-
-                entity.Property(e => e.TestDateTime)
-                    .HasColumnName("TEST_DATE_TIME")
-                    .HasColumnType("datetime");
 
                 entity.Property(e => e.TestDesription)
                     .HasColumnName("TEST_DESRIPTION")

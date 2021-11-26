@@ -12,6 +12,7 @@ namespace CMSAPI.Models
 
         public int ReportNo { get; set; }
         public string ReportTitle { get; set; }
+        public DateTime? ReportDate { get; set; }
         public string Description { get; set; }
         public int? PatientId { get; set; }
         public int? DoctorId { get; set; }
