@@ -6497,19 +6497,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\annie.abraham\\.nuget\\packages\\": {}
+    "C:\\Users\\roshni.at\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "projectUniqueName": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
       "projectName": "CMSAPI",
-      "projectPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "packagesPath": "C:\\Users\\annie.abraham\\.nuget\\packages\\",
-      "outputPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+      "projectPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "packagesPath": "C:\\Users\\roshni.at\\.nuget\\packages\\",
+      "outputPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\annie.abraham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\roshni.at\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6583,13 +6583,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
