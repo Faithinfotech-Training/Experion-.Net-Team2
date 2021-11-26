@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CMS\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj": {}
+    "D:\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj": {}
   },
   "projects": {
-    "E:\\CMS\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj": {
+    "D:\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CMS\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj",
+        "projectUniqueName": "D:\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj",
         "projectName": "ClinicManagementApp",
-        "projectPath": "E:\\CMS\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj",
-        "packagesPath": "C:\\Users\\jyothish.a\\.nuget\\packages\\",
-        "outputPath": "E:\\CMS\\Experion-.Net-Team2\\ClinicManagementApp\\obj\\",
+        "projectPath": "D:\\Experion-.Net-Team2\\ClinicManagementApp\\ClinicManagementApp.csproj",
+        "packagesPath": "C:\\Users\\haizon.cruz\\.nuget\\packages\\",
+        "outputPath": "D:\\Experion-.Net-Team2\\ClinicManagementApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jyothish.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\haizon.cruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
