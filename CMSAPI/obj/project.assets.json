@@ -5303,6 +5303,7 @@
       "path": "system.runtime.interopservices.runtimeinformation/4.0.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6496,41 +6497,20 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\annie.abraham\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\jyothish.a\\.nuget\\packages\\": {},
-    "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
->>>>>>> 0688de272b9d82f7743019304b29a1b3ceb44099
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-=======
-      "projectUniqueName": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
->>>>>>> 0688de272b9d82f7743019304b29a1b3ceb44099
       "projectName": "CMSAPI",
-      "projectPath": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "packagesPath": "C:\\Users\\jyothish.a\\.nuget\\packages\\",
-      "outputPath": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+      "projectPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "packagesPath": "C:\\Users\\annie.abraham\\.nuget\\packages\\",
+      "outputPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\annie.abraham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
-        "C:\\Users\\jyothish.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
->>>>>>> 0688de272b9d82f7743019304b29a1b3ceb44099
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6609,11 +6589,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problem reading the cache file D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problem reading the cache file E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> 0688de272b9d82f7743019304b29a1b3ceb44099
     }
   ]
 }
