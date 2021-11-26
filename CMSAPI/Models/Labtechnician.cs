@@ -11,7 +11,6 @@ namespace CMSAPI.Models
         }
 
         public int LabtechnicianId { get; set; }
-        public string LabtechnicianName { get; set; }
         public int? DepartmentId { get; set; }
         public int? StaffId { get; set; }
         public bool? Isactive { get; set; }

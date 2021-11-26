@@ -13,7 +13,6 @@ namespace CMSAPI.Models
         }
 
         public int DoctorId { get; set; }
-        public string DoctorName { get; set; }
         public bool? Isactive { get; set; }
         public int? StaffId { get; set; }
         public int? DepartmentId { get; set; }

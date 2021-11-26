@@ -46,7 +46,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentNo)
-                    .HasName("PK__APPOINTM__49B320A97CDA9F15");
+                    .HasName("PK__APPOINTM__49B320A9412374F1");
 
                 entity.ToTable("APPOINTMENT");
 
@@ -80,7 +80,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.BillNo)
-                    .HasName("PK__BILL__0856FE9F5857C6EE");
+                    .HasName("PK__BILL__0856FE9F478B61EE");
 
                 entity.ToTable("BILL");
 
@@ -150,11 +150,6 @@ namespace CMSAPI.Models
 
                 entity.Property(e => e.DepartmentId).HasColumnName("DEPARTMENT_ID");
 
-                entity.Property(e => e.DoctorName)
-                    .IsRequired()
-                    .HasColumnName("DOCTOR_NAME")
-                    .HasMaxLength(20);
-
                 entity.Property(e => e.Isactive).HasColumnName("ISACTIVE");
 
                 entity.Property(e => e.StaffId).HasColumnName("STAFF_ID");
@@ -173,7 +168,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Labreport>(entity =>
             {
                 entity.HasKey(e => e.ReportNo)
-                    .HasName("PK__LABREPOR__B1071D749E37DF14");
+                    .HasName("PK__LABREPOR__B1071D74CDBD8A2F");
 
                 entity.ToTable("LABREPORT");
 
@@ -229,11 +224,6 @@ namespace CMSAPI.Models
                 entity.Property(e => e.DepartmentId).HasColumnName("DEPARTMENT_ID");
 
                 entity.Property(e => e.Isactive).HasColumnName("ISACTIVE");
-
-                entity.Property(e => e.LabtechnicianName)
-                    .IsRequired()
-                    .HasColumnName("LABTECHNICIAN_NAME")
-                    .HasMaxLength(70);
 
                 entity.Property(e => e.StaffId).HasColumnName("STAFF_ID");
 
@@ -385,7 +375,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Prescriptionformedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionNo)
-                    .HasName("PK__PRESCRIP__837543F4CF3C05E7");
+                    .HasName("PK__PRESCRIP__837543F4DDDBD1E1");
 
                 entity.ToTable("PRESCRIPTIONFORMEDICINE");
 
@@ -415,7 +405,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Roles>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__ROLES__5AC4D222B51DE27D");
+                    .HasName("PK__ROLES__5AC4D22241C528D9");
 
                 entity.ToTable("ROLES");
 
@@ -463,9 +453,9 @@ namespace CMSAPI.Models
                     .HasColumnName("MOBILE")
                     .HasMaxLength(15);
 
-                entity.Property(e => e.Name)
+                entity.Property(e => e.StaffName)
                     .IsRequired()
-                    .HasColumnName("NAME")
+                    .HasColumnName("STAFF_NAME")
                     .HasMaxLength(50);
             });
 
@@ -505,7 +495,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Testdetails>(entity =>
             {
                 entity.HasKey(e => e.TestNo)
-                    .HasName("PK__TESTDETA__77E228083D17583D");
+                    .HasName("PK__TESTDETA__77E2280847239B99");
 
                 entity.ToTable("TESTDETAILS");
 
