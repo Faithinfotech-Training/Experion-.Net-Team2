@@ -5303,7 +5303,6 @@
       "path": "system.runtime.interopservices.runtimeinformation/4.0.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6497,50 +6496,28 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\annie.abraham\\.nuget\\packages\\": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\haizon.cruz\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\roshni.at\\.nuget\\packages\\": {}
->>>>>>> 84512a0d9e4c5d97212b4bd971759f23e78d992f
->>>>>>> a32f30cf1a8073b0f8c9f141f12096939a08514a
+    "C:\\Users\\jyothish.a\\.nuget\\packages\\": {},
+    "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "projectUniqueName": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
       "projectName": "CMSAPI",
-      "projectPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "packagesPath": "C:\\Users\\annie.abraham\\.nuget\\packages\\",
-      "outputPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+      "projectPath": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+      "packagesPath": "C:\\Users\\jyothish.a\\.nuget\\packages\\",
+      "outputPath": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\annie.abraham\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "projectName": "CMSAPI",
-      "projectPath": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "packagesPath": "C:\\Users\\haizon.cruz\\.nuget\\packages\\",
-      "outputPath": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\haizon.cruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "projectName": "CMSAPI",
-      "projectPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-      "packagesPath": "C:\\Users\\roshni.at\\.nuget\\packages\\",
-      "outputPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\roshni.at\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 84512a0d9e4c5d97212b4bd971759f23e78d992f
->>>>>>> a32f30cf1a8073b0f8c9f141f12096939a08514a
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\jyothish.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6613,5 +6590,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
