@@ -50,7 +50,6 @@ D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\runtimes\win-x86\nativ
 D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.CopyComplete
 E:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\appsettings.json
 E:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\CMSAPI.exe
