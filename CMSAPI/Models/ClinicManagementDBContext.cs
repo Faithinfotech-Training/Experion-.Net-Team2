@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -32,6 +32,7 @@ namespace CMSAPI.Models
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<Testdetails> Testdetails { get; set; }
 
+    /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -40,6 +41,7 @@ namespace CMSAPI.Models
                 optionsBuilder.UseSqlServer("Data Source=ANNIEABRAHAM\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
             }
         }
+    */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
