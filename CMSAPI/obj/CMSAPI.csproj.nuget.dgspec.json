@@ -1,21 +1,36 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {}
+=======
+    "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {}
+>>>>>>> 0688de272b9d82f7743019304b29a1b3ceb44099
   },
   "projects": {
-    "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {
+    "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+        "projectUniqueName": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
         "projectName": "CMSAPI",
-        "projectPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-        "packagesPath": "C:\\Users\\annie.abraham\\.nuget\\packages\\",
-        "outputPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+        "projectPath": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+        "packagesPath": "C:\\Users\\jyothish.a\\.nuget\\packages\\",
+        "outputPath": "E:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\annie.abraham\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Users\\jyothish.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> 0688de272b9d82f7743019304b29a1b3ceb44099
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
