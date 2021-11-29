@@ -42,7 +42,8 @@ namespace CMSAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ClinicManagementDBContext>(item =>
+      //add dependency injection for Clinic
+      services.AddDbContext<ClinicManagementDBContext>(item =>
             item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementConnection")));
 
             services.AddScoped<ILoginRepository, LoginRepository>();
@@ -67,24 +68,27 @@ namespace CMSAPI
             //add dependency injection for ClinicManagementDBContext
 
 
-            services.AddDbContext<ClinicManagementDBContext>(item =>
-            item.UseSqlServer(Configuration.GetConnectionString("CmsCon"))
+            //services.AddDbContext<ClinicManagementDBContext>(item =>
+            //item.UseSqlServer(Configuration.GetConnectionString("CmsCon"))
             );
 
-            //add dependency injection for EmployeeRepository
+     services.AddDbContext<ClinicManagementDBContext>(item =>item.UseSqlServer(Configuration.GetConnectionString("ClinicConnection")));
+
+            //add dependency injection
             services.AddScoped<ILabReport, LabReport>();
             services.AddScoped<ILabTechnician, LabTechnician>();
             services.AddScoped<ITestDetails, TestDetails>();
             services.AddScoped<ITests, Tests>();
+            services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
     
 
 
     }
         
-            services.AddDbContext<ClinicManagementDBContext>(item =>item.UseSqlServer(Configuration.GetConnectionString("ClinicConnection")));
+           
 
 
-            services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
+            
     }
 
             //register a JWT authentication schema
