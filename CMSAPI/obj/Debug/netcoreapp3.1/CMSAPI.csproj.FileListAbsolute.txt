@@ -6,6 +6,7 @@ D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\CMSAPI.runtimeconfig.j
 D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\CMSAPI.runtimeconfig.dev.json
 D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\CMSAPI.dll
 D:\CMS\Experion-.Net-Team2\CMSAPI\bin\Debug\netcoreapp3.1\CMSAPI.pdb
+D:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.AssemblyReference.cache
 D:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.GeneratedMSBuildEditorConfig.editorconfig
 D:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.AssemblyInfoInputs.cache
 D:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.AssemblyInfo.cs
@@ -98,8 +99,7 @@ E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\staticwebassets\CMSAPI
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\staticwebassets\CMSAPI.StaticWebAssets.xml
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\scopedcss\bundle\CMSAPI.styles.css
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.RazorTargetAssemblyInfo.cache
+E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.CopyComplete
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.dll
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.pdb
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.genruntimeconfig.cache
-D:\Cms\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.CopyComplete
-D:\Cms\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.AssemblyReference.cache

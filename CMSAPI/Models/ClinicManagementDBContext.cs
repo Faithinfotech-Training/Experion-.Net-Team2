@@ -31,18 +31,35 @@ namespace CMSAPI.Models
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<Testdetails> Testdetails { get; set; }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 
+>>>>>>> 23ab33af4f93708851d40764eb7dfd5d21dda40a
+>>>>>>> fa5974c8509ccaacb694861d5138c0eab66253ee
     /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
+<<<<<<< HEAD
+                optionsBuilder.UseSqlServer("Data Source=ANNIEABRAHAM\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
+=======
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=JYOTHISHA\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
+>>>>>>> fa5974c8509ccaacb694861d5138c0eab66253ee
             }
+<<<<<<< HEAD
+        }*/
+=======
         }
     */
+<<<<<<< HEAD
+=======
+>>>>>>> 23ab33af4f93708851d40764eb7dfd5d21dda40a
 
+>>>>>>> fa5974c8509ccaacb694861d5138c0eab66253ee
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>(entity =>
@@ -263,13 +280,13 @@ namespace CMSAPI.Models
                     .IsRequired()
                     .HasColumnName("USERNAME")
                     .HasMaxLength(50);
-
+              
                 entity.HasOne(d => d.LoginNavigation)
                     .WithOne(p => p.Login)
                     .HasForeignKey<Login>(d => d.Loginid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("LOGINIDFK");
-
+              
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Login)
                     .HasForeignKey(d => d.Roleid)
