@@ -113,13 +113,13 @@ namespace CMSAPI.Controllers
 
     #region GetAppointmentByDoctorId
     [HttpGet]
-    [Route("GetAppointmentByDoctorId")]
-    public async Task<IActionResult> GetAppointmentByDoctorId(int id)
+    [Route("GetAppointmentByDoctorIdAndDate/{id}/{date}")]
+    public async Task<IActionResult> GetAppointmentByDoctorIdAndDate(int id, DateTime date)
     {
       try
       {
         var app
-          = await AppointmentRepository.GetAppointmentByDoctorId(id);
+          = await AppointmentRepository.GetAppointmentByDoctorIdAndDate(id, date);
         if (app == null)
         {
           return NotFound();

@@ -65,8 +65,8 @@ namespace CMSAPI.Repository
     }
     #endregion
 
-    #region GetAppointmentByDoctorId()
-    public async Task<AppointmentList> GetAppointmentByDoctorId(int id)
+    #region GetAppointmentByDoctorIdAndDate()
+    public async Task<List<AppointmentList>> GetAppointmentByDoctorIdAndDate(int id, DateTime date)
     {
       if (db != null)
       {
@@ -75,7 +75,7 @@ namespace CMSAPI.Repository
         return await(from a in db.Appointment
                      from s in db.Staff
                      from p in db.Patient
-                     where s.StaffId == id && a.DoctorId == s.StaffId && a.PatientId == p.PatientId
+                     where s.StaffId == id && a.AppointmentDate==date && a.DoctorId == s.StaffId && a.PatientId == p.PatientId
                      select new AppointmentList
                      {
                        AppointmentNo = a.AppointmentNo,
@@ -84,7 +84,7 @@ namespace CMSAPI.Repository
                        DoctorName = s.StaffName,
                        PatientName = p.PatientName,
                        Isactive = a.Isactive
-                     }).FirstOrDefaultAsync();
+                     }).ToListAsync();
       }
       return null;
     }
