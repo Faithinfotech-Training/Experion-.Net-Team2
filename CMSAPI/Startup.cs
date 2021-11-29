@@ -1,13 +1,6 @@
 using CMSAPI.Models;
 using CMSAPI.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using CMSAPI.Models;
-using CMSAPI.Repository;
-using CMSAPI.Models;
-using CMSAPI.Repository;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using CMSAPI.Models;
-using CMSAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,7 +12,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +47,9 @@ namespace CMSAPI
               options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }
             );
-            services.AddCors();
+
+
+      services.AddCors();
       //add dependency injection for DemoBlogDBContext
       services.AddDbContext<ClinicManagementDBContext>(item =>
       item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementDBConnection")));
@@ -106,6 +100,8 @@ namespace CMSAPI
               });
 
               services.AddMvc();
+
+              
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
