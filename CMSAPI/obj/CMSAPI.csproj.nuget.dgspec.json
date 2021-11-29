@@ -13,6 +13,10 @@
         "packagesPath": "C:\\Users\\haizon.cruz\\.nuget\\packages\\",
         "outputPath": "D:\\Cms\\Experion-.Net-Team2\\CMSAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files\\Visual Studio\\Tools\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
           "C:\\Users\\haizon.cruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

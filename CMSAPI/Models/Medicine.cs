@@ -7,7 +7,6 @@ namespace CMSAPI.Models
     {
         public Medicine()
         {
-            Prescription = new HashSet<Prescription>();
             Prescriptionformedicine = new HashSet<Prescriptionformedicine>();
         }
 
@@ -20,7 +19,6 @@ namespace CMSAPI.Models
         public int MedicineDosage { get; set; }
         public bool? Isactive { get; set; }
 
-        public virtual ICollection<Prescription> Prescription { get; set; }
         public virtual ICollection<Prescriptionformedicine> Prescriptionformedicine { get; set; }
     }
 }
