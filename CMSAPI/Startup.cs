@@ -1,7 +1,10 @@
+using CMSAPI.Models;
+using CMSAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,7 +34,13 @@ namespace CMSAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-        }
+      //add dependency injection for DemoBlogDBContext
+      services.AddDbContext<ClinicManagementDBContext>(item =>
+      item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementDBConnection")));
+
+      //add dependency injection for PostRepository
+      services.AddScoped<IDoctorRepository, DoctorRepository>();
+    }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
