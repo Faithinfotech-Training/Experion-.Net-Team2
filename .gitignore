@@ -44,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# C# Files
+CMSAPI/appsettings.json
+CMSAPI/bin/Debug
+CMSAPI/obj
