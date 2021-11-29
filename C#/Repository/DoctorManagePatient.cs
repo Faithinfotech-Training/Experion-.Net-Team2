@@ -74,7 +74,6 @@ namespace CMSAPI.Repository
 
     public async Task<List<PrescriptionHistory>> GetPrescriptionHistroyById(int id)
     {
-
       if (db != null)
       {
         return await (from pn in db.Prescription
@@ -180,10 +179,76 @@ namespace CMSAPI.Repository
       }
       return null;
     }
-  }
+  
 
 
+    public async Task<List<DoctorAppointmentByDate>> AppointmentByDoctorIdDate(int doctorId, DateTime date)
+    {
+        if (db != null)
+        {
+                return await (from a in db.Appointment
+                              from p in db.Patient                              
+                              where
+                              a.Isactive == true &&
+                              a.PatientId == p.PatientId &&
+                              a.AppointmentDate == date                              
+                              select new DoctorAppointmentByDate
+                              {
+                                  AppointmentNo  = a.AppointmentNo,
+                                  AppointmentTime = a.AppointmentTime,
+                                  PatientId = a.PatientId,
+                                  PatientName = p.PatientName,
+                                  DateOfBirth = p.DateOfBirth
+                              }).ToListAsync();
+            }
+        return null;
+    }
 
+        public async Task<List<Patient>> getPatientbyId(int patientId)
+        {
+            if (db != null)
+            {
+                return await db.Patient.Where(x => x.PatientId == patientId).ToListAsync();
+            }
+            return null;
+        }
 
-
+        public async Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId)
+        {
+            return await (from l in db.Labreport
+                          from t in db.Test
+                          from td in db.Testdetails
+                          from d in db.Doctor
+                          from s in db.Staff
+                          from lt in db.Labtechnician
+                          from s2 in db.Staff
+                          from c in db.Clinic
+                          where
+                          l.PatientId == patientId &&
+                          l.ReportNo == t.ReportNo &&
+                          t.TestNo == td.TestNo &&
+                          l.DoctorId == d.DoctorId &&
+                          d.StaffId == s.StaffId &&
+                          l.ClinicId == c.ClinicId &&
+                          l.LabtechnicianId == lt.LabtechnicianId &&
+                          lt.StaffId == s2.StaffId
+                          select new PatientLabHistory
+                          {
+                              ReportNo = l.ReportNo,
+                              ReportTitle = l.ReportTitle,
+                              ReportDate = l.ReportDate, 
+                              Description = l.Description, 
+                              TestDateTime = t.TestDateTime,
+                              Range = t.Range ,
+                              TestDescription = t.TestDescription,
+                              Result = t.Result,
+                              TestName = td.TestName,
+                              TestUnit = td.TestUnit,
+                              TestDesription = td.TestDesription,
+                              StaffName = s.StaffName,
+                              StaffName_ = s2.StaffName,
+                              ClinicName = c.ClinicName
+                            }).ToListAsync();
+                            }
+    }
 }

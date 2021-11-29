@@ -25,9 +25,14 @@ namespace CMSAPI.Repository
 
     Task<List<TestHistoryView>> LabReportsByDate(DateTime date);
 
-    Task<List<TestHistoryView>> LabReportsByPatientId(int patientId);
+    Task<List<TestHistoryView>> LabReportsByPatientId(int patientId);      
 
-    //Task<List<TestHistoryView>> LabReportsByDate(DateTime date);
+    Task<List<DoctorAppointmentByDate>> AppointmentByDoctorIdDate(int doctorId, DateTime date);
+
+    Task<List<Patient>> getPatientbyId(int patientId);
+
+    Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId);
+
 
 
 

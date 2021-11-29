@@ -205,8 +205,69 @@ namespace CMSAPI.Controllers
 
 
 
+        [HttpGet]
+        [Route("AppointmentByDoctorIdDate/{doctorId}/{date}")]
+        public async Task<IActionResult> AppointmentByDoctorIdDate(int doctorId, DateTime date)
+        {
+            try
+            {
+                var items = await c.AppointmentByDoctorIdDate(doctorId, date);
+                if (items == null)
+                {
+                    return NotFound();
+                }
+                return Ok(items);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
 
 
 
-  }
+        [HttpGet]
+        [Route("getPatientbyId/{patientId}")]
+        public async Task<IActionResult> getPatientbyId(int patientId)
+        {
+            try
+            {
+                var patients = await c.getPatientbyId(patientId);
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+
+        [HttpGet]
+        [Route("getPatientTestHistorybyId/{patientId}")]
+        public async Task<IActionResult> getPatientTestHistorybyId(int patientId)
+        {
+            try
+            {
+                var patients = await c.getPatientTestHistorybyId(patientId);
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+
+
+    }
 }
