@@ -47,17 +47,7 @@ namespace CMSAPI.Repository
     {
       if (db != null)
       {
-        return await (from c in db.Labtechnician
-
-                      where c.LabtechnicianId == TechnicianId
-
-                      select new Labtechnician
-                      {
-                        LabtechnicianId = c.LabtechnicianId,
-                        DepartmentId = c.DepartmentId,
-                        StaffId = c.StaffId,
-                        Isactive = c.Isactive
-                      }).FirstOrDefaultAsync();
+        return await db.Labtechnician.FirstOrDefaultAsync();
       }
       return null;
 

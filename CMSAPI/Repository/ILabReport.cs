@@ -10,7 +10,7 @@ namespace CMSAPI.Repository
  public interface ILabReport
   {
     //View lab report by id
-    Task<LabReportViewModel> GetReports(int ReportNo);
+    Task<Labreport> GetReports(int ReportNo);
 
     //Add lab report
     Task<int> AddReport(Labreport report);

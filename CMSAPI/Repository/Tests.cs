@@ -41,21 +41,7 @@ namespace CMSAPI.Repository
     {
       if (db != null)
       {
-        return await(from c in db.Test
-
-                     where c.TestId == id
-
-                     select new Test
-                     {
-                       TestId = c.TestId,
-                       TestNo = c.TestNo,
-                       TestDateTime = c.TestDateTime,
-                       TestAmount = c.TestAmount,
-                       Range = c.Range,
-                       TestDescription = c.TestDescription,
-                       ReportNo = c.ReportNo,
-                       Isactive = c.Isactive
-                     }).FirstOrDefaultAsync();
+        return await db.Test.FirstOrDefaultAsync();
       }
       return null;
     }

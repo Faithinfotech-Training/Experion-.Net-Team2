@@ -13,6 +13,6 @@ namespace CMSAPI.Repository
 
     //update test details
     //Update technician
-    Task UpdateTestDetail(TestDetails tests);
+    Task UpdateTestDetail(Testdetails tests);
   }
 }

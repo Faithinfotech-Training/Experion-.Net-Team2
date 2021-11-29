@@ -1,4 +1,5 @@
 using CMSAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +17,22 @@ namespace CMSAPI.Repository
       db = _db;
     }
 
-    public Task<Testdetails> GetTestDetailsById(int testid)
+    public async Task<Testdetails> GetTestDetailsById(int testid)
     {
-      throw new NotImplementedException();
+      if (db != null)
+      {
+        return await db.Testdetails.FirstOrDefaultAsync();
+      }
+      return null;
     }
 
-    public Task UpdateTestDetail(TestDetails tests)
+    public async Task UpdateTestDetail(Testdetails tests)
     {
-      throw new NotImplementedException();
+      if (db != null)
+      {
+        db.Testdetails.Update(tests);
+        await db.SaveChangesAsync();
+      }
     }
   }
 }

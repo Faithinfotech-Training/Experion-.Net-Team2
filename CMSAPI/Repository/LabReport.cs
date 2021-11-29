@@ -21,26 +21,11 @@ namespace CMSAPI.Repository
 
     
     //Get the lab report
-    public async Task<LabReportViewModel> GetReports(int reportno)
+    public async Task<Labreport> GetReports(int reportno)
     {
       if(db!=null)
       {
-        return await (from c in db.Labreport
-                      
-                      where c.ReportNo == reportno 
-
-                      select new LabReportViewModel
-                      {
-                        ReportNo = c.ReportNo,
-                        ReportTitle = c.ReportTitle,
-                        ReportDate = c.ReportDate,
-                        Description = c.Description,
-                        PatientId = c.PatientId,
-                        DoctorId = c.DoctorId,
-                        ClinicId = c.ClinicId,
-                        LabtechnicianId = c.LabtechnicianId,
-                        Isactive = c.Isactive
-                      }).FirstOrDefaultAsync();
+        return await db.Labreport.FirstOrDefaultAsync();
       }
       return null;
     }
