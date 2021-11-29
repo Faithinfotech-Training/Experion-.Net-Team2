@@ -75,7 +75,8 @@ namespace CMSAPI.Repository
         return await(from a in db.Appointment
                      from s in db.Staff
                      from p in db.Patient
-                     where s.StaffId == id && a.AppointmentDate==date && a.DoctorId == s.StaffId && a.PatientId == p.PatientId
+                     from d in db.Doctor
+                     where d.DoctorId == id && a.AppointmentDate==date && a.DoctorId == d.DoctorId && a.PatientId == p.PatientId && d.StaffId==s.StaffId
                      select new AppointmentList
                      {
                        AppointmentNo = a.AppointmentNo,
