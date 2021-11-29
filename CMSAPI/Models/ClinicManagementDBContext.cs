@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -31,16 +31,15 @@ namespace CMSAPI.Models
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<Testdetails> Testdetails { get; set; }
-
+    /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=ANNIEABRAHAM\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
             }
         }
-
+    */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>(entity =>
@@ -261,13 +260,13 @@ namespace CMSAPI.Models
                     .IsRequired()
                     .HasColumnName("USERNAME")
                     .HasMaxLength(50);
-
+              
                 entity.HasOne(d => d.LoginNavigation)
                     .WithOne(p => p.Login)
                     .HasForeignKey<Login>(d => d.Loginid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("LOGINIDFK");
-
+              
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Login)
                     .HasForeignKey(d => d.Roleid)
