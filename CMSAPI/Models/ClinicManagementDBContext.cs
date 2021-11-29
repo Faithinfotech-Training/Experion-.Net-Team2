@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -31,41 +31,22 @@ namespace CMSAPI.Models
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<Testdetails> Testdetails { get; set; }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
->>>>>>> 23ab33af4f93708851d40764eb7dfd5d21dda40a
->>>>>>> fa5974c8509ccaacb694861d5138c0eab66253ee
-    /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-<<<<<<< HEAD
-                optionsBuilder.UseSqlServer("Data Source=ANNIEABRAHAM\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
-=======
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=JYOTHISHA\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
->>>>>>> fa5974c8509ccaacb694861d5138c0eab66253ee
             }
-<<<<<<< HEAD
-        }*/
-=======
         }
-    */
-<<<<<<< HEAD
-=======
->>>>>>> 23ab33af4f93708851d40764eb7dfd5d21dda40a
 
->>>>>>> fa5974c8509ccaacb694861d5138c0eab66253ee
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentNo)
-                    .HasName("PK__APPOINTM__49B320A96C85B299");
+                    .HasName("PK__APPOINTM__49B320A9DD9F877A");
 
                 entity.ToTable("APPOINTMENT");
 
@@ -99,7 +80,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.BillNo)
-                    .HasName("PK__BILL__0856FE9F25DD2722");
+                    .HasName("PK__BILL__0856FE9F36966DE7");
 
                 entity.ToTable("BILL");
 
@@ -187,7 +168,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Labreport>(entity =>
             {
                 entity.HasKey(e => e.ReportNo)
-                    .HasName("PK__LABREPOR__B1071D7408D03FEC");
+                    .HasName("PK__LABREPOR__B1071D74E69DBBD0");
 
                 entity.ToTable("LABREPORT");
 
@@ -280,13 +261,13 @@ namespace CMSAPI.Models
                     .IsRequired()
                     .HasColumnName("USERNAME")
                     .HasMaxLength(50);
-              
+
                 entity.HasOne(d => d.LoginNavigation)
                     .WithOne(p => p.Login)
                     .HasForeignKey<Login>(d => d.Loginid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("LOGINIDFK");
-              
+
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Login)
                     .HasForeignKey(d => d.Roleid)
@@ -377,6 +358,8 @@ namespace CMSAPI.Models
                     .HasColumnName("TEST_DETAILS")
                     .HasMaxLength(100);
 
+                entity.Property(e => e.TestNo).HasColumnName("TEST_NO");
+
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.Prescription)
                     .HasForeignKey(d => d.DoctorId)
@@ -386,12 +369,17 @@ namespace CMSAPI.Models
                     .WithMany(p => p.Prescription)
                     .HasForeignKey(d => d.PatientId)
                     .HasConstraintName("fk_pat3");
+
+                entity.HasOne(d => d.TestNoNavigation)
+                    .WithMany(p => p.Prescription)
+                    .HasForeignKey(d => d.TestNo)
+                    .HasConstraintName("fk_testdet");
             });
 
             modelBuilder.Entity<Prescriptionformedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionNo)
-                    .HasName("PK__PRESCRIP__837543F45D4E9D25");
+                    .HasName("PK__PRESCRIP__837543F49405AB6C");
 
                 entity.ToTable("PRESCRIPTIONFORMEDICINE");
 
@@ -421,7 +409,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Roles>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__ROLES__5AC4D222BECCFF02");
+                    .HasName("PK__ROLES__5AC4D2224CE54373");
 
                 entity.ToTable("ROLES");
 
@@ -523,7 +511,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Testdetails>(entity =>
             {
                 entity.HasKey(e => e.TestNo)
-                    .HasName("PK__TESTDETA__77E228082FD811A8");
+                    .HasName("PK__TESTDETA__77E22808EBD38DD1");
 
                 entity.ToTable("TESTDETAILS");
 

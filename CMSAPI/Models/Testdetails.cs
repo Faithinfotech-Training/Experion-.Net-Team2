@@ -7,6 +7,7 @@ namespace CMSAPI.Models
     {
         public Testdetails()
         {
+            Prescription = new HashSet<Prescription>();
             Test = new HashSet<Test>();
         }
 
@@ -16,6 +17,7 @@ namespace CMSAPI.Models
         public string TestDesription { get; set; }
         public bool? Isactive { get; set; }
 
+        public virtual ICollection<Prescription> Prescription { get; set; }
         public virtual ICollection<Test> Test { get; set; }
     }
 }

@@ -35,96 +35,60 @@ namespace CMSAPI
         {
             services.AddControllers();
       //add dependency injection for Clinic
-      services.AddDbContext<ClinicManagementDBContext>(item =>
-            item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementConnection")));
+            services.AddDbContext<ClinicManagementDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementConnection")));
 
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
 
-      services.AddControllers().AddNewtonsoftJson(
-            options => {
-              options.SerializerSettings
-                  .ContractResolver = new DefaultContractResolver();
-              options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            }
-            );
-
-
-      services.AddCors();
-      //add dependency injection for DemoBlogDBContext
-      services.AddDbContext<ClinicManagementDBContext>(item =>
-      item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementDBConnection")));
-
-      //add dependency injection for PostRepository
-      services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddControllers().AddNewtonsoftJson(
+                      options => {
+                      options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                      options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                      });
+            services.AddCors();
+      
+            //add dependency injection for PostRepository
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
     
-
-            //add dependency injection for ClinicManagementDBContext
-            /*
-
-
-            //services.AddDbContext<ClinicManagementDBContext>(item =>
-            //item.UseSqlServer(Configuration.GetConnectionString("CmsCon"))
-            );
-            services.AddDbContext<ClinicManagementDBContext>(item =>
-            item.UseSqlServer(Configuration.GetConnectionString("CmsCon"))
-            );*/
-
-     services.AddDbContext<ClinicManagementDBContext>(item =>item.UseSqlServer(Configuration.GetConnectionString("ClinicConnection")));
-
             //add dependency injection
             services.AddScoped<ILabReport, LabReport>();
             services.AddScoped<ILabTechnician, LabTechnician>();
             services.AddScoped<ITestDetails, TestDetails>();
             services.AddScoped<ITests, Tests>();
             services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
-    
+
             //add dependency injection for EmployeeRepository
-          
-    
 
-
-    
-        
-           
-
-          //  services.AddDbContext<ClinicManagementDBContext>(item =>item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementConnection")));
-
-            
-    }
+              
 
             services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
-             services.AddScoped<ILabReport, LabReport>();
+            services.AddScoped<ILabReport, LabReport>();
             services.AddScoped<ILabTechnician, LabTechnician>();
             services.AddScoped<ITestDetails, TestDetails>();
             services.AddScoped<ITests, Tests>();
-    
 
-            //register a JWT authentication schema
+
+      //register a JWT authentication schema
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddJwtBearer(options =>
-              {
-                options.TokenValidationParameters = new TokenValidationParameters
+            .AddJwtBearer(options =>
+            {
+               options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    //configure the authentication schema eith JWT bearer options
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidAudience = Configuration["Jwt:Issuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-                };
-              });
+                  //configure the authentication schema eith JWT bearer options
+                  ValidateIssuer = true,
+                  ValidateAudience = true,
+                  ValidateLifetime = true,
+                  ValidateIssuerSigningKey = true,
+                  ValidIssuer = Configuration["Jwt:Issuer"],
+                  ValidAudience = Configuration["Jwt:Issuer"],
+                  IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+              };
+            });
 
-              services.AddMvc();
+            services.AddMvc();
+    }
 
-              
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-       // public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
