@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ClinicApp"
+    }
+  },
+  "defaultProject": "ClinicApp",
+  "cli": {
+    "analytics": "ca329a2d-1b9a-4e19-a648-87b6876c50fd"
+  }
 }
