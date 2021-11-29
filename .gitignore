@@ -47,5 +47,8 @@ Thumbs.db
 
 
 # C# Files
-CMSAPI\appsettings.json
-\CMSAPI\bin\Debug
+CMSAPI/appsettings.json
+CMSAPI/bin/Debug
+CMSAPI/obj
+CMSAPI/.vs
+
