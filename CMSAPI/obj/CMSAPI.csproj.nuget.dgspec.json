@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {}
+    "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {}
   },
   "projects": {
-    "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {
+    "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+        "projectUniqueName": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
         "projectName": "CMSAPI",
-        "projectPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
-        "packagesPath": "C:\\Users\\annie.abraham\\.nuget\\packages\\",
-        "outputPath": "D:\\CMS\\Experion-.Net-Team2\\CMSAPI\\obj\\",
+        "projectPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\CMSAPI.csproj",
+        "packagesPath": "C:\\Users\\roshni.at\\.nuget\\packages\\",
+        "outputPath": "D:\\Clinic Management\\Experion-.Net-Team2\\CMSAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\annie.abraham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\roshni.at\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

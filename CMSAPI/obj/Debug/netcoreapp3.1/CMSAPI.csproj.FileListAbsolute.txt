@@ -103,3 +103,11 @@ E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.CopyComp
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.dll
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.pdb
 E:\CMS\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.genruntimeconfig.cache
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.AssemblyReference.cache
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.AssemblyInfoInputs.cache
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.AssemblyInfo.cs
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.csproj.CoreCompileInputs.cache
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.dll
+D:\Clinic Management\Experion-.Net-Team2\CMSAPI\obj\Debug\netcoreapp3.1\CMSAPI.pdb
