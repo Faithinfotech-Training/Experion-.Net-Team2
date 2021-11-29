@@ -15,12 +15,10 @@ namespace CMSAPI.Models
         public string DoctorNotes { get; set; }
         public string TestDetails { get; set; }
         public bool? Isactive { get; set; }
-        public int? MedicineId { get; set; }
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
 
         public virtual Doctor Doctor { get; set; }
-        public virtual Medicine Medicine { get; set; }
         public virtual Patient Patient { get; set; }
         public virtual ICollection<Prescriptionformedicine> Prescriptionformedicine { get; set; }
     }

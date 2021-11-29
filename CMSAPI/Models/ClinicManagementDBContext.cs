@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -34,15 +34,11 @@ namespace CMSAPI.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            // Comment Out connection string and paste in appsettings.json
-            /*
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=ANNIEABRAHAM\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
+                optionsBuilder.UseSqlServer("Data Source=JYOTHISHA\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
             }
-            */
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -50,7 +46,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentNo)
-                    .HasName("PK__APPOINTM__49B320A9B13DCE10");
+                    .HasName("PK__APPOINTM__49B320A96C85B299");
 
                 entity.ToTable("APPOINTMENT");
 
@@ -84,7 +80,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Bill>(entity =>
             {
                 entity.HasKey(e => e.BillNo)
-                    .HasName("PK__BILL__0856FE9FBF65D8DF");
+                    .HasName("PK__BILL__0856FE9F25DD2722");
 
                 entity.ToTable("BILL");
 
@@ -172,7 +168,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Labreport>(entity =>
             {
                 entity.HasKey(e => e.ReportNo)
-                    .HasName("PK__LABREPOR__B1071D745FB84CF4");
+                    .HasName("PK__LABREPOR__B1071D7408D03FEC");
 
                 entity.ToTable("LABREPORT");
 
@@ -351,8 +347,6 @@ namespace CMSAPI.Models
 
                 entity.Property(e => e.Isactive).HasColumnName("ISACTIVE");
 
-                entity.Property(e => e.MedicineId).HasColumnName("MEDICINE_ID");
-
                 entity.Property(e => e.PatientId).HasColumnName("PATIENT_ID");
 
                 entity.Property(e => e.PrescriptionDate)
@@ -369,11 +363,6 @@ namespace CMSAPI.Models
                     .HasForeignKey(d => d.DoctorId)
                     .HasConstraintName("fk_doc2");
 
-                entity.HasOne(d => d.Medicine)
-                    .WithMany(p => p.Prescription)
-                    .HasForeignKey(d => d.MedicineId)
-                    .HasConstraintName("fk_med1");
-
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Prescription)
                     .HasForeignKey(d => d.PatientId)
@@ -383,7 +372,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Prescriptionformedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionNo)
-                    .HasName("PK__PRESCRIP__837543F4E5918887");
+                    .HasName("PK__PRESCRIP__837543F45D4E9D25");
 
                 entity.ToTable("PRESCRIPTIONFORMEDICINE");
 
@@ -413,7 +402,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Roles>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__ROLES__5AC4D22204151F14");
+                    .HasName("PK__ROLES__5AC4D222BECCFF02");
 
                 entity.ToTable("ROLES");
 
@@ -482,6 +471,10 @@ namespace CMSAPI.Models
 
                 entity.Property(e => e.ReportNo).HasColumnName("REPORT_NO");
 
+                entity.Property(e => e.Result)
+                    .HasColumnName("result")
+                    .HasDefaultValueSql("((96))");
+
                 entity.Property(e => e.TestAmount)
                     .HasColumnName("TEST_AMOUNT")
                     .HasColumnType("money");
@@ -511,7 +504,7 @@ namespace CMSAPI.Models
             modelBuilder.Entity<Testdetails>(entity =>
             {
                 entity.HasKey(e => e.TestNo)
-                    .HasName("PK__TESTDETA__77E2280863CB4153");
+                    .HasName("PK__TESTDETA__77E228082FD811A8");
 
                 entity.ToTable("TESTDETAILS");
 
