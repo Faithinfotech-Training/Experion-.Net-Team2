@@ -1,6 +1,13 @@
 using CMSAPI.Models;
 using CMSAPI.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using CMSAPI.Models;
+using CMSAPI.Repository;
+using CMSAPI.Models;
+using CMSAPI.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using CMSAPI.Models;
+using CMSAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +19,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +28,7 @@ using System.Threading.Tasks;
 
 namespace CMSAPI
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -47,6 +56,36 @@ namespace CMSAPI
             }
             );
             services.AddCors();
+      //add dependency injection for DemoBlogDBContext
+      services.AddDbContext<ClinicManagementDBContext>(item =>
+      item.UseSqlServer(Configuration.GetConnectionString("ClinicManagementDBConnection")));
+
+      //add dependency injection for PostRepository
+      services.AddScoped<IDoctorRepository, DoctorRepository>();
+    }
+
+            //add dependency injection for ClinicManagementDBContext
+
+
+            services.AddDbContext<ClinicManagementDBContext>(item =>
+            item.UseSqlServer(Configuration.GetConnectionString("CmsCon"))
+            );
+
+            //add dependency injection for EmployeeRepository
+            services.AddScoped<ILabReport, LabReport>();
+            services.AddScoped<ILabTechnician, LabTechnician>();
+            services.AddScoped<ITestDetails, TestDetails>();
+            services.AddScoped<ITests, Tests>();
+    
+
+
+    }
+        
+            services.AddDbContext<ClinicManagementDBContext>(item =>item.UseSqlServer(Configuration.GetConnectionString("ClinicConnection")));
+
+
+            services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
+    }
 
             //register a JWT authentication schema
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -70,6 +109,8 @@ namespace CMSAPI
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
             options.WithOrigins("http://localhost:4200")
