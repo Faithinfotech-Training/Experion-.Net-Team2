@@ -19,11 +19,30 @@ import { AdminComponent } from './admin/admin.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { ToastrModule } from 'ngx-toastr';
+import {DoctorService } from './shared/doctor.service'
+
+import { LabreportComponent } from './labreport/labreport.component';
+import { LabreportService } from './shared/labreport.service';
+import { LabtechnicianService } from './shared/labtechnician.service';
+import { TestService } from './shared/test.service'; 
+import { TestdetailsService } from './shared/testdetails.service';
+import { LabtechnicianComponent } from './labtechnician/labtechnician.component';
+import { TestComponent } from './test/test.component';
+import { TestdetailsComponent } from './testdetails/testdetails.component'
+import { ViewtestdetailsComponent } from './viewtestdetails/viewtestdetails.component';
+
+
+import { DoctorListComponent } from './doctor-list/doctor-list.component';
+import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-date/doctor-view-labreport-by-date.component';
+import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
+import { DoctorsComponent } from './doctors/doctors.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
 import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +57,18 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
     FrontofficeComponent,
     AppointmentComponent,
     DoctorViewAppointmentsForDayFormComponent,
+    ListPatientsByDateComponent,
+
+    DoctorViewAppointmentsForDayFormComponent,
+    LabreportComponent,
+    LabtechnicianComponent,
+    TestComponent,
+    TestdetailsComponent,
+    ViewtestdetailsComponent,
+    DoctorListComponent,
+    DoctorViewLabreportByDateComponent,
+    DoctorViewLabreportByIdComponent,
+    DoctorsComponent,
     PatientPrescriptionHistoryComponent,
     PatientLabHistoryComponent,
     AddPrescriptionComponent,
@@ -49,17 +80,24 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
-    NgxPaginationModule,
-    Ng2SearchPipeModule,
+
   ],
-  providers: [AuthService, AuthGuard,
+
+  providers: [AuthService, AuthGuard,LabreportService, 
+    DoctorService, LabtechnicianService, TestService, 
+    TestdetailsService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     }],
+
+  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
