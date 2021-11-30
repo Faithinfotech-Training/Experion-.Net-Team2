@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
 import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
+import { AddPrescriptionMedicineComponent } from './add-prescription-medicine/add-prescription-medicine.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AddPrescriptionComponent } from './add-prescription/add-prescription.co
     DoctorViewAppointmentsForDayFormComponent,
     PatientPrescriptionHistoryComponent,
     PatientLabHistoryComponent,
-    AddPrescriptionComponent
+    AddPrescriptionComponent,
+    AddPrescriptionMedicineComponent
   ],
   imports: [
     BrowserModule,

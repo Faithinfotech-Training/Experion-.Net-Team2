@@ -1,8 +1,8 @@
 export class Prescriptionformedicine {
-    prescriptionNo: number;
-    dosageFreq: number;
-    noOfDays: number;
-    isactive: boolean | null;
-    medicineId: number | null;
-    prescriptionId: number | null;    
+    PrescriptionNo: number;
+    DosageFreq: number;
+    NoOfDays: number;
+    Isactive: boolean;
+    MedicineId: number ;
+    PrescriptionId: number ;    
 }
