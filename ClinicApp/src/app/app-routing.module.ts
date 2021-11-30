@@ -15,7 +15,6 @@ const routes: Routes = [
   {path: 'addPrescription', component: AddPrescriptionComponent}  
 ];
 
-
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes)],

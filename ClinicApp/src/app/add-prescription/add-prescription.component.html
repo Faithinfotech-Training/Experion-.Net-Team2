@@ -1,24 +1,23 @@
 <form name="docform" #form="ngForm"
 (ngSubmit) = "readForm(form)">
 
-    <div class="form-group">
-        <label>Prescription ID</label>
-        <input type="number"  
-        name="prescriptionId" 
-        #prescriptionId="ngModel" 
-        [(ngModel)]="doctorHelperService.prescription.prescriptionId"
+    <div class="form-group">        
+        <input type="hidden"  
+        name="PrescriptionId" 
+        #PrescriptionId="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.PrescriptionId"
         class="form-control"
         placeholder="Enter Prescription ID"
-        required
+        value=0        
         />       
     </div>
     
     <div class="form-group">
         <label>Prescription Date</label>
         <input type="date"  
-        name="prescriptionDate" 
-        #prescriptionDate="ngModel" 
-        [(ngModel)]="doctorHelperService.prescription.prescriptionDate"
+        name="PrescriptionDate" 
+        #PrescriptionDate="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.PrescriptionDate"
         class="form-control"
         placeholder="Enter Prescription Date"
         required
@@ -30,9 +29,9 @@
     <div class="form-group">
         <label>Doctor Notes</label>
         <input type="text"  
-        name="doctorNotes" 
-        #doctorNotes="ngModel" 
-        [(ngModel)]="doctorHelperService.prescription.doctorNotes"
+        name="DoctorNotes" 
+        #DoctorNotes="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.DoctorNotes"
         class="form-control"
         placeholder="Enter Doctor Notes"
         required
@@ -43,9 +42,9 @@
     <div class="form-group">
         <label>Test Notes</label>
         <input type="text"  
-        name="testDetails" 
-        #testDetails="ngModel" 
-        [(ngModel)]="doctorHelperService.prescription.testDetails"
+        name="TestDetails" 
+        #TestDetails="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.TestDetails"
         class="form-control"
         placeholder="Enter Test Notes"
         required
@@ -53,7 +52,36 @@
     </div>
     <br>
 
+    <div class="form-group">
+        <label class="col-md-4">Prescribe Test</label>
+        <select 
+        name="TestNo" 
+        id="TestNo" 
+        class="form-control"
+        #TestNo = "ngModel" 
+        required
+        [(ngModel)]="doctorHelperService.prescription.TestNo">
+        <option value="" selected disabled> Choose Test </option>
+        <option *ngFor= "let t of this.doctorHelperService.testDetails"
+        value="{{t.TestNo}}"> {{t.TestName}}</option>  
+        </select>        
+    </div>   
+
+    <!--{{this.doctorHelperService.testDetails[0].TestNo}}-->
+    <br>
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Prescribe Medicine</label>
+            <input type="checkbox" name="prescribeCheck" 
+            id="prescribeCheck"                
+            class="form-check-input"
+            [(ngModel)]="this.prescribeCheck"
+            >
+        </div>
+    </div> 
     
+    <br>
+
     <div class="form-group">
         <button type="submit"
          class="btn btn-lg btn-primary form-control"> 

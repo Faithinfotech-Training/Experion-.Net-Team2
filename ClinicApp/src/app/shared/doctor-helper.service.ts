@@ -9,6 +9,7 @@ import { PatientLabHistory } from './PatientLabHistory';
 import { Medicine } from './Medicine'; 
 import { Prescription } from './Prescription'; 
 import { Prescriptionformedicine } from './PrescriptionForMedicine'; 
+import { Testdetails } from './Testdetails'; 
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,8 @@ export class DoctorHelperService {
   medicine : Medicine = new Medicine();
   prescription : Prescription = new Prescription();
   prescriptionformedicine : Prescriptionformedicine = new Prescriptionformedicine();
+  testDetails : Testdetails[];
+  testDetail : Testdetails = new Testdetails();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -48,6 +51,26 @@ export class DoctorHelperService {
     .toPromise().then( response =>       
       this.patientLabHistory = response as PatientLabHistory[] 
       );
-  }  
+  } 
+  
+  refreshAvailableTests()
+  {
+    //console.log(environment.apiUrl + "/api/DoctorManagePatient/getAllTestDetails");
+    this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/getAllTestDetails")
+    .toPromise().then( response =>  
+      //console.log("Service direct response "+ response)     
+      this.testDetails = response as Testdetails[] 
+      );
+      //console.log(this.testDetails);
+  }
+
+  addPrescription(p  : Prescription): Observable<any>
+  {    
+    p.PrescriptionId = 0;
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p);
+    var response = this.httpClient.post(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p);
+    //console.log("Response :" + response);
+    return response
+  }
 
 }
