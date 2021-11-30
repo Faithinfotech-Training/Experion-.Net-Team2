@@ -1,0 +1,74 @@
+Completed
+===========================================================================
+
+Annie
+
+->  Each actor can log in to their respective accounts by 
+	entering their username and password 
+	(Admin/Doctor/Frontoffice/Labtechnician)
+
+Haizon
+
+->
+
+
+Jyothish
+
+->  For consultations, doctors are able to view the 
+	details of the patients
+->  Prescribe medicine for the patient
+->  Enter doctors notes and observation for the patient
+->  See doctors-notes-log – date wise for the patient
+->  See Lab results done on a date
+->  See medicine-prescription-log for a period
+->  See list of lab results for a patient
+->  View Patient Details for the day
+->  See patient details during consultation
+->  List of Patient for each Doctors	
+	Doctors can view the list of patients that are appointed
+
+Roshni
+
+->	
+
+
+Pending
+=============================================================================
+
+Annie
+
+->
+
+Haizon
+
+->
+
+Jyothish
+
+->  Generate Payment bill Front office  generates a payment bill
+
+Roshni
+
+->
+
+
+
+Staff Management	Admin - Add/Edit/Search/View Staffs
+
+Doctor Management	Admin- Add/Edit/Search/View Doctors
+
+Register Patient 	The front Office can register the details of patients
+
+Patient  Management 	Front Office  manages patient
+
+Assign Patients to Doctor	The front desk officer must give provisions to 
+							assign a patient to the doctor
+							
+
+
+Generate Lab test details of Patient	Lab Technicians must choose a patient and take the 
+										lab tests as prescribed by the doctor
+										
+										
+
+View lab results	The Doctor can view the lab results - Daywise  and Search for a patient and view result										
