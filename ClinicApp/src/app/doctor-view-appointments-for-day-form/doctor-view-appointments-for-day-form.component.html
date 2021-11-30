@@ -1,1 +1,42 @@
+<<<<<<< HEAD
 <!--p>doctor-view-appointments-for-day-form works!</p-->
+=======
+<form name="docform" #form="ngForm"
+(ngSubmit) = "readForm(form)">
+
+    <div class="form-group">
+        <label>Doctor ID</label>
+        <input type="number"  
+        name="DoctorId" 
+        #EmployeeId="ngModel" 
+        [(ngModel)]="doctorHelperService.currentDoctor.DoctorId"
+        class="form-control"
+        place holder="Enter Doctor ID"
+        required
+        />       
+    </div>
+    
+
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="DateOfAppointment" id="DateOfAppointment"  
+        #DoJ="ngModel" 
+        [(ngModel)]="doctorHelperService.currentDoctor.DateOfAppointment"     
+        class="form-control"
+        required
+        />
+    </div>
+
+    <br>
+
+    <!-- [disabled]="!(form.valid && form.dirty)" -->
+    <div class="form-group">
+        <button type="submit"
+         class="btn btn-lg btn-primary form-control"> 
+         Submit
+        </button>
+    </div>
+
+    
+</form>
+>>>>>>> df89da8b36a885f4de684d12e9813ea2aea257af
