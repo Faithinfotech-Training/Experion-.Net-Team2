@@ -1,9 +1,11 @@
+import {Prescription} from './Prescription';
+import {Test} from './Test';
 export class Testdetails {
-
-    //declaring fields
-    TestNo: number=0;
-    TestName: string='';
-    TestUnit: string='';
-    TestDesription: string='';
-    Isactive: boolean;
+    TestNo: number;
+    TestName: string;
+    TestUnit: string;
+    TestDesription: string;
+    Isactive: boolean | null;
+    Prescription: Prescription[];
+    Test: Test[];
 }

@@ -1,13 +1,13 @@
 export class Test {
-
-    //declare fields
-    TestId: number=0;
-    TestNo: number=0;
-    TestDateTime: any;
-    TestAmount: number;
-    Range: string='';
-    TestDescription: string='';
-    ReportNo: number=0;
-    Isactive: boolean;
-    Result: number;
+    testId: number;
+    testNo: number | null;
+    testDateTime: string | null;
+    testAmount: number | null;
+    range: string;
+    testDescription: string;
+    reportNo: number | null;
+    isactive: boolean | null;
+    result: number;
+    //reportNoNavigation: Labreport;
+    //testNoNavigation: Testdetails;
 }
