@@ -218,6 +218,10 @@ PATIENT_ID INT CONSTRAINT fk_pat3 FOREIGN KEY
 REFERENCES PATIENT (PATIENT_ID));
 
 select * from PRESCRIPTION;
+
+delete from PRESCRIPTION
+where PRESCRIPTION_ID > 4;
+
 select * from patient;
 
 insert into PRESCRIPTION values
@@ -243,6 +247,7 @@ insert into PRESCRIPTIONFORMEDICINE values
 (3,3,1,2,1),
 (3,3,1,2,2);
 
+select * from PRESCRIPTIONFORMEDICINE;
 
 
 --LabTechnician--
