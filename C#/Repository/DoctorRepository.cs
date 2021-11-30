@@ -92,6 +92,7 @@ namespace CMSAPI.Repository
                         Mobile=s.Mobile,
                         Experience=s.Experience,
                         Email=s.Email,
+                        StaffId=s.StaffId,
                         Isactive=d.Isactive
 
                       }
