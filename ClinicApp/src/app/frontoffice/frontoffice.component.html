@@ -1,0 +1,24 @@
+<p>frontoffice works!</p>
+<header>
+    <div class="container">
+        <h5>Welcome Front Office : {{loggedUserName}}</h5>
+    </div>
+    <hr>
+    <nav class="navbar navbar-dark bg-light navbar-expand">
+        <div class="container">
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink='/appointment'>View Appointments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink='/generate bill'>Generate Bill</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink='../accounts'>MyAccount</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" (click)="logout()">Logout</a>
+            </li>
+        </div>
+    </nav>
+
+</header>

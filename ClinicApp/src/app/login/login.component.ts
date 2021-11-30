@@ -54,38 +54,38 @@ export class LoginComponent implements OnInit {
           //token
          this.jwtResponse=data;
         // this.jwtResponse.RoleId=data.ro
-         console.log("jwt:"+this.jwtResponse.RoleId);
+         console.log("jwt:"+this.jwtResponse.rId);
       
           sessionStorage.setItem("token",this.jwtResponse.token);
-          console.log(this.jwtResponse.RoleId);
+          console.log(this.jwtResponse.rId);
 
-          if(this.jwtResponse.RoleId===1){
+          if(this.jwtResponse.rId===1){
             //logged as Admin
             console.log("Admin");
             localStorage.setItem("UserName",this.jwtResponse.Username);
-            localStorage.setItem("ACCESS_ROLE",this.jwtResponse.RoleId.toString());
+            localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
             
             this.router.navigateByUrl('/admin');
 
-          }else if(this.jwtResponse.RoleId===2){
+          }else if(this.jwtResponse.rId===2){
             console.log("FrontOffice");
             localStorage.setItem("UserName",this.jwtResponse.Username);
-            localStorage.setItem("ACCESS_ROLE",this.jwtResponse.RoleId.toString());
+            localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
             this.router.navigateByUrl('/frontoffice');
 
-          }else if (this.jwtResponse.RoleId === 3) {
+          }else if (this.jwtResponse.rId === 3) {
             console.log("LabTechnician");
             localStorage.setItem("UserName", this.jwtResponse.Username);
-            localStorage.setItem("ACCESS_ROLE", this.jwtResponse.RoleId.toString());
+            localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
             this.router.navigateByUrl('/labtechnician');
 
-          }else if (this.jwtResponse.RoleId === 4) {
+          }else if (this.jwtResponse.rId === 4) {
             console.log("Doctor");
             localStorage.setItem("UserName", this.jwtResponse.Username);
-            localStorage.setItem("ACCESS_ROLE", this.jwtResponse.RoleId.toString());
+            localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
             this.router.navigateByUrl('/doctor');
           }
@@ -105,8 +105,8 @@ export class LoginComponent implements OnInit {
   
 
   //calling method from AuthService -Authorization
-  //check the role--based on TRoleID it redirect to respective component
-
+  //check the role--based on RoleID it redirect to respective component
+/*
   loginVerifyTest(){
     if(this.loginForm.valid){
       this.authService.getUserByPassword(this.loginForm.value)
@@ -119,5 +119,5 @@ export class LoginComponent implements OnInit {
         }
       );
     }
-  }
+  }*/
 }

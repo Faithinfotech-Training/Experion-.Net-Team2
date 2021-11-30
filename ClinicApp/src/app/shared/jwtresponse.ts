@@ -1,6 +1,7 @@
 export class Jwtresponse {
+    uId: number;
     Username:string;
-    RoleId:number;
+    rId:number;
     token:string;
 }
 
