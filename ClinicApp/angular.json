@@ -123,6 +123,9 @@
   },
   "defaultProject": "ClinicApp",
   "cli": {
+
     "analytics": "2a56a4fb-4574-4b5d-b9fa-e0f705dc88d0"
+
+
   }
 }
