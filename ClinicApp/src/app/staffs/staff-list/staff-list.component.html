@@ -1,0 +1,50 @@
+<p>staff-list works!</p>
+<div class="container">
+    <div class="header">
+        <h5>Staff Info</h5>
+        <!--Search Functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search here" [(ngModel)]="filter">
+        </div>
+        <a [routerLink]="['./staff']" class="btn btn-primary" style="float: right; margin-bottom: 10px;">Add Staff</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Date Of Birth</th>
+                <th>Address</th>
+                <th>Date Of Join</th>
+                <th>Mobile</th>
+                <th>Experience</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let staff of staffService.staffs | filter: filter | paginate: {itemsPerPage: 4, currentPage: page}">
+                <ng-container *ngIf="staff.Isactive">
+                    <td (click)="populateForm(staff)">{{staff.StaffId}}</td>
+                    <td (click)="populateForm(staff)">{{staff.StaffName}}</td>
+                    <td (click)="populateForm(staff)">{{staff.Gender}}</td>
+                    <td (click)="populateForm(staff)">{{staff.DateOfBirth | date:'dd-MM-yyyy'}}</td>
+                    <td (click)="populateForm(staff)">{{staff.Address}}</td>
+                    <td (click)="populateForm(staff)">{{staff.DateOfJoin | date:'dd-MM-yyyy'}}</td>
+                    <td (click)="populateForm(staff)">{{staff.Mobile}}</td>
+                    <td (click)="populateForm(staff)">{{staff.Experience}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                            (click)="deleteStaff(staff.StaffId)">X</button>&nbsp;
+                        <button class="btn btn-sm btn-info" (click)="updateStaff(staff.StaffId)">Edit</button>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <!--Pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>

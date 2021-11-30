@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="header">
+        <h5>Test Details table</h5>
+        
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Test No</th>
+                <th>Test Name</th>
+                <th>Test Unit</th>
+                <th>Test Desription</th>
+                <th>Is active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let test of testService.test">
+                <td>{{test.TestNo}}</td>
+                <td >{{test.TestName}}</td>
+                <td >{{test.TestName}}</td>
+                <td >{{test.Description}}</td>
+                <td >{{test.Isactive}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
