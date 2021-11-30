@@ -3,18 +3,17 @@
     <div class="header">
         
         <h5>Patient Lab History</h5>
-
         <div class="form-group">
             <input class="form-control" type="text" 
             placeholder="Search"
             [(ngModel)] = "filter"/>
         </div>
-        
-        <!--<a [routerLink]="['Select']" class="btn btn-secondary" > Select </a> -->
-        
-
+        <div class="form-group">
+            <input class="form-control" type="date" 
+            placeholder="Search"
+            [(ngModel)] = "filter"/>
+        </div>
     </div>
-
     <table class="table table-bordered table-striped">
         <thead>
             <tr>

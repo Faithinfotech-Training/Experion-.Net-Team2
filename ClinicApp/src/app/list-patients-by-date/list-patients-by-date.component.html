@@ -1,27 +1,25 @@
-<div class="container">
-    
+<div class="container">    
     <div class="header">
-        
-        <h5>Patient List for the day</h5>
-
-        <div class="form-group">
-            <input class="form-control" type="text" 
-            placeholder="Search"
-            [(ngModel)] = "filter"/>
+        <h5 style="text-align: center;">PATIENT LIST</h5>
+        <br>
+        <div class="container">
+            <div class="form-group">
+                <input class="form-control" type="text" 
+                placeholder="Search"
+                [(ngModel)] = "filter"/>
+            </div>
         </div>
-        
-        <!--<a [routerLink]="['Select']" class="btn btn-secondary" > Select </a> -->
-        
-
-    </div>
-
-    <table class="table table-bordered table-striped">
+        <br>
+    </div> 
+    
+    <div class="container">
+    <table class="table table-hover">
         <thead>
-            <tr>
+            <tr class="table-dark">
                 <th>#</th>
                 <th>Time</th>
-                <th>Patient Name</th>
-                <th>Patient DOB</th>
+                <th>Name</th>
+                <th>Born On</th>
                 <th>Actions</th>    
             </tr>
         </thead>
@@ -29,41 +27,37 @@
             <tr *ngFor = "let item of doctorHelperService.appointmentList | filter : filter | 
             paginate: {itemsPerPage: 5,currentPage: page}">
 
-                 <!--
-                <ng-container *ngIf = "emp.IsActive">
-                -->
-                <!-- <*ngIf = "emp.IsActive"> -->
                 <td (click) = "populateForm(item)">  {{item.AppointmentNo}}  </td>
                 <td (click) = "populateForm(item)">  {{item.AppointmentTime }}  </td>
                 <td (click) = "populateForm(item)">  {{item.PatientName}}  </td>
                 <td (click) = "populateForm(item)">  {{item.DateOfBirth | date:'mediumDate'}}  </td>
 
                 <td >
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn btn-success btn-block"  (click) = "addPrescription(item)"> Add Prescription </button>
+                    <div class="row align-self-end">
+                        <div class="col-2">
+                            <button class="btn btn-block"  (click) = "addPrescription(item)"> Add Prescription </button>
                         </div> 
-                        <div class="col">
-                            <button class="btn btn-success btn-block"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
+                        <div class="col-2">
+                            <button class="btn btn-block"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-success btn-block"  (click) = "renderLabHistory(item)"> Lab Test History </button>
+                        <div class="col-2">
+                            <button class="btn btn-block"  (click) = "renderLabHistory(item)"> Lab Test History </button>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-info btn-block"  (click) = "populateForm(item)"> Edit Appointment</button>
+                        <div class="col-2">
+                            <button class="btn btn-block"  (click) = "populateForm(item)"> Edit Appointment</button>
                         </div>
-                        <div class="col">
+                        <div class="col-2">
                             <button class="btn btn-danger btn-block" (click) = "deleteItem(item)"> Delete  Appointment</button>
                         </div>
                     </div>
                 </td>                     
             </tr>
         </tbody>
-
     </table>
+</div>
 
-    <div class="footer" style="text-align: center;">
-        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    <div class="paginate" style="text-align: center;">
+        <pagination-controls class="paginate" (pageChange)="page=($event)"></pagination-controls>
     </div>
 
 </div>

@@ -6,15 +6,16 @@ import { DoctorViewAppointmentsForDayFormComponent } from './doctor-view-appoint
 import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
 import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
+import { AddPrescriptionMedicineComponent } from './add-prescription-medicine/add-prescription-medicine.component';
 
 const routes: Routes = [  
   {path:'doctorViewAppointmentForm', component:DoctorViewAppointmentsForDayFormComponent},
   {path: 'doctorListPatientsByDate', component:ListPatientsByDateComponent},
   {path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent},
   {path: 'patientLabHistory', component: PatientLabHistoryComponent},
-  {path: 'addPrescription', component: AddPrescriptionComponent}  
-];
-
+  {path: 'addPrescription', component: AddPrescriptionComponent},
+  {path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent}  
+  ];
 
 @NgModule({
   declarations: [],
