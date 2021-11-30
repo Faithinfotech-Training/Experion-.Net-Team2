@@ -33,6 +33,10 @@ namespace CMSAPI.Repository
 
     Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId);
 
+    Task<List<Testdetails>> getAllTestDetails();
+
+    Task<List<Medicine>> getAllMedicine();
+
 
 
 
