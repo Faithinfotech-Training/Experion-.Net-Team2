@@ -47,12 +47,9 @@
 
     <!--Staff Address-->
     <div class="form-group">
-
-        <label>
-            <Address></Address>
-        </label>
+        <label>Address</label>
         <input name="StaffAddress" #StaffAddress="ngModel" [ngModel]="staffService.formData.Address"
-            class="form-control" placeholder="Enter full name" minlength="10" maxlength="25" required
+            class="form-control" placeholder="Enter address" minlength="5" maxlength="25" required
             [ngClass]="{'is-invalid':StaffAddress.touched && StaffAddress.invalid}" />
         <div class="validation-error" *ngIf="StaffAddress.touched && StaffAddress.invalid">
             <div *ngIf="StaffAddress.errors.required">
@@ -112,7 +109,7 @@
         </div>
     </div>
 
-        
+
 
     <!--Is Active-->
     <br>

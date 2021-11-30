@@ -80,7 +80,8 @@ export class StaffComponent implements OnInit {
         //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
       }
     );
-    //window.location.reload();
+    window.alert("Staff record has been inserted")
+    window.location.reload();
   }
 
   //Update

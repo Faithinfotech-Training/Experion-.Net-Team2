@@ -10,9 +10,11 @@ import { StaffListComponent } from './staffs/staff-list/staff-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AuthGuard } from './shared/auth.guard';
-
-
-
+import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
+import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
+import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: 'full' },
@@ -24,7 +26,14 @@ const routes: Routes = [
   { path: 'stafflist', component: StaffListComponent },
   { path: 'staff/:staffId', component: StaffComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { role: '1' } },
-  { path: 'frontoffice', component: FrontofficeComponent, canActivate: [AuthGuard], data: { role: '2' } }
+  { path: 'frontoffice', component: FrontofficeComponent, canActivate: [AuthGuard], data: { role: '2' } } , 
+  {path:'doctorViewAppointmentForm', component:DoctorViewAppointmentsForDayFormComponent},
+  {path: 'doctorListPatientsByDate', component:ListPatientsByDateComponent},
+  {path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent},
+  {path: 'patientLabHistory', component: PatientLabHistoryComponent},
+  {path: 'addPrescription', component: AddPrescriptionComponent} ,
+  {path: 'appointment', component:AppointmentComponent} ,
+  {path: 'appointmentlist',component:AppointmentListComponent}
 ];
 
 

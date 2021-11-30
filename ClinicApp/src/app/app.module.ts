@@ -18,6 +18,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminComponent } from './admin/admin.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
+import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
+import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,12 @@ import { AppointmentComponent } from './appointment/appointment.component';
     StaffListComponent,
     AdminComponent,
     FrontofficeComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    DoctorViewAppointmentsForDayFormComponent,
+    PatientPrescriptionHistoryComponent,
+    PatientLabHistoryComponent,
+    AddPrescriptionComponent,
+    AppointmentListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +49,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
     NgxPaginationModule,
     Ng2SearchPipeModule,
   ],

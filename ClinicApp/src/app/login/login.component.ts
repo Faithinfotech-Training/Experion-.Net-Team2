@@ -80,14 +80,14 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
-            this.router.navigateByUrl('/labtechnician');
+            this.router.navigateByUrl('/login');
 
           }else if (this.jwtResponse.rId === 4) {
             console.log("Doctor");
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
-            this.router.navigateByUrl('/doctor');
+            this.router.navigateByUrl('/doctorViewAppointmentByDate');
           }
           else{
             this.error="Sorry..Invalid authorization"
