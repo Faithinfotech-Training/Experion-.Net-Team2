@@ -27,7 +27,7 @@ export class DoctorHelperService {
 
   refreshAppointmentByDocIdDate(doctorId : number, date : any)
   {
-    // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
+    console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date)
     .toPromise().then( response =>       
       this.appointmentList = response as AppointmentList[] );
