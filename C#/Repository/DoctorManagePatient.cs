@@ -250,5 +250,23 @@ namespace CMSAPI.Repository
                               ClinicName = c.ClinicName
                             }).ToListAsync();
                             }
+
+        public async Task<List<Testdetails>> getAllTestDetails()
+        {
+            if (db != null)
+            {
+                return await db.Testdetails.Where(x => x.Isactive == true).ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<List<Medicine>> getAllMedicine()
+        {
+            if (db != null)
+            {
+                return await db.Medicine.Where(x => x.Isactive == true).ToListAsync();
+            }
+            return null;
+        }
     }
 }
