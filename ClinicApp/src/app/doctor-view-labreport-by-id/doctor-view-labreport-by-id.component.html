@@ -1,0 +1,69 @@
+<div class="container">
+    <div>
+        <h3>Lab Report...</h3>
+        <hr>
+
+        <!--Reactive form-->
+        <form [formGroup]="reportForm" (ngSubmit)="LabReportById()">
+            <!--date-->
+            <div>
+                <input type="text" placeholder="Enter Patient Id " formControlName="PatientId" id="PatientId" autocomplete="off" required />
+            </div>
+            <div *ngIf="isSubmitted && formControls.PatientId.errors">
+                <div *ngIf="formControls.PatientId.errors.required" style="color: red; text-align: left;">
+                    Patient Id is required is required
+                </div>
+
+            </div>
+            <!--submit button-->
+            &nbsp;
+            <div>
+                <button class="btn btn-md btn-outline-primary" (click)="LabReportById()">
+                    <i class="fa fa-sign-in">
+                        Search</i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Report No</th>
+                <th>Patient Name</th>
+                <th>Report Title</th>
+                <th>Report Date</th>
+                <th>Description</th>
+                <th>Staff Name</th>
+                <th>Range</th>
+                <th>Test Description</th>
+                <th>Test Name</th>
+                <th>Test Unit</th>
+                <th>Result</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let rbd of response | filter:filter | paginate:{itemsPerPage:5,currentPage:page}">
+                <td >{{rbd.ReportNo}}</td>
+                <td >{{rbd.PatientName}}</td>
+                <td >{{rbd.ReportTitle}}</td>
+                <td>{{rbd.ReportDate | date:'dd-MM-yyyy'}}</td>
+                <td >{{rbd.Description}}</td>
+                <td >{{rbd.StaffName}}</td>
+                <td >{{rbd.Range}}</td>
+                <td >{{rbd.TestDescription}}</td>
+                <td >{{rbd.TestName}}</td>
+                <td >{{rbd.TestUnit}}</td>
+                <td >{{rbd.Result}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <!--pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>

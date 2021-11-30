@@ -1,0 +1,86 @@
+<p>appointment works!</p>
+<form name="appointmentform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)">
+    <!--appointment No-->
+    <input type="" name="AppointmentNo" [ngModel]="frontOfficeService.formData.AppointmentNo" />
+
+    <!--Appointment Date-->
+    <div class="form-group">
+        <label>Appointment Date</label>
+        <input type="date" name="AppointmentDate" #AppointmentDate="ngModel"
+            [(ngModel)]="frontOfficeService.formData.AppointmentDate" class="form-control" required 
+            [ngClass]="{ 'is-invalid': AppointmentDate.touched && AppointmentDate.invalid }" />
+        <div class="validation-error" *ngIf="AppointmentDate.touched 
+        && AppointmentDate.invalid">
+            <div *ngIf="AppointmentDate.errors.required">
+                Appointment Date is required</div>
+        </div>
+    </div>
+
+    <!--Appointment Time-->
+    <div class="form-group">
+        <label>Appointment Time</label>
+        <input type="time" name="AppointmentTime" #AppointmentTime="ngModel"
+            [(ngModel)]="frontOfficeService.formData.AppointmentTime" class="form-control" required [ngClass]="{ 'is-invalid': AppointmentTime.touched
+         && AppointmentTime.invalid }" />
+        <div class="validation-error" *ngIf="AppointmentTime.touched 
+        && AppointmentTime.invalid">
+            <div *ngIf="AppointmentTime.errors.required">
+                Appointment Time is required</div>
+        </div>
+    </div>
+
+    <!--Amount-->
+    <div class="gorm-group">
+        <label>Amount</label>
+        <input type="number" name="Amount" #Amount="ngModel" [(ngModel)]="frontOfficeService.formData.Amount"
+            class="form-control" placeholder="Enter amount" minlength="1" maxlength="5" required 
+            [ngClass]="{'is-invalid':Amount.touched && Amount.invalid}" />
+        <div class="validation-error" *ngIf="Amount.touched && Amount.invalid">
+            <div *ngIf="Amount.errors.required">
+                Amount is required
+            </div>
+        </div>
+    </div>
+
+    <!--Patient-->
+    <div class="form-group">
+
+        <label>Patient Id</label>
+        <input name="PatientId" #PatientId="ngModel" [ngModel]="frontOfficeService.formData.PatientId" class="form-control"
+            placeholder="Enter patient id" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}" />
+        <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+            <div *ngIf="PatientId.errors.required">
+                Patient Id is required</div>
+        </div>
+    </div>
+
+    <!--Doctor-->
+    <div class="form-group">
+
+        <label>Doctor Id</label>
+        <input name="DoctorId" #DoctorId="ngModel" [ngModel]="frontOfficeService.formData.DoctorId" class="form-control"
+            placeholder="Enter Doctor Id" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid':DoctorId.touched && DoctorId.invalid}" />
+        <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+            <div *ngIf="DoctorId.errors.required">
+                Doctor Id is required</div>
+        </div>
+    </div>
+
+    <!--Is Active-->
+    <br>
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Is Active</label>
+            <input type="checkbox" name="IsActive" id="isActive" #IsAcive="ngModel"
+                [(ngModel)]="frontOfficeService.formData.Isactive" class="form-check-input">
+        </div>
+    </div>
+
+    <!--Submit Button-->
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+    </div>
+</form>
