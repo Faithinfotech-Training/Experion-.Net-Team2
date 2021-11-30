@@ -1,0 +1,14 @@
+Pending
+===============================================================================
+-> Prescribe medicine for the patient
+-> Enter doctors notes and observation for the patient
+-> Front office  generates a payment bill
+
+
+Completed
+===============================================================================
+-> For consultations, doctors are able to view the details of the patients
+-> See doctors-notes-log – date wise for the patient -
+-> See list of lab results for a patient
+-> See Lab results done on a date
+-> See medicine-prescription-log for a period

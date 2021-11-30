@@ -1,0 +1,65 @@
+<form name="docform" #form="ngForm"
+(ngSubmit) = "readForm(form)">
+
+    <div class="form-group">
+        <label>Prescription ID</label>
+        <input type="number"  
+        name="prescriptionId" 
+        #prescriptionId="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.prescriptionId"
+        class="form-control"
+        placeholder="Enter Prescription ID"
+        required
+        />       
+    </div>
+    
+    <div class="form-group">
+        <label>Prescription Date</label>
+        <input type="date"  
+        name="prescriptionDate" 
+        #prescriptionDate="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.prescriptionDate"
+        class="form-control"
+        placeholder="Enter Prescription Date"
+        required
+        />       
+    </div>
+    <br>
+
+
+    <div class="form-group">
+        <label>Doctor Notes</label>
+        <input type="text"  
+        name="doctorNotes" 
+        #doctorNotes="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.doctorNotes"
+        class="form-control"
+        placeholder="Enter Doctor Notes"
+        required
+        />       
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label>Test Notes</label>
+        <input type="text"  
+        name="testDetails" 
+        #testDetails="ngModel" 
+        [(ngModel)]="doctorHelperService.prescription.testDetails"
+        class="form-control"
+        placeholder="Enter Test Notes"
+        required
+        />       
+    </div>
+    <br>
+
+    
+    <div class="form-group">
+        <button type="submit"
+         class="btn btn-lg btn-primary form-control"> 
+         Submit
+        </button>
+    </div>
+
+    
+</form>
