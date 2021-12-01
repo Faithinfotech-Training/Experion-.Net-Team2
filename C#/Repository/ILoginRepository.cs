@@ -12,5 +12,8 @@ namespace CMSAPI.Repository
     public Login GetUser(Login user);
     Task<ActionResult<Login>> GetUserByPassword(string un, string pwd);
     public Login validateUser(string Username, string Password);
-  }
+    Task<int> AddLogin(Login login);
+        Task<List<Roles>> GetRole();
+        Task<Login> GetLoginById(int id);
+    }
 }

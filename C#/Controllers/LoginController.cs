@@ -109,6 +109,76 @@ namespace CMSAPI.Controllers
             }
         }
         #endregion
+
+        #region getLoginbyid()
+        [HttpGet]
+        [Route("GetLoginById")]
+        public async Task<IActionResult> GetLoginById(int id)
+        {
+            try
+            {
+                var login = await loginRepository.GetLoginById(id);
+                if (login == null)
+                {
+                    return NotFound();
+                }
+                return Ok(login);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+        #region AddLogin
+        [HttpPost]
+        [Route("AddLogin")]
+        public async Task<IActionResult> AddLogin([FromBody] Login model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var LoginId = await loginRepository.AddLogin(model);
+                    if (LoginId > 0)
+                    {
+                        return Ok(LoginId);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
+
+        #region GetRole
+        [HttpGet]
+        [Route("GetRole")]
+        public async Task<IActionResult> GetRole()
+        {
+            try
+            {
+                var roles = await loginRepository.GetRole();
+                if (roles == null)
+                {
+                    return NotFound();
+                }
+                return Ok(roles);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
     }
 
-    }
+}

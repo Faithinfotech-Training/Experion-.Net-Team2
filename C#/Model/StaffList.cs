@@ -7,6 +7,7 @@ namespace CMSAPI.Model
 {
   public class StaffList
   {
+    public int StaffId { get; set; }
     public string StaffName { get; set; }
     public string RoleName { get; set; }
     public string Gender { get; set; }
