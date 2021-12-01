@@ -19,15 +19,15 @@
     <!--Staff gender-->
     <div class="form-group">
         <label class="col-md-4">Gender</label>
-        <select name="StaffGender" id="StaffGender" class="form-control" #StaffGender="ngModel" required
+        <select name="Gender" id="Gender" class="form-control" #Gender="ngModel" required
             [(ngModel)]="staffService.formData.Gender">
             <option value=0 disabled>--Gender--</option>
             <option>MALE</option>
             <option>FEMALE</option>
         </select>
-        <div class="validation-error" *ngIf="StaffGender.touched 
-        && StaffGender.invalid">
-            <div *ngIf="StaffGender.errors.required">
+        <div class="validation-error" *ngIf="Gender.touched 
+        && Gender.invalid">
+            <div *ngIf="Gender.errors.required">
                 Gender is required</div>
         </div>
     </div>
@@ -48,11 +48,11 @@
     <!--Staff Address-->
     <div class="form-group">
         <label>Address</label>
-        <input name="StaffAddress" #StaffAddress="ngModel" [ngModel]="staffService.formData.Address"
+        <input name="Address" #Address="ngModel" [ngModel]="staffService.formData.Address"
             class="form-control" placeholder="Enter address" minlength="5" maxlength="25" required
-            [ngClass]="{'is-invalid':StaffAddress.touched && StaffAddress.invalid}" />
-        <div class="validation-error" *ngIf="StaffAddress.touched && StaffAddress.invalid">
-            <div *ngIf="StaffAddress.errors.required">
+            [ngClass]="{'is-invalid':Address.touched && Address.invalid}" />
+        <div class="validation-error" *ngIf="Address.touched && Address.invalid">
+            <div *ngIf="Address.errors.required">
                 Address is required</div>
         </div>
     </div>
@@ -74,11 +74,11 @@
     <div class="form-group">
 
         <label>Mobile :</label>
-        <input name="StaffContact" #StaffContact="ngModel" [ngModel]="staffService.formData.Mobile" class="form-control"
+        <input name="Mobile" #Mobile="ngModel" [ngModel]="staffService.formData.Mobile" class="form-control"
             placeholder="Enter number" minlength="1" maxlength="15" required
-            [ngClass]="{'is-invalid':StaffContact.touched && StaffContact.invalid}" />
-        <div class="validation-error" *ngIf="StaffContact.touched && StaffContact.invalid">
-            <div *ngIf="StaffContact.errors.required">
+            [ngClass]="{'is-invalid':Mobile.touched && Mobile.invalid}" />
+        <div class="validation-error" *ngIf="Mobile.touched && Mobile.invalid">
+            <div *ngIf="Mobile.errors.required">
                 Mobile is required</div>
         </div>
     </div>
@@ -116,14 +116,16 @@
     <div class="form-group">
         <div class="form-check">
             <label class="form-check-label">Is Active</label>
-            <input type="checkbox" name="IsActive" id="isActive" #IsAcive="ngModel"
+            <input type="checkbox" name="Isactive" id="Isactive" #Isactive="ngModel"
                 [(ngModel)]="staffService.formData.Isactive" class="form-check-input">
         </div>
     </div>
 
     <!--Submit Button-->
-    <div class="form-group">
-        <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control">Submit</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit"
+            class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+            <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-success me-md-2">Submit</button>
     </div>
 </form>
