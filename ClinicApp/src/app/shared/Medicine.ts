@@ -1,10 +1,10 @@
 export class Medicine {
-    medicineId: number;
-    medicineName: string;
-    medicineCompany: string;
-    medicineAmount: number | null;
-    manufacturingDate: string;
-    expDate: string;
-    medicineDosage: number;
-    isactive: boolean | null;
+    MedicineId: number;
+    MedicineName: string;
+    MedicineCompany: string;
+    MmedicineAmount: number ;
+    ManufacturingDate: string;
+    ExpDate: string;
+    MedicineDosage: number;
+    Isactive: boolean ;
 }
