@@ -1,5 +1,29 @@
+
 /* You can add global styles to this file, and also import other style files */
 #PaReg{
     margin: 0;
     background-color: rgba(100,100,100,0.5);
 }
+
+html,
+body {
+  height: 100%;
+}
+
+
+/* Other Classes for Page Styling */
+
+body {
+  background: linear-gradient(to bottom, #ffffff, #d0d6e7);  
+}
+
+footer {    
+    left: 0;
+    bottom: 0;
+    width: 100%;    
+    color: white;
+    text-align: center;
+    margin-top:auto;      
+    position:auto;
+  }
+

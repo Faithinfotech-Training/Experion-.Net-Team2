@@ -1,0 +1,64 @@
+<div class="container">
+    
+    <div class="header">
+        
+        <h5>Patient Prescription History</h5>
+
+        <div class="form-group">
+            <input class="form-control" type="text" 
+            placeholder="Search"
+            [(ngModel)] = "filter"/>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="date" 
+            placeholder="Search"
+            [(ngModel)] = "filter"/>
+        </div>
+        
+        <!--<a [routerLink]="['Select']" class="btn btn-secondary" > Select </a> -->
+        
+
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th> 
+                <th>Date</th>
+                <th> Doctor </th>
+                <th> Medical Notes </th>
+                <th> Test Notes </th>
+                <th> Medicine </th>
+                <th> Dosage </th>
+                <th> Frequency </th>
+                <th> Days </th>                  
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let item of doctorHelperService.prescriptionHistory | filter : filter | 
+            paginate: {itemsPerPage: 5,currentPage: page}">
+
+                 <!--
+                <ng-container *ngIf = "emp.IsActive">
+                -->
+                <!-- <*ngIf = "emp.IsActive"> -->
+                <td (click) = "populateForm(item)">  {{item.PrescriptionId}}  </td>                
+                <td (click) = "populateForm(item)">  {{item.PrescriptionDate | date:'mediumDate'}}  </td>
+                <td (click) = "populateForm(item)">  {{item.StaffName}}  </td>    
+                <td (click) = "populateForm(item)">  {{item.DoctorNotes}}  </td>    
+                <td (click) = "populateForm(item)">  {{item.TestDetails}}  </td>    
+                <td (click) = "populateForm(item)">  {{item.MedicineName}}  </td>    
+                <td (click) = "populateForm(item)">  {{item.MedicineDosage}}  </td>    
+                <td (click) = "populateForm(item)">  {{item.DosageFreq}}  </td>    
+                <td (click) = "populateForm(item)">  {{item.NoOfDays}}  </td> 
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="footer" style="text-align: center;">
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+</div>
