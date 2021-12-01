@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
     <div class="header">
         <h5>Patient List for the day</h5>
@@ -15,10 +16,36 @@
                 <th>Patient DOB</th>
                 <th>Actions</th>
             </tr>
+=======
+<div class="container">    
+    <div class="header">
+        <h5 style="text-align: center;">PATIENT LIST</h5>
+        <br>
+        <div class="container">
+            <div class="form-group">
+                <input class="form-control" type="text" 
+                placeholder="Search"
+                [(ngModel)] = "filter"/>
+            </div>
+        </div>
+        <br>
+    </div> 
+    
+    <div class="container">
+    <table class="table table-hover">        
+        <thead>            
+            <tr class="table-dark">
+                <th>#</th>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Born On</th>
+                <th>Actions</th>        
+>>>>>>> e51ba683eb999acd8d18b398f6e40ccde3851325
         </thead>
         <tbody>
             <tr *ngFor="let item of doctorHelperService.appointmentList | filter : filter | 
             paginate: {itemsPerPage: 5,currentPage: page}">
+<<<<<<< HEAD
                 <!--
                 <ng-container *ngIf = "emp.IsActive">
                 -->
@@ -48,13 +75,46 @@
                         <div class="col">
                             <button class="btn btn-danger btn-block" (click)="deleteItem(item)"> Delete
                                 Appointment</button>
+=======
+
+                <td (click) = "populateForm(item)">  {{item.AppointmentNo}}  </td>
+                <td (click) = "populateForm(item)">  {{item.AppointmentTime }}  </td>
+                <td (click) = "populateForm(item)">  {{item.PatientName}}  </td>
+                <td (click) = "populateForm(item)">  {{item.DateOfBirth | date:'mediumDate'}}  </td>
+
+                <td >
+                    <div class="row align-self-end">
+                        <div class="col">
+                            <button class="btn btn-rounded btn-sm btn-primary"  (click) = "addPrescription(item)"> Add Prescription </button>
+                        </div> 
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "renderLabHistory(item)"> Lab Test History </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "populateForm(item)"> Edit Appointment</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary" (click) = "deleteItem(item)"> Delete  Appointment</button>
+>>>>>>> e51ba683eb999acd8d18b398f6e40ccde3851325
                         </div>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
+<<<<<<< HEAD
     <div class="footer" style="text-align: center;">
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
+=======
+</div>
+
+    <div class="paginate" style="text-align: center;">
+        <pagination-controls class="paginate" (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+>>>>>>> e51ba683eb999acd8d18b398f6e40ccde3851325
 </div>

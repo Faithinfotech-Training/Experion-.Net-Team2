@@ -1,10 +1,10 @@
 export class Prescription {
-    prescriptionId: number;
-    prescriptionDate: string;
-    doctorNotes: string;
-    testDetails: string;
-    isactive: boolean | null;
-    testNo: number | null;
-    doctorId: number | null;
-    patientId: number | null;
+    PrescriptionId: number = 0;
+    PrescriptionDate: string;
+    DoctorNotes: string;
+    TestDetails: string;
+    Isactive: boolean;
+    TestNo: number ;
+    DoctorId: number ;
+    PatientId: number ;
 }

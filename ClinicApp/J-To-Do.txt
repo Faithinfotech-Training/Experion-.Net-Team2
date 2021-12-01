@@ -1,9 +1,6 @@
 Pending
 ===============================================================================
--> Prescribe medicine for the patient
--> Enter doctors notes and observation for the patient
 -> Front office  generates a payment bill
-
 
 Completed
 ===============================================================================
@@ -12,3 +9,5 @@ Completed
 -> See list of lab results for a patient
 -> See Lab results done on a date
 -> See medicine-prescription-log for a period
+-> Prescribe medicine for the patient
+-> Enter doctors notes and observation for the patient
