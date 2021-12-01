@@ -267,5 +267,17 @@ namespace CMSAPI.Repository
             }
             return null;
         }
+
+        public async Task<int> AddTestList(Testlist t)
+        {
+            if (db != null)
+            {
+                await db.Testlist.AddAsync(t);
+                await db.SaveChangesAsync();
+                return (int)t.Id;
+                //return 1;
+            }
+            return 0;
+        }
     }
 }
