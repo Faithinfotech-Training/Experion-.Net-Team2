@@ -1,3 +1,10 @@
+
+/* You can add global styles to this file, and also import other style files */
+#PaReg{
+    margin: 0;
+    background-color: rgba(100,100,100,0.5);
+}
+
 html,
 body {
   height: 100%;
@@ -19,3 +26,4 @@ footer {
     margin-top:auto;      
     position:auto;
   }
+
