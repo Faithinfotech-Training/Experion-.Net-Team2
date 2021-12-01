@@ -8,20 +8,20 @@ namespace CMSAPI.Models
         public Prescription()
         {
             Prescriptionformedicine = new HashSet<Prescriptionformedicine>();
+            Testlist = new HashSet<Testlist>();
         }
 
         public int PrescriptionId { get; set; }
         public DateTime PrescriptionDate { get; set; }
         public string DoctorNotes { get; set; }
-        public string TestDetails { get; set; }
         public bool? Isactive { get; set; }
-        public int? TestNo { get; set; }
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
+        public double? TotalCost { get; set; }
 
         public virtual Doctor Doctor { get; set; }
         public virtual Patient Patient { get; set; }
-        public virtual Testdetails TestNoNavigation { get; set; }
         public virtual ICollection<Prescriptionformedicine> Prescriptionformedicine { get; set; }
+        public virtual ICollection<Testlist> Testlist { get; set; }
     }
 }

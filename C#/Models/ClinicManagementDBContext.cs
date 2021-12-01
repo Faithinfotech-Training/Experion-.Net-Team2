@@ -31,16 +31,16 @@ namespace CMSAPI.Models
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<Testdetails> Testdetails { get; set; }
+        public virtual DbSet<Testlist> Testlist { get; set; }
 
-        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=JYOTHISHA\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
             }
         }
-        */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -199,6 +199,10 @@ namespace CMSAPI.Models
                     .HasColumnName("REPORT_TITLE")
                     .HasMaxLength(70);
 
+                entity.Property(e => e.TestTotalAmount)
+                    .HasColumnName("TEST_TOTAL_AMOUNT")
+                    .HasDefaultValueSql("((0))");
+
                 entity.HasOne(d => d.Clinic)
                     .WithMany(p => p.Labreport)
                     .HasForeignKey(d => d.ClinicId)
@@ -354,12 +358,7 @@ namespace CMSAPI.Models
                     .HasColumnName("PRESCRIPTION_DATE")
                     .HasColumnType("date");
 
-                entity.Property(e => e.TestDetails)
-                    .IsRequired()
-                    .HasColumnName("TEST_DETAILS")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.TestNo).HasColumnName("TEST_NO");
+                entity.Property(e => e.TotalCost).HasColumnName("TOTAL_COST");
 
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.Prescription)
@@ -370,11 +369,6 @@ namespace CMSAPI.Models
                     .WithMany(p => p.Prescription)
                     .HasForeignKey(d => d.PatientId)
                     .HasConstraintName("fk_pat3");
-
-                entity.HasOne(d => d.TestNoNavigation)
-                    .WithMany(p => p.Prescription)
-                    .HasForeignKey(d => d.TestNo)
-                    .HasConstraintName("fk_testdet");
             });
 
             modelBuilder.Entity<Prescriptionformedicine>(entity =>
@@ -533,6 +527,32 @@ namespace CMSAPI.Models
                     .IsRequired()
                     .HasColumnName("TEST_UNIT")
                     .HasMaxLength(70);
+            });
+
+            modelBuilder.Entity<Testlist>(entity =>
+            {
+                entity.ToTable("TESTLIST");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Notes)
+                    .HasColumnName("NOTES")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PrescriptionId).HasColumnName("PRESCRIPTION_ID");
+
+                entity.Property(e => e.TestNo).HasColumnName("TEST_NO");
+
+                entity.HasOne(d => d.Prescription)
+                    .WithMany(p => p.Testlist)
+                    .HasForeignKey(d => d.PrescriptionId)
+                    .HasConstraintName("fktt");
+
+                entity.HasOne(d => d.TestNoNavigation)
+                    .WithMany(p => p.Testlist)
+                    .HasForeignKey(d => d.TestNo)
+                    .HasConstraintName("tn");
             });
 
             OnModelCreatingPartial(modelBuilder);

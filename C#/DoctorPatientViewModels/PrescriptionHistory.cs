@@ -14,7 +14,6 @@ namespace CMSAPI.DoctorPatientViewModels
     public DateTime PrescriptionDate { get; set; }
     public string StaffName { get; set; }
     public string DoctorNotes { get; set; }
-    public string TestDetails { get; set; }
     public string MedicineName { get; set; }
     public int MedicineDosage { get; set; }
     public int DosageFreq { get; set; }
