@@ -312,6 +312,8 @@ PRESCRIPTION_ID int constraint fktt foreign key references PRESCRIPTION (PRESCRI
 TEST_NO int constraint tn foreign key references TESTDETAILS(TEST_NO),
 NOTES varchar(100));
 
+select * from PRESCRIPTION;
+
 
 
 
