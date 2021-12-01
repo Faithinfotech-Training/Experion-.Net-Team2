@@ -1,5 +1,5 @@
 import {Prescription} from './Prescription';
-import {Test} from './Test';
+import {Test} from './TestJ';
 export class Testdetails {
     TestNo: number;
     TestName: string;

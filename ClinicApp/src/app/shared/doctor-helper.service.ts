@@ -9,7 +9,7 @@ import { PatientLabHistory } from './PatientLabHistory';
 import { Medicine } from './Medicine'; 
 import { Prescription } from './Prescription'; 
 import { Prescriptionformedicine } from './PrescriptionForMedicine'; 
-import { Testdetails } from './Testdetails';
+import { Testdetails } from './TestdetailsJ';
 
 @Injectable({
   providedIn: 'root'
