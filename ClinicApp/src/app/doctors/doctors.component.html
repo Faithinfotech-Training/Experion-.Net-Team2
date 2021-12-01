@@ -1,1 +1,23 @@
-<p>doctors works!</p>
+<header>
+    <div class="container">
+        <h5>Welcome Doctor : {{loggedUserName}}</h5>
+    </div>
+    <nav class="navbar navbar-dark bg-light navbar-expand">
+        <div class="container">
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink='/doctorViewAppointmentForm'>View Appointments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink='/doctorviewlabreportbyid'>Lab Report by ID</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink='../doctorviewlabreportbydate'>Lab Report by Date</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" (click)="logout()">Logout</a>
+            </li>
+        </div>
+    </nav>
+
+</header>
+

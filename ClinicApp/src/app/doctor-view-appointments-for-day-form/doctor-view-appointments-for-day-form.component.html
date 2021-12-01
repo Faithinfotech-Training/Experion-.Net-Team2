@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+
+
+<form name="docform" #form="ngForm"
+(ngSubmit) = "readForm(form)">
+=======
 <script>
     n =  new Date();
     y = n.getFullYear();
@@ -5,6 +11,7 @@
     d = n.getDate();
     document.getElementById("DateOfAppointment").innerHTML = d + "-" + m + "-" + y;
 </script>
+>>>>>>> 4620e60b8e641c6edc58b197be65cd58a816d678
 
 <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
@@ -35,4 +42,32 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+    
+
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="DateOfAppointment" id="DateOfAppointment"  
+        #DoJ="ngModel" 
+        [(ngModel)]="doctorHelperService.currentDoctor.DateOfAppointment"     
+        class="form-control"
+        required
+        />
+    </div>
+
+    <br>
+
+    <!-- [disabled]="!(form.valid && form.dirty)" -->
+    <div class="form-group">
+        <button type="submit"
+         class="btn btn-lg btn-primary form-control"> 
+         Submit
+        </button>
+    </div>
+
+    
+</form>
+
+=======
 </div>
+>>>>>>> 4620e60b8e641c6edc58b197be65cd58a816d678
