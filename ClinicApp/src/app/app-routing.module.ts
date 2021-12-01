@@ -28,6 +28,7 @@ import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-hi
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { DoctorsComponent } from './doctors/doctors.component';
 
 
 const routes: Routes = [
@@ -50,8 +51,8 @@ const routes: Routes = [
   { path: 'viewtestdetails', component: ViewtestdetailsComponent },
   { path: 'doctorListPatientsByDate', component: ListPatientsByDateComponent },
   { path: 'doctorlist', component: DoctorListComponent },
-  { path: 'doctorviewlabreportbydate', component: DoctorViewLabreportByDateComponent },
-  { path: 'doctorviewlabreportbyid', component: DoctorViewLabreportByIdComponent },
+  { path: 'doctorviewlabreportbydate', component: DoctorViewLabreportByDateComponent, canActivate: [AuthGuard], data: { role: '4' } },
+  { path: 'doctorviewlabreportbyid', component: DoctorViewLabreportByIdComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'doctorViewAppointmentForm', component: DoctorViewAppointmentsForDayFormComponent },
   { path: 'doctorListPatientsByDate', component: ListPatientsByDateComponent },
   { path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent },
@@ -59,7 +60,8 @@ const routes: Routes = [
   { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'appointment', component: AppointmentComponent },
   { path: 'appointmentlist', component: AppointmentListComponent },
-  { path: 'addPrescription', component: AddPrescriptionComponent }
+  { path: 'addPrescription', component: AddPrescriptionComponent },
+  { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }}
 
 ];
 
