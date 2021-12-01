@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Staff } from './staff';
+import {StaffList} from './stafflist';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,9 @@ export class StaffService {
 
   //insert
   insertStaff(staff: Staff): Observable<any> {
-    return this.httpClient.post(environment.apiUrl + "/api/Staff/addstaff", staff);
+    return this.httpClient.post(environment.apiUrl + "/api/staff/addstaff", staff);
   }
+
 
   //update
   updateStaff(staff: Staff): Observable<any> {

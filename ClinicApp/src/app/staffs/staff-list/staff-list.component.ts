@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Staff } from 'src/app/shared/staff';
 import { StaffService } from 'src/app/shared/staff.service';
+import { StaffList } from 'src/app/shared/stafflist';
 
 @Component({
   selector: 'app-staff-list',
@@ -21,10 +22,11 @@ export class StaffListComponent implements OnInit {
   ngOnInit(): void {
 
     this.staffService.bindListStaffs();
+
   }
 
   //populate form by clicking the column fields
-  populateForm(staff: Staff) {
+  populateForm(staff: StaffList) {
     console.log(staff)
 
     //date format
@@ -62,5 +64,10 @@ export class StaffListComponent implements OnInit {
   updateStaff(staffId: number) {
     console.log(staffId);
     this.router.navigate(['staff', staffId]);
+  }
+
+  //Back to admin page
+  back(){
+    this.router.navigate(['./admin']);
   }
 }
