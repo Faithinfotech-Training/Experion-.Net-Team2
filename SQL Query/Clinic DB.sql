@@ -1,6 +1,3 @@
-DROP DATABASE ClinicManagementDB;
-USE master;
-
 CREATE DATABASE ClinicManagementDB;
 USE ClinicManagementDB;
 
@@ -14,8 +11,6 @@ INSERT INTO ROLES VALUES
 ('Front Office'),
 ('Lab Technician'),
 ('Doctor');
-
-select * from roles;
 
 --Staff--
 CREATE TABLE STAFF(
@@ -35,17 +30,10 @@ INSERT INTO STAFF VALUES
 ('Annie Abraham','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
 ('Roshni AT','Female','1999-03-13','Ernakulam','2014-04-11','8787878787',6,'roshni@gmail.com',1),
 ('Jyothish A','Male','1999-01-11','Kozhikode','2016-01-22','7676767676',4,'jyothish@gmail.com',1),
-('Haizon Cruz','Male','1999-04-03','Kannur','2015-12-12','6565656565',5,'haizon@gmail.com',1);
-
-INSERT INTO STAFF VALUES
-('AnNA','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1);
-
-
-INSERT INTO STAFF VALUES
+('Haizon Cruz','Male','1999-04-03','Kannur','2015-12-12','6565656565',5,'haizon@gmail.com',1),
+('AnNA','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
 ('Aneesh Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
 ('Dennis Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1);
-
-Select * from staff;
 
 --Login--
 CREATE TABLE LOGIN(
@@ -62,9 +50,7 @@ INSERT INTO LOGIN VALUES
 (1, 'annie','annie@123',1),
 (2, 'roshni','roshni@123',2),
 (3, 'jyothish','jyothish@123',3),
-(4, 'haizon','haizon@123',4);
-
-INSERT INTO LOGIN VALUES
+(4, 'haizon','haizon@123',4),
 (5, 'anna','anna@123',4);
 
 
@@ -73,17 +59,11 @@ CREATE TABLE DEPARTMENT(
 DEPARTMENT_ID INT PRIMARY KEY IDENTITY(1,1),
 DEPARTMENT_NAME NVARCHAR(50) NOT NULL);
 
---INSERT INTO DEPARTMENT
---VALUES
---('Dental');
-
 INSERT INTO DEPARTMENT VALUES
 ('Anasthesia'),
 ('Pediatrics'),
 ('Dental'),
 ('Orthopeadics');
-
---SELECT * FROM DEPARTMENT;
 
 --Medicine--
 CREATE TABLE MEDICINE(
@@ -95,10 +75,6 @@ MANUFACTURING_DATE DATE NOT NULL,
 EXP_DATE DATE NOT NULL,
 MEDICINE_DOSAGE INT NOT NULL,
 ISACTIVE BIT);
-
---INSERT INTO MEDICINE
---VALUES
---('Paracetamol', 'Gibberish', 3000, '2021-05-09', '2022-05-09', 4, 1)
 
 INSERT INTO MEDICINE VALUES
 ('Cough Syrop', 'Pankagakasthuri', 100, '2021-11-26', '2022-11-26', 10, 1),
@@ -116,10 +92,6 @@ REFERENCES STAFF (STAFF_ID),
 DEPARTMENT_ID INT CONSTRAINT fk_dept1  FOREIGN KEY
 REFERENCES DEPARTMENT (DEPARTMENT_ID));
 
---INSERT INTO DOCTOR
---VALUES
---(1, 1, 1);
-
 --Patient--
 CREATE TABLE PATIENT(
 PATIENT_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -135,18 +107,12 @@ INSERT INTO PATIENT VALUES
 ('HOWARD', '1998-12-31', 'ADDRESS FOR HOWARD', 123456789, 1),
 ('LEONARD', '2000-12-31', 'ADDRESS FOR LEONARD', 123456789, 1);
 
-select * from patient;
-
 --Clinic--
 CREATE TABLE CLINIC(
 CLINIC_ID INT PRIMARY KEY IDENTITY(1,1),
 CLINIC_NAME NVARCHAR(30) NOT NULL,
 CLINIC_ADDRESS NVARCHAR(30),
 CLINIC_PHONE NVARCHAR(15) NOT NULL);
-
---insert into CLINIC
---VALUES
---('Clinic1', 'Clinic1Address', '9745593451');
 
 INSERT INTO CLINIC VALUES
 ('ASTER MEDICITY', 'ASTER ROAD','123456789'),
@@ -175,22 +141,15 @@ DOCTOR_ID INT CONSTRAINT fk_doc1 FOREIGN KEY
 REFERENCES DOCTOR (DOCTOR_ID),
 ISACTIVE BIT);
 
--- add prescription
-
-
 insert into APPOINTMENT values
 ('2021-11-12','10:00',200,2,1,1),
 ('2021-11-12','11:00',200,3,1,1),
 ('2021-11-13','9:00',200,4,2,1);
 
-select * from APPOINTMENT;
-
 select * from APPOINTMENT as a, PATIENT as p 
 where a.PATIENT_ID = p.PATIENT_ID 
 and
 a.APPOINTMENT_DATE = '2021-11-12';
-
-select * from patient;
 
 --TestDetails--
 CREATE TABLE TESTDETAILS(
@@ -201,9 +160,7 @@ CREATE TABLE TESTDETAILS(
 	ISACTIVE BIT);
 
 INSERT INTO TESTDETAILS VALUES
-('SUGAR', 'MG', 'SUGAR TEST', 1);
-
-INSERT INTO TESTDETAILS VALUES
+('SUGAR', 'MG', 'SUGAR TEST', 1),
 ('COVID', 'BOOLEAN', 'ANITGEN TEST', 1);
 
 --Prescription--
@@ -220,14 +177,10 @@ REFERENCES DOCTOR (DOCTOR_ID),
 PATIENT_ID INT CONSTRAINT fk_pat3 FOREIGN KEY
 REFERENCES PATIENT (PATIENT_ID));
 
--- appointment number
-
 select * from PRESCRIPTION;
 
 delete from PRESCRIPTION
 where PRESCRIPTION_ID > 4;
-
-select * from patient;
 
 insert into PRESCRIPTION values
 ('2021-01-01', 'SAMPLE NOTES', 'TEST RECOMMENDATIONS', 1, 1, 1, 1),
@@ -252,9 +205,6 @@ insert into PRESCRIPTIONFORMEDICINE values
 (3,3,1,2,1),
 (3,3,1,2,2);
 
-select * from PRESCRIPTIONFORMEDICINE;
-
-
 --LabTechnician--
 CREATE TABLE LABTECHNICIAN(
 	LABTECHNICIAN_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -265,9 +215,7 @@ CREATE TABLE LABTECHNICIAN(
 	ISACTIVE BIT);
 
 INSERT INTO LABTECHNICIAN VALUES
-(1,6,1);
-
-INSERT INTO LABTECHNICIAN VALUES
+(1,6,1),
 (2,7,1);
 
 --LabReport--
@@ -286,8 +234,6 @@ CREATE TABLE LABREPORT(
   REFERENCES LABTECHNICIAN(LABTECHNICIAN_ID),
 	ISACTIVE BIT);
 
-select * from LABREPORT;
-
 insert into LABREPORT values
 ('TITLE', '2021-11-29','DESCRIPTION', 2, 1, 1, 1, 1),
 ('TITLE', '2021-11-29','DESCRIPTION', 1, 2, 1, 1, 1),
@@ -297,7 +243,6 @@ insert into LABREPORT values
 ('TITLE', '2021-11-29','DESCRIPTION', 3, 2, 1, 1, 1),
 ('TITLE', '2021-11-29','DESCRIPTION', 4, 2, 1, 1, 1);
 
-   
 --Test--
 CREATE TABLE TEST(
 TEST_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -312,14 +257,7 @@ REFERENCES LABREPORT(REPORT_NO),
 ISACTIVE BIT);
 
 alter table test
-
 add result int not null default 96;
-
-select * from TESTDETAILS;
-
-select * from test;
-
-select * from LABREPORT;
 
 insert into test values
 (1,'2021-01-01', 100, '0-1000', 'DESCRIPTION' ,  9 , 1 , 500),
@@ -350,7 +288,30 @@ D.STAFF_ID = S.STAFF_ID and
 L.CLINIC_ID = C.CLINIC_ID and
 L.LABTECHNICIAN_ID = LT.LABTECHNICIAN_ID and
 LT.STAFF_ID = S2.STAFF_ID
-;
 
-select * from STAFF;
+--------------------- ALTER STATEMENTS --- 01-12-2021 -----------------------
+
+alter table Labreport
+add TEST_TOTAL_AMOUNT float default 0;
+
+alter table PRESCRIPTION
+add TOTAL_COST float default 0;
+
+alter table prescription
+drop column TEST_NO; 
+
+alter table prescription
+drop column TEST_DETAILS;
+
+alter table prescription
+drop constraint fk_testdet;
+
+create table TESTLIST(
+ID int primary key identity(1,1),
+PRESCRIPTION_ID int constraint fktt foreign key references PRESCRIPTION (PRESCRIPTION_ID),
+TEST_NO int constraint tn foreign key references TESTDETAILS(TEST_NO),
+NOTES varchar(100));
+
+
+
 
