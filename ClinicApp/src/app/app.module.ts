@@ -84,7 +84,7 @@ import { AddLoginComponent } from './add-login/add-login.component';
     PatientPrescriptionHistoryComponent,
     PatientLabHistoryComponent,
     AddPrescriptionComponent,
-    DoctorComponent
+    DoctorComponent,
     AppointmentListComponent,
     AddLoginComponent
   ],
