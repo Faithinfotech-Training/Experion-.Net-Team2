@@ -41,7 +41,12 @@ Annie
 
 Haizon
 
-->
+->	Generate Lab test details of Patient - 	
+	Lab Technicians must choose a patient and take the 
+	lab tests as prescribed by the doctor
+	
+->  View lab results	The Doctor can view the lab results 
+	- Daywise  and Search for a patient and view result										
 
 Jyothish
 
@@ -50,7 +55,6 @@ Jyothish
 Roshni
 
 ->
-
 
 
 Staff Management	Admin - Add/Edit/Search/View Staffs
@@ -62,13 +66,11 @@ Register Patient 	The front Office can register the details of patients
 Patient  Management 	Front Office  manages patient
 
 Assign Patients to Doctor	The front desk officer must give provisions to 
-							assign a patient to the doctor
-							
+							assign a patient to the doctor							
 
 
-Generate Lab test details of Patient	Lab Technicians must choose a patient and take the 
-										lab tests as prescribed by the doctor
+
 										
 										
 
-View lab results	The Doctor can view the lab results - Daywise  and Search for a patient and view result										
+

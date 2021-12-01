@@ -13,15 +13,14 @@
     </div> 
     
     <div class="container">
-    <table class="table table-hover">
-        <thead>
+    <table class="table table-hover">        
+        <thead>            
             <tr class="table-dark">
                 <th>#</th>
                 <th>Time</th>
                 <th>Name</th>
                 <th>Born On</th>
-                <th>Actions</th>    
-            </tr>
+                <th>Actions</th>        
         </thead>
         <tbody>
             <tr *ngFor = "let item of doctorHelperService.appointmentList | filter : filter | 
@@ -34,20 +33,20 @@
 
                 <td >
                     <div class="row align-self-end">
-                        <div class="col-2">
-                            <button class="btn btn-block"  (click) = "addPrescription(item)"> Add Prescription </button>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-sm btn-primary"  (click) = "addPrescription(item)"> Add Prescription </button>
                         </div> 
-                        <div class="col-2">
-                            <button class="btn btn-block"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
                         </div>
-                        <div class="col-2">
-                            <button class="btn btn-block"  (click) = "renderLabHistory(item)"> Lab Test History </button>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "renderLabHistory(item)"> Lab Test History </button>
                         </div>
-                        <div class="col-2">
-                            <button class="btn btn-block"  (click) = "populateForm(item)"> Edit Appointment</button>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "populateForm(item)"> Edit Appointment</button>
                         </div>
-                        <div class="col-2">
-                            <button class="btn btn-danger btn-block" (click) = "deleteItem(item)"> Delete  Appointment</button>
+                        <div class="col">
+                            <button class="btn btn-rounded btn-block btn-sm btn-primary" (click) = "deleteItem(item)"> Delete  Appointment</button>
                         </div>
                     </div>
                 </td>                     
