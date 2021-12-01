@@ -1,46 +1,172 @@
 <div class="card">
+
+    <div class="form-group">            
+        <input type="text" name="doctorNotes" class="form-control" 
+        placeholder="Enter your observations" required [formControl]="doctorNotes"/>
+    </div>
+
+    <br>
+
+    Medicine Prescription
+    <hr>
+
+    <ng-container *ngFor="let item of this.medicineCount">      
+        <div class="row">
+            <div class="col-4">
+                <select class="form-select form-group form-control" [formControl]="this.medicineList[item]">
+                    <option selected disabled value="0">Choose medicine</option>
+                    <ng-container *ngFor="let item of this.doctorHelperService.medicineList">
+                        <option value={{item.MedicineId}}> {{item.MedicineName}} </option>            
+                    </ng-container>
+                </select>
+            </div>
+    
+            <div class="col-1" title="Dosage time">
+                <i class="fas fa-clock btn btn-primary"></i>
+            </div>
+    
+            <div class="col-2">
+                <input type="number" name="medicineDosage" class="form-control" [formControl]="this.dosageList[item]"/>
+            </div>
+            
+            <div class="col-1" title="Dosage days">
+                <i class="far fa-calendar-times btn btn-primary"></i>
+            </div>
+    
+            <div class="col-2">
+                <input type="number" name="medicineDosage" class="form-control" [formControl]="this.dayList[item]"/>
+            </div>
+    
+            <div class="col-1" title="Add">
+                <button class="btn-success" type="button" (click)="addCount()">+
+                </button>
+            </div>
+
+            <div class="col-1" title="Delete">
+                <button class="btn-danger" type="button" (click)="removeCount(item)">-
+                </button>
+            </div>
+        </div>
+    </ng-container>
+
+    <br>
+    Test Prescription
+    <hr>
+
+    <ng-container *ngFor="let item of this.testCount"> 
+
+        <div class="row">
+
+            <div class="col-4">
+                <select class="form-select form-group form-control" [formControl]="this.testList[item]">
+                    <option selected disabled value="0">Choose Test</option>
+                    <ng-container *ngFor="let item of this.doctorHelperService.testDetails">
+                        <option value={{item.TestNo}}> {{item.TestName}} </option>            
+                    </ng-container>
+                </select>
+            </div>
+
+
+            <div class="col-6">
+                <input type="text" name="testNotes" class="form-control" 
+                    placeholder="Add comments" required [formControl]="this.testNotes[item]"/>
+            </div>
+    
+    
+            <div class="col-1" title="Add">
+                <button class="btn-success" type="button" (click)="addCountT()">+
+                </button>
+            </div>
+
+            <div class="col-1" title="Delete">
+                <button class="btn-danger" type="button" (click)="removeCountT(item)">-
+                </button>
+            </div>
+        </div>
+    </ng-container>
+
+
+    <button class="btn btn-primary" type="button" (click)="onSubmit()"> Submit </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="card">
     <form name="docform" #form="ngForm" (ngSubmit)="readForm(form)">
-        <div class="form-group">
+        -->
+        <!--
+        <div class="form-group invisible">
             <input type="hidden" name="PrescriptionId" #prescriptionid="ngModel" [(ngModel)]="doctorHelperService.prescription.PrescriptionId" class="form-control" placeholder="Enter Prescription ID" value="0"/>
         </div>
-        <div class="form-group">
+        <div class="form-group invisible">
             <label>Prescription Date</label>
             <input type="date" name="PrescriptionDate" #prescriptiondate="ngModel" [(ngModel)]="doctorHelperService.prescription.PrescriptionDate" class="form-control" placeholder="Enter Prescription Date" required/>
         </div>
         <br>
-        <div class="form-group">
-            <label>Doctor Notes</label>
-            <input type="text" name="DoctorNotes" #doctornotes="ngModel" [(ngModel)]="doctorHelperService.prescription.DoctorNotes" class="form-control" placeholder="Enter Doctor Notes" required/>
+        -->
+        <!--
+        <div class="form-group">            
+            <input type="text" name="DoctorNotes" #doctornotes="ngModel" [(ngModel)]="doctorHelperService.prescription.DoctorNotes" class="form-control" placeholder="Enter your observations" required/>
         </div>
         <br>
-        <div class="form-group">
-            <label>Test Notes</label>
-            <input type="text" name="TestDetails" #testdetails="ngModel" [(ngModel)]="doctorHelperService.prescription.TestDetails" class="form-control" placeholder="Enter Test Notes" required/>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="col-md-4">Prescribe Test</label>
-            <select name="TestNo" id="TestNo" class="form-control" #testno="ngModel" required [(ngModel)]="doctorHelperService.prescription.TestNo">
-                <option value="" selected disabled>
-                    Choose Test
-                </option>
-                <option *ngFor="let t of this.doctorHelperService.testDetails" value="{{t.TestNo}}">
-                    {{t.TestName}}</option>
-            </select>
-        </div>
-        <!--{{this.doctorHelperService.testDetails[0].TestNo}}-->
-        <br>
-        <div class="form-group">
-            <div class="form-check">
-                <label class="form-check-label">&nbsp;Prescribe Medicine</label>
-                <input type="checkbox" name="prescribeCheck" id="prescribeCheck" class="form-check-input" [(ngModel)]="this.prescribeCheck" value="true">
+
+        Medicine Details
+        <hr>
+
+
+        <div class="row">
+            <div class="col-5">
+                <select class="form-select form-group form-control">
+                    <option selected disabled>Choose medicine</option>
+                    <ng-container *ngFor="let item of this.doctorHelperService.medicineList">
+                        <option value=item.MedicineId> {{item.MedicineName}} </option>            
+                    </ng-container>
+                </select>
+            </div>
+
+            <div class="col-1" title="Dosage time">
+                <i class="fas fa-clock btn btn-primary"></i>
+            </div>
+
+            <div class="col-2">
+                <input type="number" name="medicineDosage" class="form-control"/>
+            </div>
+            
+            <div class="col-1" title="Dosage days">
+                <i class="far fa-calendar-times btn btn-primary"></i>
+            </div>
+
+            <div class="col-2">
+                <input type="number" name="medicineDosage" class="form-control"/>
+            </div>
+
+            <div class="col-1" title="Add">
+                <button class="btn-success" type="button">+
+                </button>
             </div>
         </div>
-        <br>
+
+        <label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name">
+
         <div class="form-group">
-            <button type="submit" class="btn btn-lg btn-primary form-control">
+            <button type="submit" class="btn btn-lg btn-primary form-control"  
+            (click)="addMedicine();">
                 Submit
             </button>
         </div>
     </form>
 </div>
+-->

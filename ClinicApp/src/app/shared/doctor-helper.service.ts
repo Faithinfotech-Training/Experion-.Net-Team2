@@ -10,6 +10,7 @@ import { Medicine } from './Medicine';
 import { Prescription } from './Prescription'; 
 import { Prescriptionformedicine } from './PrescriptionForMedicine'; 
 import { Testdetails } from './TestdetailsJ';
+import { Testlist } from './TestListJ';
 
 @Injectable({
   providedIn: 'root'
@@ -86,7 +87,6 @@ export class DoctorHelperService {
 
   async addPrescription(p  : Prescription)  // :  Observable<any>
   {     
-    p.PrescriptionId = 0; 
     console.log(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p);
     console.log("Inside Prescription");
     await this.httpClient.post(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p)
@@ -94,6 +94,7 @@ export class DoctorHelperService {
     .then(
       (val) => 
       {
+        console.log('Prescription Added with ID : '+ val);
         sessionStorage.setItem("currentPrescriptionID", val.toString());
       });
   }
@@ -109,7 +110,21 @@ export class DoctorHelperService {
     .then(
       (val) => 
       {
-        console.log(val); 
+        console.log('Prescription for medicine Added with ID : '+ val); 
+      });
+  }
+
+  async addTestList(p  : Testlist)  // :  Observable<any>
+  {      
+    //console.log(environment.apiUrl + "/api/DoctorManagePatient/AddPrescriptionForMedicine",p);
+    //console.log("Inside Prescription");
+    await this.httpClient
+    .post(environment.apiUrl + "/api/DoctorManagePatient/AddTestList",p)
+    .toPromise()
+    .then(
+      (val) => 
+      {
+        console.log('Prescription for test list Added with ID : '+ val); 
       });
   }
     

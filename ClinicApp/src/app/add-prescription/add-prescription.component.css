@@ -1,3 +1,9 @@
+select[size] {
+    appearance: list-menu;
+    display: inline-block;
+    height: attr(size,em);
+   }
+
 body {
     color: #000;
     overflow-x: hidden;

@@ -12,6 +12,8 @@ import { PatientLabHistory } from '../shared/PatientLabHistory';
 export class ListPatientsByDateComponent implements OnInit {
 
 
+  
+
   page : number = 1;
   filter : string;
 
