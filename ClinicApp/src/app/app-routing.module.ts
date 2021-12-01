@@ -6,10 +6,25 @@ import { DoctorViewAppointmentsForDayFormComponent } from './doctor-view-appoint
 import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
 import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
-<<<<<<< HEAD
 import { AppointmentComponent } from './appointment/appointment.component';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+//import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { AddPrescriptionMedicineComponent } from './add-prescription-medicine/add-prescription-medicine.component';
+import { LoginComponent } from './login/login.component';
+import { StaffsComponent } from './staffs/staffs.component';
+import { StaffComponent } from './staffs/staff/staff.component';
+import { AuthGuard } from './shared/auth.guard';
+import { StaffListComponent } from './staffs/staff-list/staff-list.component';
+import { AdminComponent } from './admin/admin.component';
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
+import { LabreportComponent } from './labreport/labreport.component';
+import { TestComponent } from './test/test.component';
+import { LabtechnicianComponent } from './labtechnician/labtechnician.component';
+import { TestdetailsComponent } from './testdetails/testdetails.component';
+import { ViewtestdetailsComponent } from './viewtestdetails/viewtestdetails.component';
+import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-date/doctor-view-labreport-by-date.component';
+import { DoctorListComponent } from './doctor-list/doctor-list.component';
+import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
 
 
 const routes: Routes = [
@@ -40,16 +55,9 @@ const routes: Routes = [
   { path: 'patientLabHistory', component: PatientLabHistoryComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'appointment', component: AppointmentComponent },
-  { path: 'appointmentlist', component: AppointmentListComponent },
+  //{ path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
-  { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }}
-
-];
-=======
-import { AddPrescriptionMedicineComponent } from './add-prescription-medicine/add-prescription-medicine.component';
->>>>>>> 4620e60b8e641c6edc58b197be65cd58a816d678
-
-const routes: Routes = [  
+  { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }},  
   {path:'doctorViewAppointmentForm', component:DoctorViewAppointmentsForDayFormComponent},
   {path: 'doctorListPatientsByDate', component:ListPatientsByDateComponent},
   {path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent},
