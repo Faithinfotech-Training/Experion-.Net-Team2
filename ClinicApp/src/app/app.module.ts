@@ -41,6 +41,7 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-date/doctor-view-labreport-by-date.component';
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { DoctorsComponent } from './doctors/doctors.component';
     DoctorsComponent,
     PatientPrescriptionHistoryComponent,
     PatientLabHistoryComponent,
-    AddPrescriptionComponent
+    AddPrescriptionComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,
