@@ -9,7 +9,9 @@ Annie
 
 Haizon
 
-->
+->	Generate Lab test details of Patient - 	
+	Lab Technicians must choose a patient and take the 
+	lab tests as prescribed by the doctor
 
 
 Jyothish
@@ -25,11 +27,13 @@ Jyothish
 ->  View Patient Details for the day
 ->  See patient details during consultation
 ->  List of Patient for each Doctors	
-	Doctors can view the list of patients that are appointed
+->  Doctors can view the list of patients that are appointed
 
 Roshni
 
-->	
+->	View lab results	The Doctor can view the lab results 
+	Daywise  and Search for a patient and view result										
+
 
 
 Pending
@@ -37,40 +41,26 @@ Pending
 
 Annie
 
-->
+->  Staff Management	Admin - Add/Edit/Search/View Staffs
+->  Assign Patients to Doctor	
+	The front desk officer must give provisions to 
+	assign a patient to the doctor	
+->  Web Site  - Home	All structure of the web portal -- UserView
 
 Haizon
 
-->	Generate Lab test details of Patient - 	
-	Lab Technicians must choose a patient and take the 
-	lab tests as prescribed by the doctor
-	
-->  View lab results	The Doctor can view the lab results 
-	- Daywise  and Search for a patient and view result										
+->  Register Patient 	
+	The front Office can register the details of patients
+->  Patient Management  Front Office  manages patient
+->  Lab test report send by email -- Lab Assistant
 
 Jyothish
 
 ->  Generate Payment bill Front office  generates a payment bill
+->  Consultation -- Doctor
 
 Roshni
 
-->
-
-
-Staff Management	Admin - Add/Edit/Search/View Staffs
-
-Doctor Management	Admin- Add/Edit/Search/View Doctors
-
-Register Patient 	The front Office can register the details of patients
-
-Patient  Management 	Front Office  manages patient
-
-Assign Patients to Doctor	The front desk officer must give provisions to 
-							assign a patient to the doctor							
-
-
-
-										
-										
-
-
+->	Doctor Management	Admin- Add/Edit/Search/View Doctors
+->  Web Site - Events and announcements Add/Edit/view	
+	Admin can configure -- Admin
