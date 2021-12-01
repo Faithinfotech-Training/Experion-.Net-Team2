@@ -1,0 +1,110 @@
+td, col, tr, th
+{
+    text-align: center;        
+}
+
+th
+{
+    background: linear-gradient(to bottom, #000102, #4c5052);    
+}
+
+
+td
+{
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
+}
+
+
+.btn{
+    color: #fff;
+    background: linear-gradient(135deg, #d6d6d6d5, #6b6b6b);    
+    font-size: 15px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    }
+
+.btn:hover
+{
+color: #fff;
+border: none;
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+animation: rotate 0.7s ease-in-out both;
+}
+.btn:before,
+.btn:after{
+    content: '';
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.btn:hover:before,
+.btn:hover:after{    opacity: 0.15;    }
+    .btn:hover:before{ transform: translate3d(50%, 0, 0) scale(0.9); }
+    .btn:hover:after{ transform: translate(50%, 0) scale(1.1); }
+    @keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    25%{ transform: rotate(3deg); }
+    50%{ transform: rotate(-3deg); }
+    75%{ transform: rotate(1deg); }
+    100%{ transform: rotate(0deg); }
+    }
+       
+input,
+textarea,
+
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 400
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #5A4181;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
+
+
+
+
+
