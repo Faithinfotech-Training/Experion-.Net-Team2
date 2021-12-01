@@ -8,11 +8,11 @@ namespace CMSAPI.Repository
 {
   public interface ITestDetails
   {
-    //Get test details by Id
-    Task<Testdetails> GetTestDetailsById(int testid);
+        //get all test details
+        Task<List<Testdetails>> GetLabTestDetails();
 
-    //update test details
-    //Update technician
-    Task UpdateTestDetail(Testdetails tests);
+        //update test details
+        //Update technician
+        Task UpdateTestDetail(Testdetails tests);
   }
 }

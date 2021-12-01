@@ -17,16 +17,16 @@ namespace CMSAPI.Repository
       db = _db;
     }
 
-    public async Task<Testdetails> GetTestDetailsById(int testid)
-    {
-      if (db != null)
-      {
-        return await db.Testdetails.FirstOrDefaultAsync();
-      }
-      return null;
-    }
+        public async Task<List<Testdetails>> GetLabTestDetails()
+        {
+            if (db != null)
+            {
+                return await db.Testdetails.ToListAsync();
+            }
+            return null;
+        }
 
-    public async Task UpdateTestDetail(Testdetails tests)
+        public async Task UpdateTestDetail(Testdetails tests)
     {
       if (db != null)
       {

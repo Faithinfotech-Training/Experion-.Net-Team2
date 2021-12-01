@@ -19,20 +19,21 @@ namespace CMSAPI.Repository
       db = _db;
     }
 
-    
-    //Get the lab report
-    public async Task<Labreport> GetReports(int reportno)
-    {
-      if(db!=null)
-      {
-        return await db.Labreport.FirstOrDefaultAsync();
-      }
-      return null;
-    }
+        //Get all lab reports
+
+        //Get the lab report
+        public async Task<List<Labreport>> GetReportById(int patientId)
+        {
+            if (db != null)
+            {
+                return await db.Labreport.Where(x => x.PatientId == patientId).ToListAsync();
+            }
+            return null;
+        }
 
 
-    //Add a new lab report
-    public async Task<int> AddReport(Labreport report)
+        //Add a new lab report
+        public async Task<int> AddReport(Labreport report)
     {
       if (db != null)
       {
@@ -53,5 +54,27 @@ namespace CMSAPI.Repository
         await db.SaveChangesAsync();
       }
     }
-  }
+
+        public async Task<List<Labreport>> GetAllReports()
+        {
+            if (db != null)
+            {
+                return await db.Labreport.ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<Labreport> DeleteReport(int id)
+        {
+            if (db != null)
+            {
+                Labreport dbemp = db.Labreport.Find(id);
+                db.Labreport.Remove(dbemp);
+                db.SaveChanges();
+
+                return dbemp;
+            }
+            return null;
+        }
+    }
 }

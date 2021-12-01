@@ -20,36 +20,57 @@ namespace CMSAPI.Controllers
       labreport = _r;
     }
 
-    //Get Lab report by report no
-    #region Get report by no
-    [HttpGet]
-    [Route("getreport/{id}")]
+        //Get all lab reports
 
-    public async Task<IActionResult> GetReports(int reportno)
-    {
-      try
-      {
-          var report = await labreport.GetReports(reportno);
-          if(report != null)
-          {
-            return Ok(report);
-          }
+        #region Get all reports
 
-          return NotFound();
-      }
+        [HttpGet]
+        [Route("Getreports")]
+        public async Task<IActionResult> GetReports()
+        {
+            try
+            {
+                var reports = await labreport.GetAllReports();
+                if (reports == null)
+                {
+                    return NotFound();
+                }
+                return Ok(reports);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
 
-      catch(Exception)
-      {
-        return BadRequest();
-      }
-    }
+        //Get Lab report by patient id
+        #region Get report by id
+        [HttpGet]
+        [Route("GetReport/{id}")]
+        public async Task<IActionResult> GetReportById(int id)
+        {
+            try
+            {
+                var report = await labreport.GetReportById(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
 
-    #endregion
+#endregion
 
 
-    //Add Report
-    #region Add Report
-    [HttpPost]
+        //Add Report
+        #region Add Report
+        [HttpPost]
     public async Task<IActionResult> AddReport(Labreport report)
     {
       if(ModelState.IsValid)
@@ -73,9 +94,59 @@ namespace CMSAPI.Controllers
       }
       return BadRequest();
     }
-    #endregion
+        #endregion
+
+        //update report
+        #region Update Report
+        [HttpPut]
+        [Route("UpdateReport")]
+        public async Task<IActionResult> UpdateReport([FromBody] Labreport report)
+        {
+            //check validation of this body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await labreport.UpdateReport(report);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
+
+
+        //delete report
+
+        #region Delete Report
+
+        [HttpDelete]
+        [Route("DeleteReport/{id}")]
+
+        public async Task<IActionResult> DeleteReport(int id)
+        {
+            try
+            {
+                var exp = await labreport.DeleteReport(id);
+                if (exp != null)
+                {
+                    return Ok(exp);
+                }
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
 
 
 
-  }
+
+    }
 }

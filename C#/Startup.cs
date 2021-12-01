@@ -45,7 +45,6 @@ namespace CMSAPI
                       options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                       options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                       });
-            services.AddCors();
       
             //add dependency injection for PostRepository
             services.AddScoped<IDoctorRepository, DoctorRepository>();
@@ -56,19 +55,17 @@ namespace CMSAPI
             services.AddScoped<ITestDetails, TestDetails>();
             services.AddScoped<ITests, Tests>();
             services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
+            services.AddScoped<IPatientRegister, PatientRegister>();
 
             //add dependency injection for EmployeeRepository
 
               
 
-            services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
-            services.AddScoped<ILabReport, LabReport>();
-            services.AddScoped<ILabTechnician, LabTechnician>();
-            services.AddScoped<ITestDetails, TestDetails>();
-            services.AddScoped<ITests, Tests>();
+            
 
 
       //register a JWT authentication schema
+      /*
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -84,8 +81,10 @@ namespace CMSAPI
                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
               };
             });
+      */
 
             services.AddMvc();
+            services.AddCors();
     }
 
             
