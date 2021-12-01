@@ -1,7 +1,7 @@
 export class Labreport {
     
         //declare the fields
-        ReportNo: number;
+        ReportNo: number=0;
         ReportTitle: string = '';
         ReportDate: Date = new Date;
         Description: string = '';

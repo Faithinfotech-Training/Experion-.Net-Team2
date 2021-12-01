@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
-            this.router.navigateByUrl('/doctorViewAppointmentByDate');
+            this.router.navigateByUrl('/doctors');
           }
           else{
             this.error="Sorry..Invalid authorization"

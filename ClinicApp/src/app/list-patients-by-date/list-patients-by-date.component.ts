@@ -36,7 +36,7 @@ export class ListPatientsByDateComponent implements OnInit {
   {
     //console.log(item);
     this.doctorHelperService.patientPrescriptionHistorybyId(item.PatientId);
-    //sessionStorage.setItem("CurrentPatientId", item.PatientId.toString());
+    sessionStorage.setItem("CurrentPatientId", item.PatientId.toString());
     this.router.navigate(['patientPrescriptionHistory'])
   }
 
@@ -50,6 +50,7 @@ export class ListPatientsByDateComponent implements OnInit {
   addPrescription(item : AppointmentList)
   {
     //console.log(item)
+    this.doctorHelperService.refreshAvailableTests();
     sessionStorage.setItem("CurrentPatientId", item.PatientId.toString());
     this.router.navigate(['addPrescription']);
   }
