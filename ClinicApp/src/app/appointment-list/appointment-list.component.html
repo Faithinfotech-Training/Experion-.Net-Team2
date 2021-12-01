@@ -1,0 +1,62 @@
+<p>appointment-list works!</p>
+<form name="docform" #form="ngForm" (ngSubmit) = "readForm(form)">
+    <div class="form-group">
+        <label>Doctor ID</label>
+        <input type="number"  name="DoctorId" #EmployeeId="ngModel" 
+        [(ngModel)]="frontOfficeService.currentDoctor.DoctorId" class="form-control" 
+        place holder="Enter Doctor ID" required />       
+    </div>
+
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="DateOfAppointment" id="DateOfAppointment"  #DoJ="ngModel" 
+        [(ngModel)]="frontOfficeService.currentDoctor.DateOfAppointment" class="form-control" required />
+    </div>
+    <br>
+
+    <!-- [disabled]="!(form.valid && form.dirty)" -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary form-control"> 
+         Submit
+        </button>
+    </div>
+</form>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Appointment No</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
+                <th>Amount</th>
+                <th>Patient Id</th>
+                <th>Doctor Id</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let front of frontOfficeService.appointments | filter: filter | paginate: {itemsPerPage: 4, currentPage: page}">
+                <ng-container *ngIf="front.Isactive">
+                    <td (click)="populateForm(front)">{{front.AppointmentNo}}</td>
+                    <td (click)="populateForm(front)">{{front.AppointmentDate | date:'dd-MM-yyyy'}}</td>
+                    <td (click)="populateForm(front)">{{front.AppointmentTime}}</td>
+                    <td (click)="populateForm(front)">{{front.Amount}}</td>
+                    <td (click)="populateForm(front)">{{front.PatientId}}</td>
+                    <td (click)="populateForm(front)">{{front.DoctorId}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                            (click)="deleteAppointment(front.AppointmentNo)">X</button>&nbsp;
+                        <button class="btn btn-sm btn-info" (click)="updateSppointment(front.AppointmentNo)">Edit</button>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        <!--Pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>
