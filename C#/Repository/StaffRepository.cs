@@ -80,6 +80,7 @@ namespace CMSAPI.Repository
                      where s.StaffId == id && s.StaffId == l.Loginid && l.Roleid == r.RoleId
                      select new StaffList
                      {
+                       StaffId=s.StaffId,
                        StaffName = s.StaffName,
                        RoleName = r.RoleName,
                        Gender = s.Gender,

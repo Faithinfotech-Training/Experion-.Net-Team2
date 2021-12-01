@@ -154,7 +154,33 @@ namespace CMSAPI.Controllers
       }
     }
 
-    #endregion
+        #endregion
 
-  }
+        //get department
+        #region Get all departments
+
+        [HttpGet]
+        [Route("GetDepartments")]
+        public async Task<IActionResult> GetDepartments()
+        {
+            try
+            {
+                var dept = await doctorRepo.GetDepartment();
+                if (dept == null)
+                {
+                    return NotFound();
+                }
+                return Ok(dept);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        #endregion
+
+
+
+    }
 }

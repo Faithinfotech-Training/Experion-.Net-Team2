@@ -92,7 +92,8 @@ namespace CMSAPI.Repository
                         Mobile=s.Mobile,
                         Experience=s.Experience,
                         Email=s.Email,
-                        Isactive=d.Isactive
+                        StaffId=s.StaffId,
+                        Isactive=s.Isactive
 
                       }
                        ).ToListAsync();
@@ -116,7 +117,21 @@ namespace CMSAPI.Repository
       }
     }
 
-    #endregion
+        #endregion
+
+   //get departments
+   #region Get departments
+
+   public async Task<List<Department>> GetDepartment()
+   {
+      if (db != null)
+       {
+           return await db.Department.ToListAsync();
+       }
+       return null;
+
+    }
+     #endregion
 
 
 
@@ -124,5 +139,5 @@ namespace CMSAPI.Repository
 
 
 
-  }
+    }
 }

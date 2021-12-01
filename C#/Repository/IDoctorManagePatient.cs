@@ -1,6 +1,6 @@
+// Jyo
 using CMSAPI.DoctorPatientViewModels;
 using CMSAPI.Models;
-// using CMSAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +25,20 @@ namespace CMSAPI.Repository
 
     Task<List<TestHistoryView>> LabReportsByDate(DateTime date);
 
-    Task<List<TestHistoryView>> LabReportsByPatientId(int patientId);
+    Task<List<TestHistoryView>> LabReportsByPatientId(int patientId);      
+
+    Task<List<DoctorAppointmentByDate>> AppointmentByDoctorIdDate(int doctorId, DateTime date);
+
+    Task<List<Patient>> getPatientbyId(int patientId);
+
+    Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId);
+
+    Task<List<Testdetails>> getAllTestDetails();
+
+    Task<List<Medicine>> getAllMedicine();
 
 
 
-  }
+
+    }
 }

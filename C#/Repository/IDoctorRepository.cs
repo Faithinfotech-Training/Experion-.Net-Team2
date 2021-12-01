@@ -24,7 +24,10 @@ namespace CMSAPI.Repository
     //get doctor by Id
     Task<Doctor> GetDoctorById(int Id);
 
+    //get departments
+    Task<List<Department>> GetDepartment();
 
 
-  }
+
+    }
 }

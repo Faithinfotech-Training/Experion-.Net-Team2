@@ -39,6 +39,7 @@ namespace CMSAPI
 
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 
             services.AddControllers().AddNewtonsoftJson(
                       options => {

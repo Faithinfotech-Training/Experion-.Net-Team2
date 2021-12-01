@@ -17,8 +17,58 @@ namespace CMSAPI.Repository
     {
       db = _db;
     }
-    #region Get Users
-    public Login GetUser(Login user)
+
+        #region getLogin
+        public async Task<Login> GetLoginById(int id)
+        {
+            if (db != null)
+            {
+                //LINQ
+                //join post and category
+                return await (from l in db.Login
+                              from r in db.Roles
+                              where l.Loginid == id && l.Roleid == r.RoleId
+                              select new Login
+                              {
+                                  Loginid = l.Loginid,
+                                  Username=l.Username,
+                                  Password=l.Password,
+                                  Roleid=r.RoleId
+
+                              }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+
+        #region AddLogin
+        public async Task<int> AddLogin(Login login)
+        {
+            if (db != null)
+            {
+                await db.Login.AddAsync(login);
+                await db.SaveChangesAsync();
+                return login.Loginid;
+            }
+            return 0;
+        }
+
+        
+        #endregion
+
+        #region getRole
+        public async Task<List<Roles>> GetRole()
+        {
+            if (db != null)
+            {
+                return await db.Roles.ToListAsync();
+            }
+            return null;
+        }
+        #endregion
+
+        #region Get Users
+        public Login GetUser(Login user)
     {
       if (db != null)
       {
@@ -60,6 +110,8 @@ namespace CMSAPI.Repository
     }
 
     #endregion
+
+
 
 
   }
