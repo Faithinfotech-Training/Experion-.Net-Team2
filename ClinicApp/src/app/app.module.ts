@@ -42,6 +42,7 @@ import { PatientPrescriptionHistoryComponent } from './patient-prescription-hist
 import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { AddLoginComponent } from './add-login/add-login.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
     PatientPrescriptionHistoryComponent,
     PatientLabHistoryComponent,
     AddPrescriptionComponent,
-    AppointmentListComponent
+    AppointmentListComponent,
+    AddLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,11 @@
-
 <div class="container">
-    
     <div class="header">
-        
         <h5>Patient List for the day</h5>
-
         <div class="form-group">
-            <input class="form-control" type="text" 
-            placeholder="Search"
-            [(ngModel)] = "filter"/>
+            <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filter" />
         </div>
-        
         <!--<a [routerLink]="['Select']" class="btn btn-secondary" > Select </a> -->
-        
-
     </div>
-
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -23,49 +13,48 @@
                 <th>Time</th>
                 <th>Patient Name</th>
                 <th>Patient DOB</th>
-                <th>Actions</th>    
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor = "let item of doctorHelperService.appointmentList | filter : filter | 
+            <tr *ngFor="let item of doctorHelperService.appointmentList | filter : filter | 
             paginate: {itemsPerPage: 5,currentPage: page}">
-
-                 <!--
+                <!--
                 <ng-container *ngIf = "emp.IsActive">
                 -->
                 <!-- <*ngIf = "emp.IsActive"> -->
-                <td (click) = "populateForm(item)">  {{item.AppointmentNo}}  </td>
-                <td (click) = "populateForm(item)">  {{item.AppointmentTime }}  </td>
-                <td (click) = "populateForm(item)">  {{item.PatientName}}  </td>
-                <td (click) = "populateForm(item)">  {{item.DateOfBirth | date:'mediumDate'}}  </td>
-
-                <td >
+                <td (click)="populateForm(item)"> {{item.AppointmentNo}} </td>
+                <td (click)="populateForm(item)"> {{item.AppointmentTime }} </td>
+                <td (click)="populateForm(item)"> {{item.PatientName}} </td>
+                <td (click)="populateForm(item)"> {{item.DateOfBirth | date:'mediumDate'}} </td>
+                <td>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-success btn-block"  (click) = "addPrescription(item)"> Add Prescription </button>
-                        </div> 
-                        <div class="col">
-                            <button class="btn btn-success btn-block"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
+                            <button class="btn btn-success btn-block" (click)="addPrescription(item)"> Add Prescription
+                            </button>
                         </div>
                         <div class="col">
-                            <button class="btn btn-success btn-block"  (click) = "renderLabHistory(item)"> Lab Test History </button>
+                            <button class="btn btn-success btn-block" (click)="renderPrescriptionHistory(item)">
+                                Prescription History </button>
                         </div>
                         <div class="col">
-                            <button class="btn btn-info btn-block"  (click) = "populateForm(item)"> Edit Appointment</button>
+                            <button class="btn btn-success btn-block" (click)="renderLabHistory(item)"> Lab Test History
+                            </button>
                         </div>
                         <div class="col">
-                            <button class="btn btn-danger btn-block" (click) = "deleteItem(item)"> Delete  Appointment</button>
+                            <button class="btn btn-info btn-block" (click)="populateForm(item)"> Edit
+                                Appointment</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-danger btn-block" (click)="deleteItem(item)"> Delete
+                                Appointment</button>
                         </div>
                     </div>
-                </td>                     
+                </td>
             </tr>
         </tbody>
-
     </table>
-
     <div class="footer" style="text-align: center;">
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
-
 </div>
-
