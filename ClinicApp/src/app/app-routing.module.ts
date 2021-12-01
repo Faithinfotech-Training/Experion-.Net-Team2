@@ -3,10 +3,18 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ListPatientsByDateComponent } from './list-patients-by-date/list-patients-by-date.component';
 import { DoctorViewAppointmentsForDayFormComponent } from './doctor-view-appointments-for-day-form/doctor-view-appointments-for-day-form.component';
+
+
+import { GetreportComponent } from './getreport/getreport.component';
+import { PatientRegisterH } from './shared/patient-register-h';
+import { PatientRegisterHComponent } from './patient-register-h/patient-register-h.component';
+
 import { PatientPrescriptionHistoryComponent } from './patient-prescription-history/patient-prescription-history.component';
 import { PatientLabHistoryComponent } from './patient-lab-history/patient-lab-history.component';
 import { AddPrescriptionComponent } from './add-prescription/add-prescription.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { AddLoginComponent } from './add-login/add-login.component';
 //import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { AddPrescriptionMedicineComponent } from './add-prescription-medicine/add-prescription-medicine.component';
@@ -29,7 +37,21 @@ import { DoctorComponent } from './doctor/doctor.component';
 
 
 
+
+
+
 const routes: Routes = [
+  { path: 'doctorViewAppointmentByDate', component: DoctorViewAppointmentsForDayFormComponent },
+  { path: 'doctorListPatientsByDate', component: ListPatientsByDateComponent },
+  { path: 'labreport', component: LabreportComponent },
+  { path: 'labtechnician', component: LabtechnicianComponent },
+  { path: 'test', component: TestComponent },
+  { path: 'testdetails', component: TestdetailsComponent },
+  { path: 'viewtestdetails', component: ViewtestdetailsComponent },
+  { path: 'getreportlab', component: GetreportComponent },
+  { path: 'patientregister', component: PatientRegisterHComponent },
+
+
   { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'doctorViewAppointmentByDate', component: DoctorViewAppointmentsForDayFormComponent },
@@ -57,6 +79,11 @@ const routes: Routes = [
   { path: 'patientLabHistory', component: PatientLabHistoryComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'appointment', component: AppointmentComponent },
+  { path: 'appointmentlist', component: AppointmentListComponent },
+  { path: 'addPrescription', component: AddPrescriptionComponent },
+  { path: 'addLogin', component: AddLoginComponent},
+
+
   //{ path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }},  

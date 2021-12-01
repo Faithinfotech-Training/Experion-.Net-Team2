@@ -6,7 +6,7 @@
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Search here" [(ngModel)]="filter">
         </div>
-        <a [routerLink]="['./staff']" class="btn btn-primary" style="float: right; margin-bottom: 10px;">Add Staff</a>
+       <!-- <a [routerLink]="['./stafflist']" class="btn btn-primary" style="float: right; margin-bottom: 10px;">Add Staff</a>-->
     </div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <tr
-                *ngFor="let staff of staffService.staffs | filter: filter | paginate: {itemsPerPage: 4, currentPage: page}">
+                *ngFor="let staff of staffService.staffs | filter: filter | paginate: {itemsPerPage: 5, currentPage: page}">
                 <ng-container *ngIf="staff.Isactive">
                     <td (click)="populateForm(staff)">{{staff.StaffId}}</td>
                     <td (click)="populateForm(staff)">{{staff.StaffName}}</td>
@@ -47,4 +47,5 @@
         <!--Pagination-->
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
+    <button class="btn btn-sm btn-primary" (click)="back()">Back</button>
 </div>

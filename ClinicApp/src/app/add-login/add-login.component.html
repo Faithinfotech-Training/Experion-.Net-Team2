@@ -1,0 +1,64 @@
+<p>add-login works!</p>
+<form name="loginform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)">
+    <!--Login id-->
+    <input type="" name="Loginid" [ngModel]="loginService.formData.Loginid" />
+
+    <!--Role dropdown-->
+    <div class="form-group">
+        <label class="col-md-4">Role</label>
+        <select name="RoleId" id="RoleId" class="form-control" #RoleId="ngModel" required
+            [(ngModel)]="loginService.formData.RoleId">
+            <option value=0 disabled>Choose Role</option>
+            <option *ngFor="let role of loginService.roles" value="{{role.RoleId}}">{{role.RoleName}}
+            </option>
+        </select>
+        <div class="validation-error" *ngIf="RoleId.touched 
+        && RoleId.invalid">
+            <div *ngIf="RoleId.errors.required">
+                Role Id is required</div>
+        </div>
+    </div>
+
+    <!--Username-->
+    <div class="form-group">
+
+        <label>Username</label>
+        <input name="Username" #Username="ngModel" [ngModel]="loginService.formData.Username" class="form-control"
+            placeholder="Enter username" minlength="3" maxlength="15" required
+            [ngClass]="{'is-invalid':Username.touched && Username.invalid}" />
+        <div class="validation-error" *ngIf="Username.touched && Username.invalid">
+            <div *ngIf="Username.errors.required">
+                Username is required</div>
+        </div>
+    </div>
+
+    <!--Password-->
+    <div class="form-group">
+
+        <label>Password</label>
+        <input name="Password" #Password="ngModel" [ngModel]="loginService.formData.Password" class="form-control"
+            placeholder="Enter Password" minlength="3" maxlength="15" required
+            [ngClass]="{'is-invalid':Password.touched && Password.invalid}" />
+        <div class="validation-error" *ngIf="Password.touched && Password.invalid">
+            <div *ngIf="Password.errors.required">
+                Password is required</div>
+        </div>
+    </div>
+
+    <!--Is Active-->
+    <br>
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Is Active</label>
+            <input type="checkbox" name="isActive" id="isActive" #isActive="ngModel"
+                [(ngModel)]="loginService.formData.isActive" class="form-check-input">
+        </div>
+    </div>
+
+    <!--Submit Button-->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-success me-md-2">Submit</button>
+    </div>
+</form>
