@@ -72,7 +72,7 @@ export class AppointmentListComponent implements OnInit {
   {
     sessionStorage.setItem("DoctorID", this.frontOfficeService.currentDoctor.DoctorId.toString());
     sessionStorage.setItem("DateofAppointment", this.frontOfficeService.currentDoctor.DateOfAppointment.toString());
-    this.router.navigate(['doctorListPatientsByDate'])
+    this.router.navigate(['appointmentByDate'])
   }
 
 

@@ -42,11 +42,15 @@ export class FrontofficeService {
   }
 
 //get appointment by doctor id and date
-  appointmentByDocIdDate(doctorId : number, date : any)
+  async appointmentByDocIdDate(doctorId : number, date : any)
   {
-    this.httpClient.get(environment.apiUrl + "/api/Appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date)
-    .toPromise().then( response =>  
-      this.appointments = response as Appointment[] );
+    await this.httpClient.get(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date)
+    .toPromise().then( response =>{
+      this.appointments = response as Appointment[]
+      console.log("Loaded appointment List"); 
+    }
+    );
+      //this.appointments = response as Appointment[] );
   }
 
    //get all appointments
