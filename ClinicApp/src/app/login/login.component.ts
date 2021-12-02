@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   //login verify credentials
   loginCredentials(){
     this.isSubmitted=true;
-    console.log(this.loginForm.value);
+    //console.log(this.loginForm.value);
 
     //invalid
     if(this.loginForm.invalid)
@@ -49,15 +49,15 @@ export class LoginComponent implements OnInit {
 
       this.authService.loginVerify(this.loginForm.value).subscribe(
         data=>{
-          console.log(data);
+          //console.log(data);
 
           //token
          this.jwtResponse=data;
         // this.jwtResponse.RoleId=data.ro
-         console.log("jwt:"+this.jwtResponse.rId);
+         //console.log("jwt:"+this.jwtResponse.rId);
       
           sessionStorage.setItem("token",this.jwtResponse.token);
-          console.log(this.jwtResponse.rId);
+          //console.log(this.jwtResponse.rId);
 
           if(this.jwtResponse.rId===1){
 
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("userPresent", 'true');
 
             //logged as Admin
-            console.log("Admin");
+            //console.log("Admin");
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("userPresent", 'true');
 
 
-            console.log("FrontOffice");
+            //console.log("FrontOffice");
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("userPresent", 'true');
 
 
-            console.log("LabTechnician");
+            //console.log("LabTechnician");
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
@@ -100,9 +100,8 @@ export class LoginComponent implements OnInit {
 
             this.authService.userPresent = true;
             sessionStorage.setItem("userPresent", 'true');
-
             
-            console.log("Doctor");
+            //console.log("Doctor");
             sessionStorage.setItem("DoctorId", this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
