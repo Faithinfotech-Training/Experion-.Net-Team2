@@ -17,16 +17,17 @@
         
 
     <!--TestNo-->
-    <!--<div class="form-group">
+    <br>
+    <div class="form-group">
         <label for="TestNo">Test No</label>
-        <input type="text" name="TestNo" #TestId="ngModel"
+        <input type="text" name="TestNo" #TestNo="ngModel"
         [(ngModel)]="testService.formTest.TestNo" class="form-control" required
         [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}"
         />
         <div class="validation-errors" *ngIf="TestNo.touched && TestNo.invalid">
             <div *ngIf="TestNo.errors.required">Test No is required</div>
         </div>
-        </div>-->
+        </div>
     
     <!--TestDateTime-->
     <br>

@@ -30,6 +30,23 @@ export class LabtechnicianService {
       );
   }
 
+
+  //Get a particular Technician
+  GetTechnicianById(technicianId: number) {
+
+    //console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );
+
+    this.httpClient.get(environment.apiUrl + "/api/labtechnician/gettechnician/" + technicianId)
+
+      .toPromise().then(response =>
+
+        this.technicians = response as Labtechnician[]
+
+      );
+
+  }
+
+
  //Update
   //UPDATE
   updateTechnician(tech: Labtechnician): Observable<any> {

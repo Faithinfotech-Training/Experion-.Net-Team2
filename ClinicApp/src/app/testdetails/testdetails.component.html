@@ -1,11 +1,12 @@
-<h2 style="text-align: center; font-size: 200%; font-family: 'Times New Roman', Times, serif">Insert Test Details</h2>
+<h2 style="text-align: center; font-size: 200%; font-family: 'Times New Roman', Times, serif">Test Details Form</h2>
     
     <!--Test details form-->
-    <div class="form">
+    <div class="form col-sm-5" style="margin-left: 35%;">
         
         <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
     <!--TestNo-->
-    <!--<div class="form-group">
+    <br>
+    <div class="form-group">
         <label for="TestNo">Test No</label>
         <input type="text" name="TestNo" #TestNo="ngModel"
         [(ngModel)]="testDetailService.formLabT.TestNo" class="form-control" required
@@ -15,9 +16,9 @@
             <div *ngIf="TestNo.errors.required">Test No is required</div>
         </div>
         </div>
--->
     
     <!--TestName-->
+    <br>
 <div class="form-group">
         <label for="TestName">Test Name</label>
         <input type="text" name="TestName" #TestName="ngModel"
@@ -30,6 +31,7 @@
         </div>
 
     <!--TestUnit-->
+    <br>
     <div class="form-group">
         <label for="TestUnit">Test Unit</label>
         <input type="text" name="TestUnit" #TestUnit="ngModel"
@@ -42,6 +44,7 @@
         </div>
 
     <!--TestDesription-->
+    <br>
     <div class="form-group">
         <label for="TestDesription">Test Desription</label>
         <input type="text" name="TestDesription" #TestDesription="ngModel"
@@ -54,6 +57,7 @@
         </div>
 
     <!--Isactive-->
+    <br>
     <div class="form-group">
         <label for="Isactive">Is active</label>
         <input type="checkbox" name="Isactive" #Isactive="ngModel"
