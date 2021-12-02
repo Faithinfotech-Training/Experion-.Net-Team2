@@ -12,6 +12,8 @@ INSERT INTO ROLES VALUES
 ('Lab Technician'),
 ('Doctor');
 
+select * from ROLES;
+
 --Staff--
 CREATE TABLE STAFF(
 STAFF_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -35,6 +37,9 @@ INSERT INTO STAFF VALUES
 ('Aneesh Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
 ('Dennis Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1);
 
+
+select * from STAFF;
+
 --Login--
 CREATE TABLE LOGIN(
 LOGINID INT PRIMARY KEY,
@@ -53,6 +58,7 @@ INSERT INTO LOGIN VALUES
 (4, 'haizon','haizon@123',4),
 (5, 'anna','anna@123',4);
 
+select * from LOGIN;
 
 --Department--
 CREATE TABLE DEPARTMENT(
@@ -163,6 +169,8 @@ INSERT INTO TESTDETAILS VALUES
 ('SUGAR', 'MG', 'SUGAR TEST', 1),
 ('COVID', 'BOOLEAN', 'ANITGEN TEST', 1);
 
+select * from testdetails;
+
 --Prescription--
 CREATE TABLE PRESCRIPTION(
 PRESCRIPTION_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -214,6 +222,8 @@ CREATE TABLE LABTECHNICIAN(
   REFERENCES STAFF(STAFF_ID),
 	ISACTIVE BIT);
 
+	select * from LABTECHNICIAN;
+
 INSERT INTO LABTECHNICIAN VALUES
 (1,6,1),
 (2,7,1);
@@ -234,6 +244,8 @@ CREATE TABLE LABREPORT(
   REFERENCES LABTECHNICIAN(LABTECHNICIAN_ID),
 	ISACTIVE BIT);
 
+
+
 insert into LABREPORT values
 ('TITLE', '2021-11-29','DESCRIPTION', 2, 1, 1, 1, 1),
 ('TITLE', '2021-11-29','DESCRIPTION', 1, 2, 1, 1, 1),
@@ -242,6 +254,8 @@ insert into LABREPORT values
 ('TITLE', '2021-11-29','DESCRIPTION', 3, 1, 1, 1, 1),
 ('TITLE', '2021-11-29','DESCRIPTION', 3, 2, 1, 1, 1),
 ('TITLE', '2021-11-29','DESCRIPTION', 4, 2, 1, 1, 1);
+
+select * from LABREPORT;
 
 --Test--
 CREATE TABLE TEST(
@@ -258,6 +272,8 @@ ISACTIVE BIT);
 
 alter table test
 add result int not null default 96;
+
+select * from test;
 
 insert into test values
 (1,'2021-01-01', 100, '0-1000', 'DESCRIPTION' ,  9 , 1 , 500),
@@ -311,6 +327,8 @@ ID int primary key identity(1,1),
 PRESCRIPTION_ID int constraint fktt foreign key references PRESCRIPTION (PRESCRIPTION_ID),
 TEST_NO int constraint tn foreign key references TESTDETAILS(TEST_NO),
 NOTES varchar(100));
+
+select * from PRESCRIPTION;
 
 
   Select A.APPOINTMENT_NO, A.APPOINTMENT_DATE, A.APPOINTMENT_TIME,S.STAFF_NAME,P.PATIENT_NAME
