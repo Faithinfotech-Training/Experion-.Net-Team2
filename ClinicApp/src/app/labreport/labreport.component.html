@@ -1,19 +1,20 @@
 <h2 style="text-align:center; font-size:200%; font-family: 'Times New Roman', Times, serif;">Lab report Form</h2>
 
 <!--Designing Lab Report-->
-<div class=" col-sm-4">
+<div class=" col-sm-4" style="margin-left: 35%; background: linear-gradient(to top, #ffffff, #d0d6e7);  
+">
 
-
+<!--justify-content: center;align-items: center;display: flex;-->
 <div class="form">
     <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
 
 
         <!--ReportNo-->
         <div class="form-group">
-            <label for="ReportNo">Report No</label>
-            <input type="text" name="ReportNo" #ReportNo="ngModel" [(ngModel)]="labService.formLab.ReportNo"
+            <label for="ReportNo"></label>
+            <input type="hidden" name="ReportNo" #ReportNo="ngModel" [(ngModel)]="labService.formLab.ReportNo"
                 class="form-control" required [ngClass]="{'is-invalid': ReportNo.touched && ReportNo.invalid}" />
-                <span style="color: red;"> Keep Report No as 0 for inserting report</span>
+                <!--<span style="color: red;"> Keep Report No as 0 for inserting report</span>-->
 
             <div class="validation-errors" *ngIf="ReportNo.touched && ReportNo.invalid">
                 <div *ngIf="ReportNo.errors.required">Report No is required</div>
@@ -110,11 +111,10 @@
         <div class="form-group">
             <label for="Isactive">Is active</label>
             <input type="checkbox" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
-                [(ngModel)]="labService.formLab.Isactive" required
-                [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}" />
-            <div class="validation-errors" *ngIf="Isactive.touched && Isactive.invalid">
-                <div *ngIf="Isactive.errors.required">Is active required</div>
-            </div>
+                [(ngModel)]="labService.formLab.Isactive"  />
+                <!--required
+                [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}"-->
+            
         </div>
 
         <!--Submit button-->
@@ -122,7 +122,7 @@
         <br>
         <div class="form-group">
             <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)"
-                class="btn btn-lg btn-primary form-control">
+                class="btn btn-lg btn-success form-control">
                 Submit</button>
         </div>
 

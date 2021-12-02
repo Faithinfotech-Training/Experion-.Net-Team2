@@ -31,6 +31,10 @@ import { ViewtestdetailsComponent } from './viewtestdetails/viewtestdetails.comp
 import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-date/doctor-view-labreport-by-date.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
+import { PatientViewByIdHComponent } from './patient-view-by-id-h/patient-view-by-id-h.component';
+import { ViewTestHComponent } from './view-test-h/view-test-h.component';
+import { ViewlabtechnicianhComponent } from './viewlabtechnicianh/viewlabtechnicianh.component';
+import { TechnicianhomepageComponent } from './technicianhomepage/technicianhomepage.component';
 
 
 
@@ -83,7 +87,13 @@ const routes: Routes = [
   {path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent},
   {path: 'patientLabHistory', component: PatientLabHistoryComponent},
   {path: 'addPrescription', component: AddPrescriptionComponent},
-  {path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent}  
+  {path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent},
+
+  
+  {path: 'getpatient', component: PatientViewByIdHComponent},
+  {path: 'viewtest', component: ViewTestHComponent},
+  {path: 'viewtechnician', component: ViewlabtechnicianhComponent},
+  {path: 'technicianhome', component: TechnicianhomepageComponent}
   ];
 
 @NgModule({

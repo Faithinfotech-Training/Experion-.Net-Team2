@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from '../shared/test.service';
 import { TestdetailsService } from '../shared/testdetails.service';
+import { Testdetails } from '../shared/TestdetailsJ';
 
 @Component({
   selector: 'app-viewtestdetails',
@@ -18,6 +20,25 @@ export class ViewtestdetailsComponent implements OnInit {
     this.testDetailService.bindListTestDetail();
   }
 
+
+  onSubmit(testdetailgetForm: NgForm) {
+    console.log(testdetailgetForm.value);
+    let addId = this.testDetailService.formLabT.TestNo;
+    console.log(addId);
+    
+    if(addId !=0 || addId !=null)
+    {
+      //console.log("Hello");
+      this.testDetailService.GetTestDetailByNo(addId);
+      console.log(this.testDetailService.testdetails);
+       
+    }
+  }
+  populateForm(emp: Testdetails)
+  {
+    console.log(emp);
+    this.testDetailService.formLabT=emp;
+  }
 
 
 
