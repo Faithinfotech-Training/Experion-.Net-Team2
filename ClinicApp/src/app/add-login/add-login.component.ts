@@ -66,7 +66,7 @@ export class AddLoginComponent implements OnInit {
 
     } else if (form.value.RoleId == 3) {
       console.log("LabTechnician");
-      this.router.navigateByUrl('/labtechnician');
+      this.router.navigateByUrl('/technicianhome');
 
     } else if (form.value.RoleId == 4) {
       console.log("Doctor");

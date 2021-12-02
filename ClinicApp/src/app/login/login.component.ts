@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
-            this.router.navigateByUrl('/login');
+            this.router.navigateByUrl('/technicianhome');
 
           }else if (this.jwtResponse.rId === 4) {
             console.log("Doctor");

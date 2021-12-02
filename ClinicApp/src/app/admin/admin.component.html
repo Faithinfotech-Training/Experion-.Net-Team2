@@ -1,7 +1,7 @@
 <p>admin works!</p>
 <header>
     <div class="container">
-        <h5>Welcome Admin : {{loggedUserName}}</h5>
+        <h5>Welcome Admin : {{loggedUserName | titlecase}}</h5>
     </div>
     <nav class="navbar navbar-dark bg-light navbar-expand">
         <div class="container">
@@ -12,7 +12,7 @@
                 <a class="nav-link" href="#" routerLink='/staff'>Add Staff</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" routerLink='../accounts'>My Account</a>
+                <a class="nav-link" href="#" routerLink='/doctorlist'>View Doctor</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" (click)="logout()">Logout</a>
