@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import {DoctorHelperService} from '../shared/doctor-helper.service';
 import { AppointmentList } from '../shared/AppointmentList'
 import { PatientLabHistory } from '../shared/PatientLabHistory'; 
+import { Appointment } from '../shared/appointment';
+import { FrontofficeService } from '../shared/frontoffice.service';
 @Component({
   selector: 'app-list-patients-by-date',
   templateUrl: './list-patients-by-date.component.html',
@@ -16,7 +18,7 @@ export class ListPatientsByDateComponent implements OnInit {
   filter : string;
 
 
-  constructor(public doctorHelperService : DoctorHelperService,              
+  constructor(public doctorHelperService : DoctorHelperService, public frontOfficeService: FrontofficeService,             
               private router: Router) { }
 
   ngOnInit(): void {   
@@ -27,7 +29,7 @@ export class ListPatientsByDateComponent implements OnInit {
     
   }
 
-  populateForm(item : AppointmentList)
+  populateForm(item : Appointment)
   {
     //console.log(item);
   }

@@ -13,39 +13,38 @@ import { FrontofficeService } from '../shared/frontoffice.service'
 })
 export class AppointmentComponent implements OnInit {
 
-  appointmentNo: number;
-  appointmentDate: Date;
-  doctorId:number;
-  appointment: Appointment = new Appointment();
-  appointmentList: AppointmentList = new AppointmentList();
+  appointmentNo:number;
+  appointment: Appointment =new Appointment();
 
   constructor(public frontOfficeService: FrontofficeService,
     public router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-/*
-    //get appointmentNo and appointmentDate from ActivatedRoute
-    this.appointmentNo = this.route.snapshot.params['appointmentNo'];
-    this.appointmentDate = this.route.snapshot.params['appointmentDate'];
-    this.doctorId = this.route.snapshot.params['doctorId'];
 
-    if (this.doctorId != 0 || this.doctorId != null && this.appointmentDate != null) {
-      console.log(this.appointmentNo);
-      //getAppointment
-      this.frontOfficeService.appointmentByDocIdDate(this.doctorId, this.appointmentDate).subscribe(
-        data => {
+    this.frontOfficeService.BindCmbPatient();
+    this.frontOfficeService.BindCmbDoctor();
+/*
+    //get appointmentNo from ActivatedRoute
+    this.appointmentNo=this.route.snapshot.params['appointmentNo'];
+
+    if(this.appointmentNo!=0 || this.appointmentNo!=null){
+      //console.log(this.appointmentNo);
+      console.log("Hi");
+      //getStaff
+      this.frontOfficeService.getAppointment(this.appointmentNo).subscribe(
+        data=>{
           console.log(data);
           //date format
-          var datePipe = new DatePipe("en-UK");
-          //dateOfJoinig
+          var datePipe=new DatePipe("en-UK");
+          //AppointmentDate
           let formatedDate: any = datePipe.transform(data.AppointmentDate, 'yyyy-MM-dd');
           data.AppointmentDate = formatedDate;
 
-          this.frontOfficeService.formData = Object.assign({}, data);
+          this.frontOfficeService.formData =Object.assign({},data);
         },
         error =>
-          console.log(error)
+        console.log(error)
       );
     }
 */
@@ -59,12 +58,15 @@ export class AppointmentComponent implements OnInit {
     //insert
     if (addId == 0 || addId == null) {
       this.insertAppointmentRecord(form);
+      this.router.navigate(['/appointmentlist']);
     }
     else {
       //update
       console.log("Updating record...");
-      this.updateAppointmentRecord(form)
+      this.updateAppointmentRecord(form);
+      this.router.navigate(['/appointmentlist']);
     }
+    //this.router.navigate(['/appointmentlist']);
   }
 
   //clear all contents at initialization
@@ -81,9 +83,10 @@ export class AppointmentComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
-        //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
+        //this.toastrService.success('Appointment record has been inserted', 'StaffApp v2021');
       }
     );
+    window.alert("Appointment record has been inserted")
     //window.location.reload();
   }
 
@@ -98,8 +101,16 @@ export class AppointmentComponent implements OnInit {
         //this.toastrService.success('Staff record has been updated', 'StaffApp v2021');
       }
     );
-    window.alert("Staff record has been updated")
+    window.alert("Appointment record has been updated");
     window.location.reload();
+  }
+  //Back to admin page
+  back(){
+    this.router.navigate(['/frontoffice']);
+  }
+  //view appointment
+  view(){
+    this.router.navigate(['/appointmentlist'])
   }
 
 }

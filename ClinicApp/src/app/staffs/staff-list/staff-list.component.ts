@@ -26,7 +26,7 @@ export class StaffListComponent implements OnInit {
   }
 
   //populate form by clicking the column fields
-  populateForm(staff: StaffList) {
+  populateForm(staff: Staff) {
     console.log(staff)
 
     //date format

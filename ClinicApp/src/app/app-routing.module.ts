@@ -78,7 +78,7 @@ const routes: Routes = [
   { path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent },
   { path: 'patientLabHistory', component: PatientLabHistoryComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
-  { path: 'appointment', component: AppointmentComponent },
+  { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard], data: { role: '2' } },
   { path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'addLogin', component: AddLoginComponent},

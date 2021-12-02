@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Staff } from 'src/app/shared/staff';
-import { StaffService} from 'src/app/shared/staff.service'
+import { StaffService} from 'src/app/shared/staff.service';
 
 @Component({
   selector: 'app-staff',
@@ -84,7 +84,7 @@ export class StaffComponent implements OnInit {
         //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
       }
     );
-    window.alert("Staff record has been inserted")
+    window.alert("Staff record has been inserted");
     //window.location.reload();
   }
 
@@ -104,6 +104,6 @@ export class StaffComponent implements OnInit {
   }
   //Back to admin page
   back(){
-    this.router.navigate(['./admin']);
+    this.router.navigate(['/admin']);
   }
 }

@@ -5,26 +5,48 @@ import { AppointmentList } from './AppointmentList';
 import { doctorViewByDateID } from './doctorViewByDateIDForm';
 import { Appointment } from './appointment'
 import { Observable } from 'rxjs';
+import { PatientRegisterH } from './patient-register-h';
+import { DoctorModel } from './doctormodel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FrontofficeService {
 
-  appointmentList : AppointmentList[];
-  currentDoctor : doctorViewByDateID = new doctorViewByDateID();
-
   formData: Appointment = new Appointment();
   appointments: Appointment[];
+  patients: PatientRegisterH[];
+  doctors: DoctorModel[];
+  appointmentlists: AppointmentList[];
+
+  currentDoctor : doctorViewByDateID = new doctorViewByDateID();
 
   constructor(private httpClient: HttpClient) { }
+
+  //get all patients
+  BindCmbPatient(){
+    this.httpClient.get(environment.apiUrl+"/api/patientregister/getpatients")
+    .toPromise().then(response=>
+      this.patients=response as PatientRegisterH[]
+      );
+      console.log(this.patients);
+  }
+
+  //get all doctors
+  BindCmbDoctor(){
+    this.httpClient.get(environment.apiUrl+"/api/doctor")
+    .toPromise().then(response=>
+      this.doctors=response as DoctorModel[]
+      );
+      console.log(this.doctors);
+  }
 
 //get appointment by doctor id and date
   appointmentByDocIdDate(doctorId : number, date : any)
   {
     this.httpClient.get(environment.apiUrl + "/api/Appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date)
     .toPromise().then( response =>  
-      this.appointmentList = response as AppointmentList[] );
+      this.appointments = response as Appointment[] );
   }
 
    //get all appointments
@@ -47,6 +69,11 @@ export class FrontofficeService {
   //delete
   deleteAppointment(id: number): Observable<any> {
     return this.httpClient.delete(environment.apiUrl + "/api/Appointment/deleteappointment?id=" + id);
+  }
+
+  //get particular staff
+  getAppointment(appointmentNo: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/Appointment/GetAppointmentById=" + appointmentNo);
   }
   
 }
