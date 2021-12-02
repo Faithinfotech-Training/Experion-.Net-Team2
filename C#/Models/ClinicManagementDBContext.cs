@@ -343,6 +343,10 @@ namespace CMSAPI.Models
 
                 entity.Property(e => e.PrescriptionId).HasColumnName("PRESCRIPTION_ID");
 
+                entity.Property(e => e.Billed)
+                    .HasColumnName("billed")
+                    .HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_ID");
 
                 entity.Property(e => e.DoctorNotes)
@@ -490,12 +494,19 @@ namespace CMSAPI.Models
                     .HasColumnName("TEST_DESCRIPTION")
                     .HasMaxLength(100);
 
+                entity.Property(e => e.TestListNo).HasColumnName("TEST_LIST_NO");
+
                 entity.Property(e => e.TestNo).HasColumnName("TEST_NO");
 
                 entity.HasOne(d => d.ReportNoNavigation)
                     .WithMany(p => p.Test)
                     .HasForeignKey(d => d.ReportNo)
                     .HasConstraintName("fk_rep1");
+
+                entity.HasOne(d => d.TestListNoNavigation)
+                    .WithMany(p => p.Test)
+                    .HasForeignKey(d => d.TestListNo)
+                    .HasConstraintName("FK__TEST__TEST_LIST___0E6E26BF");
 
                 entity.HasOne(d => d.TestNoNavigation)
                     .WithMany(p => p.Test)
@@ -534,6 +545,8 @@ namespace CMSAPI.Models
                 entity.ToTable("TESTLIST");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.IsDone).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Notes)
                     .HasColumnName("NOTES")
