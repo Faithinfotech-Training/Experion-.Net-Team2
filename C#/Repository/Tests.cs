@@ -37,14 +37,14 @@ namespace CMSAPI.Repository
       return null;
     }
 
-    public async Task<Test> GetTestById(int id)
+    public async Task<List<Test>> GetTestById(int id)
     {
-      if (db != null)
-      {
-        return await db.Test.FirstOrDefaultAsync();
-      }
-      return null;
-    }
+            if (db != null)
+            {
+                return await db.Test.Where(x => x.TestId == id).ToListAsync();
+            }
+            return null;
+        }
 
     public async Task UpdateTest(Test test)
     {

@@ -11,6 +11,7 @@ namespace CMSAPI.Repository
   {
 
         Task<List<Labreport>> GetAllReports();
+
         //View lab report by id
         Task<List<Labreport>> GetReportById(int patientId);
 

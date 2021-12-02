@@ -78,6 +78,37 @@ namespace CMSAPI.Controllers
         #endregion
 
 
+
+        #region AddTestList
+
+        [HttpPost]
+        [Route("AddTestList")]
+        public async Task<IActionResult> AddTestList([FromBody] Testlist p)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await c.AddTestList(p);
+                    if (result > 0)
+                    {
+                        return Ok(result);
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+
+        #endregion
+
+
+
+
+
         [HttpPut]
     [Route("UpdatePrescription")]
     public async Task<IActionResult> UpdatePrescription([FromBody] Prescription p)

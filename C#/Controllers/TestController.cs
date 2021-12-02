@@ -23,7 +23,7 @@ namespace CMSAPI.Controllers
     //Get all tests
     #region Get all tests
     [HttpGet]
-    [Route("gettest")]
+    [Route("gettests")]
 
     public async Task<IActionResult> GetTest()
     {
@@ -42,11 +42,34 @@ namespace CMSAPI.Controllers
       }
     }
 
-    #endregion
+        #endregion
 
-    //Add a test
-    #region Add a test
-    [HttpPost]
+
+        #region Get test by ID
+        [HttpGet]
+        [Route("Gettest/{id}")]
+        public async Task<IActionResult> GetTestById(int id)
+        {
+            try
+            {
+                var report = await test.GetTestById(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+
+        //Add a test
+        #region Add a test
+        [HttpPost]
     [Route("AddTest")]
 
     public async Task<IActionResult> AddTest([FromBody] Test tests, int testids)

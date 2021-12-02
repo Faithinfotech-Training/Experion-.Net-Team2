@@ -12,8 +12,18 @@ namespace CMSAPI.Repository
         //Get all patients
         Task<List<Patient>> GetAllPatients();
 
+        //Get Patient By Id
+        Task<List<Patient>> GetPatientById(int patientId);
+
         //Add a patient
         Task<int> AddPatient(Patient app);
+
+        //Update patients
+        Task UpdatePatient(Patient patient);
+
+
+
+
 
     }
 }

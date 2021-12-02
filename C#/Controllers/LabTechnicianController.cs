@@ -21,35 +21,34 @@ namespace CMSAPI.Controllers
       labtech = _l;
     }
 
-    //Get Lab Technician by ID
-    #region Get Technician by ID
-    [HttpGet]
-    [Route("gettechnician/{id}")]
-
-    public async Task<IActionResult> GetTechnician(int technicianid)
-    {
-      try
-      {
-        var report = await labtech.GetTechnicianById(technicianid);
-        if (report != null)
+        //Get Lab Technician by ID
+        #region Get Technician by ID
+        [HttpGet]
+        [Route("GetTechnician/{id}")]
+        public async Task<IActionResult> GetTechnicianById(int id)
         {
-          return Ok(report);
+            try
+            {
+                var report = await labtech.GetLabTechnicianById(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
-        return NotFound();
-      }
-      catch (Exception)
-      {
-        return BadRequest();
-      }
-    }
 
-    #endregion
+        #endregion
 
 
-    //Get all technician
-    #region Get all technicians
-    
-    [HttpGet]
+        //Get all technician
+        #region Get all technicians
+
+        [HttpGet]
     [Route("GetTechnicians")]
     public async Task<IActionResult> GetTechnicians()
     {

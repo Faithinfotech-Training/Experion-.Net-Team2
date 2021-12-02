@@ -11,11 +11,11 @@ namespace CMSAPI.Repository
     //Get all tests
     Task<List<Test>> GetTest();
 
-    //get test by id
-    Task<Test> GetTestById(int id);
+        //get test by id
+        Task<List<Test>> GetTestById(int testid);
 
-    //add a test
-    Task<int> AddTest(Test test);
+        //add a test
+        Task<int> AddTest(Test test);
 
     //update a test
     Task UpdateTest(Test test);

@@ -26,7 +26,7 @@ namespace CMSAPI.Controllers
 
         [HttpGet]
         [Route("Getreports")]
-        public async Task<IActionResult> GetReports()
+        public async Task<IActionResult> GetAllReports()
         {
             try
             {
@@ -65,7 +65,7 @@ namespace CMSAPI.Controllers
             }
         }
 
-#endregion
+        #endregion
 
 
         //Add Report
@@ -117,6 +117,7 @@ namespace CMSAPI.Controllers
             }
             return BadRequest();
         }
+
         #endregion
 
 
