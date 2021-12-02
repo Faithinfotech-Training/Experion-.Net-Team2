@@ -34,6 +34,7 @@ import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-d
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 
 
@@ -82,6 +83,7 @@ const routes: Routes = [
   { path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'addLogin', component: AddLoginComponent},
+  { path: 'editstaff/:staffId', component: EditStaffComponent},
 
 
   //{ path: 'appointmentlist', component: AppointmentListComponent },

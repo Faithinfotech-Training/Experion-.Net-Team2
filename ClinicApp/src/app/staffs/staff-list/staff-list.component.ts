@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DoctorService } from 'src/app/shared/doctor.service';
 import { Staff } from 'src/app/shared/staff';
 import { StaffService } from 'src/app/shared/staff.service';
 import { StaffList } from 'src/app/shared/stafflist';
@@ -17,7 +18,7 @@ export class StaffListComponent implements OnInit {
   filter: string;
 
   constructor(public staffService:StaffService,
-    private router:Router) { }
+    private router:Router,public doctorService:DoctorService) { }
 
   ngOnInit(): void {
 
@@ -62,9 +63,24 @@ export class StaffListComponent implements OnInit {
 
     //update an staff
   updateStaff(staffId: number) {
+    if(staffId!=0 || staffId!=null){
+      //console.log(this.staffId);
+      console.log("Hi");
+      //getStaff
+      this.staffService.getStaff(staffId).subscribe(
+        data=>{
+          console.log(data);
+          if(data.RoleName=='Doctor'){
+            console.log("hello doctor");
+            this.router.navigate(['./editstaff', staffId]);
+          }
+          
+        });
+       
     console.log(staffId);
-    this.router.navigate(['staff', staffId]);
+    
   }
+}
 
   //Back to admin page
   back(){

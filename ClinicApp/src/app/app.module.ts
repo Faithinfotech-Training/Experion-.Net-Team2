@@ -54,6 +54,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { AddLoginComponent } from './add-login/add-login.component';
+import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { AddLoginComponent } from './add-login/add-login.component';
     AddPrescriptionComponent,
     DoctorComponent,
     AppointmentListComponent,
-    AddLoginComponent
+    AddLoginComponent,
+    EditStaffComponent
   ],
   imports: [
     BrowserModule,
