@@ -13,7 +13,7 @@ import { Testdetails } from './TestdetailsJ';
 import { Testlist } from './TestListJ';
 import { isObservable, Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import sp from 'synchronized-promise'
+//import sp from 'synchronized-promise'
 
 
 @Injectable({
