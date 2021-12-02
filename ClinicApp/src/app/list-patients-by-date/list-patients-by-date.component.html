@@ -51,17 +51,17 @@
                             &nbsp;
 
                             <button title="View lab history" type="button" class="btn btn-outline-success" (click) = "renderLabHistory(item)">        
-                                <i class="fas fa-vial"></i>       
+                                <i class="fas fa-vial"></i>     
                             </button>
                             &nbsp;
 
-                            <button title="Edit appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
+                            <button hidden invisible title="Edit appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
                                 <!-- Edit appointment for doctor  -->       
                                 <i class="far fa-calendar-check"></i>      
                             </button>
                             &nbsp;
 
-                            <button title="Delete appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
+                            <button hidden invisible title="Delete appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
                                 <!-- Delete appointment for doctor  -->       
                                 <i class="fas fa-trash"></i>      
                             </button>
@@ -76,3 +76,5 @@
     <div class="paginate" style="text-align: center;">
         <pagination-controls class="paginate" (pageChange)="page=($event)"></pagination-controls>
     </div>
+
+    

@@ -90,7 +90,7 @@ import { AddLoginComponent } from './add-login/add-login.component';
     ToastrModule.forRoot(),
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule    
   ],
   
     
