@@ -1,0 +1,90 @@
+<div class="container">
+    <h3>Enter Technician ID</h3>
+    <div class="form">
+        <form name="testgetForm" #testgetForm="ngForm" (ngSubmit)="onSubmit(testgetForm)">
+            <br>
+            <!--LabtechnicianId-->
+        <div class="form-group">
+            <label for="LabtechnicianId">Labtechnician Id</label>
+            <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
+        [(ngModel)]="labTechService.formLabT.LabtechnicianId" class="form-control" required
+        [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}"
+        />
+        <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
+            <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
+        </div>
+        </div>
+    
+    <!--Submit button-->
+    <br>
+        <br>
+        <div class="form-group">
+            <button type="submit" [disabled]="!(testgetForm.valid && testgetForm.dirty)" class="btn btn btn-outline-success btn-lg">
+                Search</button>
+        </div>
+    
+    </form>
+    </div>
+    </div>
+
+    <div>
+        <br>
+        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'">Insert New Technician</a></button>
+    </div>
+    
+
+    
+<br>
+<div class="container">
+    <div class="header">
+        <br>
+        <h5 style="text-align:center;">Lab Technician details</h5>
+        <br>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Technician ID</th>
+                    <th>Department ID</th>
+                    <th>Staff ID</th>
+                    <th>Is active</th>
+                    <th>Actions</th>
+
+                    <!--LabtechnicianId: number=0;
+        DepartmentId: number =0;
+        StaffId: number =0;
+        Isactive: boolean;-->
+                    
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rep of labTechService.technicians| paginate: {itemsPerPage: 3, currentPage: page} ">
+                    <td>{{rep.LabtechnicianId}}</td>
+                    <td>{{rep.DepartmentId}}</td>
+                    <td>{{rep.StaffId}}</td>
+                    <td>{{rep.Isactive}}</td>
+                    
+                    
+                    
+                    <!--<td>
+                        <button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;
+                        <button class="btn btn-info" (click)="updateReport(rep.ReportNo)"
+                            style="margin-left: 10px">Edit</button>
+                        
+                    </td>-->
+                    <td>
+                        <!--<button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;-->
+                        <!--<button class="btn btn-info" (click)="[routerLink]=['/labreport', rep.ReportNo]"
+                            style="margin-left: 10px">Edit</button>-->
+                        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'" (click)="populateForm(rep)">Edit</a></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer" style="margin-left: 35%;margin-right:35%;">
+            <!--pagination-->
+            <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+        </div>
+    </div>
+

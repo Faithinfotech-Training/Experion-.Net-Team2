@@ -2,7 +2,7 @@
     <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
 
         <!--Lab Technician Id-->
-        <!--<div class="form-group">
+        <div class="form-group">
             <label for="LabtechnicianId">Labtechnician Id</label>
             <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
             [(ngModel)]="techService.formLabT.LabtechnicianId" class="form-control" required
@@ -11,10 +11,11 @@
             <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
                 <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
             </div>
-            </div>-->
+            </div>
         
 
             <!--Department Id-->
+            <br>
         <div class="form-group">
             <label for="DepartmentId">Department Id</label>
             <input type="text" name="DepartmentId" #DepartmentId="ngModel"
@@ -27,6 +28,7 @@
             </div>
 
             <!--StaffId-->
+            <br>
             <div class="form-group">
                 <label for="StaffId">Staff Id</label>
                 <input type="text" name="StaffId" #StaffId="ngModel"
@@ -39,6 +41,7 @@
                 </div>
 
                 <!--Isactive-->
+                <br>
                 <div class="form-group">
                     <label for="Isactive">Is active</label>
                     <input type="checkbox" name="Isactive" #Isactive="ngModel"

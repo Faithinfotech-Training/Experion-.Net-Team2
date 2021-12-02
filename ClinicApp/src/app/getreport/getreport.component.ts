@@ -11,6 +11,7 @@ import { LabreportService } from '../shared/labreport.service';
 })
 export class GetreportComponent implements OnInit {
 
+  page: number=1;
   
 
   constructor(public labService: LabreportService, private router: Router,
@@ -39,9 +40,17 @@ export class GetreportComponent implements OnInit {
       console.log(this.labService.getReports);
        
     }
+
+    
     
     
    
+  }
+
+  populateForm(emp: Labreport)
+  {
+    console.log(emp);
+    this.labService.formLab=emp;
   }
 
 
@@ -54,3 +63,5 @@ export class GetreportComponent implements OnInit {
   
 
 }
+
+

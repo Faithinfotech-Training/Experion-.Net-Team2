@@ -12,7 +12,7 @@ import { TestdetailsService } from '../shared/testdetails.service';
 })
 export class TestdetailsComponent implements OnInit {
 
-  constructor(public testService: TestService, public testDetailService: TestdetailsService, private router: Router,
+  constructor( public testDetailService: TestdetailsService, private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,16 +24,34 @@ export class TestdetailsComponent implements OnInit {
     //get the test no
     let addId = this.testDetailService.formLabT.TestNo;
 
+    if (addId == 0 || addId == null) {
+      //INSERT
+      this.insertTestDetail(labForm);
+    }
+    else {
+      //UPDATE
+      this.updateTestDetail(labForm);
+    }
     //get all test details
     this.testDetailService.bindListTestDetail();
 
-      //UPDATE
-      this.updateTestDetail(labForm);
+      
   
 
   }
   
   
+  //INSERT
+  insertTestDetail(labForm?: NgForm) {
+    console.log("Inserting a test detail...");
+    //call the service
+    this.testDetailService.insertTestDetail(labForm.value).subscribe(
+      (result) => {
+        console.log(result);
+        //at time of submit we need to call this method so go to onSubmit
+      }
+    );
+  }
 
 
   //UPDATE

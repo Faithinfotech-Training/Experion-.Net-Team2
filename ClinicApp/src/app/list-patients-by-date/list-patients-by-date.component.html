@@ -1,62 +1,80 @@
-<div class="container">    
-    <div class="header">
-        <h5 style="text-align: center;">PATIENT LIST</h5>
-        <br>
-        <div class="container">
-            <div class="form-group">
-                <input class="form-control" type="text" 
-                placeholder="Search"
-                [(ngModel)] = "filter"/>
-            </div>
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    
+</script>
+
+<div class="header">
+    <h5 style="text-align: center;"> <b style="font-weight: bolder;">APPOINTMENTS FOR THE DAY</b></h5>
+    <br>
+    <div class="container">
+        <div class="form-group">
+            <input class="form-control" type="text" 
+            placeholder="Search"
+            [(ngModel)] = "filter"/>
         </div>
-        <br>
-    </div> 
+    </div>
+    <br>
+</div> 
     
     <div class="container">
-    <table class="table table-hover">        
-        <thead>            
-            <tr class="table-dark">
-                <th>#</th>
-                <th>Time</th>
-                <th>Name</th>
-                <th>Born On</th>
-                <th>Actions</th>        
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of doctorHelperService.appointmentList | filter : filter | 
-            paginate: {itemsPerPage: 5,currentPage: page}">
+        <table class="table table-hover text-center table-bordered">        
+            <thead>            
+                <tr class="table-dark">
+                    <th scope="col">#</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Born On</th>
+                    <th scope="col">Actions</th>
+                </tr>        
+            </thead>
 
-                <td (click) = "populateForm(item)">  {{item.AppointmentNo}}  </td>
-                <td (click) = "populateForm(item)">  {{item.AppointmentTime }}  </td>
-                <td (click) = "populateForm(item)">  {{item.PatientName}}  </td>
-                <td (click) = "populateForm(item)">  {{item.DateOfBirth | date:'mediumDate'}}  </td>
+            <tbody>
+                <tr *ngFor="let item of doctorHelperService.appointmentList | filter : filter | 
+                    paginate: {itemsPerPage: 5,currentPage: page}">
+                    <td (click) = "populateForm(item)">  {{item.AppointmentNo}}  </td>
+                    <td (click) = "populateForm(item)">  {{item.AppointmentTime}}  </td>
+                    <td (click) = "populateForm(item)">  {{item.PatientName}}  </td>
+                    <td (click) = "populateForm(item)">  {{item.DateOfBirth | date:'mediumDate'}}  </td>
+                    <td>
+                        
+                            <button title="Add prescription" type="button" class="btn btn-outline-success" (click) = "addPrescription(item)">        
+                                <i class="fas fa-prescription"></i>                                                                   
+                            </button>                            
+                            
+                            &nbsp;
 
-                <td >
-                    <div class="row align-self-end">
-                        <div class="col">
-                            <button class="btn btn-rounded btn-sm btn-primary"  (click) = "addPrescription(item)"> Add Prescription </button>
-                        </div> 
-                        <div class="col">
-                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "renderPrescriptionHistory(item)"> Prescription History </button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "renderLabHistory(item)"> Lab Test History </button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-rounded btn-block btn-sm btn-primary"  (click) = "populateForm(item)"> Edit Appointment</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-rounded btn-block btn-sm btn-primary" (click) = "deleteItem(item)"> Delete  Appointment</button>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                            <button title="View prescription history" type="button" class="btn btn-outline-success" (click) = "renderPrescriptionHistory(item)">        
+                                <i class="fas fa-capsules"></i>        
+                            </button>
+                            &nbsp;
+
+                            <button title="View lab history" type="button" class="btn btn-outline-success" (click) = "renderLabHistory(item)">        
+                                <i class="fas fa-vial"></i>     
+                            </button>
+                            &nbsp;
+
+                            <button hidden invisible title="Edit appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
+                                <!-- Edit appointment for doctor  -->       
+                                <i class="far fa-calendar-check"></i>      
+                            </button>
+                            &nbsp;
+
+                            <button hidden invisible title="Delete appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
+                                <!-- Delete appointment for doctor  -->       
+                                <i class="fas fa-trash"></i>      
+                            </button>
+                            &nbsp;
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <div class="paginate" style="text-align: center;">
         <pagination-controls class="paginate" (pageChange)="page=($event)"></pagination-controls>
     </div>
 
-</div>
+    
