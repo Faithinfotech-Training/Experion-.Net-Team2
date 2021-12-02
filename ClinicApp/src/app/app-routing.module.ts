@@ -61,7 +61,7 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'testdetails', component: TestdetailsComponent },
   { path: 'viewtestdetails', component: ViewtestdetailsComponent },
-  { path: 'getreportlab', component: GetreportComponent },
+  { path: 'getreportlab', component: GetreportComponent }, // get repory by id
   { path: 'patientregister', component: PatientRegisterHComponent },
   { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'login', component: LoginComponent },  
