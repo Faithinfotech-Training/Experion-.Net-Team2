@@ -17,11 +17,31 @@ namespace CMSAPI.Repository
       db = _db;
     }
 
+        public async Task<int> AddTestDetail(Testdetails test)
+        {
+            if (db != null)
+            {
+                await db.Testdetails.AddAsync(test);
+                await db.SaveChangesAsync();
+                return test.TestNo;
+            }
+            return 0;
+        }
+
         public async Task<List<Testdetails>> GetLabTestDetails()
         {
             if (db != null)
             {
                 return await db.Testdetails.ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<List<Testdetails>> GetTestDetailById(int testid)
+        {
+            if (db != null)
+            {
+                return await db.Testdetails.Where(x => x.TestNo == testid).ToListAsync();
             }
             return null;
         }

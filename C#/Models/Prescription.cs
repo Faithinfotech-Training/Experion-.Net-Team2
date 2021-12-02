@@ -18,6 +18,7 @@ namespace CMSAPI.Models
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
         public double? TotalCost { get; set; }
+        public bool? Billed { get; set; }
 
         public virtual Doctor Doctor { get; set; }
         public virtual Patient Patient { get; set; }

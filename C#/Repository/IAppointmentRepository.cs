@@ -13,6 +13,7 @@ namespace CMSAPI.Repository
     Task<int> AddAppointment(Appointment app);
     Task UpdateAppointment(Appointment app);
     Task<Appointment> DeleteAppointment(int id);
+    Task<Appointment> GetAppointmentById(int id);
     Task<List<AppointmentList>> GetAppointmentByDoctorIdAndDate(int id, DateTime date);
   }
 }

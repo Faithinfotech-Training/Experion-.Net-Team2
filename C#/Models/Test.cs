@@ -14,8 +14,10 @@ namespace CMSAPI.Models
         public int? ReportNo { get; set; }
         public bool? Isactive { get; set; }
         public int Result { get; set; }
+        public int? TestListNo { get; set; }
 
         public virtual Labreport ReportNoNavigation { get; set; }
+        public virtual Testlist TestListNoNavigation { get; set; }
         public virtual Testdetails TestNoNavigation { get; set; }
     }
 }
