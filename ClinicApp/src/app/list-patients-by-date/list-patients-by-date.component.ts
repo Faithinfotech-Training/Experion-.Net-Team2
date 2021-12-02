@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import {DoctorHelperService} from '../shared/doctor-helper.service';
 import { AppointmentList } from '../shared/AppointmentList'
 import { PatientLabHistory } from '../shared/PatientLabHistory'; 
-import sp from 'synchronized-promise'
+//import sp from 'synchronized-promise'
 
 
 @Component({
@@ -21,7 +21,7 @@ export class ListPatientsByDateComponent implements OnInit {
   filter : string;
 
 
-  constructor(public doctorHelperService : DoctorHelperService,              
+  constructor(public doctorHelperService : DoctorHelperService,          
               private router: Router) { }
 
   ngOnInit(): void {

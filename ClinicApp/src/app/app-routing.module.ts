@@ -39,6 +39,7 @@ import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-d
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 
 const routes: Routes = [
 
@@ -78,11 +79,20 @@ const routes: Routes = [
   { path: 'doctorlist', component: DoctorListComponent },
   { path: 'doctorviewlabreportbydate', component: DoctorViewLabreportByDateComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'doctorviewlabreportbyid', component: DoctorViewLabreportByIdComponent, canActivate: [AuthGuard], data: { role: '4' } },
+  { path: 'doctorViewAppointmentForm', component: DoctorViewAppointmentsForDayFormComponent },
+  { path: 'doctorListPatientsByDate', component: ListPatientsByDateComponent },
+  { path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent },
+  { path: 'patientLabHistory', component: PatientLabHistoryComponent },
+  { path: 'addPrescription', component: AddPrescriptionComponent },
+  { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard], data: { role: '2' } },
+  { path: 'appointmentlist', component: AppointmentListComponent },
+  { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'appointment', component: AppointmentComponent },
   { path: 'appointmentlist', component: AppointmentListComponent }, 
   { path: 'addLogin', component: AddLoginComponent},
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }},  
-  {path: 'doctor', component: DoctorComponent}
+  {path: 'doctor', component: DoctorComponent},
+  {path:'appointmentByDate', component:AppointmentByDateComponent}
   ];
 
 @NgModule({

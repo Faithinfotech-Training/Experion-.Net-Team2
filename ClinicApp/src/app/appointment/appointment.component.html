@@ -1,14 +1,14 @@
 <p>appointment works!</p>
 <form name="appointmentform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)">
-    <!--appointment No-->
+    <!--appointmentNo-->
     <input type="" name="AppointmentNo" [ngModel]="frontOfficeService.formData.AppointmentNo" />
 
-    <!--Appointment Date-->
+    <!--AppointmentDate-->
     <div class="form-group">
-        <label>Appointment Date</label>
+        <label>AppointmentDate</label>
         <input type="date" name="AppointmentDate" #AppointmentDate="ngModel"
-            [(ngModel)]="frontOfficeService.formData.AppointmentDate" class="form-control" required 
-            [ngClass]="{ 'is-invalid': AppointmentDate.touched && AppointmentDate.invalid }" />
+            [(ngModel)]="frontOfficeService.formData.AppointmentDate" class="form-control" required [ngClass]="{ 'is-invalid': AppointmentDate.touched
+         && AppointmentDate.invalid }" />
         <div class="validation-error" *ngIf="AppointmentDate.touched 
         && AppointmentDate.invalid">
             <div *ngIf="AppointmentDate.errors.required">
@@ -28,12 +28,11 @@
                 Appointment Time is required</div>
         </div>
     </div>
-
     <!--Amount-->
     <div class="gorm-group">
         <label>Amount</label>
         <input type="number" name="Amount" #Amount="ngModel" [(ngModel)]="frontOfficeService.formData.Amount"
-            class="form-control" placeholder="Enter amount" minlength="1" maxlength="5" required 
+            class="form-control" placeholder="Enter amount" minlength="1" maxlength="5" required
             [ngClass]="{'is-invalid':Amount.touched && Amount.invalid}" />
         <div class="validation-error" *ngIf="Amount.touched && Amount.invalid">
             <div *ngIf="Amount.errors.required">
@@ -42,29 +41,36 @@
         </div>
     </div>
 
-    <!--Patient-->
+    <!--Patient dropdown-->
     <div class="form-group">
-
-        <label>Patient Id</label>
-        <input name="PatientId" #PatientId="ngModel" [ngModel]="frontOfficeService.formData.PatientId" class="form-control"
-            placeholder="Enter patient id" minlength="1" maxlength="10" required
-            [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}" />
-        <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+        <label class="col-md-4">Patient</label>
+        <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+            [(ngModel)]="frontOfficeService.formData.PatientId">
+            <option value=0 disabled>Choose Patient</option>
+            <option *ngFor="let patient of frontOfficeService.patients" value="{{patient.PatientId}}">
+                {{patient.PatientName}}
+            </option>
+        </select>
+        <div class="validation-error" *ngIf="PatientId.touched 
+        && PatientId.invalid">
             <div *ngIf="PatientId.errors.required">
-                Patient Id is required</div>
+                Patient is required</div>
         </div>
     </div>
 
-    <!--Doctor-->
+    <!--Doctor dropdown-->
     <div class="form-group">
-
-        <label>Doctor Id</label>
-        <input name="DoctorId" #DoctorId="ngModel" [ngModel]="frontOfficeService.formData.DoctorId" class="form-control"
-            placeholder="Enter Doctor Id" minlength="1" maxlength="10" required
-            [ngClass]="{'is-invalid':DoctorId.touched && DoctorId.invalid}" />
-        <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+        <label class="col-md-4">Doctor</label>
+        <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
+            [(ngModel)]="frontOfficeService.formData.DoctorId">
+            <option value=0 disabled>Choose Doctor</option>
+            <option *ngFor="let doctor of frontOfficeService.doctors" value="{{doctor.DoctorId}}">{{doctor.StaffName}}
+            </option>
+        </select>
+        <div class="validation-error" *ngIf="DoctorId.touched 
+        && DoctorId.invalid">
             <div *ngIf="DoctorId.errors.required">
-                Doctor Id is required</div>
+                Doctor is required</div>
         </div>
     </div>
 
@@ -73,14 +79,20 @@
     <div class="form-group">
         <div class="form-check">
             <label class="form-check-label">Is Active</label>
-            <input type="checkbox" name="IsActive" id="isActive" #IsAcive="ngModel"
+            <input type="checkbox" name="Isactive" id="Isactive" #Isactive="ngModel"
                 [(ngModel)]="frontOfficeService.formData.Isactive" class="form-check-input">
         </div>
     </div>
 
     <!--Submit Button-->
-    <div class="form-group">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
         <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control">Submit</button>
+            class="btn btn-lg btn-success me-md-2">Submit</button>
+            <!--Appointment Button-->
+    </div>
+    <!--Appointment Button-->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-right:80%;">
+        <button type="submit" class="btn btn-md btn-secondary me-md-2" (click)="view()">View Appointments</button>
     </div>
 </form>
