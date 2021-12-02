@@ -33,6 +33,7 @@ namespace CMSAPI.Models
         public virtual DbSet<Testdetails> Testdetails { get; set; }
         public virtual DbSet<Testlist> Testlist { get; set; }
 
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -41,6 +42,7 @@ namespace CMSAPI.Models
                 optionsBuilder.UseSqlServer("Data Source=JYOTHISHA\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
             }
         }
+        */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

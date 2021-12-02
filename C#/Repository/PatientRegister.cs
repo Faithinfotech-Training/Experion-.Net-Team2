@@ -17,7 +17,7 @@ namespace CMSAPI.Repository
             db = _db;
         }
 
-
+        #region Get All Patients
         public async Task<List<Patient>> GetAllPatients()
         {
             if (db != null)
@@ -26,8 +26,20 @@ namespace CMSAPI.Repository
             }
             return null;
         }
+        #endregion
 
+        #region Get Patient By Id
+        public async Task<List<Patient>> GetPatientById(int patientId)
+        {
+            if (db != null)
+            {
+                return await db.Patient.Where(x => x.PatientId == patientId).ToListAsync();
+            }
+            return null;
+        }
+        #endregion
 
+        #region Add Patient
         public async Task<int> AddPatient(Patient app)
         {
             if (db != null)
@@ -39,6 +51,22 @@ namespace CMSAPI.Repository
             return 0;
         }
 
-        
+
+
+
+        #endregion
+
+        #region Update Patient
+        public async Task UpdatePatient(Patient patient)
+        {
+            if (db != null)
+            {
+                db.Patient.Update(patient);
+                await db.SaveChangesAsync();
+            }
+        }
+        #endregion
+
+
     }
 }

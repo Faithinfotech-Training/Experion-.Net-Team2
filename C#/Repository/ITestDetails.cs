@@ -11,8 +11,15 @@ namespace CMSAPI.Repository
         //get all test details
         Task<List<Testdetails>> GetLabTestDetails();
 
+        //Get test by id
+        Task<List<Testdetails>> GetTestDetailById(int testid);
+
+        //Insert test details
+        Task<int> AddTestDetail(Testdetails test);
+
+
         //update test details
-        //Update technician
+
         Task UpdateTestDetail(Testdetails tests);
   }
 }

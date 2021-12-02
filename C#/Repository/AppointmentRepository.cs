@@ -63,10 +63,35 @@ namespace CMSAPI.Repository
       }
       return null;
     }
-    #endregion
+        #endregion
 
-    #region GetAppointmentByDoctorIdAndDate()
-    public async Task<List<AppointmentList>> GetAppointmentByDoctorIdAndDate(int id, DateTime date)
+        #region GetAppointmentById
+        public async Task<Appointment> GetAppointmentById(int id)
+        {
+            if (db != null)
+            {
+                //LINQ
+                //join post and category
+                return await(from a in db.Appointment
+                             where a.AppointmentNo == id
+                             select new Appointment
+                             {
+                                 AppointmentNo=a.AppointmentNo,
+                                 AppointmentDate=a.AppointmentDate,
+                                 AppointmentTime=a.AppointmentTime,
+                                 Amount=a.Amount,
+                                 PatientId=a.PatientId,
+                                 DoctorId=a.DoctorId,
+                                 Isactive=a.Isactive
+                                 
+                             }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+
+        #region GetAppointmentByDoctorIdAndDate()
+        public async Task<List<AppointmentList>> GetAppointmentByDoctorIdAndDate(int id, DateTime date)
     {
       if (db != null)
       {
@@ -89,7 +114,7 @@ namespace CMSAPI.Repository
       }
       return null;
     }
-    #endregion
+        #endregion
 
-  }
+    }
 }
