@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { doctorViewByDateID } from './doctorViewByDateIDForm';
 import { AppointmentList } from './AppointmentList';
 import { environment } from 'src/environments/environment';
@@ -10,12 +10,18 @@ import { Medicine } from './Medicine';
 import { Prescription } from './Prescription'; 
 import { Prescriptionformedicine } from './PrescriptionForMedicine'; 
 import { Testdetails } from './TestdetailsJ';
+import { Testlist } from './TestListJ';
+import { isObservable, Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+import sp from 'synchronized-promise'
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class DoctorHelperService {
 
+export class DoctorHelperService {
+  
   appointmentList : AppointmentList[];
   currentDoctor : doctorViewByDateID = new doctorViewByDateID();
   prescriptionHistory : PrescriptionHistory[];
@@ -28,15 +34,29 @@ export class DoctorHelperService {
   testDetail : Testdetails = new Testdetails();
   postPrescriptionFlag : boolean ;
 
+  test : boolean;
+  
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+   }
 
-  refreshAppointmentByDocIdDate(doctorId : number, date : any)
+
+
+
+  
+
+  async refreshAppointmentByDocIdDate(doctorId : number, date : any)
   {
     // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
-    this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date)
-    .toPromise().then( response =>       
-      this.appointmentList = response as AppointmentList[] );
+    await this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date)
+    .toPromise().then( (response) =>  
+    { 
+      this.appointmentList = response as AppointmentList[]  
+      console.log("Loaded appointment List"); 
+      this.test = false;
+    }   
+    );
+      //);
   }
 
   patientPrescriptionHistorybyId(patientId : number)
@@ -84,32 +104,46 @@ export class DoctorHelperService {
 
 
 
-  async addPrescription(p  : Prescription)  // :  Observable<any>
+  addPrescription(p  : Prescription)  // :  Observable<any>
   {     
-    p.PrescriptionId = 0; 
     console.log(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p);
     console.log("Inside Prescription");
-    await this.httpClient.post(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p)
+    this.httpClient.post(environment.apiUrl + "/api/DoctorManagePatient/AddPrescription",p)
     .toPromise()
     .then(
       (val) => 
       {
+        console.log('Prescription Added with ID : '+ val);
         sessionStorage.setItem("currentPrescriptionID", val.toString());
       });
   }
 
 
-  async addPrescriptionforMedicine(p  : Prescriptionformedicine)  // :  Observable<any>
+  addPrescriptionforMedicine(p  : Prescriptionformedicine)  // :  Observable<any>
   {      
     //console.log(environment.apiUrl + "/api/DoctorManagePatient/AddPrescriptionForMedicine",p);
     //console.log("Inside Prescription");
-    await this.httpClient
+    this.httpClient
     .post(environment.apiUrl + "/api/DoctorManagePatient/AddPrescriptionForMedicine",p)
     .toPromise()
     .then(
       (val) => 
       {
-        console.log(val); 
+        console.log('Prescription for medicine Added with ID : '+ val); 
+      });
+  }
+
+  addTestList(p  : Testlist)  // :  Observable<any>
+  {      
+    //console.log(environment.apiUrl + "/api/DoctorManagePatient/AddPrescriptionForMedicine",p);
+    //console.log("Inside Prescription");
+    this.httpClient
+    .post(environment.apiUrl + "/api/DoctorManagePatient/AddTestList",p)
+    .toPromise()
+    .then(
+      (val) => 
+      {
+        console.log('Prescription for test list Added with ID : '+ val); 
       });
   }
     

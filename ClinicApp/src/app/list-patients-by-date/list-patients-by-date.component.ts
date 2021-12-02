@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import {DoctorHelperService} from '../shared/doctor-helper.service';
 import { AppointmentList } from '../shared/AppointmentList'
 import { PatientLabHistory } from '../shared/PatientLabHistory'; 
-import { Appointment } from '../shared/appointment';
-import { FrontofficeService } from '../shared/frontoffice.service';
+//import sp from 'synchronized-promise'
+
+
 @Component({
   selector: 'app-list-patients-by-date',
   templateUrl: './list-patients-by-date.component.html',
@@ -14,22 +15,34 @@ import { FrontofficeService } from '../shared/frontoffice.service';
 export class ListPatientsByDateComponent implements OnInit {
 
 
+  
+
   page : number = 1;
   filter : string;
 
 
-  constructor(public doctorHelperService : DoctorHelperService, public frontOfficeService: FrontofficeService,             
+  constructor(public doctorHelperService : DoctorHelperService,          
               private router: Router) { }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
 
+    this.doctorHelperService.test = true;
+    
     this.doctorHelperService.refreshAppointmentByDocIdDate(
       Number(sessionStorage.getItem("DoctorID")),      
-    (sessionStorage.getItem("DateofAppointment")));
+      (sessionStorage.getItem("DateofAppointment")));
+    
+      /*
+    while(this.doctorHelperService.test)
+    {
+      console.log(this.doctorHelperService.test);
+    }
+    */
+    console.log("Back in component");
     
   }
 
-  populateForm(item : Appointment)
+  populateForm(item : AppointmentList)
   {
     //console.log(item);
   }

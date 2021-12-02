@@ -32,16 +32,10 @@ import { LabtechnicianService } from './shared/labtechnician.service';
 import { TestService } from './shared/test.service'; 
 import { TestdetailsService } from './shared/testdetails.service';
 import { PatientRegisterHService } from './shared/patient-register-h.service';
-//import { LabtechnicianComponent } from './labtechnician/labtechnician.component';
-//import { TestComponent } from './test/test.component';
-//import { TestdetailsComponent } from './testdetails/testdetails.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-//import { ViewtestdetailsComponent } from './viewtestdetails/viewtestdetails.component';
 import { GetreportComponent } from './getreport/getreport.component';
 import { PatientRegisterHComponent } from './patient-register-h/patient-register-h.component';
-
-
 import { LabtechnicianComponent } from './labtechnician/labtechnician.component';
 import { TestComponent } from './test/test.component';
 import { TestdetailsComponent } from './testdetails/testdetails.component'
@@ -51,10 +45,8 @@ import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-d
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorComponent } from './doctor/doctor.component';
-
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { AddLoginComponent } from './add-login/add-login.component';
-
 
 @NgModule({
   declarations: [
@@ -98,7 +90,7 @@ import { AddLoginComponent } from './add-login/add-login.component';
     ToastrModule.forRoot(),
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule    
   ],
   
     
