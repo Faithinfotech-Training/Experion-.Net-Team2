@@ -1,8 +1,8 @@
 <h2 style="text-align:center; font-size:200%; font-family: 'Times New Roman', Times, serif;">Patient Registration</h2>
-<div class="col-md-3"  name="PaReg" style="margin: 0 auto;">
+<div class="col-md-5"  name="PaReg" style="margin: 0 auto;">
 
 
-<div class="form" style="justify-content: center;">
+<div class="form" style="justify-content: center; background: linear-gradient(to top, #ffffff, #d0d6e7);">
     <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
 
         <!--PatientId-->
@@ -10,7 +10,7 @@
             <label for="PatientId"></label>
             <input type="hidden" name="PatientId" #PatientId="ngModel" [(ngModel)]="patService.formPatient.PatientId"
                 class="form-control" required [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
-                <!--<span style="color: red;"> Keep Report No as 0 for inserting report</span>-->
+                <!--<span style="color: red;"> Keep Patient Id as 0 for inserting report</span>-->
 
             <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
                 <div *ngIf="PatientId.errors.required">Patient Id is required</div>
@@ -19,6 +19,7 @@
 
 
     <!--PatientName-->
+    
     <div class="form-group">
         <label for="PatientName">Patient Name</label>
         <input type="text" name="PatientName" #PatientName="ngModel" [(ngModel)]="patService.formPatient.PatientName"
@@ -85,9 +86,9 @@
     <!--Submit-->
     <br>
         <br>
-        <div class="form-group">
+        <div class="form-group" style="margin-left:37%;">
             <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)"
-                class="btn btn-lg btn-primary form-control">
+                class="btn btn-lg btn-primary">
                 Submit</button>
         </div>
 

@@ -44,6 +44,10 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-date/doctor-view-labreport-by-date.component';
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { PatientViewByIdHComponent } from './patient-view-by-id-h/patient-view-by-id-h.component';
+import { ViewTestHComponent } from './view-test-h/view-test-h.component';
+import { ViewlabtechnicianhComponent } from './viewlabtechnicianh/viewlabtechnicianh.component';
+import { TechnicianhomepageComponent } from './technicianhomepage/technicianhomepage.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { AddLoginComponent } from './add-login/add-login.component';
@@ -77,6 +81,10 @@ import { AppointmentByDateComponent } from './appointment-by-date/appointment-by
     PatientPrescriptionHistoryComponent,
     PatientLabHistoryComponent,
     AddPrescriptionComponent,
+    PatientViewByIdHComponent,
+    ViewTestHComponent,
+    ViewlabtechnicianhComponent,
+    TechnicianhomepageComponent,
     DoctorComponent,
     AppointmentListComponent,
     AddLoginComponent,

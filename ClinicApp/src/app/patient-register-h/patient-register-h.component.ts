@@ -23,9 +23,20 @@ export class PatientRegisterHComponent implements OnInit {
 
   onSubmit(labForm: NgForm) {
     console.log(labForm.value);
+    let addId = this.patService.formPatient.PatientId;
 
-    this.insertPatient(labForm);
+    if(addId==0 || addId == null)
+    {
+      this.insertPatient(labForm);
+    }
+    else
+    {
+      this.updatePatient(labForm);
+    }
+
+    
   }
+
 
 
   
@@ -43,4 +54,20 @@ export class PatientRegisterHComponent implements OnInit {
 
 
   }
+
+  //UPDATE
+  updatePatient(labForm?: NgForm) {
+    console.log("Updating a test ...");
+    //call the service
+    this.patService.updatePatient(labForm.value).subscribe(
+      (result) => {
+        console.log(result);
+        //at time of submit we need to call this method so go to onSubmit
+      }
+    );
+    window.alert("Patient detail has been updated");
+    window.location.reload();
+    }
+
+
 }

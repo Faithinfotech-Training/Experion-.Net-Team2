@@ -23,9 +23,25 @@ export class PatientRegisterHService {
       );
   }
 
+  GetPatientById(patientId: number) {
+    //console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );
+    this.httpClient.get(environment.apiUrl + "/api/patientregister/getpatient/" + patientId)
+      .toPromise().then(response =>
+        this.getPatients = response as PatientRegisterH[]
+
+      );
+
+  }
+
 //Insert method for patients
 insertPatient(patient: PatientRegisterH): Observable<any> {
   return this.httpClient.post(environment.apiUrl + "/api/patientregister", patient);
+
+}
+
+//Update method for labreport
+updatePatient(patient: PatientRegisterH): Observable<any> {
+  return this.httpClient.put(environment.apiUrl + "/api/patientregister/updatepatient", patient);
 }
 
 }

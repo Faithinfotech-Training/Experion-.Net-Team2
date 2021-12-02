@@ -22,12 +22,26 @@ export class TestService {
 
   //Get all Test
   bindListTest() {
-    this.httpClient.get(environment.apiUrl + "/api/test/gettest")
+    this.httpClient.get(environment.apiUrl + "/api/test/gettests")
       .toPromise().then(response =>
         this.test = response as Test[]
       );
   }
 
+  //get test by id
+  GetTestById(testid: number) {
+
+    //console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );
+
+    this.httpClient.get(environment.apiUrl + "/api/test/gettest/" + testid)
+
+      .toPromise().then(response =>
+
+        this.test = response as Test[]
+
+      );
+
+  }
  //Update
   updateTest(test: Test): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "/api/test/updatest", test);

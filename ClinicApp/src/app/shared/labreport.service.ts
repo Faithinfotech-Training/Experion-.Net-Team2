@@ -21,11 +21,9 @@ export class LabreportService {
         this.getReports = response as Labreport[]
       );
   }
-  //Get a particular report
-  //getReport(repNo: number): Observable<any> {
-  //return this.httpClient.get(environment.apiUrl + "/api/labreport/getreport/" + repNo);
-  //}
 
+  
+  //Get a particular report
   GetReportById(patientId: number) {
 
     //console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );

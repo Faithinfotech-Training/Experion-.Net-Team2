@@ -29,6 +29,14 @@ import { ViewtestdetailsComponent } from './viewtestdetails/viewtestdetails.comp
 import { DoctorViewLabreportByDateComponent } from './doctor-view-labreport-by-date/doctor-view-labreport-by-date.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorViewLabreportByIdComponent } from './doctor-view-labreport-by-id/doctor-view-labreport-by-id.component';
+import { PatientViewByIdHComponent } from './patient-view-by-id-h/patient-view-by-id-h.component';
+import { ViewTestHComponent } from './view-test-h/view-test-h.component';
+import { ViewlabtechnicianhComponent } from './viewlabtechnicianh/viewlabtechnicianh.component';
+import { TechnicianhomepageComponent } from './technicianhomepage/technicianhomepage.component';
+
+
+
+
 import { DoctorComponent } from './doctor/doctor.component';
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 
@@ -63,6 +71,18 @@ const routes: Routes = [
   { path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'addLogin', component: AddLoginComponent},
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }},  
+  {path:'doctorViewAppointmentForm', component:DoctorViewAppointmentsForDayFormComponent},
+  {path: 'doctorListPatientsByDate', component:ListPatientsByDateComponent},
+  {path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent},
+  {path: 'patientLabHistory', component: PatientLabHistoryComponent},
+  {path: 'addPrescription', component: AddPrescriptionComponent},
+  {path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent},
+
+  
+  {path: 'getpatient', component: PatientViewByIdHComponent},
+  {path: 'viewtest', component: ViewTestHComponent},
+  {path: 'viewtechnician', component: ViewlabtechnicianhComponent},
+  {path: 'technicianhome', component: TechnicianhomepageComponent},
   {path: 'doctor', component: DoctorComponent},
   {path:'appointmentByDate', component:AppointmentByDateComponent}
   ];
@@ -72,4 +92,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
+ 
