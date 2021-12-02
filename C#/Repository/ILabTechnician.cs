@@ -11,11 +11,11 @@ namespace CMSAPI.Repository
     //Get all technicians
     Task<List<Labtechnician>> GetLabTechnician();
 
-    //Get technician by Id
-    Task<Labtechnician> GetTechnicianById(int ReportNo);
+        //Get technician by Id
+        Task<List<Labtechnician>> GetLabTechnicianById(int technicianid);
 
-    //Add technician
-    Task<int> AddLabTechnician(Labtechnician technician);
+        //Add technician
+        Task<int> AddLabTechnician(Labtechnician technician);
 
     //Update technician
     Task UpdateTechnician(Labtechnician technician);

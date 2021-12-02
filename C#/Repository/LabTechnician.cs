@@ -43,15 +43,15 @@ namespace CMSAPI.Repository
     #endregion
 
     #region Get Technician By Id
-    public async Task<Labtechnician> GetTechnicianById(int TechnicianId)
-    {
-      if (db != null)
-      {
-        return await db.Labtechnician.FirstOrDefaultAsync();
-      }
-      return null;
+    public async Task<List<Labtechnician>> GetLabTechnicianById(int technicianid)
+        {
+            if (db != null)
+            {
+                return await db.Labtechnician.Where(x => x.LabtechnicianId == technicianid).ToListAsync();
+            }
+            return null;
 
-    }
+        }
     #endregion
 
     #region Update Technician

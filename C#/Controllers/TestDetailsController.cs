@@ -47,6 +47,60 @@ namespace CMSAPI.Controllers
         }
         #endregion
 
+        //Get Test Detail By Id
+        #region Get Test Detail By Id
+        [HttpGet]
+        [Route("Gettestdetail/{id}")]
+        public async Task<IActionResult> GetTestById(int id)
+        {
+            try
+            {
+                var report = await test.GetTestDetailById(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+        //Add test detail
+        #region Add test Detail
+        [HttpPost]
+        [Route("AddTestDetail")]
+
+        public async Task<IActionResult> AddTest([FromBody] Testdetails tests, int testids)
+        {
+            //check validation of the body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var testid = await test.AddTestDetail(tests);
+                    if (testid > 0)
+                    {
+                        return Ok(testid);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
+
+
         //Update test details
         #region update a test detail
 
