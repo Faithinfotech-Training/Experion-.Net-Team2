@@ -32,16 +32,10 @@ import { LabtechnicianService } from './shared/labtechnician.service';
 import { TestService } from './shared/test.service'; 
 import { TestdetailsService } from './shared/testdetails.service';
 import { PatientRegisterHService } from './shared/patient-register-h.service';
-//import { LabtechnicianComponent } from './labtechnician/labtechnician.component';
-//import { TestComponent } from './test/test.component';
-//import { TestdetailsComponent } from './testdetails/testdetails.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-//import { ViewtestdetailsComponent } from './viewtestdetails/viewtestdetails.component';
 import { GetreportComponent } from './getreport/getreport.component';
 import { PatientRegisterHComponent } from './patient-register-h/patient-register-h.component';
-
-
 import { LabtechnicianComponent } from './labtechnician/labtechnician.component';
 import { TestComponent } from './test/test.component';
 import { TestdetailsComponent } from './testdetails/testdetails.component'
@@ -54,6 +48,10 @@ import { PatientViewByIdHComponent } from './patient-view-by-id-h/patient-view-b
 import { ViewTestHComponent } from './view-test-h/view-test-h.component';
 import { ViewlabtechnicianhComponent } from './viewlabtechnicianh/viewlabtechnicianh.component';
 import { TechnicianhomepageComponent } from './technicianhomepage/technicianhomepage.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { AddLoginComponent } from './add-login/add-login.component';
+import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +84,11 @@ import { TechnicianhomepageComponent } from './technicianhomepage/technicianhome
     PatientViewByIdHComponent,
     ViewTestHComponent,
     ViewlabtechnicianhComponent,
-    TechnicianhomepageComponent
+    TechnicianhomepageComponent,
+    DoctorComponent,
+    AppointmentListComponent,
+    AddLoginComponent,
+    AppointmentByDateComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,7 @@ import { TechnicianhomepageComponent } from './technicianhomepage/technicianhome
     ToastrModule.forRoot(),
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule    
   ],
   
     

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Staff } from 'src/app/shared/staff';
-import { StaffService} from 'src/app/shared/staff.service'
+import { StaffService} from 'src/app/shared/staff.service';
 
 @Component({
   selector: 'app-staff',
@@ -25,7 +25,8 @@ export class StaffComponent implements OnInit {
     this.staffId=this.route.snapshot.params['staffId'];
 
     if(this.staffId!=0 || this.staffId!=null){
-      console.log(this.staffId);
+      //console.log(this.staffId);
+      console.log("Hi");
       //getStaff
       this.staffService.getStaff(this.staffId).subscribe(
         data=>{
@@ -61,6 +62,7 @@ export class StaffComponent implements OnInit {
       console.log("Updating record...");
       this.updateStaffRecord(form)
     }
+    this.router.navigate(['/addLogin']);
   }
 
   //clear all contents at initialization
@@ -76,12 +78,14 @@ export class StaffComponent implements OnInit {
     this.staffService.insertStaff(form.value).subscribe(
       (result) => {
         console.log(result);
+        //console.log(this.staffService.formData.StaffId);
+        sessionStorage.setItem("StaffId",result.toString());
         this.resetForm(form);
         //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
       }
     );
-    window.alert("Staff record has been inserted")
-    window.location.reload();
+    window.alert("Staff record has been inserted");
+    //window.location.reload();
   }
 
   //Update
@@ -95,7 +99,11 @@ export class StaffComponent implements OnInit {
         //this.toastrService.success('Staff record has been updated', 'StaffApp v2021');
       }
     );
-    window.alert("Staff record has been updated")
-    window.location.reload();
+    window.alert("Staff record has been updated");
+    //window.location.reload();
+  }
+  //Back to admin page
+  back(){
+    this.router.navigate(['/admin']);
   }
 }
