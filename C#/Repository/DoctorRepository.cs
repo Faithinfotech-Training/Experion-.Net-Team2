@@ -60,13 +60,13 @@ namespace CMSAPI.Repository
     public async Task<Doctor> GetDoctorById(int Id)
     {
 
-      var p = db.Doctor.FirstOrDefault(em => em.DoctorId == Id);
+      var p = db.Doctor.FirstOrDefault(em => em.StaffId == Id);
 
-      if (p.Isactive==true)
-      {
+     // if (p.Isactive==true)
+      
         return p;
-      }
-       return null;
+      
+      // return null;
     }
 
     #endregion
