@@ -37,6 +37,8 @@ namespace CMSAPI.Repository
 
     Task<List<Medicine>> getAllMedicine();
 
+    Task<int> AddTestList(Testlist t);
+
 
 
 
