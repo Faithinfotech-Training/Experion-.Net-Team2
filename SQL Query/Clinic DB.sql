@@ -314,6 +314,19 @@ NOTES varchar(100));
 
 select * from PRESCRIPTION;
 
+alter table prescription
+add billed bit default 0;
+
+
+alter table test
+add testlistreference int foreign key references testlist(id);
+
+
+alter table testlist
+add IsDone bit default 0;
+
+alter table test
+add TEST_LIST_NO int foreign key references TESTLIST(ID);
 
 
 
