@@ -60,6 +60,10 @@ export class LoginComponent implements OnInit {
           console.log(this.jwtResponse.rId);
 
           if(this.jwtResponse.rId===1){
+
+            this.authService.userPresent = true;
+            sessionStorage.setItem("userPresent", 'true');
+
             //logged as Admin
             console.log("Admin");
             localStorage.setItem("UserName",this.jwtResponse.Username);
@@ -69,6 +73,11 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('/admin');
 
           }else if(this.jwtResponse.rId===2){
+
+            this.authService.userPresent = true;
+            sessionStorage.setItem("userPresent", 'true');
+
+
             console.log("FrontOffice");
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
@@ -76,6 +85,11 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('/frontoffice');
 
           }else if (this.jwtResponse.rId === 3) {
+
+            this.authService.userPresent = true;
+            sessionStorage.setItem("userPresent", 'true');
+
+
             console.log("LabTechnician");
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
@@ -83,7 +97,13 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('/login');
 
           }else if (this.jwtResponse.rId === 4) {
+
+            this.authService.userPresent = true;
+            sessionStorage.setItem("userPresent", 'true');
+
+            
             console.log("Doctor");
+            sessionStorage.setItem("DoctorId", this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);

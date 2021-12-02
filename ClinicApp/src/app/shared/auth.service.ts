@@ -10,6 +10,8 @@ import { Login } from './login';
 })
 export class AuthService {
 
+  userPresent : boolean = false;
+
   constructor(private httpClient:HttpClient,private router:Router) { }
   getUserByPassword(user:Login):Observable<any>{
     console.log(user.Username);
@@ -31,10 +33,13 @@ export class AuthService {
   }
 
   public logOut()
-  {
+  {    
     localStorage.removeItem('username');
     localStorage.removeItem("ACCESS_ROLE");
     sessionStorage.removeItem("username");
     sessionStorage.removeItem('jwtToken');
+    localStorage.clear();
+    sessionStorage.clear();
+    this.userPresent = false;
   }
 }

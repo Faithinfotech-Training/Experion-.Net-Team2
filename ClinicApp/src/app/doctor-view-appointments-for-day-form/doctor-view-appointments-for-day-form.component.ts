@@ -10,10 +10,13 @@ import {DoctorHelperService} from '../shared/doctor-helper.service';
 })
 export class DoctorViewAppointmentsForDayFormComponent implements OnInit {
 
+  loggedUserName: string;
+
   constructor(public doctorHelperService : DoctorHelperService,
               public router: Router) { }
 
   ngOnInit(): void {
+    this.loggedUserName = localStorage.getItem("UserName")
   }
 
   readForm(form : NgForm)
