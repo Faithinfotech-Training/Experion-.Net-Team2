@@ -330,6 +330,21 @@ NOTES varchar(100));
 
 select * from PRESCRIPTION;
 
+alter table prescription
+add billed bit default 0;
+
+
+alter table test
+add testlistreference int foreign key references testlist(id);
+
+
+alter table testlist
+add IsDone bit default 0;
+
+alter table test
+add TEST_LIST_NO int foreign key references TESTLIST(ID);
+
+select * from testlist;
 
   Select A.APPOINTMENT_NO, A.APPOINTMENT_DATE, A.APPOINTMENT_TIME,S.STAFF_NAME,P.PATIENT_NAME
   FROM APPOINTMENT A JOIN DOCTOR D ON (A.DOCTOR_ID=D.DOCTOR_ID) JOIN STAFF S ON(S.STAFF_ID=D.STAFF_ID)
@@ -342,6 +357,8 @@ select * from PRESCRIPTION;
   Select * from LOGIN;
   Select * from ROLES;
   Select * from DEPARTMENT;
+  Select * from LABTECHNICIAN;
+
 
   insert INTO DOCTOR VALUES
   (1,4,3),
@@ -352,5 +369,15 @@ select * from PRESCRIPTION;
   ('2021-11-12','11:00',200,3,1,1),
   ('2021-11-13','9:00',200,4,2,1)
 
-  DELETE FROM APPOINTMENT WHERE APPOINTMENT_NO=14;
+  DELETE FROM STAFF WHERE STAFF_ID=73;
   Select * from APPOINTMENT;
+
+SELECT p.PRESCRIPTION_ID, p.PRESCRIPTION_DATE, p.DOCTOR_NOTES, 
+tl.NOTES,tl.ID, s.STAFF_NAME, dept.DEPARTMENT_NAME FROM PRESCRIPTION AS p, TESTLIST as tl, 
+DOCTOR as d, STAFF as s, DEPARTMENT as dept
+WHERE
+p.PRESCRIPTION_ID=tl.PRESCRIPTION_ID AND p.PATIENT_ID=1 AND p.DOCTOR_ID=d.DOCTOR_ID 
+AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
+
+
+
