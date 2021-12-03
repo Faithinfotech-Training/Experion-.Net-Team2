@@ -121,11 +121,34 @@ namespace CMSAPI.Controllers
       }
       return BadRequest();
     }
-    #endregion
+        #endregion
 
 
-    //Delete a technician
-    #region Delete a technician
-    #endregion
-  }
+        //Delete a technician
+        #region Delete a technician
+        #endregion
+
+
+        //Get custom technician by iD-custom model
+        [HttpGet]
+        [Route("Gettechniciancustom/{id}")]
+
+        public async Task<IActionResult> GetTechnicianByIdC(int id)
+        {
+            try
+            {
+                var p = await labtech.GetCustomLabTechnician(id);
+
+                if (p == null)
+                {
+                    return NotFound();
+                }
+                return Ok(p);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+    }
 }

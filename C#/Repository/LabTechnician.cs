@@ -1,4 +1,5 @@
 using CMSAPI.Models;
+using CMSAPI.View_Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -29,10 +30,12 @@ namespace CMSAPI.Repository
       }
       return 0;
     }
-    #endregion
 
-    #region Get All technician
-    public async Task<List<Labtechnician>> GetLabTechnician()
+        
+        #endregion
+
+        #region Get All technician
+        public async Task<List<Labtechnician>> GetLabTechnician()
     {
       if (db != null)
       {
@@ -63,7 +66,43 @@ namespace CMSAPI.Repository
         await db.SaveChangesAsync();
       }
     }
-    #endregion
-  }
+        #endregion
+
+        #region Get Custom Technician Data
+        public async Task<List<TechnicianViewModel>> GetCustomLabTechnician(int id)
+        {
+            if (db != null)
+            {
+                //PRESCRIPTION AS p, TESTLIST as tl, 
+                // DOCTOR as d, STAFF as s, DEPARTMENT as dept
+
+                /*
+                 * p.PRESCRIPTION_ID=tl.PRESCRIPTION_ID AND p.PATIENT_ID=1 AND p.DOCTOR_ID=d.DOCTOR_ID 
+AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
+
+                 */
+
+                return await(from l in db.Labtechnician
+                             from d in db.Department
+                             from s in db.Staff
+
+                             where l.LabtechnicianId == id &&
+                             l.StaffId == s.StaffId &&
+                             l.DepartmentId == d.DepartmentId
+
+                             select new TechnicianViewModel
+                             {
+                                LabtechnicianId=l.LabtechnicianId,
+                                StaffName=s.StaffName,
+                                DepartmentName=d.DepartmentName,
+                                Isactive=l.Isactive
+                             }).ToListAsync();
+            }
+            return null;
+        }
+        #endregion
+
+
+    }
 }
 
