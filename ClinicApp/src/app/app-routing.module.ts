@@ -45,6 +45,9 @@ import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
+import { TestListViewModel } from './shared/testlisth';
+import { TestlistTOneComponent } from './testlist-tone/testlist-tone.component';
+
 
 const routes: Routes = [
 
@@ -95,7 +98,9 @@ const routes: Routes = [
   {path: 'viewtechnician', component: ViewlabtechnicianhComponent},
   {path: 'technicianhome', component: TechnicianhomepageComponent},
   {path: 'doctor', component: DoctorComponent},
-  {path:'appointmentByDate', component:AppointmentByDateComponent}
+  {path:'appointmentByDate', component:AppointmentByDateComponent},
+  {path:'testlistTOne', component:TestlistTOneComponent}
+  
   ];
 
 @NgModule({

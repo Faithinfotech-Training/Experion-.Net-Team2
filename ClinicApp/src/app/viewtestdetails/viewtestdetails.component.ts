@@ -12,6 +12,7 @@ import { Testdetails } from '../shared/TestdetailsJ';
 })
 export class ViewtestdetailsComponent implements OnInit {
 
+  
   //assign default page
   page: number = 1;
   filter: string;
