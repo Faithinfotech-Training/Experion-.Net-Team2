@@ -33,7 +33,6 @@ namespace CMSAPI.Models
         public virtual DbSet<Testdetails> Testdetails { get; set; }
         public virtual DbSet<Testlist> Testlist { get; set; }
 
-        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -42,7 +41,6 @@ namespace CMSAPI.Models
                 optionsBuilder.UseSqlServer("Data Source=JYOTHISHA\\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True");
             }
         }
-        */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -184,8 +182,6 @@ namespace CMSAPI.Models
                     .HasColumnName("DESCRIPTION")
                     .HasMaxLength(100);
 
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_ID");
-
                 entity.Property(e => e.Isactive).HasColumnName("ISACTIVE");
 
                 entity.Property(e => e.LabtechnicianId).HasColumnName("LABTECHNICIAN_ID");
@@ -209,11 +205,6 @@ namespace CMSAPI.Models
                     .WithMany(p => p.Labreport)
                     .HasForeignKey(d => d.ClinicId)
                     .HasConstraintName("fk_clinic2");
-
-                entity.HasOne(d => d.Doctor)
-                    .WithMany(p => p.Labreport)
-                    .HasForeignKey(d => d.DoctorId)
-                    .HasConstraintName("fk_doc3");
 
                 entity.HasOne(d => d.Labtechnician)
                     .WithMany(p => p.Labreport)

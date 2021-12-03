@@ -8,7 +8,6 @@ namespace CMSAPI.Models
         public Doctor()
         {
             Appointment = new HashSet<Appointment>();
-            Labreport = new HashSet<Labreport>();
             Prescription = new HashSet<Prescription>();
         }
 
@@ -20,7 +19,6 @@ namespace CMSAPI.Models
         public virtual Department Department { get; set; }
         public virtual Staff Staff { get; set; }
         public virtual ICollection<Appointment> Appointment { get; set; }
-        public virtual ICollection<Labreport> Labreport { get; set; }
         public virtual ICollection<Prescription> Prescription { get; set; }
     }
 }
