@@ -69,7 +69,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },  
   { path: 'staffs', component: StaffsComponent },
   { path: 'staff', component: StaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
-  { path: 'stafflist', component: StaffListComponent },
+  { path: 'stafflist', component: StaffListComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'staff/:staffId', component: StaffComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'frontoffice', component: FrontofficeComponent, canActivate: [AuthGuard], data: { role: '2' } },  
@@ -78,7 +78,7 @@ const routes: Routes = [
   { path: 'doctorviewlabreportbyid', component: DoctorViewLabreportByIdComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard], data: { role: '2' } },
   { path: 'appointmentlist', component: AppointmentListComponent },
-  { path: 'addLogin', component: AddLoginComponent},
+  { path: 'addLogin', component: AddLoginComponent, canActivate: [AuthGuard], data: { role: '1' }},
   { path: 'editstaff/:staffId', component: EditStaffComponent},
 
 
@@ -95,9 +95,9 @@ const routes: Routes = [
   
   {path: 'getpatient', component: PatientViewByIdHComponent},
   {path: 'viewtest', component: ViewTestHComponent},
-  {path: 'viewtechnician', component: ViewlabtechnicianhComponent},
+  {path: 'viewtechnician', component: ViewlabtechnicianhComponent, canActivate: [AuthGuard], data: { role: '1' }},
   {path: 'technicianhome', component: TechnicianhomepageComponent},
-  {path: 'doctor', component: DoctorComponent},
+  {path: 'doctor', component: DoctorComponent,canActivate: [AuthGuard], data: { role: '1' }},
   {path:'appointmentByDate', component:AppointmentByDateComponent},
   {path:'testlistTOne', component:TestlistTOneComponent}
   

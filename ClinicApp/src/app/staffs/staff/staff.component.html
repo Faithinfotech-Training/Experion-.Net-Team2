@@ -1,6 +1,7 @@
 <form name="staffform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)" class="box">
+    <h3>Add Staff Details</h3>
     <!--staff id-->
-    <input type="" name="StaffId" [ngModel]="staffService.formData.StaffId" />
+    <input type="hidden" name="StaffId" [ngModel]="staffService.formData.StaffId" />
 
     <!--Staff Name-->
     <div class="form-group">
