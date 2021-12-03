@@ -344,6 +344,7 @@ add IsDone bit default 0;
 alter table test
 add TEST_LIST_NO int foreign key references TESTLIST(ID);
 
+select * from testlist;
 
 
 ------ CHANGES ON 03-12-2021 10-44-PM --------------------------
@@ -354,5 +355,6 @@ drop constraint fk_doc3;
 
 alter table labreport
 drop column doctor_id;
+
 
 
