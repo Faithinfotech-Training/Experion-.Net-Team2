@@ -22,6 +22,7 @@ export class DoctorComponent implements OnInit {
     console.log(form.value);
     this.doctorService.insertDoctor(form.value);
 
+    this.router.navigate[('/doctors')];
 
   }
 

@@ -1,4 +1,36 @@
-<p>frontoffice works!</p>
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Welcome {{loggedUserName | titlecase}}</h3>
+            <p class="blue-text">Hope you have a great day ahead !!</p>
+            <div class="card">
+                <div class="row">
+                    <div class="col">
+                        <a class="nav-link" href="#" routerLink='/appointmentlist'>
+                            <button class="btn btn-primary" type="button"> View Appointments</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="nav-link" href="#" routerLink='/appointment'>
+                            <button class="btn btn-primary" type="button"> Add Appointments</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="nav-link" href="#" routerLink='/doctorlist'>
+                            <button class="btn btn-primary" type="button"> View Doctors</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
 <header>
     <div class="container">
         <h5>Welcome Front Office : {{loggedUserName | titlecase}}</h5>
@@ -22,3 +54,4 @@
     </nav>
 
 </header>
+-->

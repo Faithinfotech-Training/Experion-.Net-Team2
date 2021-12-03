@@ -13,6 +13,10 @@ import { TestdetailsService } from '../shared/testdetails.service';
 })
 export class ViewTestHComponent implements OnInit {
 
+  //assign default page
+  page: number = 1;
+  filter: string;
+
   constructor(public testService: TestService, private router: Router,
     private route: ActivatedRoute) { }
 

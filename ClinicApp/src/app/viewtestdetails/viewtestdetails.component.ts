@@ -12,8 +12,11 @@ import { Testdetails } from '../shared/TestdetailsJ';
 })
 export class ViewtestdetailsComponent implements OnInit {
 
+  //assign default page
+  page: number = 1;
   filter: string;
-  constructor(public testService: TestService,public testDetailService: TestdetailsService, private router: Router,
+
+  constructor(public testService: TestService, public testDetailService: TestdetailsService, private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -25,19 +28,17 @@ export class ViewtestdetailsComponent implements OnInit {
     console.log(testdetailgetForm.value);
     let addId = this.testDetailService.formLabT.TestNo;
     console.log(addId);
-    
-    if(addId !=0 || addId !=null)
-    {
+
+    if (addId != 0 || addId != null) {
       //console.log("Hello");
       this.testDetailService.GetTestDetailByNo(addId);
       console.log(this.testDetailService.testdetails);
-       
+
     }
   }
-  populateForm(emp: Testdetails)
-  {
+  populateForm(emp: Testdetails) {
     console.log(emp);
-    this.testDetailService.formLabT=emp;
+    this.testDetailService.formLabT = emp;
   }
 
 
