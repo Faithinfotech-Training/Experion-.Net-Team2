@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { DoctorViewLabReport } from './doctorviewlabreport';
 import {Department} from './department';
+import { Staff } from './staff';
+import { StaffList } from './stafflist';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,8 @@ export class DoctorService {
   doctormodel: DoctorModel[];
   labreport:DoctorViewLabReport[];
   departments: Department[];
+  staffdata:Staff=new Staff();
+  staff:StaffList=new StaffList();
 
 
   constructor(private httpClient: HttpClient) { }
@@ -42,12 +46,20 @@ export class DoctorService {
   }
 
   //insert a doctor
-  insertDoctor(doctor:Doctor): Observable<any>{
-    return this.httpClient.post(environment.apiUrl + "/api/doctor", doctor);
+  async insertDoctor(doctor:Doctor)//: Observable<any>
+  {
+    await this.httpClient.post(environment.apiUrl + "/api/doctor", doctor)
+    .toPromise()
+    .then(
+      (val) => 
+      {
+        console.log(val); 
+      });
   }
 
    //UPDATE
-   updateDoctor(doctor: Doctor): Observable<any> {
+   updateDoctor(doctor: Doctor)  : Observable<any>
+    {
     return this.httpClient.put(environment.apiUrl + "/api/doctor", doctor);
   }
 
@@ -56,6 +68,11 @@ export class DoctorService {
     this.httpClient.get(environment.apiUrl + "/api/doctor/GetDepartments")
       .toPromise().then(response =>
         this.departments = response as Department[]);
+  }
+
+  //get a particular doctor
+  getDoctor(docId: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/doctor/" + docId);
   }
 
 

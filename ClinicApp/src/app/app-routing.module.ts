@@ -38,6 +38,12 @@ import { TechnicianhomepageComponent } from './technicianhomepage/technicianhome
 
 
 import { DoctorComponent } from './doctor/doctor.component';
+import { EditStaffComponent } from './edit-staff/edit-staff.component';
+
+
+
+
+
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 
 const routes: Routes = [
@@ -54,7 +60,7 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'testdetails', component: TestdetailsComponent },
   { path: 'viewtestdetails', component: ViewtestdetailsComponent },
-  { path: 'getreportlab', component: GetreportComponent },
+  { path: 'getreportlab', component: GetreportComponent }, // get repory by id
   { path: 'patientregister', component: PatientRegisterHComponent },
   { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'login', component: LoginComponent },  
@@ -70,6 +76,11 @@ const routes: Routes = [
   { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard], data: { role: '2' } },
   { path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'addLogin', component: AddLoginComponent},
+  { path: 'editstaff/:staffId', component: EditStaffComponent},
+
+
+  //{ path: 'appointmentlist', component: AppointmentListComponent },
+  { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard], data: { role: '4' }},  
   {path:'doctorViewAppointmentForm', component:DoctorViewAppointmentsForDayFormComponent},
   {path: 'doctorListPatientsByDate', component:ListPatientsByDateComponent},

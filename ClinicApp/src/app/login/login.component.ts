@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Login} from '../shared/login';
-import {AuthService} from '../shared/auth.service';
-import {Jwtresponse} from '../shared/jwtresponse';
+import { Login } from '../shared/login';
+import { AuthService } from '../shared/auth.service';
+import { Jwtresponse } from '../shared/jwtresponse';
+import { AppComponent } from '../app.component';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   //declare variables
   loginForm: FormGroup;
@@ -18,7 +21,8 @@ export class LoginComponent implements OnInit {
   jwtResponse:any=new Jwtresponse();
   constructor(private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    public appcomponent : AppComponent) { }
 
   ngOnInit(): void {
     //FormGroup
@@ -47,9 +51,13 @@ export class LoginComponent implements OnInit {
     //valid
     if(this.loginForm.valid){
 
+      this.appcomponent.updatePresence();
+
       this.authService.loginVerify(this.loginForm.value).subscribe(
         data=>{
           //console.log(data);
+
+          
 
           //token
          this.jwtResponse=data;

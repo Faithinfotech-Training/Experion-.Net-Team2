@@ -51,6 +51,8 @@ import { TechnicianhomepageComponent } from './technicianhomepage/technicianhome
 import { DoctorComponent } from './doctor/doctor.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { AddLoginComponent } from './add-login/add-login.component';
+import { EditStaffComponent } from './edit-staff/edit-staff.component';
+
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 
 @NgModule({
@@ -88,6 +90,7 @@ import { AppointmentByDateComponent } from './appointment-by-date/appointment-by
     DoctorComponent,
     AppointmentListComponent,
     AddLoginComponent,
+    EditStaffComponent,
     AppointmentByDateComponent
   ],
   imports: [
