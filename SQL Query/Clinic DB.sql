@@ -346,3 +346,13 @@ add TEST_LIST_NO int foreign key references TESTLIST(ID);
 
 
 
+------ CHANGES ON 03-12-2021 10-44-PM --------------------------
+
+
+alter table labreport
+drop constraint fk_doc3;
+
+alter table labreport
+drop column doctor_id;
+
+
