@@ -35,7 +35,7 @@
                     <td (click)="populateForm(staff)">{{staff.Experience}}</td>
                     <td>
                         <button class="btn btn-sm btn-outline-danger"
-                            (click)="deleteStaff(staff.StaffId)">X</button>&nbsp;
+                            (click)="updateIsactive(staff.StaffId)">X</button>&nbsp;
                         <button class="btn btn-sm btn-info" (click)="updateStaff(staff.StaffId)">Edit</button>
                     </td>
                 </ng-container>
