@@ -4,7 +4,7 @@ export class PrescriptionHistory
     PrescriptionDate : Date ;
     StaffName : string ;
     DoctorNotes : string ;
-    TestDetails : string ;
+    //TestDetails : string ;
     MedicineName : string ;
     MedicineDosage : number ;
     DosageFreq : number ;

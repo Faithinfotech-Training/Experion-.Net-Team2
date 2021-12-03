@@ -1,22 +1,39 @@
 <div class="container">
     
-    <div class="header">
-        
+    <div class="header">        
         <h5>Patient Lab History</h5>
-        <div class="form-group">
-            <input class="form-control" type="text" 
-            placeholder="Search"
-            [(ngModel)] = "filter"/>
+        <div class="row text-left">
+            <div class="col-3 text-left">
+            Search by Date:
         </div>
-        <div class="form-group">
-            <input class="form-control" type="date" 
-            placeholder="Search"
-            [(ngModel)] = "filter"/>
+            <div class="col-3 text-left">                
+                <div class="form-group">
+                    <span>
+                        
+                        <input class="form-control col-3" type="text" 
+                        placeholder="Search"
+                        [(ngModel)] = "filter"/>
+                    </span>
+                </div>
+            </div>
+            <div class="col-3">
+               Search by Date:
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <input class="form-control" type="date" 
+                    placeholder="Search"
+                    [(ngModel)] = "filter"/>
+                </div>
+            </div>
         </div>
     </div>
+
+    <br>
+
     <table class="table table-bordered table-striped">
         <thead>
-            <tr>
+            <tr class="table-dark">
                 <th>#</th>
                 <th>Title</th>
                 <th>Date</th>

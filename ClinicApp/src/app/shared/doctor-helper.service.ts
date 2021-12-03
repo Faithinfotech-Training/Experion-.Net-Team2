@@ -76,7 +76,7 @@ export class DoctorHelperService {
 
   patientPrescriptionHistorybyId(patientId : number)
   {
-    //console.log(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId );
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId );
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId )
     .toPromise().then( response =>       
       this.prescriptionHistory = response as PrescriptionHistory[] );
@@ -93,6 +93,7 @@ export class DoctorHelperService {
   
   refreshAvailableTests()
   {
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/getAllTestDetails");
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/getAllTestDetails").toPromise()
       .then(Response => 
       {
