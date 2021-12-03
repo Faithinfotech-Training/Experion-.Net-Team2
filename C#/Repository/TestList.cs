@@ -86,6 +86,8 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
                              from d in db.Doctor
                              from s in db.Staff
                              from dept in db.Department
+                             from td in db.Testdetails
+
                              where p.PatientId==id &&
                              p.PrescriptionId ==tl.PrescriptionId &&
                              p.DoctorId==d.DoctorId &&
@@ -97,7 +99,8 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
                               select new TestListViewModel
                              {
                                   PrescriptionId=p.PrescriptionId,
-                                  PrescriptionDate=p.PrescriptionDate,
+                                  DoctorId=d.DoctorId,
+                                  PrescriptionDate =p.PrescriptionDate,
                                   
 
 
@@ -108,8 +111,8 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
         StaffName=s.StaffName,
 
         DepartmentName=dept.DepartmentName,
-
-                                 Id=tl.Id
+                                  TestName=td.TestName,
+                                 Id =tl.Id
                              }).ToListAsync();
             }
             return null;
