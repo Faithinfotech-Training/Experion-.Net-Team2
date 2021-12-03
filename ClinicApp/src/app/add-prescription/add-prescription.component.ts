@@ -34,8 +34,6 @@ export class AddPrescriptionComponent implements OnInit {
   //dosageList : number[] = [0];
   //dayList : number[] = [0];
 
-
-
   constructor(public doctorHelperService : DoctorHelperService,
     public router: Router) { }
 
@@ -80,7 +78,6 @@ export class AddPrescriptionComponent implements OnInit {
 
   onSubmit()
   {
-
     this.prescription.PrescriptionId = 0;
     var utc = new Date().toJSON().slice(0,10).replace(/-/g,'-');
     this.prescription.PrescriptionDate = utc;
@@ -88,8 +85,20 @@ export class AddPrescriptionComponent implements OnInit {
     this.prescription.Isactive = true;
     this.prescription.DoctorId = Number(sessionStorage.getItem("DoctorID"));
     this.prescription.PatientId = Number(sessionStorage.getItem("CurrentPatientId"));
+    this.doctorHelperService.addPrescriptionWhole(
+      this.prescription,
+      this.medicineCount,      
+      this.dosageList,
+      this.dayList,
+      this.medicineList,
+      this.testCount,
+      this.testList,
+      this.testNotes);
 
-    this.doctorHelperService.addPrescription(this.prescription);
+
+    /*
+
+   this.doctorHelperService.addPrescription(this.prescription);
 
     console.log('Prescription Posted');
 
@@ -112,7 +121,6 @@ export class AddPrescriptionComponent implements OnInit {
 
     console.log('Medicine List Posted');
 
-
     if (this.testCount.length > 0)
     {
       if (this.testList[0].value != 0)
@@ -130,16 +138,12 @@ export class AddPrescriptionComponent implements OnInit {
 
 
     console.log('Test List Posted');
+
+    */
+
     this.router.navigate(['doctorListPatientsByDate']);
 
   }
-
-  
-
-
-
-
-
   /*
   readForm(form : NgForm)
   {
@@ -175,7 +179,4 @@ export class AddPrescriptionComponent implements OnInit {
   }
 
   */
- 
-
-
 }

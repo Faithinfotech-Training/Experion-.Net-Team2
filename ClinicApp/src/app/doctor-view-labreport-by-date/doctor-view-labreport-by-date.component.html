@@ -1,13 +1,13 @@
 <div class="container">
     <div>
-        <h3>Lab Report...</h3>
+        <h3>Lab Report</h3>
         <hr>
 
         <!--Reactive form-->
-        <form [formGroup]="reportForm" (ngSubmit)="LabReportByDate()">
+        <form [formGroup]="reportForm" class="form-group" (ngSubmit)="LabReportByDate()">
             <!--date-->
             <div>
-                <input type="date" placeholder="Enter Date" formControlName="ReportDate" id="ReportDate | date:dd-MM-yyyy" autocomplete="off" required />
+                <input class="form-control" type="date" placeholder="Enter Date" formControlName="ReportDate" id="ReportDate | date:dd-MM-yyyy" autocomplete="off" required />
             </div>
             <div *ngIf="isSubmitted && formControls.ReportDate.errors">
                 <div *ngIf="formControls.ReportDate.errors.required" style="color: red; text-align: left;">
@@ -25,7 +25,7 @@
             </div>
         </form>
     </div>
-
+    <br>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>

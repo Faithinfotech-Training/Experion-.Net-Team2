@@ -13,6 +13,7 @@ export class DoctorComponent implements OnInit {
   constructor(public doctorService:DoctorService,private router:Router) { }
 
   ngOnInit(): void {
+    //retrieving departments
     this.doctorService.bindCmbDepartment();
   }
   onSubmit(form : NgForm){
@@ -21,8 +22,13 @@ export class DoctorComponent implements OnInit {
     form.value.StaffId=sessionStorage.getItem("StaffId");
     console.log(form.value);
     this.doctorService.insertDoctor(form.value);
+    this.router.navigate(['./admin']);
+    
 
+    this.router.navigate[('/doctors')];
 
   }
+ 
+
 
 }

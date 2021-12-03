@@ -11,7 +11,13 @@ import { LabtechnicianService } from '../shared/labtechnician.service';
 })
 export class ViewlabtechnicianhComponent implements OnInit {
 
+<<<<<<< HEAD
   page: number=1;
+=======
+  //assign default page
+  page: number = 1;
+  filter: string;
+>>>>>>> e0d6f20632acad7875bde2286f1bbe47561cde1e
 
   constructor(public labTechService: LabtechnicianService, private router: Router,
     private route: ActivatedRoute) { }

@@ -18,7 +18,6 @@ export class FrontofficeService {
   patients: PatientRegisterH[];
   doctors: DoctorModel[];
   appointmentlists: AppointmentList[];
-
   currentDoctor : doctorViewByDateID = new doctorViewByDateID();
 
   constructor(private httpClient: HttpClient) { }

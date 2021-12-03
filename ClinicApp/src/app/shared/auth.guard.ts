@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthGuard implements CanActivate {
 
       if(currentRole!==expectedRole)
       {
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('login');        
         return false;
       }
       return true;
