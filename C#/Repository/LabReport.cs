@@ -11,13 +11,13 @@ namespace CMSAPI.Repository
   public class LabReport : ILabReport
   {
 
-    //database /json
-    ClinicManagementDBContext db;
+        //database /json
+        ClinicManagementDBContext db;
 
-    public LabReport(ClinicManagementDBContext _db)
-    {
-      db = _db;
-    }
+        public LabReport(ClinicManagementDBContext _db)
+        {
+            db = _db;
+        }
 
         //Get all lab reports
 

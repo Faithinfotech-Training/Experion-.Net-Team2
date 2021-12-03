@@ -57,6 +57,7 @@ namespace CMSAPI
             services.AddScoped<ITests, Tests>();
             services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
             services.AddScoped<IPatientRegister, PatientRegister>();
+            services.AddScoped<ITestList, TestList>();
 
             //add dependency injection for EmployeeRepository
 
