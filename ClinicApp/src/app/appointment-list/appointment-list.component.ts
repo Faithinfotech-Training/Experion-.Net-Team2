@@ -46,7 +46,7 @@ export class AppointmentListComponent implements OnInit {
   deleteAppointment(id: number) {
 
     console.log(id);
-    if (confirm("Are you sure to DELETE this record?")) {
+    if (confirm("Are you sure to DELETE this record?")) {}
       console.log("Deleting a record...");
       this.frontOfficeService.deleteAppointment(id).subscribe(
         (result) => {
@@ -59,7 +59,6 @@ export class AppointmentListComponent implements OnInit {
         }
       );
     }
-  }
 /*
   //update an staff
   updateAppointment(AppointmentNo: number) {

@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent},
   { path: 'doctorViewAppointmentForm', component: DoctorViewAppointmentsForDayFormComponent },
   { path: 'labreport', component: LabreportComponent },
-  { path: 'labtechnician', component: LabtechnicianComponent },
+  { path: 'labtechnician', component: LabtechnicianComponent, canActivate:[AuthGuard], data:{role: '1'} },
   { path: 'test', component: TestComponent },
   { path: 'testdetails', component: TestdetailsComponent },
   { path: 'viewtestdetails', component: ViewtestdetailsComponent },

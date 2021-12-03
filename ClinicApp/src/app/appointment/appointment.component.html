@@ -1,5 +1,5 @@
-<p>appointment works!</p>
-<form name="appointmentform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)">
+
+<form name="appointmentform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)" class="box">
     <!--appointmentNo-->
     <input type="" name="AppointmentNo" [ngModel]="frontOfficeService.formData.AppointmentNo" />
 

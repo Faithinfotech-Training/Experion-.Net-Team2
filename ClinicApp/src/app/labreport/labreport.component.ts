@@ -33,11 +33,12 @@ else
   this.updateReport(labForm);
 }
     
-
+this.router.navigate[('./getreportlab')]
 //onSubmit(labgetForm: NgForm){
   //let pdId=this.labService.formLab.PatientId;
     //console.log(pdId);
 //}
+ window.location.reload();
 
   }
 

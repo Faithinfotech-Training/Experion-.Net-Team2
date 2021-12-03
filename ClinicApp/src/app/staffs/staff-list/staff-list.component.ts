@@ -44,24 +44,22 @@ export class StaffListComponent implements OnInit {
 
   //delete
   deleteStaff(id: number) {
-
-    console.log(id);
-    if (confirm("Are you sure to DELETE this record?")) {
-      console.log("Deleting a record...");
-      this.staffService.deleteStaff(id).subscribe(
-        (result) => {
-          console.log(result);
-          this.staffService.bindListStaffs();
-          this.staffService.formData.Isactive = false;
-          console.log(this.staffService.formData.Isactive);
-          //this.toastrService.success('Staff record has been deleted', 'StaffApp v2021');
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }
+    if (confirm("Are you sure to DELETE this record?")) { }
+    console.log("Deleting a record...");
+    this.staffService.deleteStaff(id).subscribe(
+      (result) => {
+        console.log(result);
+        this.staffService.bindListStaffs();
+        //this.staffService.formData.Isactive = false;
+        //console.log(this.staffService.formData.Isactive);
+        //this.toastrService.success('Staff record has been deleted', 'StaffApp v2021');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
+
 
   //update isactive
   updateIsactive(staffId: number) {
