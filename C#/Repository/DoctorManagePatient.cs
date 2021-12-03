@@ -122,8 +122,7 @@ namespace CMSAPI.Repository
                       where l.ReportDate == date &&
                       t.ReportNo == l.ReportNo &&
                       t.TestNo == td.TestNo &&
-                      l.PatientId == p.PatientId &&
-                      l.DoctorId == s.StaffId
+                      l.PatientId == p.PatientId
                       select new TestHistoryView
                       {
                         ReportNo = l.ReportNo,
@@ -158,7 +157,6 @@ namespace CMSAPI.Repository
                       where t.ReportNo == l.ReportNo &&
                       t.TestNo == td.TestNo &&
                       l.PatientId == patientId &&
-                      l.DoctorId == s.StaffId &&
                       l.PatientId == p.PatientId
                       select new TestHistoryView
                       {
@@ -226,7 +224,6 @@ namespace CMSAPI.Repository
                           l.PatientId == patientId &&
                           l.ReportNo == t.ReportNo &&
                           t.TestNo == td.TestNo &&
-                          l.DoctorId == d.DoctorId &&
                           d.StaffId == s.StaffId &&
                           l.ClinicId == c.ClinicId &&
                           l.LabtechnicianId == lt.LabtechnicianId &&
