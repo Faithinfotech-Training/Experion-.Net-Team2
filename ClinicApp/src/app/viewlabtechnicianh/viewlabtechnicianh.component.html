@@ -1,39 +1,43 @@
 <div class="container">
-    <h3>Enter Technician ID</h3>
-    <div class="form">
-        <form name="testgetForm" #testgetForm="ngForm" (ngSubmit)="onSubmit(testgetForm)">
-            <br>
-            <!--LabtechnicianId-->
-        <div class="form-group">
-            <label for="LabtechnicianId">Labtechnician Id</label>
-            <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
-        [(ngModel)]="labTechService.formLabT.LabtechnicianId" class="form-control" required
-        [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}"
-        />
-        <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
-            <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
+    <div class="box">
+        <h3>Enter Technician ID</h3>
+        <div class="form">
+            <form name="testgetForm" #testgetForm="ngForm" (ngSubmit)="onSubmit(testgetForm)">
+                <br>
+                <!--LabtechnicianId-->
+                <div class="form-group">
+                    <label for="LabtechnicianId">Labtechnician Id</label>
+                    <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
+                        [(ngModel)]="labTechService.formLabT.LabtechnicianId" class="form-control" required
+                        [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}" />
+                    <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
+                        <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
+                    </div>
+                </div>
+
+                <!--Submit button-->
+                <br>
+                <br>
+                <div class="form-group">
+                    <button type="submit" [disabled]="!(testgetForm.valid && testgetForm.dirty)"
+                        class="btn btn btn-outline-success btn-lg">
+                        Search</button>
+                </div>
+
+            </form>
         </div>
-        </div>
-    
-    <!--Submit button-->
+    </div>
+</div>
+
+<div>
     <br>
-        <br>
-        <div class="form-group">
-            <button type="submit" [disabled]="!(testgetForm.valid && testgetForm.dirty)" class="btn btn btn-outline-success btn-lg">
-                Search</button>
-        </div>
-    
-    </form>
-    </div>
-    </div>
+    <button style="margin-left: 7.1%;" class="btn btn btn-outline-success btn-lg"><a
+            style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'">Insert New
+            Technician</a></button>
+</div>
 
-    <div>
-        <br>
-        <button style="margin-left: 7.1%;" class="btn btn btn-outline-success btn-lg"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'">Insert New Technician</a></button>
-    </div>
-    
 
-    
+
 <br>
 <div class="container">
     <div class="header">
@@ -47,14 +51,14 @@
                     <th>Department Name</th>
                     <th>Staff Name</th>
                     <th>Is active</th>
-                    
+
 
                     <!--LabtechnicianId: number=0;
         DepartmentId: number =0;
         StaffId: number =0;
         Isactive: boolean;-->
-                    
-                    
+
+
 
                 </tr>
             </thead>
@@ -64,16 +68,16 @@
                     <td>{{rep.DepartmentName}}</td>
                     <td>{{rep.StaffName}}</td>
                     <td>{{rep.Isactive}}</td>
-                    
-                    
-                    
+
+
+
                     <!--<td>
                         <button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;
                         <button class="btn btn-info" (click)="updateReport(rep.ReportNo)"
                             style="margin-left: 10px">Edit</button>
                         
                     </td>-->
-                    
+
                 </tr>
             </tbody>
         </table>
@@ -82,4 +86,3 @@
             <pagination-controls (pageChange)="page=($event)"></pagination-controls>
         </div>
     </div>
-

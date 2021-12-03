@@ -25,4 +25,8 @@ export class DoctorListComponent implements OnInit {
     this.router.navigate(['doctors',DoctorId])
   }
 
+  //Back to admin page
+  back() {
+    this.router.navigate(['./admin']);
+  }
 }
