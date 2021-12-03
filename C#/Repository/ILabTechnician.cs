@@ -1,4 +1,5 @@
 using CMSAPI.Models;
+using CMSAPI.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace CMSAPI.Repository
 
     //Update technician
     Task UpdateTechnician(Labtechnician technician);
-  }
+
+        Task<List<TechnicianViewModel>> GetCustomLabTechnician(int id);
+    }
 }

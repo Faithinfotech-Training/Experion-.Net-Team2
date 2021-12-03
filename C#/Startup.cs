@@ -40,6 +40,14 @@ namespace CMSAPI
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<ILabReport, LabReport>();
+            services.AddScoped<ILabTechnician, LabTechnician>();
+            services.AddScoped<ITestDetails, TestDetails>();
+            services.AddScoped<ITests, Tests>();
+            services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
+            services.AddScoped<IPatientRegister, PatientRegister>();
+            services.AddScoped<ITestList, TestList>();
 
             services.AddControllers().AddNewtonsoftJson(
                       options => {
@@ -48,15 +56,10 @@ namespace CMSAPI
                       });
       
             //add dependency injection for PostRepository
-            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            
     
             //add dependency injection
-            services.AddScoped<ILabReport, LabReport>();
-            services.AddScoped<ILabTechnician, LabTechnician>();
-            services.AddScoped<ITestDetails, TestDetails>();
-            services.AddScoped<ITests, Tests>();
-            services.AddScoped<IDoctorManagePatient, DoctorManagePatient>();
-            services.AddScoped<IPatientRegister, PatientRegister>();
+           
 
             //add dependency injection for EmployeeRepository
 
