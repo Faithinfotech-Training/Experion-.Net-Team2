@@ -130,7 +130,28 @@ namespace CMSAPI.Controllers
         return BadRequest();
       }
     }
-    #endregion
+        #endregion
 
-  }
+        #region Update Is Active
+        [HttpGet]
+        [Route("UpdateIsActive")]
+        public async Task<IActionResult> UpdateIsActive(int id)
+        {
+            try
+            {
+                var staff = await StaffRepository.UpdateIsActive(id);
+                if (staff == null)
+                {
+                    return NotFound();
+                }
+                return Ok(staff);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+    }
 }

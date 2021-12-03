@@ -14,5 +14,6 @@ namespace CMSAPI.Repository
     Task UpdateStaff(Staff staff);
     Task<Staff> DeleteStaff(int id);
     Task<StaffList> GetStaffById(int id);
-  }
+    Task<StaffList> UpdateIsActive(int id);
+    }
 }

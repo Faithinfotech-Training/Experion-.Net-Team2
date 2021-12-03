@@ -77,7 +77,7 @@ namespace CMSAPI.Repository
         return await(from s in db.Staff
                      from l in db.Login
                      from r in db.Roles
-                     where s.StaffId == id && s.StaffId == l.Loginid && l.Roleid == r.RoleId
+                     where s.StaffId == id && s.StaffId == l.Loginid && l.Roleid == r.RoleId && s.Isactive == true
                      select new StaffList
                      {
                        StaffId=s.StaffId,
@@ -95,7 +95,37 @@ namespace CMSAPI.Repository
       }
       return null;
     }
-    #endregion
+        #endregion
 
-  }
+        #region UpdateIsActive
+        public async Task<StaffList> UpdateIsActive(int id)
+        {
+            if (db != null)
+            {
+                //LINQ
+                //join post and category
+                return await (from s in db.Staff
+                              from l in db.Login
+                              from r in db.Roles
+                              where s.StaffId == id && s.StaffId == l.Loginid && l.Roleid == r.RoleId && s.Isactive == true
+                              select new StaffList
+                              {
+                                  StaffId = s.StaffId,
+                                  StaffName = s.StaffName,
+                                  RoleName = r.RoleName,
+                                  Gender = s.Gender,
+                                  DateOfBirth = s.DateOfBirth,
+                                  Address = s.Address,
+                                  DateOfJoin = s.DateOfJoin,
+                                  Mobile = s.Mobile,
+                                  Experience = s.Experience,
+                                  Email = s.Email,
+                                  Isactive = false
+                              }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+
+    }
 }
