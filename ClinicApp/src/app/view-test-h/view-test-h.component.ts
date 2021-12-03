@@ -13,6 +13,8 @@ import { TestdetailsService } from '../shared/testdetails.service';
 })
 export class ViewTestHComponent implements OnInit {
 
+  page: number=1;
+
   constructor(public testService: TestService, private router: Router,
     private route: ActivatedRoute) { }
 

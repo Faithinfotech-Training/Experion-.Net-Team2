@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Department } from './department';
 import { Labtechnician } from './labtechnician';
+import { Staff } from './staff';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +12,21 @@ import { Labtechnician } from './labtechnician';
 export class LabtechnicianService {
 
   formLabT: Labtechnician=new Labtechnician();
+  formdep: Department=new Department();
+  formstaff: Staff=new Staff();
+
+  departments: Department[];
   technicians: Labtechnician[];
   constructor(private httpClient: HttpClient) { 
 
 
+  }
+
+  //get department for binding
+  bindCmbDepartment() {
+    this.httpClient.get(environment.apiUrl + "/api/doctor/GetDepartments")
+      .toPromise().then(response =>
+        this.departments = response as Department[]);
   }
 
   
