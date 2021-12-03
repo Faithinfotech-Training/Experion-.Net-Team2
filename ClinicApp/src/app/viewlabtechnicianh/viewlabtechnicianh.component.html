@@ -29,7 +29,7 @@
 
     <div>
         <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'">Insert New Technician</a></button>
+        <button style="margin-left: 7.1%;" class="btn btn btn-outline-success btn-lg"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'">Insert New Technician</a></button>
     </div>
     
 
@@ -44,10 +44,10 @@
             <thead>
                 <tr>
                     <th>Technician ID</th>
-                    <th>Department ID</th>
-                    <th>Staff ID</th>
+                    <th>Department Name</th>
+                    <th>Staff Name</th>
                     <th>Is active</th>
-                    <th>Actions</th>
+                    
 
                     <!--LabtechnicianId: number=0;
         DepartmentId: number =0;
@@ -59,10 +59,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let rep of labTechService.technicians| paginate: {itemsPerPage: 3, currentPage: page} ">
+                <tr *ngFor="let rep of labTechService.viewtech | paginate: {itemsPerPage: 3, currentPage: page} ">
                     <td>{{rep.LabtechnicianId}}</td>
-                    <td>{{rep.DepartmentId}}</td>
-                    <td>{{rep.StaffId}}</td>
+                    <td>{{rep.DepartmentName}}</td>
+                    <td>{{rep.StaffName}}</td>
                     <td>{{rep.Isactive}}</td>
                     
                     
@@ -73,12 +73,7 @@
                             style="margin-left: 10px">Edit</button>
                         
                     </td>-->
-                    <td>
-                        <!--<button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;-->
-                        <!--<button class="btn btn-info" (click)="[routerLink]=['/labreport', rep.ReportNo]"
-                            style="margin-left: 10px">Edit</button>-->
-                        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'" (click)="populateForm(rep)">Edit</a></button>
-                    </td>
+                    
                 </tr>
             </tbody>
         </table>

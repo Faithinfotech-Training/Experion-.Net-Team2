@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Department } from './department';
 import { Labtechnician } from './labtechnician';
 import { Staff } from './staff';
+import { TechnicianModel } from '../shared/technician-model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,12 @@ export class LabtechnicianService {
   formLabT: Labtechnician=new Labtechnician();
   formdep: Department=new Department();
   formstaff: Staff=new Staff();
+  formTech: TechnicianModel=new TechnicianModel();
 
   departments: Department[];
   technicians: Labtechnician[];
+  viewtech: TechnicianModel[]
+
   constructor(private httpClient: HttpClient) { 
 
 
@@ -70,5 +74,21 @@ async insertTechnician(tech: Labtechnician)//: Observable<any>
   //UPDATE
   updateTechnician(tech: Labtechnician): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "/api/labtechnician/updatetechnician", tech);
+  }
+
+
+  //get method
+  GetCustomLabTechnicianById(techid: number)
+  {
+    // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
+    this.httpClient.get(environment.apiUrl + "/api/labtechnician/gettechniciancustom/" + techid)
+    .toPromise().then( (response) =>  
+    { 
+      this.viewtech = response as TechnicianModel[]  
+      console.log("Loaded Technician List"); 
+      
+    }   
+    );
+      //);
   }
 }
