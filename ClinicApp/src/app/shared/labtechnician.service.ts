@@ -29,10 +29,16 @@ export class LabtechnicianService {
         this.departments = response as Department[]);
   }
 
-  
-  //Insert method for labtechnician
- insertTechnician(tech: Labtechnician): Observable<any>{
-  return this.httpClient.post(environment.apiUrl + "/api/labtechnician/addtechnician", tech);
+
+//insert a doctor
+async insertTechnician(tech: Labtechnician)//: Observable<any>
+{
+  await this.httpClient.post(environment.apiUrl + "/api/labtechnician/addtechnician", tech)
+    .toPromise()
+    .then(
+      (val) => {
+        console.log(val);
+      });
 }
 
   //Get all Labtechnicians

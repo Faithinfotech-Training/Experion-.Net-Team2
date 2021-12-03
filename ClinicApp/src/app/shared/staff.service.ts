@@ -41,4 +41,9 @@ export class StaffService {
   getStaff(staffId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + "/api/Staff/getstaffById?id=" + staffId);
   }
+
+  //update is active
+  updateIsActive(staffId: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/Staff/UpdateIsActive?id=" + staffId);
+  }
 }
