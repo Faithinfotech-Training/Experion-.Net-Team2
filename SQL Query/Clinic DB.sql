@@ -370,6 +370,7 @@ select * from testlist;
   FROM APPOINTMENT A JOIN DOCTOR D ON (A.DOCTOR_ID=D.DOCTOR_ID) JOIN STAFF S ON(S.STAFF_ID=D.STAFF_ID)
   JOIN PATIENT P ON (A.PATIENT_ID=P.PATIENT_ID) WHERE D.DOCTOR_ID=1 AND A.APPOINTMENT_DATE='2021-11-12';
 
+
   Select * From APPOINTMENT;
   Select * from DOCTOR;
   Select * from PATIENT;
@@ -403,6 +404,18 @@ Select l.LABTECHNICIAN_ID, s.STAFF_NAME, d.DEPARTMENT_NAME, l.ISACTIVE from LABT
 DEPARTMENT as d,  STAFF as s
 WHERE LABTECHNICIAN_ID=2 AND l.STAFF_ID=s.STAFF_ID 
 AND l.DEPARTMENT_ID=d.DEPARTMENT_ID;
+
+------ CHANGES ON 03-12-2021 10-44-PM --------------------------
+
+
+alter table labreport
+drop constraint fk_doc3;
+
+alter table labreport
+drop column doctor_id;
+
+
+
 
 SELECT * FROM TEST;
 
