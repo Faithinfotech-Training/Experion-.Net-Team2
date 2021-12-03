@@ -6,7 +6,7 @@ export class Labreport {
         ReportDate: Date = new Date;
         Description: string = '';
         PatientId: number = 0;
-        DoctorId: number = 0;
+        
         ClinicId: number = 0;
         LabtechnicianId: number = 0;
         Isactive: boolean;

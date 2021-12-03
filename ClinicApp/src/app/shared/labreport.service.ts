@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class LabreportService {
 
+edit: boolean;
+
   formLab: Labreport = new Labreport();
   getReports: Labreport[];
   constructor(private httpClient: HttpClient) { }

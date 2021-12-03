@@ -4,7 +4,7 @@
         <form name="testdetailgetForm" #testdetailgetForm="ngForm" (ngSubmit)="onSubmit(testdetailgetForm)">
             <br>
         <div class="form-group">
-            <label for="PatientId">PatientId</label>
+            <label for="PatientId">Patient Id</label>
             <input type="text" name="PatientId" #PatientId="ngModel"
         [(ngModel)]="tstlstService.formP.PatientId" class="form-control" required
         [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}"
@@ -38,10 +38,14 @@
                 <tr>
                     <th>Id</th>
                     <th>Prescription Id</th>
-                    <th>PrescriptionDate</th>
-                    <!--<th>Test Desription</th>
-                    <th>Is active</th>
-                    <th>Action</th>-->
+                    <th>Doctor Id</th>
+                    <th>Prescription Date</th>
+                    <th>Doctor Notes</th>
+                    <th>Notes</th>
+                    <th>Staff Name</th>
+                    <th>Department Name</th>
+                    <th>Test Name</th>
+                    <th>Action</th>
                     
                 </tr>
             </thead>
@@ -49,12 +53,23 @@
                 <tr *ngFor="let test of tstlstService.testlist | paginate: {itemsPerPage: 3, currentPage: page} ">
                     <td>{{test.Id}}</td>
                     <td >{{test.PrescriptionId}}</td>
+                    <td>{{test.DoctorId}}</td>
                     <td >{{test.PrescriptionDate}}</td>
-                    <!-- <td >{{test.TestDesription}}</td>
-                    <td >{{test.Isactive}}</td>
+                    <td>{{test.DoctorNotes}}</td>
+                    <td>{{test.Notes}}</td>
+                    <td>{{test.StaffName}}</td>
+                    <td>{{test.DepartmentName}}</td>
+                    <td>{{test.TestName}}</td>
+                    <td><button><a style="text-decoration: none;" [routerLink]="'/test'">Generate</a></button></td>
+                   <!--PrescriptionId: number;
+    PrescriptionDate: string;
+    DoctorNotes: string;
+    Notes: string;
+    StaffName: string;
+    DepartmentName: string;
+    Id: number;-->
                 
-                 <td>
-                -->
+                 
                    
                    
                         <!--<button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;-->

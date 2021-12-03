@@ -13,12 +13,14 @@ export class GetreportComponent implements OnInit {
 
   page: number=1;
   
+  
 
   constructor(public labService: LabreportService, private router: Router,
     private route: ActivatedRoute) { }
 
     id: number;
     isSubmitted: boolean=false;
+    
 
 
   ngOnInit(): void {
@@ -44,13 +46,20 @@ export class GetreportComponent implements OnInit {
     
     
     
+    
    
+  }
+
+  OnDisable(){
+      this.labService.edit=false;
   }
 
   populateForm(emp: Labreport)
   {
     console.log(emp);
     this.labService.formLab=emp;
+    sessionStorage.setItem("Edit", "true");
+    this.labService.edit=true;
   }
 
 
