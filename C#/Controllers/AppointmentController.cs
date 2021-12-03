@@ -95,20 +95,21 @@ namespace CMSAPI.Controllers
     [Route("DeleteAppointment")]
     public async Task<IActionResult> DeleteAppointment(int id)
     {
-      try
-      {
-        var app = await AppointmentRepository.DeleteAppointment(id);
-        if (app == null)
-        {
-          return NotFound();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await AppointmentRepository.DeleteAppointment(id);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
         }
-        return Ok(app);
-      }
-      catch (Exception)
-      {
-        return BadRequest();
-      }
-    }
         #endregion
 
         #region GetAppointmentById
