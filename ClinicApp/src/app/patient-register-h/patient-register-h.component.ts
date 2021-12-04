@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientRegisterHService } from '../shared/patient-register-h.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-patient-register-h',
@@ -11,7 +12,7 @@ import { PatientRegisterHService } from '../shared/patient-register-h.service';
 export class PatientRegisterHComponent implements OnInit {
 
   constructor(public patService: PatientRegisterHService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.patService.bindListPatients();
@@ -33,7 +34,7 @@ export class PatientRegisterHComponent implements OnInit {
     {
       this.updatePatient(labForm);
     }
-
+    this.router.navigate(['/getpatient']);
     
   }
 
@@ -67,6 +68,10 @@ export class PatientRegisterHComponent implements OnInit {
     );
     window.alert("Patient detail has been updated");
     window.location.reload();
+    }
+
+    back(){
+      this.location.back();
     }
 
 

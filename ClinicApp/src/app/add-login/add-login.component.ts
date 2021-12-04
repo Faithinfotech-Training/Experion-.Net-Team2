@@ -58,11 +58,11 @@ export class AddLoginComponent implements OnInit {
     if (form.value.RoleId == 1) {
       //logged as Admin
       console.log("Admin");
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/stafflist');
 
     } else if (form.value.RoleId == 2) {
       console.log("FrontOffice");
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/stafflist');
 
     } else if (form.value.RoleId == 3) {
       console.log("LabTechnician");

@@ -6,6 +6,7 @@ import { Doctor } from '../shared/doctor';
 import { DoctorService } from '../shared/doctor.service';
 import { Staff } from '../shared/staff';
 import { StaffService } from '../shared/staff.service';
+import { Location } from '@angular/common';
 import { StaffList } from '../shared/stafflist';
 
 @Component({
@@ -21,7 +22,7 @@ export class EditStaffComponent implements OnInit {
   doctor: Doctor=new Doctor;
 
   constructor(public doctorService:DoctorService,private router:Router,private formBuilder:FormBuilder,
-    public staffService:StaffService,  private route:ActivatedRoute) { }
+    public staffService:StaffService,  private route:ActivatedRoute, private location:Location) { }
   
 
 
@@ -101,6 +102,7 @@ export class EditStaffComponent implements OnInit {
     this.updateStaffRecord(this.staffForm.value);
     //this.staff=this.staffForm.value;
     //console.log(data);
+    this.router.navigate[('./stafflist')];
 
   }
   //Update staff
@@ -137,7 +139,9 @@ export class EditStaffComponent implements OnInit {
     //window.location.reload();
   }
 
-
+  back(){
+    this.location.back();
+  }
   
 
   

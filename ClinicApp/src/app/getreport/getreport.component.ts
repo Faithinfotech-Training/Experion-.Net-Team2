@@ -46,11 +46,16 @@ export class GetreportComponent implements OnInit {
     
    
   }
+  OnDisable(){
+    this.labService.edit=false;
+  }
 
   populateForm(emp: Labreport)
   {
     console.log(emp);
     this.labService.formLab=emp;
+    sessionStorage.setItem("Edit","true");
+    this.labService.edit=true;
   }
 
 
