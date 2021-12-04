@@ -13,6 +13,7 @@ import { Testdetails } from '../shared/TestdetailsJ';
 export class ViewtestdetailsComponent implements OnInit {
 
   filter: string;
+  page:number=1;
   constructor(public testService: TestService,public testDetailService: TestdetailsService, private router: Router,
     private route: ActivatedRoute) { }
 
