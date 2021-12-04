@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Labreport } from '../shared/labreport';
 import { LabreportService } from '../shared/labreport.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-getreport',
@@ -16,7 +17,7 @@ export class GetreportComponent implements OnInit {
   
 
   constructor(public labService: LabreportService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location: Location) { }
 
     id: number;
     isSubmitted: boolean=false;
@@ -49,6 +50,7 @@ export class GetreportComponent implements OnInit {
     
    
   }
+ 
 
   OnDisable(){
       this.labService.edit=false;
@@ -64,14 +66,9 @@ export class GetreportComponent implements OnInit {
     this.labService.edit=true;
   }
 
-
-  
-
-    
-
-
-
-  
+  back(){
+    this.location.back();
+  }
 
 }
 

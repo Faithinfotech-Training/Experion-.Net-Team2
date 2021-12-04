@@ -1,34 +1,32 @@
-<div class="container">
-    <h3>Enter Patient Id</h3>
-    <div class="form">
-        <form name="testdetailgetForm" #testdetailgetForm="ngForm" (ngSubmit)="onSubmit(testdetailgetForm)">
-            <br>
-        <div class="form-group">
-            <label for="PatientId">Patient Id</label>
-            <input type="text" name="PatientId" #PatientId="ngModel"
-        [(ngModel)]="tstlstService.formP.PatientId" class="form-control" required
-        [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}"
-        />
-        <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
-            <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+<div class="box">
+    <div class="container">
+        <h3>Enter Patient Id</h3>
+        <div class="form">
+            <form name="testdetailgetForm" #testdetailgetForm="ngForm" (ngSubmit)="onSubmit(testdetailgetForm)">
+                <br>
+                <div class="form-group">
+                    <label for="PatientId">PatientId</label>
+                    <input type="text" name="PatientId" #PatientId="ngModel" [(ngModel)]="tstlstService.formP.PatientId"
+                        class="form-control" required
+                        [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
+                    <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
+                        <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+                    </div>
+                </div>
+
+                <!--Submit button-->
+                <div class="form-group">
+                    <button type="submit" [disabled]="!(testdetailgetForm.valid && testdetailgetForm.dirty)"
+                        class="btn btn btn-success btn-lg">
+                        Search</button>
+                </div>
+                <hr>
+            </form>
         </div>
-        </div>
-    
-    <!--Submit button-->
-    <br>
-        <br>
-        <div class="form-group">
-            <button type="submit" [disabled]="!(testdetailgetForm.valid && testdetailgetForm.dirty)" class="btn btn btn-outline-success btn-lg">
-                Search</button>
-        </div>
-    
-    </form>
-    </div>
     </div>
 
 
     <div class="container">
-        <br>
         <div class="header">
             <h5 style="text-align: center;">Test List table</h5>
             <br>
@@ -76,14 +74,19 @@
                         <!--<button class="btn btn-info" (click)="[routerLink]=['/labreport', rep.ReportNo]"
                             style="margin-left: 10px">Edit</button>-->
 
-                            
-                            <!-- <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/testdetails'" (click)="populateForm(test)">Edit</a></button>
+
+                        <!-- <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/testdetails'" (click)="populateForm(test)">Edit</a></button>
                     </td>-->
-                       
-                </tr>
-            </tbody>
-        </table>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer">
+                <!--Pagination-->
+                <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+            </div>
+        </div>
     </div>
-    </div>
-    
-    
+    <button type="reset" class="btn btn-md btn-primary" (click)="back()">
+        Back</button>
+</div>

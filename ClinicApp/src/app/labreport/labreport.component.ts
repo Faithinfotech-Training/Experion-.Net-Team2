@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LabreportService } from '../shared/labreport.service';
 import { Injectable } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-labreport',
@@ -13,7 +14,7 @@ export class LabreportComponent implements OnInit {
 
   
   constructor(public labService: LabreportService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.labService.bindListReports();
@@ -24,23 +25,21 @@ export class LabreportComponent implements OnInit {
     console.log(labForm.value);
     //from insertReport reached here
     let addId = this.labService.formLab.ReportNo;
-    
 
-if(addId == 0 || addId == null)
-{
-  this.insertLabReport(labForm);
-}
-else
-{
-  this.updateReport(labForm);
-}
-    
-this.router.navigate[('./getreportlab')]
-//onSubmit(labgetForm: NgForm){
-  //let pdId=this.labService.formLab.PatientId;
+
+    if (addId == 0 || addId == null) {
+      this.insertLabReport(labForm);
+    }
+    else {
+      this.updateReport(labForm);
+    }
+
+    this.router.navigate[('./getreportlab')]
+    //onSubmit(labgetForm: NgForm){
+    //let pdId=this.labService.formLab.PatientId;
     //console.log(pdId);
-//}
- window.location.reload();
+    //}
+    //window.location.reload();
 
   }
 
@@ -72,28 +71,30 @@ this.router.navigate[('./getreportlab')]
       }
     );
     window.alert("Report has been updated");
-    window.location.reload();
-    }
+    //window.location.reload();
+  }
 
-    
+
   //delete method
-  deleteReport(id: number){
+  deleteReport(id: number) {
     console.log("Deleting a report");
-  
-    if(confirm('Are you sure you want to delete'))
-    {
+
+    if (confirm('Are you sure you want to delete')) {
       this.labService.deleteReport(id).subscribe(
         (result) => {
-          console.log("result"+result);
+          console.log("result" + result);
           this.labService.bindListReports();
-  
+
         },
         (error) => {
           console.log("error");
         }
       );
     }
-    
+
   }
-  
+  back() {
+    this.location.back();
+  }
+
 }

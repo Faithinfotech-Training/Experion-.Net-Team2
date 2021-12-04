@@ -1,80 +1,77 @@
-<h2 style="text-align: center; font-size: 200%; font-family: 'Times New Roman', Times, serif">Test Details Form</h2>
-    
+<div class="box">
+    <h2 style="text-align: center; font-size: 200%; font-family: 'Times New Roman', Times, serif">Test Details Form</h2>
+
     <!--Test details form-->
-    <div class="form col-sm-5" style="margin-left: 35%;">
-        
+    <!--<div class="form col-sm-5" style="margin-left: 35%;">-->
+
         <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
-    <!--TestNo-->
-    <br>
-    <div class="form-group">
-        <label for="TestNo">Test No</label>
-        <input type="text" name="TestNo" #TestNo="ngModel"
-        [(ngModel)]="testDetailService.formLabT.TestNo" class="form-control" required
-        [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}"
-        />
-        <div class="validation-errors" *ngIf="TestNo.touched && TestNo.invalid">
-            <div *ngIf="TestNo.errors.required">Test No is required</div>
-        </div>
-        </div>
-    
-    <!--TestName-->
-    <br>
-<div class="form-group">
-        <label for="TestName">Test Name</label>
-        <input type="text" name="TestName" #TestName="ngModel"
-        [(ngModel)]="testDetailService.formLabT.TestName" class="form-control" required
-        [ngClass]="{'is-invalid': TestName.touched && TestName.invalid}"
-        />
-        <div class="validation-errors" *ngIf="TestName.touched && TestName.invalid">
-            <div *ngIf="TestName.errors.required">Test Name is required</div>
-        </div>
-        </div>
+            <!--TestNo-->
+            <br>
+            <div class="form-group">
+                <label for="TestNo">Test No</label>
+                <input type="text" name="TestNo" #TestNo="ngModel" [(ngModel)]="testDetailService.formLabT.TestNo"
+                    class="form-control" required [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}" />
+                <div class="validation-errors" *ngIf="TestNo.touched && TestNo.invalid">
+                    <div *ngIf="TestNo.errors.required">Test No is required</div>
+                </div>
+            </div>
 
-    <!--TestUnit-->
-    <br>
-    <div class="form-group">
-        <label for="TestUnit">Test Unit</label>
-        <input type="text" name="TestUnit" #TestUnit="ngModel"
-        [(ngModel)]="testDetailService.formLabT.TestUnit" class="form-control" required
-        [ngClass]="{'is-invalid': TestUnit.touched && TestUnit.invalid}"
-        />
-        <div class="validation-errors" *ngIf="TestUnit.touched && TestUnit.invalid">
-            <div *ngIf="TestUnit.errors.required">Test Unit is required</div>
-        </div>
-        </div>
+            <!--TestName-->
+            <br>
+            <div class="form-group">
+                <label for="TestName">Test Name</label>
+                <input type="text" name="TestName" #TestName="ngModel" [(ngModel)]="testDetailService.formLabT.TestName"
+                    class="form-control" required [ngClass]="{'is-invalid': TestName.touched && TestName.invalid}" />
+                <div class="validation-errors" *ngIf="TestName.touched && TestName.invalid">
+                    <div *ngIf="TestName.errors.required">Test Name is required</div>
+                </div>
+            </div>
 
-    <!--TestDesription-->
-    <br>
-    <div class="form-group">
-        <label for="TestDesription">Test Desription</label>
-        <input type="text" name="TestDesription" #TestDesription="ngModel"
-        [(ngModel)]="testDetailService.formLabT.TestDesription" class="form-control" required
-        [ngClass]="{'is-invalid': TestDesription.touched && TestDesription.invalid}"
-        />
-        <div class="validation-errors" *ngIf="TestDesription.touched && TestDesription.invalid">
-            <div *ngIf="TestDesription.errors.required">Test Desription is required</div>
-        </div>
-        </div>
+            <!--TestUnit-->
+            <br>
+            <div class="form-group">
+                <label for="TestUnit">Test Unit</label>
+                <input type="text" name="TestUnit" #TestUnit="ngModel" [(ngModel)]="testDetailService.formLabT.TestUnit"
+                    class="form-control" required [ngClass]="{'is-invalid': TestUnit.touched && TestUnit.invalid}" />
+                <div class="validation-errors" *ngIf="TestUnit.touched && TestUnit.invalid">
+                    <div *ngIf="TestUnit.errors.required">Test Unit is required</div>
+                </div>
+            </div>
 
-    <!--Isactive-->
-    <br>
-    <div class="form-group">
-        <label for="Isactive">Is active</label>
-        <input type="checkbox" name="Isactive" #Isactive="ngModel"
-        [(ngModel)]="testDetailService.formLabT.Isactive" required
-        [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}"
-        />
-        <div class="validation-errors" *ngIf="Isactive.touched && Isactive.invalid">
-            <div *ngIf="Isactive.errors.required">Is active required</div>
-        </div>
-        </div>
+            <!--TestDesription-->
+            <br>
+            <div class="form-group">
+                <label for="TestDesription">Test Desription</label>
+                <input type="text" name="TestDesription" #TestDesription="ngModel"
+                    [(ngModel)]="testDetailService.formLabT.TestDesription" class="form-control" required
+                    [ngClass]="{'is-invalid': TestDesription.touched && TestDesription.invalid}" />
+                <div class="validation-errors" *ngIf="TestDesription.touched && TestDesription.invalid">
+                    <div *ngIf="TestDesription.errors.required">Test Desription is required</div>
+                </div>
+            </div>
 
-         <!--Submit button-->
-    <br>
-    <br>
-    <div class="form-group">
-        <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)" class="btn btn-lg btn-primary form-control">
-            Submit</button>
-    </div>
-</form>
+            <!--Isactive-->
+            <br>
+            <div class="form-group">
+                <label for="Isactive">Is active</label>
+                <input type="checkbox" name="Isactive" #Isactive="ngModel"
+                    [(ngModel)]="testDetailService.formLabT.Isactive" required
+                    [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}" />
+                <div class="validation-errors" *ngIf="Isactive.touched && Isactive.invalid">
+                    <div *ngIf="Isactive.errors.required">Is active required</div>
+                </div>
+            </div>
+
+            <!--Submit button-->
+            <br>
+            <br>
+            <div class="form-group">
+                <button type="reset" class="btn btn-md btn-primary" (click)="back()">
+                    Back</button>
+                <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)"
+                    class="btn btn-lg btn-success" style="margin-left: 80%;">
+                    Submit</button>
+            </div>
+        </form>
+    <!--</div>-->
 </div>

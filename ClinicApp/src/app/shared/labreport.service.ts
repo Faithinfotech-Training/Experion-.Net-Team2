@@ -18,6 +18,7 @@ edit: boolean;
   getReports: Labreport[];
   getPatients: PatientRegisterH[];
 
+
   constructor(private httpClient: HttpClient) { }
 
   //get all reports

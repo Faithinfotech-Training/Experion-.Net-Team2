@@ -5,7 +5,8 @@ import { DoctorHelperService } from '../shared/doctor-helper.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Prescription } from '../shared/Prescription'
 import { Prescriptionformedicine } from '../shared/PrescriptionForMedicine'
-import { Testlist } from '../shared/TestListJ'
+import { Testlist } from '../shared/TestListJ';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-prescription',
@@ -35,7 +36,7 @@ export class AddPrescriptionComponent implements OnInit {
   //dayList : number[] = [0];
 
   constructor(public doctorHelperService : DoctorHelperService,
-    public router: Router) { }
+    public router: Router,private location:Location) { }
 
   ngOnInit(): void {
     //console.log("Refereshing Availabale Tests");
@@ -85,6 +86,8 @@ export class AddPrescriptionComponent implements OnInit {
     this.prescription.Isactive = true;
     this.prescription.DoctorId = Number(sessionStorage.getItem("DoctorID"));
     this.prescription.PatientId = Number(sessionStorage.getItem("CurrentPatientId"));
+    this.prescription.TotalCost = 0;
+    this.prescription.Billed = false;
     this.doctorHelperService.addPrescriptionWhole(
       this.prescription,
       this.medicineCount,      
@@ -179,4 +182,7 @@ export class AddPrescriptionComponent implements OnInit {
   }
 
   */
+ back(){
+   this.location.back();
+ }
 }

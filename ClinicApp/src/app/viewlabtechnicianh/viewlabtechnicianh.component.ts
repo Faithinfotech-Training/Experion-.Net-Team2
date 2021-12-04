@@ -11,9 +11,9 @@ import { TechnicianModel } from '../shared/technician-model';
   styleUrls: ['./viewlabtechnicianh.component.css']
 })
 export class ViewlabtechnicianhComponent implements OnInit {
+  page:number=1;
 
   //assign default page
-  page: number = 1;
   filter: string;
 
   constructor(public labTechService: LabtechnicianService, private router: Router,
@@ -43,5 +43,9 @@ export class ViewlabtechnicianhComponent implements OnInit {
     this.labTechService.formTech=emp;
   }
 
+  //Back to admin page
+  back() {
+    this.router.navigate(['./admin']);
+  }
 
 }

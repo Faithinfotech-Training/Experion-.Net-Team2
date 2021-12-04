@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DoctorService } from '../shared/doctor.service';
 import { DoctorViewLabReport } from '../shared/doctorviewlabreport';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-doctor-view-labreport-by-date',
@@ -20,7 +21,7 @@ export class DoctorViewLabreportByDateComponent implements OnInit {
   response:any=new DoctorViewLabReport();
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    public doctorService: DoctorService) { }
+    public doctorService: DoctorService, private location: Location) { }
 
   ngOnInit(): void {
     this.reportForm = this.formBuilder.group({
@@ -62,6 +63,9 @@ export class DoctorViewLabreportByDateComponent implements OnInit {
     }
 
 
+  }
+  Back(){
+    this.location.back();
   }
 
 

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestListViewModel } from '../shared/testlisth';
 import { TestlisthService } from '../shared/testlisth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-testlist-tone',
@@ -14,7 +15,7 @@ export class TestlistTOneComponent implements OnInit {
   page: number=1;
   filter: string;
   constructor(public tstlstService: TestlisthService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,10 @@ export class TestlistTOneComponent implements OnInit {
     console.log(emp);
     this.tstlstService.formTl=emp;
     sessionStorage.setItem("TestNo", emp.TestNo.toString());
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

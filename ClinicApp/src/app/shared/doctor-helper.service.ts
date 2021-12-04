@@ -53,16 +53,11 @@ export class DoctorHelperService {
   
 
   constructor(private httpClient: HttpClient) {
-   }
-
-
- 
-
-  
+   }  
 
   async refreshAppointmentByDocIdDate(doctorId : number, date : any)
   {
-    // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date);
     await this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date)
     .toPromise().then( (response) =>  
     { 
@@ -76,7 +71,7 @@ export class DoctorHelperService {
 
   patientPrescriptionHistorybyId(patientId : number)
   {
-    //console.log(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId );
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId );
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId )
     .toPromise().then( response =>       
       this.prescriptionHistory = response as PrescriptionHistory[] );
@@ -93,6 +88,7 @@ export class DoctorHelperService {
   
   refreshAvailableTests()
   {
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/getAllTestDetails");
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/getAllTestDetails").toPromise()
       .then(Response => 
       {
@@ -241,18 +237,7 @@ export class DoctorHelperService {
               //this.addTestList(this.testlistO);         
             }
           }
-        }
-    
-
-
-
-
-
-
-
-
-
-      });
+        }});
 
 
     
