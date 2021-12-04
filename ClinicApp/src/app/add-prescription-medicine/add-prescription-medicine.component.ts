@@ -4,6 +4,7 @@ import { DoctorHelperService } from '../shared/doctor-helper.service';
 import { Form, NgForm } from '@angular/forms';
 import {Prescriptionformedicine} from '../shared/PrescriptionForMedicine'
 import { from } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-prescription-medicine',
@@ -14,7 +15,7 @@ export class AddPrescriptionMedicineComponent implements OnInit {
 
   medicineCheck : boolean;
   constructor(public doctorHelperService : DoctorHelperService,
-    public router: Router) { }
+    public router: Router,private location :Location) { }
 
   ngOnInit(): void {
     this.doctorHelperService.refreshAvailableMedicine();
@@ -37,5 +38,8 @@ export class AddPrescriptionMedicineComponent implements OnInit {
     {
       this.router.navigate(['doctorListPatientsByDate']);      
     }    
+  }
+  back(){
+    this.location.back();
   }
 }

@@ -9,5 +9,5 @@ export class AppointmentList
     PatientName : string ;
     DoctorName : string;
     DateOfBirth : Date ;
-    Isactive : boolean;
+    Isactive : boolean=true;
   }

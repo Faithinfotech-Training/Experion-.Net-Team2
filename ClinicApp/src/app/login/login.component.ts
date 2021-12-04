@@ -74,6 +74,7 @@ export class LoginComponent implements OnInit {
 
             //logged as Admin
             //console.log("Admin");
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
@@ -87,6 +88,7 @@ export class LoginComponent implements OnInit {
 
 
             //console.log("FrontOffice");
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
@@ -99,6 +101,7 @@ export class LoginComponent implements OnInit {
 
 
             //console.log("LabTechnician");
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
