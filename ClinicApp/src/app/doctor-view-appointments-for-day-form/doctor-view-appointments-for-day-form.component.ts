@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import {DoctorHelperService} from '../shared/doctor-helper.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-doctor-view-appointments-for-day-form',
@@ -13,7 +14,7 @@ export class DoctorViewAppointmentsForDayFormComponent implements OnInit {
   loggedUserName: string;
 
   constructor(public doctorHelperService : DoctorHelperService,
-              public router: Router) { }
+              public router: Router,private location:Location) { }
 
   ngOnInit(): void {
     this.loggedUserName = localStorage.getItem("UserName")
@@ -29,6 +30,9 @@ export class DoctorViewAppointmentsForDayFormComponent implements OnInit {
     // this.doctorHelperService.refreshAppointmentByDocIdDate(this.doctorHelperService.currentDoctor.DoctorId,
     // this.doctorHelperService.currentDoctor.DateOfAppointment);
     this.router.navigate(['doctorListPatientsByDate'])
+  }
+  back(){
+    this.location.back();
   }
 
 }

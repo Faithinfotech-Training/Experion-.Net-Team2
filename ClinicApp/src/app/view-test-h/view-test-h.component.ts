@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Test } from '../shared/test';
 import { TestService } from '../shared/test.service';
 import { TestdetailsService } from '../shared/testdetails.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-test-h',
@@ -13,13 +14,13 @@ import { TestdetailsService } from '../shared/testdetails.service';
 })
 export class ViewTestHComponent implements OnInit {
 
- 
+
   //assign default page
   page: number = 1;
   filter: string;
 
   constructor(public testService: TestService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.testService.bindListTest();
@@ -31,23 +32,21 @@ export class ViewTestHComponent implements OnInit {
     console.log(testgetForm.value);
     let addId = this.testService.formTest.TestId;
     console.log(addId);
-    
-    if(addId !=0 || addId !=null)
-    {
+
+    if (addId != 0 || addId != null) {
       //console.log("Hello");
       this.testService.GetTestById(addId);
       console.log(this.testService.test);
-       
+
     }
-}
-
-populateForm(emp: Test)
-  {
-    console.log(emp);
-
-
-    this.testService.formTest=emp;
   }
 
+  populateForm(emp: Test) {
+    console.log(emp);
+    this.testService.formTest = emp;
+  }
 
+  back() {
+    this.location.back();
+  }
 }

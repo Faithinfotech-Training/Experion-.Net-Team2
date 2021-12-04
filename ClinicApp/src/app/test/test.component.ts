@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from '../shared/test.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-test',
@@ -11,7 +12,7 @@ import { TestService } from '../shared/test.service';
 export class TestComponent implements OnInit {
 
   constructor(public testService: TestService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location:Location) { }
 
   ngOnInit(): void {
 
@@ -62,6 +63,10 @@ export class TestComponent implements OnInit {
     );
     window.alert("Employee record has been updated");
     window.location.reload();
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

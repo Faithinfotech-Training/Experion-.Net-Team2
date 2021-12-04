@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {DoctorHelperService} from '../shared/doctor-helper.service';
 import { AppointmentList } from '../shared/AppointmentList'
 import { PatientLabHistory } from '../shared/PatientLabHistory'; 
+import { Location } from '@angular/common';
 //import sp from 'synchronized-promise'
 
 
@@ -22,7 +23,7 @@ export class ListPatientsByDateComponent implements OnInit {
 
 
   constructor(public doctorHelperService : DoctorHelperService,          
-              private router: Router) { }
+              private router: Router, private location:Location) { }
 
   ngOnInit(): void {
 
@@ -73,6 +74,10 @@ export class ListPatientsByDateComponent implements OnInit {
   deleteItem(item : AppointmentList)
   {
     console.log(item);
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

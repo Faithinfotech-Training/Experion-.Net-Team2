@@ -16,6 +16,7 @@ body {
 
 }
 
+
 .blue-text {
     color: #25636b
 }
@@ -63,3 +64,4 @@ button:focus {
     box-shadow: none !important;
     outline-width: 0
 }
+

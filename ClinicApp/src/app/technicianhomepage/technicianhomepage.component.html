@@ -1,113 +1,54 @@
-<div class="container-fluid px-1 py-5 mx-auto">
-    <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Welcome {{loggedUserName | titlecase}}</h3>
-            <p class="blue-text">Hope you have a great day ahead !!</p>
-            <div class="card">
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/labreport'>
-                            <button class="btn btn-primary" type="button"> New Lab Report</button>
-                        </a>
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h3>Welcome {{loggedUserName | titlecase}}</h3>
+                <p class="blue-text">Hope you have a great day ahead !!</p>
+                <div class="card">
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/labreport'>
+                                <button class="btn btn-primary" type="button"> New Lab Report</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/getreportlab'>
-                            <button class="btn btn-primary" type="button"> View Lab Report</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/getreportlab'>
+                                <button class="btn btn-primary" type="button"> View Lab Reports</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/test'>
-                            <button class="btn btn-primary" type="button"> Add Test</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/test'>
+                                <button class="btn btn-primary" type="button"> Add Test</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/viewtest'>
-                            <button class="btn btn-primary" type="button"> View Tests</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/viewtest'>
+                                <button class="btn btn-primary" type="button"> View Tests</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/testdetails'>
-                            <button class="btn btn-primary" type="button"> Add Test Details</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/testdetails'>
+                                <button class="btn btn-primary" type="button"> Add Test Details</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/viewtestdetails'>
-                            <button class="btn btn-primary" type="button"> View Test Details</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/viewtestdetails'>
+                                <button class="btn btn-primary" type="button">View Test Details</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<!--
-<div class="buttonsd">
-    <!-- New Lab Report Button-->
-    <!--
-    <div>
-        <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a
-                style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labreport'">New Lab
-                report</a></button>
-    </div>
-
-
-    <!--View Lab report button-->
-<!--
-    <div>
-        <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a
-                style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/getreportlab'">View Lab
-                Report</a></button>
-    </div>
-
-
-    <!--Insert or Update new test button-->
-<!--
-    <div>
-        <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a
-                style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/test'">Add
-                Test</a></button>
-    </div>
-
-    <!--View test button-->
-<!--
-    <div>
-        <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a
-                style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/viewtest'">View
-                Tests</a></button>
-    </div>
-
-
-    <!--Insert or Update new test details button-->
-<!--
-    <div>
-        <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a
-                style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/testdetails'">Add Test
-                Details</a></button>
-    </div>
-
-    <!--View test details button-->
-<!--
-    <div>
-        <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a
-                style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/viewtestdetails'">View
-                Test Details</a></button>
-    </div>
-</div>
--->
+</body>
