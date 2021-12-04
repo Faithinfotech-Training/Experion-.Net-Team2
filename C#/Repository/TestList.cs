@@ -111,6 +111,7 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
         StaffName=s.StaffName,
 
         DepartmentName=dept.DepartmentName,
+        TestNo=td.TestNo,
                                   TestName=td.TestName,
                                  Id =tl.Id
                              }).ToListAsync();

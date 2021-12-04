@@ -12,7 +12,7 @@ namespace CMSAPI.View_Model
         public int PrescriptionId { get; set; }
 
         public int DoctorId { get; set; }
-
+        
         public DateTime PrescriptionDate { get; set; }
 
         public string DoctorNotes { get; set; }
@@ -22,6 +22,8 @@ namespace CMSAPI.View_Model
         public string StaffName { get; set; }
 
         public string DepartmentName { get; set; }
+
+        public int TestNo { get; set; }
 
         public string TestName { get; set; }
 
