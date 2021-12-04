@@ -41,9 +41,9 @@
                 <th>Date</th>
                 <th> Doctor </th>
                 <th> Medical Notes </th>
-                <th> Test Notes </th>
+                <!-- <th> Test Notes </th> -->
                 <th> Medicine </th>
-                <th> Dosage </th>
+                 <!--<th> Dosage </th> -->
                 <th> Frequency </th>
                 <th> Days </th>                  
             </tr>
@@ -60,9 +60,9 @@
                 <td (click) = "populateForm(item)">  {{item.PrescriptionDate | date:'mediumDate'}}  </td>
                 <td (click) = "populateForm(item)">  {{item.StaffName}}  </td>    
                 <td (click) = "populateForm(item)">  {{item.DoctorNotes}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.TestDetails}}  </td>    
+                <!-- <td (click) = "populateForm(item)">  {{item.TestDetails}}  </td>   --> 
                 <td (click) = "populateForm(item)">  {{item.MedicineName}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.MedicineDosage}}  </td>    
+                 <!-- <td (click) = "populateForm(item)">  {{item.MedicineDosage}}  </td>   --> 
                 <td (click) = "populateForm(item)">  {{item.DosageFreq}}  </td>    
                 <td (click) = "populateForm(item)">  {{item.NoOfDays}}  </td> 
             </tr>

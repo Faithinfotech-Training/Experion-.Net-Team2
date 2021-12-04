@@ -14,11 +14,11 @@ import { StaffList } from 'src/app/shared/stafflist';
 export class StaffListComponent implements OnInit {
 
   //assign default page
-  page: number =1;
+  page: number = 1;
   filter: string;
 
-  constructor(public staffService:StaffService,
-    private router:Router,public doctorService:DoctorService) { }
+  constructor(public staffService: StaffService,
+    private router: Router, public doctorService: DoctorService) { }
 
   ngOnInit(): void {
 
@@ -44,46 +44,64 @@ export class StaffListComponent implements OnInit {
 
   //delete
   deleteStaff(id: number) {
+    if (confirm("Are you sure to DELETE this record?")) { }
+    console.log("Deleting a record...");
+    this.staffService.deleteStaff(id).subscribe(
+      (result) => {
+        console.log(result);
+        this.staffService.bindListStaffs();
+        //this.staffService.formData.Isactive = false;
+        //console.log(this.staffService.formData.Isactive);
+        //this.toastrService.success('Staff record has been deleted', 'StaffApp v2021');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
-    console.log(id);
-    if (confirm("Are you sure to DELETE this record?")) {
-      console.log("Deleting a record...");
-      this.staffService.deleteStaff(id).subscribe(
-        (result) => {
-          console.log(result);
-          this.staffService.bindListStaffs();
-          //this.toastrService.success('Staff record has been deleted', 'StaffApp v2021');
-        },
-        (error) => {
-          console.log(error);
+
+  //update isactive
+  updateIsactive(staffId: number) {
+    if (staffId != 0 || staffId != null) {
+      //console.log(this.staffId);
+      console.log("Hi");
+      //getStaff
+      this.staffService.updateIsActive(staffId).subscribe(
+        data => {
+          console.log(data);
         }
       );
     }
+    this.router.navigate[('/stafflist')];
+
   }
 
-    //update an staff
+  //update an staff
   updateStaff(staffId: number) {
-    if(staffId!=0 || staffId!=null){
+    if (staffId != 0 || staffId != null) {
       //console.log(this.staffId);
       console.log("Hi");
       //getStaff
       this.staffService.getStaff(staffId).subscribe(
-        data=>{
+        data => {
           console.log(data);
-          if(data.RoleName=='Doctor'){
-            console.log("hello doctor");
+          if (data.RoleName == 'Doctor' || data.RoleName == 'Lab Technician') {
+            //console.log("hello doctor");
             this.router.navigate(['./editstaff', staffId]);
+          } else if (data.RoleName == 'Admin' || data.RoleName == 'Front Office') {
+            this.router.navigate(['./staff', staffId]);
           }
-          
+
         });
-       
-    console.log(staffId);
-    
+
+      console.log(staffId);
+
+    }
   }
-}
 
   //Back to admin page
-  back(){
+  back() {
     this.router.navigate(['./admin']);
   }
 }

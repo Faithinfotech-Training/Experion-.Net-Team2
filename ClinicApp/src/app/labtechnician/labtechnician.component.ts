@@ -10,11 +10,13 @@ import { LabtechnicianService } from '../shared/labtechnician.service';
 })
 export class LabtechnicianComponent implements OnInit {
 
+
   techId: number;
   constructor(public techService: LabtechnicianService, private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.techService.bindCmbDepartment();
     
   }
 
@@ -22,46 +24,13 @@ export class LabtechnicianComponent implements OnInit {
   onSubmit(labForm: NgForm) {
     console.log(labForm.value);
     //from insertEmployee reached here
-    let addId = this.techService.formLabT.LabtechnicianId;
+    labForm.value.LabtechnicianId=0;
+    labForm.value.Isactive=true;
+    labForm.value.StaffId=Number(sessionStorage.getItem("StaffId"));
+    console.log(labForm.value.StaffId);
+    this.techService.insertTechnician(labForm.value);
+    this.router.navigate(['./viewtechnician']);
 
-
-    if (addId == 0 || addId == null) {
-      //INSERT
-      this.insertTechnician(labForm);
-    }
-    else {
-      //UPDATE
-      this.updateTechnician(labForm);
-    }
-
+    
   }
-
-  //INSERT
-  insertTechnician(labForm?: NgForm) {
-    console.log("Inserting a record ...");
-    //call the service
-    this.techService.insertTechnician(labForm.value).subscribe(
-      (result) => {
-        console.log(result);
-        //at time of submit we need to call this method so go to onSubmit
-      }
-    );
-  }
-
-
-
-  //UPDATE
-  updateTechnician(labForm?: NgForm) {
-    console.log("Updating a record ...");
-    //call the service
-    this.techService.updateTechnician(labForm.value).subscribe(
-      (result) => {
-        console.log(result);
-        //at time of submit we need to call this method so go to onSubmit
-      }
-    );
-    window.alert("Employee record has been updated");
-    window.location.reload();
-  }
-
 }

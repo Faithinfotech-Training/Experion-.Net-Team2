@@ -1,7 +1,7 @@
-<p>add-login works!</p>
-<form name="loginform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)">
+<body>
+<form name="loginform" #form="ngForm" autocomplete="nope" (ngSubmit)="onSubmit(form)" class="box">
     <!--Login id-->
-    <input type="" name="Loginid" [ngModel]="loginService.formData.Loginid" />
+    <input type="hidden" name="Loginid" [ngModel]="loginService.formData.Loginid" />
 
     <!--Role dropdown-->
     <div class="form-group">
@@ -62,3 +62,4 @@
             class="btn btn-lg btn-success me-md-2">Submit</button>
     </div>
 </form>
+</body>

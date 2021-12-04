@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Staff } from 'src/app/shared/staff';
 import { StaffService} from 'src/app/shared/staff.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-staff',
@@ -17,7 +18,8 @@ export class StaffComponent implements OnInit {
 
   constructor(public staffService:StaffService,
     private router:Router,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute,
+    private location:Location) { }
 
   ngOnInit(): void {
 
@@ -104,6 +106,7 @@ export class StaffComponent implements OnInit {
   }
   //Back to admin page
   back(){
-    this.router.navigate(['/admin']);
+    //this.router.navigate(['/admin']);
+    this.location.back()
   }
 }

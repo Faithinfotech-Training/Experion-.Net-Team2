@@ -5,4 +5,6 @@ export class Prescription {
     Isactive: boolean;
     DoctorId: number ;
     PatientId: number ;
+    TotalCost : number ;
+    Billed : boolean;
 }

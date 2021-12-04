@@ -12,6 +12,7 @@ export class LabreportService {
 
   formLab: Labreport = new Labreport();
   getReports: Labreport[];
+  edit:boolean;
   constructor(private httpClient: HttpClient) { }
 
   //get all reports

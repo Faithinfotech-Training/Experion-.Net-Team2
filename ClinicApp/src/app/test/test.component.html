@@ -5,8 +5,8 @@
         <!--TestId-->
         <br>
         <div class="form-group">
-            <label for="TestId">Test Id</label>
-            <input type="text" name="TestId" #TestId="ngModel"
+            <label for="TestId"></label>
+            <input type="hidden" name="TestId" #TestId="ngModel"
             [(ngModel)]="testService.formTest.TestId" class="form-control" required
             [ngClass]="{'is-invalid': TestId.touched && TestId.invalid}"
             />

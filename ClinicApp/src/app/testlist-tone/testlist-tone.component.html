@@ -1,0 +1,74 @@
+<div class="container">
+    <h3>Enter Patient Id</h3>
+    <div class="form">
+        <form name="testdetailgetForm" #testdetailgetForm="ngForm" (ngSubmit)="onSubmit(testdetailgetForm)">
+            <br>
+        <div class="form-group">
+            <label for="PatientId">PatientId</label>
+            <input type="text" name="PatientId" #PatientId="ngModel"
+        [(ngModel)]="tstlstService.formP.PatientId" class="form-control" required
+        [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}"
+        />
+        <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
+            <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+        </div>
+        </div>
+    
+    <!--Submit button-->
+    <br>
+        <br>
+        <div class="form-group">
+            <button type="submit" [disabled]="!(testdetailgetForm.valid && testdetailgetForm.dirty)" class="btn btn btn-outline-success btn-lg">
+                Search</button>
+        </div>
+    
+    </form>
+    </div>
+    </div>
+
+
+    <div class="container">
+        <br>
+        <div class="header">
+            <h5 style="text-align: center;">Test List table</h5>
+            <br>
+            
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prescription Id</th>
+                    <th>PrescriptionDate</th>
+                    <!--<th>Test Desription</th>
+                    <th>Is active</th>
+                    <th>Action</th>-->
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let test of tstlstService.testlist | paginate: {itemsPerPage: 3, currentPage: page} ">
+                    <td>{{test.Id}}</td>
+                    <td >{{test.PrescriptionId}}</td>
+                    <td >{{test.PrescriptionDate}}</td>
+                    <!-- <td >{{test.TestDesription}}</td>
+                    <td >{{test.Isactive}}</td>
+                
+                 <td>
+                -->
+                   
+                   
+                        <!--<button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;-->
+                        <!--<button class="btn btn-info" (click)="[routerLink]=['/labreport', rep.ReportNo]"
+                            style="margin-left: 10px">Edit</button>-->
+
+                            
+                            <!-- <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/testdetails'" (click)="populateForm(test)">Edit</a></button>
+                    </td>-->
+                       
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    
+    

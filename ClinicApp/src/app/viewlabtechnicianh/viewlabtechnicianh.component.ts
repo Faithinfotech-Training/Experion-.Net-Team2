@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Labtechnician } from '../shared/labtechnician';
 import { LabtechnicianService } from '../shared/labtechnician.service';
+import { TechnicianModel } from '../shared/technician-model';
 
 @Component({
   selector: 'app-viewlabtechnicianh',
@@ -12,6 +13,10 @@ import { LabtechnicianService } from '../shared/labtechnician.service';
 export class ViewlabtechnicianhComponent implements OnInit {
   page:number=1;
 
+  //assign default page
+  page: number = 1;
+  filter: string;
+
   constructor(public labTechService: LabtechnicianService, private router: Router,
     private route: ActivatedRoute) { }
 
@@ -19,29 +24,29 @@ export class ViewlabtechnicianhComponent implements OnInit {
     this.labTechService.bindListTechnician();
   }
 
-  //GET Test BY ID
-
-  onSubmit(testgetForm: NgForm) {
-    console.log(testgetForm.value);
-    let addId = this.labTechService.formLabT.LabtechnicianId;
+  
+  onSubmit(testdetailgetForm: NgForm) {
+    console.log(testdetailgetForm.value);
+    let addId = this.labTechService.formLabT.LabtechnicianId
     console.log(addId);
     
     if(addId !=0 || addId !=null)
     {
       //console.log("Hello");
-      this.labTechService.GetTechnicianById(addId)
-      console.log(this.labTechService.technicians);
+      this.labTechService.GetCustomLabTechnicianById(addId);
+      console.log(this.labTechService.viewtech);
        
     }
-}
-
-populateForm(emp: Labtechnician)
+  }
+  populateForm(emp: TechnicianModel)
   {
     console.log(emp);
-
-
-    this.labTechService.formLabT=emp;
+    this.labTechService.formTech=emp;
   }
 
+  //Back to admin page
+  back() {
+    this.router.navigate(['./admin']);
+  }
 
 }

@@ -1,16 +1,7 @@
-// Jyothish
-//-------------------------------------------------------------------------------------------------------
-
 import { ListPatientsByDateComponent } from './list-patients-by-date/list-patients-by-date.component';
-
-
-//--------------------------------------------------------------------------------------------------------
-
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-
 import { DoctorViewAppointmentsForDayFormComponent } from './doctor-view-appointments-for-day-form/doctor-view-appointments-for-day-form.component';
 import { GetreportComponent } from './getreport/getreport.component';
 import { PatientRegisterH } from './shared/patient-register-h';
@@ -54,56 +45,42 @@ import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
+import { TestListViewModel } from './shared/testlisth';
+import { TestlistTOneComponent } from './testlist-tone/testlist-tone.component';
+import { GenerateBillGetidComponent } from './generate-bill-getid/generate-bill-getid.component';
+import { BillTableComponent } from './bill-table/bill-table.component';
+
 
 const routes: Routes = [
 
-  // Jyothish
+  
   { path: 'doctorListPatientsByDate', component: ListPatientsByDateComponent },
   { path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent},
   { path: 'patientLabHistory', component: PatientLabHistoryComponent},
   { path: 'addPrescription', component: AddPrescriptionComponent},
   { path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent},
   { path: 'doctorViewAppointmentForm', component: DoctorViewAppointmentsForDayFormComponent },
-  { path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent },
-  { path: 'patientLabHistory', component: PatientLabHistoryComponent },
-  { path: 'addPrescription', component: AddPrescriptionComponent },
-
-  // -----------------------------------------------------------------------------------------------
-  
   { path: 'labreport', component: LabreportComponent },
-  { path: 'labtechnician', component: LabtechnicianComponent },
+  { path: 'labtechnician', component: LabtechnicianComponent, canActivate:[AuthGuard], data:{role: '1'} },
   { path: 'test', component: TestComponent },
   { path: 'testdetails', component: TestdetailsComponent },
   { path: 'viewtestdetails', component: ViewtestdetailsComponent },
   { path: 'getreportlab', component: GetreportComponent }, // get repory by id
-  { path: 'patientregister', component: PatientRegisterHComponent },
+  { path: 'patientregister', component: PatientRegisterHComponent, canActivate: [AuthGuard], data: { role: '2' } },
   { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'login', component: LoginComponent },  
   { path: 'staffs', component: StaffsComponent },
   { path: 'staff', component: StaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
-  { path: 'stafflist', component: StaffListComponent },
-  { path: 'staff/:staffId', component: StaffComponent },
+  { path: 'stafflist', component: StaffListComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  { path: 'staff/:staffId', component: StaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'frontoffice', component: FrontofficeComponent, canActivate: [AuthGuard], data: { role: '2' } },  
-  { path: 'labreport', component: LabreportComponent },
-  { path: 'labtechnician', component: LabtechnicianComponent },
-  { path: 'test', component: TestComponent },
-  { path: 'testdetails', component: TestdetailsComponent },
-  { path: 'viewtestdetails', component: ViewtestdetailsComponent },
   { path: 'doctorlist', component: DoctorListComponent },
   { path: 'doctorviewlabreportbydate', component: DoctorViewLabreportByDateComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'doctorviewlabreportbyid', component: DoctorViewLabreportByIdComponent, canActivate: [AuthGuard], data: { role: '4' } },
-  { path: 'doctorViewAppointmentForm', component: DoctorViewAppointmentsForDayFormComponent },
-  { path: 'doctorListPatientsByDate', component: ListPatientsByDateComponent },
-  { path: 'patientPrescriptionHistory', component: PatientPrescriptionHistoryComponent },
-  { path: 'patientLabHistory', component: PatientLabHistoryComponent },
-  { path: 'addPrescription', component: AddPrescriptionComponent },
   { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard], data: { role: '2' } },
-  { path: 'appointmentlist', component: AppointmentListComponent },
-  { path: 'addPrescription', component: AddPrescriptionComponent },
-  { path: 'appointment', component: AppointmentComponent },
-  { path: 'appointmentlist', component: AppointmentListComponent }, 
-  { path: 'addLogin', component: AddLoginComponent},
+  { path: 'appointmentlist', component: AppointmentListComponent, canActivate: [AuthGuard], data: { role: '2' } },
+  { path: 'addLogin', component: AddLoginComponent, canActivate: [AuthGuard], data: { role: '1' }},
   { path: 'editstaff/:staffId', component: EditStaffComponent},
 
 
@@ -118,12 +95,17 @@ const routes: Routes = [
   {path: 'addMedicineforPrescription', component: AddPrescriptionMedicineComponent},
 
   
-  {path: 'getpatient', component: PatientViewByIdHComponent},
+  {path: 'getpatient', component: PatientViewByIdHComponent, canActivate: [AuthGuard], data: { role: '2' }},
   {path: 'viewtest', component: ViewTestHComponent},
-  {path: 'viewtechnician', component: ViewlabtechnicianhComponent},
+  {path: 'viewtechnician', component: ViewlabtechnicianhComponent, canActivate: [AuthGuard], data: { role: '1' }},
   {path: 'technicianhome', component: TechnicianhomepageComponent},
-  {path: 'doctor', component: DoctorComponent},
-  {path:'appointmentByDate', component:AppointmentByDateComponent}
+  {path: 'doctor', component: DoctorComponent,canActivate: [AuthGuard], data: { role: '1' }},
+  {path:'appointmentByDate', component:AppointmentByDateComponent},
+  {path:'testlistTOne', component:TestlistTOneComponent},
+
+  {path:'gb', component: GenerateBillGetidComponent},
+  {path:'bt', component: BillTableComponent}
+  
   ];
 
 @NgModule({

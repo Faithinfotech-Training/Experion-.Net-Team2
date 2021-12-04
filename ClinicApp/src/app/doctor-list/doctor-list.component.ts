@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../shared/doctor.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-doctor-list',
@@ -12,7 +13,7 @@ export class DoctorListComponent implements OnInit {
   filter:string;
   page:number=1;
 
-  constructor(public doctorService:DoctorService, private router:Router) { }
+  constructor(public doctorService:DoctorService, private router:Router,private location:Location) { }
 
   ngOnInit(): void {
     //get all doctors through service
@@ -25,4 +26,9 @@ export class DoctorListComponent implements OnInit {
     this.router.navigate(['doctors',DoctorId])
   }
 
+  //Back to admin page
+  Back(): void{
+    //this.router.navigate(['./admin']);
+    this.location.back()
+  }
 }

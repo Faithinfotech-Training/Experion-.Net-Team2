@@ -1,23 +1,40 @@
-<p>admin works!</p>
-<header>
-    <div class="container">
-        <h5>Welcome Admin : {{loggedUserName}}</h5>
-    </div>
-    <nav class="navbar navbar-dark bg-light navbar-expand">
-        <div class="container">
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLink='/stafflist'>View Staff</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLink='/staff'>Add Staff</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLink='../accounts'>My Account</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" (click)="logout()">Logout</a>
-            </li>
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h3>Welcome {{loggedUserName | titlecase}}</h3>
+                <p class="blue-text">Hope you have a great day ahead !!</p>
+                <div class="card">
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/stafflist'>
+                                <button class="btn btn-primary" type="button"> View Staff</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/staff'>
+                                <button class="btn btn-primary" type="button"> Add Staff</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/doctorlist'>
+                                <button class="btn btn-primary" type="button"> View Doctors</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/viewtechnician'>
+                                <button class="btn btn-primary" type="button"> View Lab Technicians</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-
-</header>
+    </div>
+</body>

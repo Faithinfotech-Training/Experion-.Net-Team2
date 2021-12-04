@@ -30,6 +30,7 @@ import { LabreportComponent } from './labreport/labreport.component';
 import { LabreportService } from './shared/labreport.service';
 import { LabtechnicianService } from './shared/labtechnician.service';
 import { TestService } from './shared/test.service'; 
+import { TestlisthService } from './shared/testlisth.service';
 import { TestdetailsService } from './shared/testdetails.service';
 import { PatientRegisterHService } from './shared/patient-register-h.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,6 +55,10 @@ import { AddLoginComponent } from './add-login/add-login.component';
 import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
+import { TestlistTOneComponent } from './testlist-tone/testlist-tone.component';
+import { GenerateBillGetidComponent } from './generate-bill-getid/generate-bill-getid.component';
+import { BillTableComponent } from './bill-table/bill-table.component';
+
 
 @NgModule({
   declarations: [
@@ -90,8 +95,12 @@ import { AppointmentByDateComponent } from './appointment-by-date/appointment-by
     DoctorComponent,
     AppointmentListComponent,
     AddLoginComponent,
+    AppointmentByDateComponent,
+    TestlistTOneComponent,
     EditStaffComponent,
-    AppointmentByDateComponent
+    AppointmentByDateComponent,
+    GenerateBillGetidComponent,
+    BillTableComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +118,7 @@ import { AppointmentByDateComponent } from './appointment-by-date/appointment-by
     
   providers: [LabreportService, 
      LabtechnicianService, TestService, 
-    TestdetailsService,AuthService, AuthGuard, DoctorService, 
+    TestdetailsService,AuthService,TestlisthService, AuthGuard, DoctorService, 
      ,PatientRegisterHService,
     {
       provide: HTTP_INTERCEPTORS,

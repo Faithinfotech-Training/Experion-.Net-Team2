@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientRegisterH } from '../shared/patient-register-h';
 import { PatientRegisterHService } from '../shared/patient-register-h.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-patient-view-by-id-h',
@@ -13,7 +14,7 @@ export class PatientViewByIdHComponent implements OnInit {
 
   page: number=1;
   constructor(public patService: PatientRegisterHService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.patService.bindListPatients();
@@ -39,6 +40,10 @@ populateForm(emp: PatientRegisterH)
   {
     console.log(emp);
     this.patService.formPatient=emp;
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

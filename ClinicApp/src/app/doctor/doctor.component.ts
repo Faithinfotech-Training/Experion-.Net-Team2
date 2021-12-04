@@ -22,9 +22,10 @@ export class DoctorComponent implements OnInit {
     form.value.StaffId=sessionStorage.getItem("StaffId");
     console.log(form.value);
     this.doctorService.insertDoctor(form.value);
-    this.router.navigate(['./admin']);
+    this.router.navigate(['./doctorlist']);
     
 
+    this.router.navigate[('/doctors')];
 
   }
  

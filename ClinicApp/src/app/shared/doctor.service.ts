@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { DoctorViewLabReport } from './doctorviewlabreport';
-import {Department} from './department';
+import { Department } from './department';
 import { Staff } from './staff';
 import { StaffList } from './stafflist';
 
@@ -17,10 +17,10 @@ export class DoctorService {
   formData: DoctorModel = new DoctorModel();
   formData1: Doctor = new Doctor();
   doctormodel: DoctorModel[];
-  labreport:DoctorViewLabReport[];
+  labreport: DoctorViewLabReport[];
   departments: Department[];
-  staffdata:Staff=new Staff();
-  staff:StaffList=new StaffList();
+  staffdata: Staff = new Staff();
+  staff: StaffList = new StaffList();
 
 
   constructor(private httpClient: HttpClient) { }
@@ -35,31 +35,29 @@ export class DoctorService {
   getLabReportByDate(report: DoctorViewLabReport): Observable<any> {
     console.log(report.ReportNo);
     return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByDate/" + report.ReportDate)
-    ;
+      ;
 
   }
 
   //getlab report by id
-  getLabReportById(pId:number):Observable<any> {
-    return this.httpClient.get(environment.apiUrl+ "/api/DoctorManagePatient/LabReportsByPatientId/"+ pId);
-    
+  getLabReportById(pId: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" + pId);
+
   }
 
   //insert a doctor
-  async insertDoctor(doctor:Doctor)//: Observable<any>
+  async insertDoctor(doctor: Doctor)//: Observable<any>
   {
     await this.httpClient.post(environment.apiUrl + "/api/doctor", doctor)
-    .toPromise()
-    .then(
-      (val) => 
-      {
-        console.log(val); 
-      });
+      .toPromise()
+      .then(
+        (val) => {
+          console.log(val);
+        });
   }
 
-   //UPDATE
-   updateDoctor(doctor: Doctor)  : Observable<any>
-    {
+  //UPDATE
+  updateDoctor(doctor: Doctor): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "/api/doctor", doctor);
   }
 

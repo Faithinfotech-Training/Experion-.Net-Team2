@@ -4,7 +4,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from '../shared/appointment';
 import { AppointmentList } from '../shared/AppointmentList';
-import { FrontofficeService } from '../shared/frontoffice.service'
+import { FrontofficeService } from '../shared/frontoffice.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-appointment',
@@ -18,7 +19,8 @@ export class AppointmentComponent implements OnInit {
 
   constructor(public frontOfficeService: FrontofficeService,
     public router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private location:Location) { }
 
   ngOnInit(): void {
 
@@ -102,11 +104,12 @@ export class AppointmentComponent implements OnInit {
       }
     );
     window.alert("Appointment record has been updated");
-    window.location.reload();
+    //window.location.reload();
   }
   //Back to admin page
   back(){
-    this.router.navigate(['/frontoffice']);
+    //this.router.navigate(['/frontoffice']);
+    this.location.back();
   }
   //view appointment
   view(){
