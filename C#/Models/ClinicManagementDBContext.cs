@@ -296,8 +296,6 @@ namespace CMSAPI.Models
                     .HasColumnName("MEDICINE_COMPANY")
                     .HasMaxLength(30);
 
-                entity.Property(e => e.MedicineDosage).HasColumnName("MEDICINE_DOSAGE");
-
                 entity.Property(e => e.MedicineName)
                     .IsRequired()
                     .HasColumnName("MEDICINE_NAME")
@@ -515,6 +513,10 @@ namespace CMSAPI.Models
                 entity.ToTable("TESTDETAILS");
 
                 entity.Property(e => e.TestNo).HasColumnName("TEST_NO");
+
+                entity.Property(e => e.Amount)
+                    .HasColumnName("amount")
+                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Isactive).HasColumnName("ISACTIVE");
 

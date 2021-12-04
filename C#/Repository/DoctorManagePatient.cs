@@ -1,3 +1,4 @@
+using CMSAPI.BillModels;
 using CMSAPI.DoctorPatientViewModels;
 using CMSAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -91,7 +92,7 @@ namespace CMSAPI.Repository
                         StaffName = s.StaffName,
                         DoctorNotes = pn.DoctorNotes,                        
                         MedicineName = m.MedicineName,
-                        MedicineDosage = m.MedicineDosage,
+                        //MedicineDosage = m.MedicineDosage,
                         DosageFreq = pm.DosageFreq,
                         NoOfDays = pm.NoOfDays
                       }).ToListAsync();
@@ -184,11 +185,14 @@ namespace CMSAPI.Repository
         if (db != null)
         {
                 return await (from a in db.Appointment
-                              from p in db.Patient                              
+                              from p in db.Patient  
+                              from d in db.Doctor
                               where
                               a.Isactive == true &&
                               a.PatientId == p.PatientId &&
-                              a.AppointmentDate == date                              
+                              a.AppointmentDate == date &&   
+                              a.DoctorId == d.DoctorId &&
+                              d.StaffId == doctorId
                               select new DoctorAppointmentByDate
                               {
                                   AppointmentNo  = a.AppointmentNo,
@@ -275,6 +279,65 @@ namespace CMSAPI.Repository
                 //return 1;
             }
             return 0;
+        }
+
+        public async Task<List<MedicineModel>> GetMedicineModels(int patientId)
+        {
+            if (db != null)
+            {
+                return await( from p in db.Prescription
+                              from pfm in db.Prescriptionformedicine
+                              from m in db.Medicine
+                              where
+                              p.PrescriptionId == pfm.PrescriptionId &&
+                              p.PatientId == patientId && 
+                              pfm.MedicineId == m.MedicineId &&
+                              p.Billed == false
+                             select new MedicineModel
+                             {
+                                 PrescriptionId  = p.PrescriptionId,
+                                 PrescriptionDate = p.PrescriptionDate,
+                                 MedicineName = m.MedicineName,
+                                 MedicineCompany = m.MedicineCompany,
+                                 DosageFreq = pfm.DosageFreq,
+                                 NoOfDays  = pfm.NoOfDays,
+                                 MedicineAmount = m.MedicineAmount
+                             }).ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<List<TestBillModel>> GetTestBillModels(int patientId)
+        {
+            if (db != null)
+            {
+                return await(from p in db.Prescription
+                             from tl in db.Testlist 
+                             from td in db.Testdetails
+                             where
+                             p.PatientId == patientId &&
+                             p.PrescriptionId == tl.PrescriptionId &&
+                             tl.TestNo == td.TestNo &&
+                             p.Billed == false
+                             select new TestBillModel
+                             {
+                                 PrescriptionId = p.PrescriptionId,
+                                 PrescriptionDate = p.PrescriptionDate,
+                                 Notes = tl.Notes,
+                                 TestName = td.TestName,
+                                 Amount = td.Amount
+                             }).ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<List<Prescription>> getPrescriptionbyId(int Id)
+        {
+            if (db != null)
+            {
+                return await db.Prescription.Where(x => x.PrescriptionId == Id && x.Isactive == true).ToListAsync();
+            }
+            return null;
         }
     }
 }

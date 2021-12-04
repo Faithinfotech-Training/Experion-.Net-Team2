@@ -16,7 +16,6 @@ namespace CMSAPI.Models
         public double? MedicineAmount { get; set; }
         public DateTime ManufacturingDate { get; set; }
         public DateTime ExpDate { get; set; }
-        public int MedicineDosage { get; set; }
         public bool? Isactive { get; set; }
 
         public virtual ICollection<Prescriptionformedicine> Prescriptionformedicine { get; set; }

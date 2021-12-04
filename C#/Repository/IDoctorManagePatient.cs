@@ -1,4 +1,5 @@
 // Jyo
+using CMSAPI.BillModels;
 using CMSAPI.DoctorPatientViewModels;
 using CMSAPI.Models;
 using System;
@@ -31,13 +32,21 @@ namespace CMSAPI.Repository
 
     Task<List<Patient>> getPatientbyId(int patientId);
 
-    Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId);
+   Task<List<Prescription>> getPrescriptionbyId(int Id);
+
+        Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId);
 
     Task<List<Testdetails>> getAllTestDetails();
 
     Task<List<Medicine>> getAllMedicine();
 
     Task<int> AddTestList(Testlist t);
+
+    Task<List<MedicineModel>> GetMedicineModels(int patientId);
+
+    Task<List<TestBillModel>> GetTestBillModels(int patientId);
+
+
 
 
 
