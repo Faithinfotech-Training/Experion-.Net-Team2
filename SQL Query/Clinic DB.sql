@@ -58,6 +58,7 @@ INSERT INTO LOGIN VALUES
 (4, 'haizon','haizon@123',4),
 (5, 'anna','anna@123',4);
 
+
 select * from LOGIN;
 
 --Department--
@@ -70,6 +71,12 @@ INSERT INTO DEPARTMENT VALUES
 ('Pediatrics'),
 ('Dental'),
 ('Orthopeadics');
+
+
+update staff
+set STAFF_NAME = 'Anna'
+Where
+STAFF_ID = 5;
 
 --Medicine--
 CREATE TABLE MEDICINE(
@@ -362,3 +369,5 @@ Select ll.LABTECHNICIAN_ID, ss.STAFF_NAME, dd.DEPARTMENT_NAME, ll.ISACTIVE from 
 WHERE LABTECHNICIAN_ID=2 AND ll.STAFF_ID=ss.STAFF_ID
 AND ll.DEPARTMENT_ID=dd.DEPARTMENT_ID;
 
+Select * from LOGIN as l, STAFF as s, LABTECHNICIAN as lt
+;
