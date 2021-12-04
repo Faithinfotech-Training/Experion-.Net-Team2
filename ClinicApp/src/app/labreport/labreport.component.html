@@ -132,9 +132,11 @@
             <div class="form-group">
                 <button type="reset" class="btn btn-md btn-primary" (click)="back()">
                     Back</button>
-                <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)" class="btn btn-lg btn-success"
+                <button type="submit"  class="btn btn-lg btn-success"
                     style="margin-left: 80%;">
                     Submit</button>
+
+                    <!--[disabled]="!(labForm.valid && labForm.dirty)"-->
             </div>
 
         </form>
