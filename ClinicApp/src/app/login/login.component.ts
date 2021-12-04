@@ -108,9 +108,9 @@ export class LoginComponent implements OnInit {
 
             this.authService.userPresent = true;
             sessionStorage.setItem("userPresent", 'true');
-            
+            console.log(this.jwtResponse);
             //console.log("Doctor");
-            sessionStorage.setItem("DoctorId", this.jwtResponse.uId);
+            sessionStorage.setItem("DoctorID", this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);

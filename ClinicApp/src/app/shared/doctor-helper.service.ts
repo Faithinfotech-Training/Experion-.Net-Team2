@@ -53,16 +53,11 @@ export class DoctorHelperService {
   
 
   constructor(private httpClient: HttpClient) {
-   }
-
-
- 
-
-  
+   }  
 
   async refreshAppointmentByDocIdDate(doctorId : number, date : any)
   {
-    // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date);
     await this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/AppointmentByDoctorIdDate/" + doctorId + "/" + date)
     .toPromise().then( (response) =>  
     { 
@@ -242,18 +237,7 @@ export class DoctorHelperService {
               //this.addTestList(this.testlistO);         
             }
           }
-        }
-    
-
-
-
-
-
-
-
-
-
-      });
+        }});
 
 
     

@@ -56,6 +56,8 @@ import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 import { TestlistTOneComponent } from './testlist-tone/testlist-tone.component';
+import { GenerateBillGetidComponent } from './generate-bill-getid/generate-bill-getid.component';
+import { BillTableComponent } from './bill-table/bill-table.component';
 
 
 @NgModule({
@@ -96,7 +98,9 @@ import { TestlistTOneComponent } from './testlist-tone/testlist-tone.component';
     AppointmentByDateComponent,
     TestlistTOneComponent,
     EditStaffComponent,
-    AppointmentByDateComponent
+    AppointmentByDateComponent,
+    GenerateBillGetidComponent,
+    BillTableComponent
   ],
   imports: [
     BrowserModule,
