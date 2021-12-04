@@ -17,6 +17,8 @@ export class ViewtestdetailsComponent implements OnInit {
   //assign default page
   page: number = 1;
   filter: string;
+ 
+  
 
   constructor(public testService: TestService, public testDetailService: TestdetailsService, private router: Router,
     private route: ActivatedRoute, private location:Location) { }

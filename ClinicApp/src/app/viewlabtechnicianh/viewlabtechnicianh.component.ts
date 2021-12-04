@@ -11,6 +11,7 @@ import { TechnicianModel } from '../shared/technician-model';
   styleUrls: ['./viewlabtechnicianh.component.css']
 })
 export class ViewlabtechnicianhComponent implements OnInit {
+  page:number=1;
 
   //assign default page
   page: number = 1;
