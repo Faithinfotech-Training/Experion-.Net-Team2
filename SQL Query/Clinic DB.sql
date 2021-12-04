@@ -33,7 +33,7 @@ INSERT INTO STAFF VALUES
 ('Roshni AT','Female','1999-03-13','Ernakulam','2014-04-11','8787878787',6,'roshni@gmail.com',1),
 ('Jyothish A','Male','1999-01-11','Kozhikode','2016-01-22','7676767676',4,'jyothish@gmail.com',1),
 ('Haizon Cruz','Male','1999-04-03','Kannur','2015-12-12','6565656565',5,'haizon@gmail.com',1),
-('AnNA','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
+('Anna','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
 ('Aneesh Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
 ('Dennis Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1);
 
@@ -397,7 +397,32 @@ where PRESCRIPTION.PRESCRIPTION_ID  = 1;
 
 
 
+select * from APPOINTMENT as a, PATIENT as p, DOCTOR as d
+where a.ISACTIVE = 1 and
+a.PATIENT_ID = p.PATIENT_ID and
+a.APPOINTMENT_DATE = '2021-12-04' and
+a.DOCTOR_ID = 2 and
+d.DOCTOR_ID = a.DOCTOR_ID
+;
 
+select * from LABREPORT as l, TEST as t, TESTDETAILS as td, DOCTOR as d, STAFF as s, LABTECHNICIAN as lt, STAFF as s2, CLINIC as c
+where
+l.PATIENT_ID = 4;
+
+select * from staff;
+
+update staff 
+set STAFF_NAME = 'Anna'
+Where
+STAFF_ID = 5;
+
+ 
+select * from PRESCRIPTION as pn, STAFF as s, PRESCRIPTIONFORMEDICINE as pm,medicine as m, DOCTOR as d
+where pn.PATIENT_ID =  4 and
+pn.PRESCRIPTION_ID = pn.PRESCRIPTION_ID and
+pm.MEDICINE_ID = m.MEDICINE_ID and
+pn.DOCTOR_ID = d.DOCTOR_ID and
+d.STAFF_ID = s.STAFF_ID;
 
 
 
