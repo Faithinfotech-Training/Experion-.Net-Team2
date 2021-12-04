@@ -363,6 +363,50 @@ drop constraint fk_doc3;
 alter table labreport
 drop column doctor_id;
 
+-------- CHANGES ON 04-12-2021 02-05-AM ---------------------
+
+alter table testdetails
+add amount int default 0;
+
+alter table medicine
+drop column medicine_dosage;
+
+select * from medicine;
+
+update TESTDETAILS set amount = 10;
+
+update PRESCRIPTION set TOTAL_COST = 0, billed = 0;
+
+
+select * from PRESCRIPTION;
+
+
+select  p.PRESCRIPTION_ID, p.PRESCRIPTION_DATE, m.MEDICINE_NAME,m.MEDICINE_COMPANY,pfm.DOSAGE_FREQ, pfm.NO_OF_DAYS, m.MEDICINE_AMOUNT 
+from PRESCRIPTION as p, PRESCRIPTIONFORMEDICINE as pfm , MEDICINE as m
+--select * from PRESCRIPTION as p, PRESCRIPTIONFORMEDICINE as pfm , MEDICINE as m
+where p.PRESCRIPTION_ID = pfm.PRESCRIPTION_ID and
+p.PATIENT_ID = 2 and pfm.MEDICINE_ID = m.MEDICINE_ID
+;
+
+select p.PRESCRIPTION_ID, p.PRESCRIPTION_DATE, tl.NOTES, td.TEST_NAME, td.amount 
+from PRESCRIPTION as p, TESTLIST as tl, TESTDETAILS as td
+--select * from PRESCRIPTION as p, TESTLIST as tl, TESTDETAILS as td
+where
+p.PATIENT_ID = 1 and
+p.PRESCRIPTION_ID = tl.PRESCRIPTION_ID and
+tl.TEST_NO = td.TEST_NO
+;
+
+select * from PRESCRIPTION
+where PRESCRIPTION.PRESCRIPTION_ID  = 1;
+
+
+
+
+
+
+
+
 
 
 Select ll.LABTECHNICIAN_ID, ss.STAFF_NAME, dd.DEPARTMENT_NAME, ll.ISACTIVE from LABTECHNICIAN as ll, DEPARTMENT as dd, Staff as ss
