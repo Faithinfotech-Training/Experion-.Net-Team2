@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../shared/doctor.service';
 import { DoctorViewLabReport } from '../shared/doctorviewlabreport';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-doctor-view-labreport-by-id',
@@ -15,12 +16,12 @@ export class DoctorViewLabreportByIdComponent implements OnInit {
   isSubmitted = false;
   filter:string;
   page=1;
-  report: DoctorViewLabReport = new DoctorViewLabReport;
+  report: DoctorViewLabReport = new DoctorViewLabReport();
   response:any=new DoctorViewLabReport();
   pId:number;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    public doctorService: DoctorService) { }
+    public doctorService: DoctorService, private location: Location) { }
 
   ngOnInit(): void {
     this.reportForm = this.formBuilder.group({
@@ -46,9 +47,11 @@ export class DoctorViewLabreportByIdComponent implements OnInit {
 
     //valid
     if (this.reportForm.valid) {
+      console.log(this.reportForm.get('PatientId').value);
       this.doctorService.getLabReportById(this.reportForm.get('PatientId').value).subscribe(
         (result) => {
           console.log(result);
+         // result.ajax.reload( null, false );
           this.response=result;
           
 
@@ -60,6 +63,9 @@ export class DoctorViewLabreportByIdComponent implements OnInit {
      
 
     }
+  }
+  Back(){
+    this.location.back();
   }
 
 }

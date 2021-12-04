@@ -1,8 +1,8 @@
 <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
     });
-    
+
 </script>
 
 <div class="header">
@@ -15,58 +15,62 @@
             placeholder="Search"
             [(ngModel)] = "filter"/>
         </div>
+        <br>
     </div>
-    <br>
-</div> 
-    
+
     <div class="container">
-        <table class="table table-hover text-center table-bordered">        
-            <thead>            
+        <table class="table table-primary table-hover text-center table-bordered">
+            <thead>
                 <tr class="table-dark">
                     <th scope="col">#</th>
                     <th scope="col">Time</th>
                     <th scope="col">Name</th>
                     <th scope="col">Born On</th>
                     <th scope="col">Actions</th>
-                </tr>        
+                </tr>
             </thead>
 
             <tbody>
                 <tr *ngFor="let item of doctorHelperService.appointmentList | filter : filter | 
                     paginate: {itemsPerPage: 5,currentPage: page}">
-                    <td (click) = "populateForm(item)">  {{item.AppointmentNo}}  </td>
-                    <td (click) = "populateForm(item)">  {{item.AppointmentTime}}  </td>
-                    <td (click) = "populateForm(item)">  {{item.PatientName}}  </td>
-                    <td (click) = "populateForm(item)">  {{item.DateOfBirth | date:'mediumDate'}}  </td>
+                    <td (click)="populateForm(item)"> {{item.AppointmentNo}} </td>
+                    <td (click)="populateForm(item)"> {{item.AppointmentTime}} </td>
+                    <td (click)="populateForm(item)"> {{item.PatientName}} </td>
+                    <td (click)="populateForm(item)"> {{item.DateOfBirth | date:'mediumDate'}} </td>
                     <td>
-                        
-                            <button title="Add prescription" type="button" class="btn btn-outline-success" (click) = "addPrescription(item)">        
-                                <i class="fas fa-prescription"></i>                                                                   
-                            </button>                            
-                            
-                            &nbsp;
 
-                            <button title="View prescription history" type="button" class="btn btn-outline-success" (click) = "renderPrescriptionHistory(item)">        
-                                <i class="fas fa-capsules"></i>        
-                            </button>
-                            &nbsp;
+                        <button title="Add prescription" type="button" class="btn btn-outline-success"
+                            (click)="addPrescription(item)">
+                            <i class="fas fa-prescription"></i>
+                        </button>
 
-                            <button title="View lab history" type="button" class="btn btn-outline-success" (click) = "renderLabHistory(item)">        
-                                <i class="fas fa-vial"></i>     
-                            </button>
-                            &nbsp;
+                        &nbsp;
 
-                            <button hidden invisible title="Edit appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
-                                <!-- Edit appointment for doctor  -->       
-                                <i class="far fa-calendar-check"></i>      
-                            </button>
-                            &nbsp;
+                        <button title="View prescription history" type="button" class="btn btn-outline-success"
+                            (click)="renderPrescriptionHistory(item)">
+                            <i class="fas fa-capsules"></i>
+                        </button>
+                        &nbsp;
 
-                            <button hidden invisible title="Delete appointment" type="button" class="btn btn-outline-success" (click) = "populateForm(item)"> 
-                                <!-- Delete appointment for doctor  -->       
-                                <i class="fas fa-trash"></i>      
-                            </button>
-                            &nbsp;
+                        <button title="View lab history" type="button" class="btn btn-outline-success"
+                            (click)="renderLabHistory(item)">
+                            <i class="fas fa-vial"></i>
+                        </button>
+                        &nbsp;
+
+                        <button hidden invisible title="Edit appointment" type="button" class="btn btn-outline-success"
+                            (click)="populateForm(item)">
+                            <!-- Edit appointment for doctor  -->
+                            <i class="far fa-calendar-check"></i>
+                        </button>
+                        &nbsp;
+
+                        <button hidden invisible title="Delete appointment" type="button"
+                            class="btn btn-outline-success" (click)="populateForm(item)">
+                            <!-- Delete appointment for doctor  -->
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        &nbsp;
 
                     </td>
                 </tr>

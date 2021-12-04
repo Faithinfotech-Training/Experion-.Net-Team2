@@ -115,16 +115,15 @@
     <br>
     <div class="form-group">
         <div class="form-check">
-            <label class="form-check-label">Is Active</label>
-            <input type="checkbox" name="Isactive" id="Isactive" #Isactive="ngModel"
+            <label class="form-check-label"></label>
+            <input type="hidden" name="Isactive" id="Isactive" #Isactive="ngModel"
                 [(ngModel)]="staffService.formData.Isactive" class="form-check-input">
         </div>
     </div>
 
     <!--Submit Button-->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="submit"
-            class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+        <button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
             <button type="submit" [disabled]="!(form.valid && form.dirty)"
             class="btn btn-lg btn-success me-md-2">Submit</button>
     </div>

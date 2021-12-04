@@ -1,45 +1,36 @@
-
-<div class="container-fluid px-1 py-5 mx-auto">
-    <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Hi, {{loggedUserName | titlecase }}</h3>
-            <p class="blue-text">Hope you have a great day ahead !!
-            </p>
-            <div class="card">  
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/doctorViewAppointmentForm'>
-                            <button class="btn btn-primary" type="button"> View Appointments</button>
-                        </a>
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h3>Welcome {{loggedUserName | titlecase}}</h3>
+                <p class="blue-text">Hope you have a great day ahead !!</p>
+                <div class="card">
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/doctorViewAppointmentForm'>
+                                <button class="btn btn-primary" type="button"> View Appointments</button>
+                            </a>
+                        </div>
                     </div>
-                </div> 
-                
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='/doctorviewlabreportbyid'>
-                            <button class="btn btn-primary" type="button"> Search Lab Reports by ID</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/doctorviewlabreportbyid'>
+                                <button class="btn btn-primary" type="button"> Search Lab Report By ID</button>
+                            </a>
+                        </div>
                     </div>
-                </div> 
-
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="#" routerLink='../doctorviewlabreportbydate'>
-                            <button class="btn btn-primary" type="button"> Search Lab Reports by Date</button>
-                        </a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/doctorviewlabreportbydate'>
+                                <button class="btn btn-primary" type="button"> Search Lab Report by Date</button>
+                            </a>
+                        </div>
                     </div>
-                </div> 
-                
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-
-
+</body>
 <!--
 <header>
     <div class="container">
@@ -58,4 +49,3 @@
 
 </header>
 -->
-

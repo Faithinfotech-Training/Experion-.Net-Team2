@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BillGenerateServiceService} from '../shared/bill-generate-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-generate-bill-getid',
@@ -13,7 +14,7 @@ export class GenerateBillGetidComponent implements OnInit {
   loggedUserName: string;
 
   constructor(public billGenerateServiceService : BillGenerateServiceService,
-    public router: Router
+    public router: Router, private location:Location
     ) { }
 
   ngOnInit(): void {
@@ -26,6 +27,9 @@ export class GenerateBillGetidComponent implements OnInit {
     console.log(this.billGenerateServiceService.bpid);
     this.billGenerateServiceService.billGenerator(this.billGenerateServiceService.bpid);
     this.router.navigate(['bt'])
+  }
+  back(){
+    this.location.back();
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from '../shared/test.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-test',
@@ -11,7 +12,7 @@ import { TestService } from '../shared/test.service';
 export class TestComponent implements OnInit {
 
   constructor(public testService: TestService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location:Location) { }
 
   ngOnInit(): void {
 
@@ -25,9 +26,14 @@ export class TestComponent implements OnInit {
 
     if (addId == 0 || addId == null) {
       //INSERT
+      
       this.insertTest(labForm);
+      
+      
     }
     else {
+      labForm.value.TestNo=Number(sessionStorage.getItem("TestNo"));
+      labForm.value.ReportNo=Number(sessionStorage.getItem("ReportNo"));
       //UPDATE
       this.updateTest(labForm);
     }
@@ -43,6 +49,9 @@ export class TestComponent implements OnInit {
     this.testService.insertTest(labForm.value).subscribe(
       (result) => {
         console.log(result);
+        sessionStorage.setItem("ReportNo",result.toString());
+        
+        
         //at time of submit we need to call this method so go to onSubmit
       }
     );
@@ -62,6 +71,10 @@ export class TestComponent implements OnInit {
     );
     window.alert("Employee record has been updated");
     window.location.reload();
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

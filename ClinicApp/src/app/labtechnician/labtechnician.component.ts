@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LabtechnicianService } from '../shared/labtechnician.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-labtechnician',
@@ -13,7 +14,7 @@ export class LabtechnicianComponent implements OnInit {
 
   techId: number;
   constructor(public techService: LabtechnicianService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location:Location) { }
 
   ngOnInit(): void {
     this.techService.bindCmbDepartment();
@@ -32,5 +33,9 @@ export class LabtechnicianComponent implements OnInit {
     this.router.navigate(['./viewtechnician']);
 
     
+  }
+
+  back(){
+    this.location.back();
   }
 }

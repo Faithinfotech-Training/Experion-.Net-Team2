@@ -8,5 +8,5 @@ export class Staff {
     Mobile: string = '';
     Experience: number = 0;
     Email: string = '';
-    Isactive: boolean = false;
+    Isactive: boolean = true;
 }

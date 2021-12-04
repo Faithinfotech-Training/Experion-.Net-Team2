@@ -1,140 +1,130 @@
-<h2 style="text-align:center; font-size:200%; font-family: 'Times New Roman', Times, serif;">Lab report Form</h2>
+<body>
+    <div class="box">
+        <h2 style="text-align:center;">Lab report Form</h2>
 
-<!--Designing Lab Report-->
-<div class=" col-sm-4" style="margin-left: 35%; background: linear-gradient(to top, #ffffff, #d0d6e7);  
-">
-
-<!--justify-content: center;align-items: center;display: flex;-->
-<div class="form">
-    <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
-
-
-        <!--ReportNo-->
-        <div class="form-group">
-            <label for="ReportNo"></label>
-            <input type="hidden" name="ReportNo" #ReportNo="ngModel" [(ngModel)]="labService.formLab.ReportNo"
-                class="form-control" required [ngClass]="{'is-invalid': ReportNo.touched && ReportNo.invalid}" />
+        <!--Designing Lab Report-->
+        <!--justify-content: center;align-items: center;display: flex;-->
+        <form name="labForm" #labForm="ngForm" (ngSubmit)="onSubmit(labForm)">
+            <!--ReportNo-->
+            <div class="form-group">
+                <label for="ReportNo"></label>
+                <input type="hidden" name="ReportNo" #ReportNo="ngModel" [(ngModel)]="labService.formLab.ReportNo"
+                    class="form-control" required [ngClass]="{'is-invalid': ReportNo.touched && ReportNo.invalid}" />
                 <!--<span style="color: red;"> Keep Report No as 0 for inserting report</span>-->
 
-            <div class="validation-errors" *ngIf="ReportNo.touched && ReportNo.invalid">
-                <div *ngIf="ReportNo.errors.required">Report No is required</div>
-            </div>
-        </div>
-
-
-
-        <!--ReportTitle-->
-        <br>
-        <div class="form-group">
-            <label for="ReportTitle">Report Title</label>
-            <input type="text" name="ReportTitle" #ReportTitle="ngModel" [(ngModel)]="labService.formLab.ReportTitle"
-                class="form-control" required [ngClass]="{'is-invalid': ReportTitle.touched && ReportTitle.invalid}" />
-            <div class="validation-errors" *ngIf="ReportTitle.touched && ReportTitle.invalid">
-                <div *ngIf="ReportTitle.errors.required">Report Title is required</div>
+                <div class="validation-errors" *ngIf="ReportNo.touched && ReportNo.invalid">
+                    <div *ngIf="ReportNo.errors.required">Report No is required</div>
+                </div>
             </div>
 
-        </div>
+            <!--ReportTitle-->
+            <br>
+            <div class="form-group">
+                <label for="ReportTitle">Report Title</label>
+                <input type="text" name="ReportTitle" #ReportTitle="ngModel"
+                    [(ngModel)]="labService.formLab.ReportTitle" class="form-control" required
+                    [ngClass]="{'is-invalid': ReportTitle.touched && ReportTitle.invalid}" />
+                <div class="validation-errors" *ngIf="ReportTitle.touched && ReportTitle.invalid">
+                    <div *ngIf="ReportTitle.errors.required">Report Title is required</div>
+                </div>
 
-        <!--ReportDate-->
-        <br>
-        <div class="form-group">
-            <label for="ReportDate">Report Date</label>
-            <input type="date" name="ReportDate" #ReportDate="ngModel" [(ngModel)]="labService.formLab.ReportDate"
-                class="form-control" required [ngClass]="{'is-invalid': ReportDate.touched && ReportDate.invalid}" />
-            <div class="validation-errors" *ngIf="ReportDate.touched && ReportDate.invalid">
-                <div *ngIf="ReportDate.errors.required">Report Date is required</div>
             </div>
 
-        </div>
+            <!--ReportDate-->
+            <br>
+            <div class="form-group">
+                <label for="ReportDate">Report Date</label>
+                <input type="date" name="ReportDate" #ReportDate="ngModel" [(ngModel)]="labService.formLab.ReportDate"
+                    class="form-control" required
+                    [ngClass]="{'is-invalid': ReportDate.touched && ReportDate.invalid}" />
+                <div class="validation-errors" *ngIf="ReportDate.touched && ReportDate.invalid">
+                    <div *ngIf="ReportDate.errors.required">Report Date is required</div>
+                </div>
 
-
-        <!--Description-->
-        <br>
-        <div class="form-group">
-            <label for="Description">Description</label>
-            <input type="text" name="Description" #Description="ngModel" [(ngModel)]="labService.formLab.Description"
-                class="form-control" required [ngClass]="{'is-invalid': Description.touched && Description.invalid}" />
-            <div class="validation-errors" *ngIf="Description.touched && ReportTitle.invalid">
-                <div *ngIf="Description.errors.required">Description is required</div>
             </div>
 
-        </div>
 
+            <!--Description-->
+            <br>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <input type="text" name="Description" #Description="ngModel"
+                    [(ngModel)]="labService.formLab.Description" class="form-control" required
+                    [ngClass]="{'is-invalid': Description.touched && Description.invalid}" />
+                <div class="validation-errors" *ngIf="Description.touched && ReportTitle.invalid">
+                    <div *ngIf="Description.errors.required">Description is required</div>
+                </div>
 
-        <!--PatientId-->
-        <br>
-        <div class="form-group">
-            <label for="PatientId">Patient Id</label>
-            <input type="text" name="PatientId" #PatientId="ngModel" [(ngModel)]="labService.formLab.PatientId"
-                class="form-control" required [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" 
-                [disabled] = "this.labService.edit"
-                />
-            <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
-                <div *ngIf="PatientId.errors.required">Patient Id is required</div>
             </div>
-        </div>
 
-        <!--DoctorId-->
-        <br>
 
-        <!--
-        <div class="form-group">
-            <label for="DoctorId">Doctor Id</label>
-            <input type="text" name="DoctorId" #DoctorId="ngModel" [(ngModel)]="labService.formLab.DoctorId"
-                class="form-control" required [ngClass]="{'is-invalid': DoctorId.touched && DoctorId.invalid}" />
-            <div class="validation-errors" *ngIf="DoctorId.touched && DoctorId.invalid">
-                <div *ngIf="DoctorId.errors.required">Doctor Id is required</div>
+            <!--PatientName-->
+
+            <br>
+            <div class="form-group">
+                <label class="col-md-4">Patient Name</label>
+                <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+                    [(ngModel)]="labService.formpat.PatientId">
+                    <option value=0 disabled>Choose Patient Name</option>
+                    <option *ngFor="let dept of labService.getPatients" value="{{dept.PatientId}}">
+                        {{dept.PatientId}}.{{dept.PatientName}}</option>
+                </select>
+                <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+                    <div *ngIf="PatientId.errors.required">Patient Name is required</div>
+                </div>
             </div>
-        </div>
-        -->
 
-        <!--ClinicId-->
-        <br>
-        <div class="form-group">
-            <label for="ClinicId">Clinic Id</label>
-            <input type="text" name="ClinicId" #ClinicId="ngModel" [(ngModel)]="labService.formLab.ClinicId"
-                class="form-control" required [ngClass]="{'is-invalid': ClinicId.touched && ClinicId.invalid}" />
-            <div class="validation-errors" *ngIf="ClinicId.touched && ClinicId.invalid">
-                <div *ngIf="ClinicId.errors.required">Clinic Id is required</div>
+            <!--<div *ngFor="let dept of labService.getPatients">{{dept.PatientId}}{{dept.PatientName}}</div>-->
+
+
+
+            <!--ClinicId-->
+            <br>
+            <div class="form-group">
+                <label for="ClinicId">Clinic Id</label>
+                <input type="text" name="ClinicId" #ClinicId="ngModel" [(ngModel)]="labService.formLab.ClinicId"
+                    class="form-control" required [ngClass]="{'is-invalid': ClinicId.touched && ClinicId.invalid}" />
+                <div class="validation-errors" *ngIf="ClinicId.touched && ClinicId.invalid">
+                    <div *ngIf="ClinicId.errors.required">Clinic Id is required</div>
+                </div>
             </div>
-        </div>
 
-        <!--LabtechnicianId-->
-        <br>
-        <div class="form-group">
-            <label for="LabtechnicianId">Labtechnician Id</label>
-            <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
-                [(ngModel)]="labService.formLab.LabtechnicianId" class="form-control" required
-                [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}" />
-            <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
-                <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
+            <!--LabtechnicianId-->
+            <br>
+            <div class="form-group">
+                <label for="LabtechnicianId">Labtechnician Id</label>
+                <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
+                    [(ngModel)]="labService.formLab.LabtechnicianId" class="form-control" required
+                    [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}"
+                    disabled="this.labService.edit" />
+                <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
+                    <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
+                </div>
             </div>
-        </div>
-
-        <!--Isactive-->
-        <br>
-        <div class="form-group">
-            <label for="Isactive">Is active</label>
-            <input type="checkbox" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
-                [(ngModel)]="labService.formLab.Isactive"  />
-                <!--required
-                [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}"-->
-            
-        </div>
-
-        <!--Submit button-->
-        <br>
-        <br>
-        <div class="form-group">
-            <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)"
-                class="btn btn-lg btn-success form-control">
-                Submit</button>
-        </div>
-
-    </form>
-</div>
-
-</div>
 
 
+            <!--Isactive-->
+            <br>
+            <div class="form-group">
+                <label for="Isactive">Is active</label>
+                <input type="checkbox" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
+                    [(ngModel)]="labService.formLab.Isactive" />
 
+            </div>
+
+            <!--Submit button-->
+            <br>
+            <br>
+            <div class="form-group">
+                <button type="reset" class="btn btn-md btn-primary" (click)="back()">
+                    Back</button>
+                <button type="submit"  class="btn btn-lg btn-success"
+                    style="margin-left: 80%;">
+                    Submit</button>
+
+                    <!--[disabled]="!(labForm.valid && labForm.dirty)"-->
+            </div>
+
+        </form>
+    </div>
+</body>

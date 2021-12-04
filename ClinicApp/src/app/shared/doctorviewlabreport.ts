@@ -5,7 +5,7 @@ export class DoctorViewLabReport{
     ReportTitle:string;
     ReportDate:Date=new Date();
     Description:string;
-    StaffName:string;
+    //StaffName:string;
     Range:string;
     TestDescription:string;
     TestName:string;
