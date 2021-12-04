@@ -53,16 +53,14 @@ namespace CMSAPI.Repository
     #endregion
 
     #region DeleteStaff()
-    public async Task<Staff> DeleteStaff(int id)
-    {
-      if (db != null)
-      {
-        Staff dbstaff = db.Staff.Find(id);
-        db.Staff.Remove(dbstaff);
-        await db.SaveChangesAsync();
-        return (dbstaff);
-      }
-      return null;
+        public async Task DeleteStaff(int id)
+        {
+            Staff staff = db.Staff.FirstOrDefault(SId => SId.StaffId == id);
+            if (staff != null)
+            {
+                staff.Isactive = false;
+                await db.SaveChangesAsync();
+            }
     }
 
     #endregion
@@ -77,7 +75,7 @@ namespace CMSAPI.Repository
         return await(from s in db.Staff
                      from l in db.Login
                      from r in db.Roles
-                     where s.StaffId == id && s.StaffId == l.Loginid && l.Roleid == r.RoleId
+                     where s.StaffId == id && s.StaffId == l.Loginid && l.Roleid == r.RoleId && s.Isactive == true
                      select new StaffList
                      {
                        StaffId=s.StaffId,
@@ -95,7 +93,7 @@ namespace CMSAPI.Repository
       }
       return null;
     }
-    #endregion
+        #endregion
 
-  }
+    }
 }

@@ -52,17 +52,15 @@ namespace CMSAPI.Repository
     #endregion
 
     #region DeleteAppointment
-    public async Task<Appointment> DeleteAppointment(int id)
+    public async Task DeleteAppointment(int id)
     {
-      if (db != null)
-      {
-        Appointment dbapp = db.Appointment.Find(id);
-        db.Appointment.Remove(dbapp);
-        await db.SaveChangesAsync();
-        return (dbapp);
-      }
-      return null;
-    }
+            Appointment app = db.Appointment.FirstOrDefault(ANo => ANo.AppointmentNo == id);
+            if (app != null)
+            {
+                app.Isactive = false;
+                await db.SaveChangesAsync();
+            }
+        }
         #endregion
 
         #region GetAppointmentById

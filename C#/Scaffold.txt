@@ -1,0 +1,1 @@
+Scaffold-DbContext "Data Source=JYOTHISHA\SQLEXPRESS; Initial Catalog=ClinicManagementDB; Integrated security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force

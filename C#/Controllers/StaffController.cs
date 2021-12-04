@@ -95,20 +95,21 @@ namespace CMSAPI.Controllers
     [Route("DeleteStaff")]
     public async Task<IActionResult> DeleteStaff(int id)
     {
-      try
-      {
-        var staff = await StaffRepository.DeleteStaff(id);
-        if (staff == null)
-        {
-          return NotFound();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await StaffRepository.DeleteStaff(id);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
         }
-        return Ok(staff);
-      }
-      catch (Exception)
-      {
-        return BadRequest();
-      }
-    }
     #endregion
 
     #region GetStaffById
@@ -130,7 +131,7 @@ namespace CMSAPI.Controllers
         return BadRequest();
       }
     }
-    #endregion
+        #endregion
 
-  }
+    }
 }

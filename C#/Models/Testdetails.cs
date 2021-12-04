@@ -16,6 +16,7 @@ namespace CMSAPI.Models
         public string TestUnit { get; set; }
         public string TestDesription { get; set; }
         public bool? Isactive { get; set; }
+        public int? Amount { get; set; }
 
         public virtual ICollection<Test> Test { get; set; }
         public virtual ICollection<Testlist> Testlist { get; set; }

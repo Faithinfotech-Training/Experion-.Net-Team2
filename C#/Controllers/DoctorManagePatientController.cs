@@ -348,5 +348,77 @@ namespace CMSAPI.Controllers
 
 
 
+
+
+
+        [HttpGet]
+        [Route("GetMedicineModels/{patientId}")]
+        public async Task<IActionResult> GetMedicineModels(int patientId)
+        {
+            try
+            {
+                var patients = await c.GetMedicineModels(patientId);
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+
+
+
+        [HttpGet]
+        [Route("getPrescriptionbyId/{Id}")]
+        public async Task<IActionResult> getPrescriptionbyId(int Id)
+        {
+            try
+            {
+                var patients = await c.getPrescriptionbyId(Id);
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+
+
+
+
+
+
+        [HttpGet]
+        [Route("GetTestBillModels/{patientId}")]
+        public async Task<IActionResult> GetTestBillModels(int patientId)
+        {
+            try
+            {
+                var patients = await c.GetTestBillModels(patientId);
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
     }
 }
