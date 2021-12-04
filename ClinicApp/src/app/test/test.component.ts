@@ -25,9 +25,14 @@ export class TestComponent implements OnInit {
 
     if (addId == 0 || addId == null) {
       //INSERT
+      
       this.insertTest(labForm);
+      
+      
     }
     else {
+      labForm.value.TestNo=Number(sessionStorage.getItem("TestNo"));
+      labForm.value.ReportNo=Number(sessionStorage.getItem("ReportNo"));
       //UPDATE
       this.updateTest(labForm);
     }
@@ -43,6 +48,9 @@ export class TestComponent implements OnInit {
     this.testService.insertTest(labForm.value).subscribe(
       (result) => {
         console.log(result);
+        sessionStorage.setItem("ReportNo",result.toString());
+        
+        
         //at time of submit we need to call this method so go to onSubmit
       }
     );

@@ -11,11 +11,13 @@ import { Injectable } from '@angular/core';
 })
 export class LabreportComponent implements OnInit {
 
+  
   constructor(public labService: LabreportService, private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.labService.bindListReports();
+    this.labService.bindListPatients();
   }
 
   onSubmit(labForm: NgForm) {

@@ -6,6 +6,7 @@ export class TestListViewModel {
     Notes: string;
     StaffName: string;
     DepartmentName: string;
+    TestNo: number;
     TestName: string='';
     Id: number;
 }

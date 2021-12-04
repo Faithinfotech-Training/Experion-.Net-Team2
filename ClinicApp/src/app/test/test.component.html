@@ -17,9 +17,9 @@
         
 
     <!--TestNo-->
-    <br>
+   
     <div class="form-group">
-        <label for="TestNo">Test No</label>
+        <label for="TestNo"></label>
         <input type="text" name="TestNo" #TestNo="ngModel"
         [(ngModel)]="testService.formTest.TestNo" class="form-control" required
         [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}"

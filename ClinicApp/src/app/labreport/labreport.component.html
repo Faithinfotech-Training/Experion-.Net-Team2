@@ -61,20 +61,25 @@
         </div>
 
 
-        <!--PatientId-->
+        <!--PatientName-->
+
         <br>
         <div class="form-group">
-            <label for="PatientId">Patient Id</label>
-            <input type="text" id="PatientId" name="PatientId" #PatientId="ngModel" 
-            [(ngModel)]="labService.formLab.PatientId"
-                class="form-control" required 
-                [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" 
-                [disabled] ="this.labService.edit"
-                />
-            <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
-                <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+            <label class="col-md-4">Patient Name</label>
+            <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required 
+                [(ngModel)]="labService.formpat.PatientId">
+                <option value=0 disabled>Choose Patient Name</option>
+                <option *ngFor="let dept of labService.getPatients" value="{{dept.PatientId}}">
+                    {{dept.PatientId}}.{{dept.PatientName}}</option>
+
+
+            </select>
+            <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+                <div *ngIf="PatientId.errors.required">Patient Name is required</div>
             </div>
         </div>
+
+       <!--<div *ngFor="let dept of labService.getPatients">{{dept.PatientId}}{{dept.PatientName}}</div>-->
 
         
 
@@ -95,11 +100,13 @@
             <label for="LabtechnicianId">Labtechnician Id</label>
             <input type="text" name="LabtechnicianId" #LabtechnicianId="ngModel"
                 [(ngModel)]="labService.formLab.LabtechnicianId" class="form-control" required
-                [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}" />
+                [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}" 
+                disabled="this.labService.edit"/>
             <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
                 <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
             </div>
         </div>
+
 
         <!--Isactive-->
         <br>

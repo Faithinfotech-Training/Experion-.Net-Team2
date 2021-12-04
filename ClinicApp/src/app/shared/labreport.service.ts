@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Labreport } from './labreport';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { PatientRegisterH } from './patient-register-h';
 
 
 @Injectable({
@@ -13,7 +14,10 @@ export class LabreportService {
 edit: boolean;
 
   formLab: Labreport = new Labreport();
+  formpat: PatientRegisterH=new PatientRegisterH();
   getReports: Labreport[];
+  getPatients: PatientRegisterH[];
+
   constructor(private httpClient: HttpClient) { }
 
   //get all reports
@@ -49,6 +53,19 @@ edit: boolean;
   updateReport(report: Labreport): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "/api/labreport/updatereport", report);
   }
+
+  //get all patients
+  bindListPatients() {
+    this.httpClient.get(environment.apiUrl + "/api/patientregister/getpatients")
+      .toPromise().then(response =>
+        this.getPatients = response as PatientRegisterH[]
+      );
+  }
+
+
+
+
+
   //Delete method for labreport
   deleteReport(id: number) {
     return this.httpClient.delete(environment.apiUrl + "/api/labreport/deletereport/" + id);

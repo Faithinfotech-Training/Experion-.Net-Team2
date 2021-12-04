@@ -52,6 +52,8 @@ export class GetreportComponent implements OnInit {
 
   OnDisable(){
       this.labService.edit=false;
+      console.log(this.labService.edit);
+      this.labService.formLab.LabtechnicianId=Number(sessionStorage.getItem("UserId"));
   }
 
   populateForm(emp: Labreport)

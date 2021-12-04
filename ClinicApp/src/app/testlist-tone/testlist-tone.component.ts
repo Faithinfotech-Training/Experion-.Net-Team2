@@ -37,6 +37,7 @@ export class TestlistTOneComponent implements OnInit {
   {
     console.log(emp);
     this.tstlstService.formTl=emp;
+    sessionStorage.setItem("TestNo", emp.TestNo.toString());
   }
 
 }
