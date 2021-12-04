@@ -29,7 +29,7 @@ export class LabtechnicianComponent implements OnInit {
     labForm.value.StaffId=Number(sessionStorage.getItem("StaffId"));
     console.log(labForm.value.StaffId);
     this.techService.insertTechnician(labForm.value);
-    this.router.navigate(['./admin']);
+    this.router.navigate(['./viewtechnician']);
 
     
   }

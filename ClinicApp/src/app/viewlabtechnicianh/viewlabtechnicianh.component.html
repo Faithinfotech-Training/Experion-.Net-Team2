@@ -16,73 +16,46 @@
                 </div>
 
                 <!--Submit button-->
-                <br>
-                <br>
                 <div class="form-group">
                     <button type="submit" [disabled]="!(testgetForm.valid && testgetForm.dirty)"
-                        class="btn btn btn-outline-success btn-lg">
+                        class="btn btn btn-success btn-mg">
                         Search</button>
                 </div>
-
             </form>
         </div>
-    </div>
-</div>
-
-<div>
-    <br>
-    <button style="margin-left: 7.1%;" class="btn btn btn-outline-success btn-lg"><a
-            style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labtechnician'">Insert New
-            Technician</a></button>
-</div>
-
-
-
-<br>
-<div class="container">
-    <div class="header">
-        <br>
-        <h5 style="text-align:center;">Lab Technician details</h5>
-        <br>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Technician ID</th>
-                    <th>Department Name</th>
-                    <th>Staff Name</th>
-                    <th>Is active</th>
-
-
-                    <!--LabtechnicianId: number=0;
-        DepartmentId: number =0;
-        StaffId: number =0;
-        Isactive: boolean;-->
-
-
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let rep of labTechService.viewtech | paginate: {itemsPerPage: 3, currentPage: page} ">
-                    <td>{{rep.LabtechnicianId}}</td>
-                    <td>{{rep.DepartmentName}}</td>
-                    <td>{{rep.StaffName}}</td>
-                    <td>{{rep.Isactive}}</td>
-
-
-
-                    <!--<td>
-                        <button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;
-                        <button class="btn btn-info" (click)="updateReport(rep.ReportNo)"
-                            style="margin-left: 10px">Edit</button>
-                        
-                    </td>-->
-
-                </tr>
-            </tbody>
-        </table>
-        <div class="footer" style="margin-left: 35%;margin-right:35%;">
-            <!--pagination-->
-            <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+        <div class="container">
+            <div class="header">
+                <br>
+                <h5 style="text-align:center;">Lab Technician details</h5>
+                <br>
+                <table class="table table-primary table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Technician ID</th>
+                            <th>Department Name</th>
+                            <th>Staff Name</th>
+                            <th>Is active</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let rep of labTechService.viewtech | paginate: {itemsPerPage: 3, currentPage: page} ">
+                            <td>{{rep.LabtechnicianId}}</td>
+                            <td>{{rep.DepartmentName}}</td>
+                            <td>{{rep.StaffName}}</td>
+                            <td>{{rep.Isactive}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer" style="margin-left: 35%;margin-right:35%;">
+                    <!--pagination-->
+                    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+                </div>
+            </div>
+        </div>
+        <div>
+            <br>
+            <button class="btn btn-md btn-primary" (click)="back()">Back</button>
         </div>
     </div>
+</div>

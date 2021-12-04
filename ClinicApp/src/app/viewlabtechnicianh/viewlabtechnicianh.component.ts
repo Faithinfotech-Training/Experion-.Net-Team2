@@ -43,5 +43,9 @@ export class ViewlabtechnicianhComponent implements OnInit {
     this.labTechService.formTech=emp;
   }
 
+  //Back to admin page
+  back() {
+    this.router.navigate(['./admin']);
+  }
 
 }
