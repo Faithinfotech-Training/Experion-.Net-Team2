@@ -67,9 +67,10 @@ export class BillGenerateServiceService {
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/getPrescriptionbyId/" + id )
     .toPromise().then( response =>   
       {
-        this.prescription = response as Prescription;
+        this.prescription = response[0] as Prescription;
         this.prescription.Billed = true;
         console.log('Prescription Get Response' + response);
+        console.log(response[0] as Prescription)
         
         console.log(environment.apiUrl + "/api/DoctorManagePatient/UpdatePrescription/" + this.prescription );
         this.httpClient.put(environment.apiUrl + "/api/DoctorManagePatient/UpdatePrescription/" , this.prescription )
