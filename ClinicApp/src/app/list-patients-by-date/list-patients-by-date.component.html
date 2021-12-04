@@ -6,6 +6,7 @@
 </script>
 
 <div class="header">
+    <br>
     <h5 style="text-align: center;"> <b style="font-weight: bolder;">APPOINTMENTS FOR THE DAY</b></h5>
     <br>
     <div class="container">
@@ -76,5 +77,29 @@
     <div class="paginate" style="text-align: center;">
         <pagination-controls class="paginate" (pageChange)="page=($event)"></pagination-controls>
     </div>
+
+<div class="container align-items-center">
+    <div class="row text-center align-items-center">
+        <br>
+        <div class="col-sm-3 text-center align-items-center">
+            <a [routerLink]="['../doctorViewAppointmentForm']">
+            <button type="button"
+            class="btn-block btn-secondary form-control"> 
+            Back
+            </button>
+            </a>
+        </div>
+
+        <br>
+        <div class="col-sm-3 text-center align-items-center">
+            <a [routerLink]="['../doctors']">
+            <button type="button"
+            class="btn-block btn-secondary form-control"> 
+            Home
+            </button>
+            </a>
+        </div>
+    </div>
+</div>
 
     

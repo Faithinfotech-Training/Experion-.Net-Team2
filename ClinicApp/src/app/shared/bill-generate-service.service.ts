@@ -55,7 +55,11 @@ export class BillGenerateServiceService {
           this.total = this.medTotal + this.testTotal;    
     });
     
-    });      
+    });
+    
+    this.total = 0;
+    this.medTotal = 0;
+    this.testTotal = 0;
   }
 
   paymentUpdate(id : number)

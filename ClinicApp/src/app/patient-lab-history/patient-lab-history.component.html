@@ -1,7 +1,9 @@
 <div class="container">
     
-    <div class="header">        
-        <h5>Patient Lab History</h5>
+    <div class="header">  
+        <br>      
+        <h5 class="text-center">Patient Lab History</h5>
+        <br>
         <div class="row text-left">
             <div class="col-3 text-left">
             Search by Test Name:
@@ -76,5 +78,33 @@
     <div class="footer" style="text-align: center;">
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
+
+    
+    
+    <div class="container align-items-center">
+        <div class="row text-center align-items-center">
+            <br>
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctorListPatientsByDate']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Back
+                </button>
+                </a>
+            </div>
+    
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctors']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Home
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
 
 </div>

@@ -24,7 +24,9 @@ import { FormControl } from '@angular/forms';
 export class DoctorHelperService {
 
   testlistO = new Testlist();
-  
+
+  currentDoctorID : number = 1;
+
   appointmentList : AppointmentList[];
   currentDoctor : doctorViewByDateID = new doctorViewByDateID();
   prescriptionHistory : PrescriptionHistory[];
@@ -75,6 +77,18 @@ export class DoctorHelperService {
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/GetPrescriptionHistroyById/" + patientId )
     .toPromise().then( response =>       
       this.prescriptionHistory = response as PrescriptionHistory[] );
+  }
+
+
+  GetDoctorIdfromStaffID(id : number)
+  {
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/GetDoctorIdfromStaffID/" + id );
+    this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/GetDoctorIdfromStaffID/" + id )
+    .toPromise().then( response =>   
+      {  
+      sessionStorage.setItem("DoctorID", response.toString());
+       
+    });
   }
 
   patientLabHistorybyId(patientId : number)
@@ -192,7 +206,7 @@ export class DoctorHelperService {
               this.prescriptionForMedicine.Isactive = true;
               this.prescriptionForMedicine.MedicineId = medicineList[i].value;
               this.prescriptionForMedicine.PrescriptionId = Number(sessionStorage.getItem("currentPrescriptionID"));
-
+              
               console.log('Added medicine ' + this.prescriptionForMedicine);
 
               this.httpClient.post(environment.apiUrl + "/api/DoctorManagePatient/AddPrescriptionForMedicine",this.prescriptionForMedicine)

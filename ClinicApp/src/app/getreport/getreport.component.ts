@@ -51,6 +51,12 @@ export class GetreportComponent implements OnInit {
   {
     console.log(emp);
     this.labService.formLab=emp;
+    this.labService.edit = true;
+  }
+
+  onDisable()
+  {
+    this.labService.edit = false;
   }
 
 

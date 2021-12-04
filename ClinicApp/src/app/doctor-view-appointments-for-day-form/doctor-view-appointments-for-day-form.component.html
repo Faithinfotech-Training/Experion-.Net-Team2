@@ -16,6 +16,7 @@
             <div class="card">                
                 <form class="form-card"name="docform" #form="ngForm" (ngSubmit) = "readForm(form)">
                     <div class="row justify-content-between text-left">                        
+                       
                         <div class="form-group form-group col-sm-8 flex-column d-flex">        
                             <input type="date" name="DateOfAppointment" id="DateOfAppointment"  
                             #DoJ="ngModel" 
@@ -24,12 +25,26 @@
                             required
                             />
                         </div>
+
                         <div class="form-group col-sm-4">
                             <button type="submit"
                             class="btn-block btn-primary form-control"> 
                             Submit
                             </button>
                         </div>
+                        
+                        <div class="row text-center align-items-center">
+                            <br>
+                            <div class="col-sm-3 text-center align-items-center">
+                                <a [routerLink]="['../doctors']">
+                                <button type="button"
+                                class="btn-block btn-secondary form-control"> 
+                                Back
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>

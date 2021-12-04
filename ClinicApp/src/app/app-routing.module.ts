@@ -102,7 +102,6 @@ const routes: Routes = [
   {path: 'doctor', component: DoctorComponent,canActivate: [AuthGuard], data: { role: '1' }},
   {path:'appointmentByDate', component:AppointmentByDateComponent},
   {path:'testlistTOne', component:TestlistTOneComponent},
-
   {path:'gb', component: GenerateBillGetidComponent},
   {path:'bt', component: BillTableComponent}
   

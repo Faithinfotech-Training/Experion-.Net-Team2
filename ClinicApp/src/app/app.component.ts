@@ -13,7 +13,8 @@ import { NgModule } from '@angular/core';
 export class AppComponent implements OnInit {
 
   title = 'Experion Medicity';
-  userPresent : boolean;
+  userPresent : boolean = false;
+  
 
   constructor(public authService : AuthService, public router : Router ) { }
 

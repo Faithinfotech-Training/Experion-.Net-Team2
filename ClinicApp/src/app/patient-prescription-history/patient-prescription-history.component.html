@@ -6,6 +6,7 @@
         <div class="row">
             <div class="h-100 row align-items-center text-center">
                 <div class="col">
+                    <br>
                     <h5>Patient Prescription History</h5>
                 </div>
             </div>
@@ -73,5 +74,32 @@
     <div class="footer" style="text-align: center;">
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
+
+    
+    <div class="container align-items-center">
+        <div class="row text-center align-items-center">
+            <br>
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctorListPatientsByDate']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Back
+                </button>
+                </a>
+            </div>
+    
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctors']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Home
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
 
 </div>

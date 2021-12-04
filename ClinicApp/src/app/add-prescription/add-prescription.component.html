@@ -85,12 +85,40 @@
             </div>
         </div>
     </ng-container>
-
-
     <button class="btn btn-primary" type="button" (click)="onSubmit()"> Submit </button>
 
+    <div class="container align-items-center">
+        <div class="row text-center align-items-center">
+            <br>
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctorListPatientsByDate']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Back
+                </button>
+                </a>
+            </div>
+    
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctors']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Home
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
+
+
 </div>
+
 
 
 

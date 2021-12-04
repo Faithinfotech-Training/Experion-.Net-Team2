@@ -6,7 +6,12 @@
         <a class="navbar-brand" href="#">Experion Medicity</a> 
       </div>
       <div class="col-3 text-end float-end" id="logoutbtn">
-        <button class="btn btn-danger" type="button" (click)="logout()">Logout</button>  
+
+        <ng-container *ngIf = "this.authService.userPresent">
+        <button class="btn btn-danger" type="button" (click)="logout()">
+                    Logout  
+        </button> 
+      </ng-container> 
       </div>           
     </div> 
   </nav>
@@ -17,7 +22,6 @@
   -->
 
 <body>
-  <br>
   <router-outlet>
   </router-outlet>
 </body>

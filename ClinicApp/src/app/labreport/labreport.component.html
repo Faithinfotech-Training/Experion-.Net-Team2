@@ -66,7 +66,9 @@
         <div class="form-group">
             <label for="PatientId">Patient Id</label>
             <input type="text" name="PatientId" #PatientId="ngModel" [(ngModel)]="labService.formLab.PatientId"
-                class="form-control" required [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
+                class="form-control" required [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" 
+                [disabled] = "this.labService.edit"
+                />
             <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
                 <div *ngIf="PatientId.errors.required">Patient Id is required</div>
             </div>
@@ -74,6 +76,8 @@
 
         <!--DoctorId-->
         <br>
+
+        <!--
         <div class="form-group">
             <label for="DoctorId">Doctor Id</label>
             <input type="text" name="DoctorId" #DoctorId="ngModel" [(ngModel)]="labService.formLab.DoctorId"
@@ -82,6 +86,7 @@
                 <div *ngIf="DoctorId.errors.required">Doctor Id is required</div>
             </div>
         </div>
+        -->
 
         <!--ClinicId-->
         <br>

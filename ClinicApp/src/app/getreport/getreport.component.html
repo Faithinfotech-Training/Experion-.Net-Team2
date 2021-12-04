@@ -28,7 +28,7 @@
     
     <div>
         <br>
-        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labreport'">Insert New Report</a></button>
+        <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-lg"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/labreport'" (click) = "onDisable()">Insert New Report</a></button>
     </div>
 
     
@@ -44,7 +44,7 @@
                     <th>Test ID</th>
                     <th>Patient ID</th>
                     <th>Report Date</th>
-                    <th>Doctor ID</th>
+                    <!-- <th>Doctor ID</th> -->
                     <th>Description</th>
                     <th>Actions</th>
                     
@@ -56,7 +56,7 @@
                     <td>{{rep.ReportNo}}</td>
                     <td>{{rep.PatientId}}</td>
                     <td>{{rep.ReportDate}}</td>
-                    <td>{{rep.DoctorId}}</td>
+                    <!-- <td>{{rep.DoctorId}}</td> -->
                     <td>{{rep.Description}}</td>
                     <td>
                         <!--<button class="btn btn-sm btn-outline-danger" (click)="deleteReport(rep.ReportNo)">X</button>&nbsp;-->

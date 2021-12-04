@@ -99,6 +99,7 @@ export class EditStaffComponent implements OnInit {
     
     this.updateDoctorRecord(this.doctorService.formData1);
     this.updateStaffRecord(this.staffForm.value);
+    this.router.navigate(['./stafflist']);
     //this.staff=this.staffForm.value;
     //console.log(data);
 

@@ -5,6 +5,7 @@ import { Login } from '../shared/login';
 import { AuthService } from '../shared/auth.service';
 import { Jwtresponse } from '../shared/jwtresponse';
 import { AppComponent } from '../app.component';
+import { DoctorHelperService } from '../shared/doctor-helper.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    public appcomponent : AppComponent) { }
+    public appcomponent : AppComponent,
+    public ds : DoctorHelperService) { }
 
   ngOnInit(): void {
     //FormGroup
@@ -111,6 +113,7 @@ export class LoginComponent implements OnInit {
             console.log(this.jwtResponse);
             //console.log("Doctor");
             sessionStorage.setItem("DoctorID", this.jwtResponse.uId);
+            this.ds.GetDoctorIdfromStaffID(this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
