@@ -103,7 +103,7 @@ export class EditStaffComponent implements OnInit {
     this.router.navigate(['./stafflist']);
     //this.staff=this.staffForm.value;
     //console.log(data);
-    this.router.navigate[('./stafflist')];
+    this.router.navigate(['./stafflist']);
 
   }
   //Update staff

@@ -1,80 +1,77 @@
 <div class="container">
-    
-    <div class="header">        
-        <h5>Patient Lab History</h5>
-        <div class="row text-left">
-            <div class="col-3 text-left">
-            Search by Test Name:
-        </div>
-            <div class="col-3 text-left">                
-                <div class="form-group">
-                    <span>
-                        
-                        <input class="form-control col-3" type="text" 
-                        placeholder="Search"
-                        [(ngModel)] = "filter"/>
-                    </span>
+    <div class="box">
+        <div class="header">
+            <h5>Patient Lab History</h5>
+            <div class="row text-left">
+                <div class="col-3 text-left">
+                    Search by Test Name:
                 </div>
-            </div>
-            <div class="col-3">
-               Search by Date:
-            </div>
-            <div class="col-3">
-                <div class="form-group">
-                    <input class="form-control" type="date" 
-                    placeholder="Search"
-                    [(ngModel)] = "filter"/>
+                <div class="col-3 text-left">
+                    <div class="form-group">
+                        <span>
+
+                            <input class="form-control col-3" type="text" placeholder="Search" [(ngModel)]="filter" />
+                        </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    Search by Date:
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <input class="form-control" type="date" placeholder="Search" [(ngModel)]="filter" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <br>
+        <br>
 
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr class="table-dark">
-                <th>#</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Report Description</th>
-                <th>Test Date Time</th>
-                <th>Valid Range</th>
-                <th>Test Description</th>
-                <th>Result</th>
-                <th>Test Name</th>
-                <th>Test Unit</th>
-                <th>Test Description</th>
-                <th>Doctor</th>
-                <th>Lab Technician</th>
-                <th>Clinic</th>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="table-dark">
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Report Description</th>
+                    <th>Test Date Time</th>
+                    <th>Valid Range</th>
+                    <th>Test Description</th>
+                    <th>Result</th>
+                    <th>Test Name</th>
+                    <th>Test Unit</th>
+                    <th>Test Description</th>
+                    <th>Doctor</th>
+                    <th>Lab Technician</th>
+                    <th>Clinic</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let item of doctorHelperService.patientLabHistory | filter : filter | 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of doctorHelperService.patientLabHistory | filter : filter | 
             paginate: {itemsPerPage: 5,currentPage: page}">
-                <td (click) = "populateForm(item)">  {{item.ReportNo}}  </td> 
-                <td (click) = "populateForm(item)">  {{item.ReportTitle}}  </td>                
-                <td (click) = "populateForm(item)">  {{item.ReportDate | date:'mediumDate'}}  </td>
-                <td (click) = "populateForm(item)">  {{item.Description}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.TestDateTime}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.Range}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.TestDescription}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.Result}}  </td>
-                <td (click) = "populateForm(item)">  {{item.TestName}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.TestUnit}}  </td>    
-                <td (click) = "populateForm(item)">  {{item.TestDesription}}  </td> 
-                <td (click) = "populateForm(item)">  {{item.StaffName}}  </td>
-                <td (click) = "populateForm(item)">  {{item.StaffName_}}  </td>
-                <td (click) = "populateForm(item)">  {{item.ClinicName}}  </td>
-            </tr>
-        </tbody>
+                    <td (click)="populateForm(item)"> {{item.ReportNo}} </td>
+                    <td (click)="populateForm(item)"> {{item.ReportTitle}} </td>
+                    <td (click)="populateForm(item)"> {{item.ReportDate | date:'mediumDate'}} </td>
+                    <td (click)="populateForm(item)"> {{item.Description}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestDateTime}} </td>
+                    <td (click)="populateForm(item)"> {{item.Range}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestDescription}} </td>
+                    <td (click)="populateForm(item)"> {{item.Result}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestName}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestUnit}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestDesription}} </td>
+                    <td (click)="populateForm(item)"> {{item.StaffName}} </td>
+                    <td (click)="populateForm(item)"> {{item.StaffName_}} </td>
+                    <td (click)="populateForm(item)"> {{item.ClinicName}} </td>
+                </tr>
+            </tbody>
 
-    </table>
+        </table>
 
-    <div class="footer" style="text-align: center;">
-        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+        <div class="footer" style="text-align: center;">
+            <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+        </div>
+        <button class="btn btn-md btn-primary" type="reset" (click)="back()" style="margin-right: 90%;">Back</button>
     </div>
-
 </div>

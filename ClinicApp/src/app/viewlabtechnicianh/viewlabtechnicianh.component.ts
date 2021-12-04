@@ -12,9 +12,8 @@ import { TechnicianModel } from '../shared/technician-model';
 })
 export class ViewlabtechnicianhComponent implements OnInit {
   
-
+page:number=1;
   //assign default page
-  page: number = 1;
   filter: string;
 
   constructor(public labTechService: LabtechnicianService, private router: Router,

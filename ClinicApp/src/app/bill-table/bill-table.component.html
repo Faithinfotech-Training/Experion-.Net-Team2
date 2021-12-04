@@ -1,11 +1,12 @@
-<div class="header">
-    <h5 style="text-align: center;"> <b style="font-weight: bolder;">BILL FOR PID {{this.billService.bpid}}</b></h5>
-    <br>
-</div> 
-    
+<div class="box">
+    <div class="header">
+        <h5 style="text-align: center;"> <b style="font-weight: bolder;">BILL FOR PID {{this.billService.bpid}}</b></h5>
+        <br>
+    </div>
+
     <div class="container">
-        <table class="table table-hover text-center table-bordered">        
-            <thead>            
+        <table class="table table-hover text-center table-bordered">
+            <thead>
                 <tr class="table-dark">
                     <th scope="col">Prescription ID</th>
                     <th scope="col">Date</th>
@@ -15,20 +16,20 @@
                     <th scope="col">Days</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Total</th>
-                </tr>        
+                </tr>
             </thead>
 
-            
+
             <tbody>
                 <tr *ngFor="let item of this.billService.medicineModel">
-                    <td>  {{item.PrescriptionId}}  </td>
-                    <td>  {{item.PrescriptionDate | date:'mediumDate'}}  </td>  
-                    <td>  {{item.MedicineName}}  </td>       
-                    <td>  {{item.MedicineCompany}}  </td>  
-                    <td>  {{item.DosageFreq}}  </td>   
-                    <td>  {{item.NoOfDays}}  </td>
-                    <td>  {{item.MedicineAmount}}  </td>
-                    <td>  {{calc(item.DosageFreq, item.NoOfDays, item.MedicineAmount)}}  </td>
+                    <td> {{item.PrescriptionId}} </td>
+                    <td> {{item.PrescriptionDate | date:'mediumDate'}} </td>
+                    <td> {{item.MedicineName}} </td>
+                    <td> {{item.MedicineCompany}} </td>
+                    <td> {{item.DosageFreq}} </td>
+                    <td> {{item.NoOfDays}} </td>
+                    <td> {{item.MedicineAmount}} </td>
+                    <td> {{calc(item.DosageFreq, item.NoOfDays, item.MedicineAmount)}} </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -47,25 +48,25 @@
     <br>
 
     <div class="container">
-        <table class="table table-hover text-center table-bordered">        
-            <thead>            
+        <table class="table table-hover text-center table-bordered">
+            <thead>
                 <tr class="table-dark">
                     <th scope="col">Prescription ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Notes</th>
                     <th scope="col">TestName</th>
                     <th scope="col"> Amount</th>
-                    
-                </tr>        
+
+                </tr>
             </thead>
 
             <tbody>
                 <tr *ngFor="let item of this.billService.testBillModel">
-                    <td>  {{item.PrescriptionId}}  </td>
-                    <td>  {{item.PrescriptionDate | date:'mediumDate'}}  </td>  
-                    <td>  {{item.Notes}}  </td>       
-                    <td>  {{item.TestName}}  </td>  
-                    <td>  {{item.Amount}}  </td>  
+                    <td> {{item.PrescriptionId}} </td>
+                    <td> {{item.PrescriptionDate | date:'mediumDate'}} </td>
+                    <td> {{item.Notes}} </td>
+                    <td> {{item.TestName}} </td>
+                    <td> {{item.Amount}} </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -80,20 +81,20 @@
 
     <br>
 
-    <table class="table table-hover text-center table-bordered">
+    <table class="table table-primary table-hover text-center table-bordered">
         <tr>
             <td> Total </td>
             <td> {{this.billService.total}} </td>
         </tr>
-        
+
     </table>
-<br>
-<br>
-<div class="container">
+    <br>
+    <br>
+    <div class="container">
         <div class="row text-center">
             <div class="col">
-                <button class="btn btn-success" type="button" (click)= "pay()">Pay Bill</button>
+                <button class="btn btn-success" type="button" (click)="pay()">Pay Bill</button>
             </div>
         </div>
     </div>
-    
+</div>

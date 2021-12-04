@@ -106,14 +106,15 @@ export class AppointmentComponent implements OnInit {
     window.alert("Appointment record has been updated");
     //window.location.reload();
   }
+  
+  //view appointment
+  view(){
+    this.router.navigate(['/appointmentlist'])
+  }
   //Back to admin page
   back(){
     //this.router.navigate(['/frontoffice']);
     this.location.back();
-  }
-  //view appointment
-  view(){
-    this.router.navigate(['/appointmentlist'])
   }
 
 }

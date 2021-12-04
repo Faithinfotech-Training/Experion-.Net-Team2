@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from '../shared/test.service';
 import { TestdetailsService } from '../shared/testdetails.service';
 import { Testdetails } from '../shared/TestdetailsJ';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-viewtestdetails',
@@ -20,7 +21,7 @@ export class ViewtestdetailsComponent implements OnInit {
   
 
   constructor(public testService: TestService, public testDetailService: TestdetailsService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location:Location) { }
 
   ngOnInit(): void {
     this.testDetailService.bindListTestDetail();
@@ -44,7 +45,9 @@ export class ViewtestdetailsComponent implements OnInit {
     this.testDetailService.formLabT = emp;
   }
 
-
+  back(){
+    this.location.back();
+  }
 
 
 }

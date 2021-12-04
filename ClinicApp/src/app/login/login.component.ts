@@ -74,9 +74,11 @@ export class LoginComponent implements OnInit {
 
             //logged as Admin
             //console.log("Admin");
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             
             this.router.navigateByUrl('/admin');
 
@@ -87,9 +89,11 @@ export class LoginComponent implements OnInit {
 
 
             //console.log("FrontOffice");
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName",this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE",this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName",this.jwtResponse.Username);
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/frontoffice');
 
           }else if (this.jwtResponse.rId === 3) {
@@ -99,9 +103,11 @@ export class LoginComponent implements OnInit {
 
 
             //console.log("LabTechnician");
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
+            sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/technicianhome');
 
           }else if (this.jwtResponse.rId === 4) {
@@ -114,6 +120,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
+            //sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/doctors');
           }
           else{

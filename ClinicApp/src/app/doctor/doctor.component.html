@@ -36,8 +36,10 @@
   <!--Submit button-->
   <br>
   <div class="form-group">
+      
       <button type="submit" [disabled]="!(form.valid && form.dirty)"
-          class="btn-btn-lg btn-primary form-control">Submit</button>
+          class="btn-btn-lg btn-success form-control">Submit</button><br>
+          <button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
   </div>
 </form>
 

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LabtechnicianService } from '../shared/labtechnician.service';
 import { TestService } from '../shared/test.service';
 import { TestdetailsService } from '../shared/testdetails.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-testdetails',
@@ -13,7 +14,7 @@ import { TestdetailsService } from '../shared/testdetails.service';
 export class TestdetailsComponent implements OnInit {
 
   constructor( public testDetailService: TestdetailsService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private location:Location) { }
 
   ngOnInit(): void {
     
@@ -66,6 +67,10 @@ export class TestdetailsComponent implements OnInit {
     );
     window.alert("Employee record has been updated");
     window.location.reload();
+  }
+
+  back(){
+    this.location.back();
   }
 
 

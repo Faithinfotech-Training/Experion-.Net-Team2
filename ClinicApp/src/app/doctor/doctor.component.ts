@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DoctorService } from '../shared/doctor.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-doctor',
@@ -10,7 +11,7 @@ import { DoctorService } from '../shared/doctor.service';
 })
 export class DoctorComponent implements OnInit {
 
-  constructor(public doctorService:DoctorService,private router:Router) { }
+  constructor(public doctorService:DoctorService,private router:Router, private location:Location) { }
 
   ngOnInit(): void {
     //retrieving departments
@@ -29,6 +30,8 @@ export class DoctorComponent implements OnInit {
 
   }
  
-
+  back(){
+    this.location.back();
+  }
 
 }
