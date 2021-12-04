@@ -85,6 +85,8 @@ export class AddPrescriptionComponent implements OnInit {
     this.prescription.Isactive = true;
     this.prescription.DoctorId = Number(sessionStorage.getItem("DoctorID"));
     this.prescription.PatientId = Number(sessionStorage.getItem("CurrentPatientId"));
+    this.prescription.TotalCost = 0;
+    this.prescription.Billed = false;
     this.doctorHelperService.addPrescriptionWhole(
       this.prescription,
       this.medicineCount,      

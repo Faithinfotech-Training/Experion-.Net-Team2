@@ -47,6 +47,8 @@ import { EditStaffComponent } from './edit-staff/edit-staff.component';
 import { AppointmentByDateComponent } from './appointment-by-date/appointment-by-date.component';
 import { TestListViewModel } from './shared/testlisth';
 import { TestlistTOneComponent } from './testlist-tone/testlist-tone.component';
+import { GenerateBillGetidComponent } from './generate-bill-getid/generate-bill-getid.component';
+import { BillTableComponent } from './bill-table/bill-table.component';
 
 
 const routes: Routes = [
@@ -98,8 +100,11 @@ const routes: Routes = [
   {path: 'viewtechnician', component: ViewlabtechnicianhComponent, canActivate: [AuthGuard], data: { role: '1' }},
   {path: 'technicianhome', component: TechnicianhomepageComponent},
   {path: 'doctor', component: DoctorComponent,canActivate: [AuthGuard], data: { role: '1' }},
-  {path:'appointmentByDate', component:AppointmentByDateComponent, canActivate: [AuthGuard], data: { role: '2' }},
-  {path:'testlistTOne', component:TestlistTOneComponent}
+  {path:'appointmentByDate', component:AppointmentByDateComponent},
+  {path:'testlistTOne', component:TestlistTOneComponent},
+
+  {path:'gb', component: GenerateBillGetidComponent},
+  {path:'bt', component: BillTableComponent}
   
   ];
 
