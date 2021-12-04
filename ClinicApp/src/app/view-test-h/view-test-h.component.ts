@@ -13,9 +13,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./view-test-h.component.css']
 })
 export class ViewTestHComponent implements OnInit {
-  page:number=1;
+  
 
-
+page:number=1;
   //assign default page
   filter: string;
 

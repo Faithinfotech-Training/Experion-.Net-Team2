@@ -16,7 +16,7 @@ export class DoctorViewLabreportByIdComponent implements OnInit {
   isSubmitted = false;
   filter:string;
   page=1;
-  report: DoctorViewLabReport = new DoctorViewLabReport;
+  report: DoctorViewLabReport = new DoctorViewLabReport();
   response:any=new DoctorViewLabReport();
   pId:number;
 
@@ -47,9 +47,11 @@ export class DoctorViewLabreportByIdComponent implements OnInit {
 
     //valid
     if (this.reportForm.valid) {
+      console.log(this.reportForm.get('PatientId').value);
       this.doctorService.getLabReportById(this.reportForm.get('PatientId').value).subscribe(
         (result) => {
           console.log(result);
+         // result.ajax.reload( null, false );
           this.response=result;
           
 

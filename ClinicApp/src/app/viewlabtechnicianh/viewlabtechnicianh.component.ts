@@ -11,8 +11,8 @@ import { TechnicianModel } from '../shared/technician-model';
   styleUrls: ['./viewlabtechnicianh.component.css']
 })
 export class ViewlabtechnicianhComponent implements OnInit {
-  page:number=1;
-
+  
+page:number=1;
   //assign default page
   filter: string;
 
