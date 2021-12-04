@@ -12,7 +12,7 @@ import { TestdetailsService } from '../shared/testdetails.service';
   styleUrls: ['./view-test-h.component.css']
 })
 export class ViewTestHComponent implements OnInit {
-  page:number=1;
+  
 
  
   //assign default page

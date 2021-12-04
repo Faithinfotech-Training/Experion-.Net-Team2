@@ -40,8 +40,8 @@ export class DoctorService {
   }
 
   //getlab report by id
-  getLabReportById(pId: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" + pId);
+  getLabReportById(PatientId: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" +PatientId);
 
   }
 
