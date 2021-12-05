@@ -186,6 +186,10 @@ INSERT INTO TESTDETAILS VALUES
 
 select * from testdetails;
 
+update testdetails
+set amount = 400
+where TEST_NO = 2;
+
 --Prescription--
 CREATE TABLE PRESCRIPTION(
 PRESCRIPTION_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -202,8 +206,9 @@ REFERENCES PATIENT (PATIENT_ID));
 
 select * from PRESCRIPTION;
 
+
 delete from PRESCRIPTION
-where PRESCRIPTION_ID > 4;
+where PRESCRIPTION_ID = 6;
 
 insert into PRESCRIPTION values
 ('2021-01-01', 'SAMPLE NOTES', 1, 1, 1, 1,400),
@@ -336,6 +341,9 @@ drop column TEST_DETAILS;
 alter table prescription
 drop constraint fk_testdet;
 
+alter table medicine
+drop column MEDICINE_DOSAGE;
+
 create table TESTLIST(
 ID int primary key identity(1,1),
 PRESCRIPTION_ID int constraint fktt foreign key references PRESCRIPTION (PRESCRIPTION_ID),
@@ -353,9 +361,14 @@ select * from PRESCRIPTION;
 alter table prescription
 add billed bit default 0;
 
+alter table testdetails
+add amount int;
+
 
 alter table test
 add testlistreference int foreign key references testlist(id);
+
+alter table test drop column testlistreference;
 
 
 alter table testlist
@@ -363,6 +376,11 @@ add IsDone bit default 0;
 
 alter table test
 add TEST_LIST_NO int foreign key references TESTLIST(ID);
+
+UPDATE test
+SET TEST_LIST_NO = 2
+WHERE TEST_ID=2; 
+Select * from TEST;
 
 select * from testlist;
 
