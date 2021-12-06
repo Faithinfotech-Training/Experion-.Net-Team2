@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Staff } from 'src/app/shared/staff';
 import { StaffService} from 'src/app/shared/staff.service';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-staff',
@@ -19,7 +20,8 @@ export class StaffComponent implements OnInit {
   constructor(public staffService:StaffService,
     private router:Router,
     private route:ActivatedRoute,
-    private location:Location) { }
+    private location:Location,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
 
@@ -84,10 +86,10 @@ export class StaffComponent implements OnInit {
         //console.log(this.staffService.formData.StaffId);
         sessionStorage.setItem("StaffId",result.toString());
         this.resetForm(form);
-        //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
+        this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
       }
     );
-    window.alert("Staff record has been inserted");
+    //window.alert("Staff record has been inserted");
     //window.location.reload();
   }
 
@@ -99,10 +101,10 @@ export class StaffComponent implements OnInit {
         console.log(result);
         this.resetForm(form);
         this.staffService.bindListStaffs();
-        //this.toastrService.success('Staff record has been updated', 'StaffApp v2021');
+        this.toastrService.success('Staff record has been updated', 'StaffApp v2021');
       }
     );
-    window.alert("Staff record has been updated");
+   // window.alert("Staff record has been updated");
     //window.location.reload();
   }
   //Back to admin page

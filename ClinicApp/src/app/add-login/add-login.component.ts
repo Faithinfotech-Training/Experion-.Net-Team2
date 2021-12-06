@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Login } from '../shared/login';
 import { LoginService } from '../shared/login.service';
 import { StaffService } from '../shared/staff.service';
@@ -16,7 +17,8 @@ export class AddLoginComponent implements OnInit {
   login: Login = new Login();
 
   constructor(public loginService: LoginService,
-    public router: Router, public route: ActivatedRoute) { }
+    public router: Router, public route: ActivatedRoute,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.loginService.BindCmbRole();
@@ -55,20 +57,20 @@ export class AddLoginComponent implements OnInit {
     }
     console.log(form.value.RoleId);
     //this.router.navigate(['./stafflist']);
-    if (form.value.RoleId == 5) {
+    if (form.value.RoleId == 9) {
       //logged as Admin
       console.log("Admin");
       this.router.navigateByUrl('/stafflist');
 
-    } else if (form.value.RoleId == 6) {
+    } else if (form.value.RoleId == 10) {
       console.log("FrontOffice");
       this.router.navigateByUrl('/stafflist');
 
-    } else if (form.value.RoleId == 7) {
+    } else if (form.value.RoleId == 11) {
       console.log("LabTechnician");
       this.router.navigateByUrl('/labtechnician');
 
-    } else if (form.value.RoleId == 8) {
+    } else if (form.value.RoleId == 12) {
       console.log("Doctor");
       this.router.navigateByUrl('/doctor');
     }
@@ -96,7 +98,7 @@ export class AddLoginComponent implements OnInit {
         console.log(result);
         console.log(this.loginService.formData);
         this.resetForm(form);
-        //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
+        this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
       }
     );
     window.alert("Login record has been inserted")
@@ -104,8 +106,9 @@ export class AddLoginComponent implements OnInit {
   }
 
   //Back to admin page
+  /*
   back() {
     this.router.navigate(['./admin']);
-  }
+  }*/
 
 }

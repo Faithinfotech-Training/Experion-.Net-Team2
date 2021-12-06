@@ -20,8 +20,9 @@ export class PatientPrescriptionHistoryComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  /*
   back(){
     this.location.back();
-  }
+  }*/
 
 }

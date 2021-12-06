@@ -181,8 +181,8 @@ export class AddPrescriptionComponent implements OnInit {
     console.log('button pressed');
   }
 
-  */
+  
  back(){
    this.location.back();
- }
+ }*/
 }
