@@ -151,7 +151,6 @@ namespace CMSAPI.Controllers
         //Get test list by iD-custom model
         [HttpGet]
         [Route("GetTestListByIdHistory/{id}")]
-
         public async Task<IActionResult> GetTestListByIdHistory(int id)
         {
             try
