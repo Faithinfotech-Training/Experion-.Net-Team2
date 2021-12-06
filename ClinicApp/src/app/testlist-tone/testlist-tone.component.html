@@ -5,7 +5,7 @@
             <form name="testdetailgetForm" #testdetailgetForm="ngForm" (ngSubmit)="onSubmit(testdetailgetForm)">
                 <br>
                 <div class="form-group">
-                    <label for="PatientId">PatientId</label>
+                    <label for="PatientId">Patient Id</label>
                     <input type="text" name="PatientId" #PatientId="ngModel" [(ngModel)]="tstlstService.formP.PatientId"
                         class="form-control" required
                         [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
@@ -15,6 +15,7 @@
                 </div>
 
                 <!--Submit button-->
+                <br>
                 <div class="form-group">
                     <button type="submit" [disabled]="!(testdetailgetForm.valid && testdetailgetForm.dirty)"
                         class="btn btn btn-success btn-lg">
@@ -43,7 +44,7 @@
                     <th>Staff Name</th>
                     <th>Department Name</th>
                     <th>Test Name</th>
-                    <!--<th>Action</th>-->
+                    <th>Action</th>
                     
                 </tr>
             </thead>
@@ -58,7 +59,7 @@
                     <td>{{test.StaffName}}</td>
                     <td>{{test.DepartmentName}}</td>
                     <td>{{test.TestName}}</td>
-                    <!--<td><button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/test'" (click)="populateForm(test)">Generate</a></button></td>-->
+                    <td><button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/test'" (click)="populateForm(test)">Generate</a></button></td>
                    <!--PrescriptionId: number;
     PrescriptionDate: string;
     DoctorNotes: string;

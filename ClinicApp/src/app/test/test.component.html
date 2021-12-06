@@ -9,22 +9,36 @@
                 <label for="TestId"></label>
                 <input type="hidden" name="TestId" #TestId="ngModel" [(ngModel)]="testService.formTest.TestId"
                     class="form-control" required [ngClass]="{'is-invalid': TestId.touched && TestId.invalid}" />
-                <div class="validation-errors" *ngIf="TestId.touched && TestId.invalid">
+                <!---->
+                <!--<div class="validation-errors" *ngIf="TestId.touched && TestId.invalid">
                     <div *ngIf="TestId.errors.required">Test Id is required</div>
-                </div>
+                </div>-->
+                    
             </div>
 
 
             <!--TestNo-->
+            <!--testService.formTest.TestNo-->
+            
+
+              <!--Test Name-->  
             <br>
             <div class="form-group">
-                <label for="TestNo">Test No</label>
-                <input type="text" name="TestNo" #TestNo="ngModel" [(ngModel)]="testService.formTest.TestNo"
-                    class="form-control" required [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}" />
-                <div class="validation-errors" *ngIf="TestNo.touched && TestNo.invalid">
-                    <div *ngIf="TestNo.errors.required">Test No is required</div>
-                </div>
+                <label class="col-md-4">Test Name</label>
+                <select name="TestNo" id="TestNo" class="form-control" #TestNo="ngModel" required
+                    [(ngModel)]="testService.formTest.TestNo">
+                    <!--<option value=0 disabled>Choose Test Name</option>-->
+                    <!-- *ngFor="let dept of this.tService.testdet" -->
+                    <option value="{{testService.formTest.TestNo}}">
+                        {{this.tService.testdet.TestName}}</option>
+                </select>
+                <!--                <div class="validation-error" *ngIf="TestNo.touched && TestNo.invalid">
+                    <div *ngIf="TestNo.errors.required">Test Name is required</div>
+                </div>-->
+
             </div>
+
+           
 
             <!--TestDateTime-->
             <br>
@@ -72,25 +86,55 @@
                     <div *ngIf="TestDescription.errors.required">Test Description is required</div>
                 </div>
             </div>
-            <!--ReportNo-->
+            <!--ReportName-->
+           <!--
+            <br>
+            <div class="form-group">
+                <label class="col-md-4">Report Name</label>
+                <select name="ReportNo" id="ReportNo" class="form-control" #ReportNo="ngModel" required
+                    [(ngModel)]="testService.formTest.ReportNo" disabled>
+                    <option value=0 disabled>Choose report</option>-->
+                    <!-- *ngFor="let dept of this.tService.testdet" -->
+                    <!--
+                    <option value="{{labService.formLab.ReportNo}}">              {{labService.formLab.Report}}</option>
+                </select>
+                <div class="validation-error" *ngIf="TestNo.touched && TestNo.invalid">
+                    <div *ngIf="TestNo.errors.required">Test Name is required</div>
+                </div>
+            </div>-->
+
+         <!--ReportNo-->
             <br>
             <div class="form-group">
                 <label for="ReportNo">Report No</label>
-                <input type="text" name="ReportNo" #ReportNo="ngModel" [(ngModel)]="testService.formTest.ReportNo"
-                    class="form-control" required [ngClass]="{'is-invalid': ReportNo.touched && ReportNo.invalid}" />
+                <select name="ReportNo" id="ReportNo" class="form-control" #ReportNo="ngModel" required
+                    [(ngModel)]="testService.formTest.ReportNo">
+                    <option value=0>Choose report</option>-->
+                    <!-- *ngFor="let dept of this.tService.testdet" -->
+                
+                    <option *ngFor="let dept of this.labService.getReports" value="{{dept.ReportNo}}">
+                        {{dept.ReportTitle}}</option>
+                </select>        
+                <!---->        
                 <div class="validation-errors" *ngIf="ReportNo.touched && ReportNo.invalid">
                     <div *ngIf="ReportNo.errors.required">Report No is required</div>
                 </div>
             </div>
+
             <!--Isactive-->
+           
             <br>
             <div class="form-group">
-                <label for="Isactive">Is active</label>
-                <input type="checkbox" name="Isactive" #Isactive="ngModel" [(ngModel)]="testService.formTest.Isactive"
-                    required [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}" />
-                <div class="validation-errors" *ngIf="Isactive.touched && Isactive.invalid">
+                <label for="Isactive"></label>
+                <input type="hidden" name="Isactive" #Isactive="ngModel"
+                 [(ngModel)]="testService.formTest.Isactive"
+                    required [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}"/>
+                    <!---->
+                 <!--
+                    <div class="validation-errors" *ngIf="Isactive.touched && Isactive.invalid">
+                   
                     <div *ngIf="Isactive.errors.required">Is active required</div>
-                </div>
+                </div>-->
             </div>
 
             <!--Result-->
@@ -105,14 +149,15 @@
                 </div>
             </div>
             <!--Submit button-->
-            <br>
+            
             <br>
             <div class="form-group">
                 <button type="reset" class="btn btn-md btn-primary" (click)="back()">
                     Back</button>
-                <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)"
+                <button type="submit"
                     class="btn btn-lg btn-success" style="margin-left: 80%;">
                     Submit</button>
+                    <!-- [disabled]="!(labForm.valid)"-->
             </div>
         </form>
     </div>

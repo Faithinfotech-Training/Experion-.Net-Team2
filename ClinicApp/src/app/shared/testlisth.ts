@@ -9,4 +9,5 @@ export class TestListViewModel {
     TestNo: number;
     TestName: string='';
     Id: number;
+    TestListNo: number;
 }
