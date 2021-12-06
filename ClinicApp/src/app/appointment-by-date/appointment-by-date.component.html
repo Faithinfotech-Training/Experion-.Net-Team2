@@ -1,0 +1,52 @@
+<div class="box">
+    <div class="header">
+        <h5 style="text-align: center;"> <b style="font-weight: bolder;">APPOINTMENTS FOR THE DAY</b></h5>
+        <br>
+        <div class="container">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filter" />
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="container">
+        <table class="table table-primary table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Appointment No</th>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                    <th>Patient Name</th>
+                    <th>Doctor Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of frontOfficeService.appointments | filter : filter | 
+                    paginate: {itemsPerPage: 5,currentPage: page}">
+                    <td (click)="populateForm(item)"> {{item.AppointmentNo}} </td>
+                    <td (click)="populateForm(item)"> {{item.AppointmentDate | date:"dd-MM-yyyy"}} </td>
+                    <td (click)="populateForm(item)"> {{item.AppointmentTime}} </td>
+                    <td (click)="populateForm(item)"> {{item.PatientName}} </td>
+                    <td (click)="populateForm(item)"> {{item.DoctorName}} </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                            (click)="deleteAppointment(front.AppointmentNo)">X</button>&nbsp;
+                        <button class="btn btn-sm btn-info" (click)="populateForm(item)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="paginate" style="text-align: center;">
+        <pagination-controls class="paginate" (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-left: 70%;">
+        <button class="btn btn-md btn-primary" type="reset" (click)="back()">Back</button>
+        <button class="btn btn-md btn-primary" (click)="add()">Add Appointment</button>
+    </div>
+</div>

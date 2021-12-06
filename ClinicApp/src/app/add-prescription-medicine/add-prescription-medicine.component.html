@@ -1,0 +1,80 @@
+<form name="docform" #form="ngForm"
+(ngSubmit) = "readForm(form)" class="box">
+
+    <div class="form-group">        
+        <input type="hidden"  
+        name="PrescriptionNo" 
+        #PrescriptionNo="ngModel" 
+        [(ngModel)]="doctorHelperService.prescriptionformedicine.PrescriptionNo"
+        class="form-control"
+        placeholder="Enter Prescription Number"
+        value=0        
+        />       
+    </div>
+    
+    <div class="form-group">
+        <label>Dosage Frequency</label>
+        <input type="number"  
+        name="DosageFreq" 
+        #DosageFreq="ngModel" 
+        [(ngModel)]="doctorHelperService.prescriptionformedicine.DosageFreq"
+        class="form-control"
+        placeholder="Enter Dosage Frequency"
+        required
+        />       
+    </div>
+    <br>
+
+
+    <div class="form-group">
+        <label>No Of Days</label>
+        <input type="number"  
+        name="NoOfDays" 
+        #NoOfDays="ngModel" 
+        [(ngModel)]="doctorHelperService.prescriptionformedicine.NoOfDays"
+        class="form-control"
+        placeholder="Enter No Of Days"
+        required
+        />       
+    </div>
+    <br>
+    <div class="form-group">
+        <label class="col-md-4">Medicine</label>
+        <select 
+        name="MedicineId" 
+        id="MedicineId" 
+        class="form-control"
+        #MedicineId = "ngModel" 
+        required
+        [(ngModel)]="doctorHelperService.prescriptionformedicine.MedicineId">
+        <option value="" selected disabled> Choose Test </option>
+        <option *ngFor= "let m of this.doctorHelperService.medicineList"
+        value="{{m.MedicineId}}"> {{m.MedicineName}}</option>  
+        </select>        
+    </div>   
+
+    <!--{{this.doctorHelperService.testDetails[0].TestNo}}-->
+    <br>
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Add another medicine ?</label>
+            <input type="checkbox" name="medicineCheck" 
+            id="medicineCheck"                
+            class="form-check-input"
+            [(ngModel)]="this.medicineCheck"
+            >
+        </div>
+    </div> 
+    
+    <br>
+
+    <div class="form-group">
+        <button class="btn btn-md btn-primary" type="reset" (click)="back()" style="margin-right: 90%;">Back</button>
+        <button type="submit"
+         class="btn btn-lg btn-success" style="margin-left: 80%;"> 
+         Submit
+        </button>
+    </div>
+
+    
+</form>

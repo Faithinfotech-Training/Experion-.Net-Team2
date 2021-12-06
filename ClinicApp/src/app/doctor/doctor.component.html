@@ -1,0 +1,46 @@
+<form class="docform" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)" class="box">
+
+<!--Doctor ID-->
+<input type="hidden" name="DoctorId" [(ngModel)]="doctorService.formData1.DoctorId" />
+
+
+
+
+<!--Department dropdown-->
+<div class="form-group">
+    <label class="col-md-4">Department</label>
+    <select name="DepartmentId" id="DepartmentId" class="form-control" #DepartmentId="ngModel" required
+        [(ngModel)]="doctorService.formData1.DepartmentId">
+        <option value=0 disabled>Choose Department</option>
+        <option *ngFor="let dept of doctorService.departments"
+         value="{{dept.DepartmentId}}">{{dept.DepartmentName}}</option>
+        
+
+    </select>
+    <div class="validation-error" *ngIf="DepartmentId.touched && DepartmentId.invalid">
+        <div *ngIf="DepartmentId.errors.required">Department is required</div>
+    </div>
+</div>
+
+ <!--Is Active-->
+ <br>
+ <div class="form-group">
+     <div class="form-check">
+         <label class="form-check-label">Is Active</label>
+         <input type="checkbox" name="Isactive" id="Isactive" #Isactive="ngModel"
+             [(ngModel)]="doctorService.formData1.Isactive" class="form-check-input">
+     </div>
+ </div>
+
+  <!--Submit button-->
+  <br>
+  <div class="form-group">
+      
+      <button type="submit" [disabled]="!(form.valid && form.dirty)"
+          class="btn-btn-lg btn-success form-control">Submit</button><br>
+          <button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+  </div>
+</form>
+
+

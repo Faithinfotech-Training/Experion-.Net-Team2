@@ -1,0 +1,102 @@
+<div class="container">
+    
+    <div class="header">  
+        <br>      
+        <h5 class="text-center">Patient Lab History</h5>
+        <br>
+        <div class="row text-left">
+            <div class="col-3 text-left">
+            Search by Test Name:
+        </div>
+            <div class="col-3 text-left">                
+                <div class="form-group">
+                    <span>
+                        
+                        <input class="form-control col-3" type="text" 
+                        placeholder="Search"
+                        [(ngModel)] = "filter"/>
+                    </span>
+                </div>
+                <div class="col-3 text-left">
+                    <div class="form-group">
+                        <span>
+
+                            <input class="form-control col-3" type="text" placeholder="Search" [(ngModel)]="filter" />
+                        </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    Search by Date:
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <input class="form-control" type="date" placeholder="Search" [(ngModel)]="filter" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="table-dark">
+                    <th>#</th>
+                    <th>Test Name</th>
+                    <th>Test Description</th>
+                    <th>Unit</th>
+                    <th>Date</th>
+                    <th>Lab Attender Notes</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of doctorHelperService.patientLabHistory | filter : filter | 
+            paginate: {itemsPerPage: 5,currentPage: page}">
+                    <td (click)="populateForm(item)"> {{item.TestId}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestName}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestDesription}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestUnit}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestDateTime}} </td>
+                    <td (click)="populateForm(item)"> {{item.TestDescription}} </td>
+                    <td (click)="populateForm(item)"> {{item.Result}} </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="footer" style="text-align: center;">
+            <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+        </div>
+        <button class="btn btn-md btn-primary" type="reset" (click)="back()" style="margin-right: 90%;">Back</button>
+    </div>
+
+    
+    
+    <div class="container align-items-center">
+        <div class="row text-center align-items-center">
+            <br>
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctorListPatientsByDate']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Back
+                </button>
+                </a>
+            </div>
+    
+            <br>
+            <div class="col-sm-3 text-center align-items-center">
+                <a [routerLink]="['../doctors']">
+                <button type="button"
+                class="btn btn-secondary form-control"> 
+                Home
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

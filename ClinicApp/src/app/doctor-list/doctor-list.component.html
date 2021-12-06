@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="box">
+        <div class="header">
+            <h5>Doctor Info</h5>
+            <!--Search functionality-->
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Search here... " 
+                [(ngModel)]="filter" />
+
+            </div>
+            <hr>
+
+        </div>
+        <table class="table table-primary table-bordered table-striped | filter:filter">
+            <thead>
+                <tr>
+                    <th>Doctor ID</th>
+                    <th>Staff ID</th>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Date Of Birth</th>
+                    <th>Address</th>
+                    <th>Date Of Join</th>
+                    <th>Mobile</th>
+                    <th>Experience</th>
+                    <th>Email</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let doc of doctorService.doctormodel | filter:filter | 
+                    paginate:{itemsPerPage:5,currentPage:page}">
+                    <td>{{doc.DoctorId}}</td>
+                    <td>{{doc.StaffId}}</td>
+                    <td>{{doc.StaffName}}</td>
+                    <td>{{doc.Gender}}</td>
+                    <td>{{doc.DateOfBirth}}</td>
+                    <td>{{doc.Address}}</td>
+                    <td>{{doc.DateOfJoin}}</td>
+                    <td>{{doc.Mobile}}</td>
+                    <td>{{doc.Experience}}</td>
+                    <td>{{doc.Email}}</td>
+                    <td>
+
+                        <!--button (click)="updateDoctor(doc.DoctorId)" class="btn btn-info" style="margin-left: 10px;">Edit</button-->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            <!--pagination-->
+            <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+        </div>
+        <button class="btn btn-md btn-primary" type="reset" (click)="Back()">Back</button>
+    </div>
+</div>

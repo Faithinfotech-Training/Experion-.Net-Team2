@@ -1,0 +1,14 @@
+
+html,body 
+{
+  height: 100%;
+}
+
+
+/* Other Classes for Page Styling */
+
+body 
+{
+  background: linear-gradient(to bottom, #ffffff, #d0d6e7);  
+}
+

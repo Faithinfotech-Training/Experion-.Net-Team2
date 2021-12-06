@@ -1,0 +1,72 @@
+<div class="box">
+    <div class="container">
+        <h3>Enter Test No</h3>
+        <div class="form">
+            <form name="testdetailgetForm" #testdetailgetForm="ngForm" (ngSubmit)="onSubmit(testdetailgetForm)">
+                <br>
+                <div class="form-group">
+                    <label for="TestNo">Test No</label>
+                    <input type="text" name="TestNo" #TestNo="ngModel" [(ngModel)]="testDetailService.formLabT.TestNo"
+                        class="form-control" required [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}" />
+                    <div class="validation-errors" *ngIf="TestNo.touched && TestNo.invalid">
+                        <div *ngIf="TestNo.errors.required">Test No is required</div>
+                    </div>
+                </div>
+
+                <!--Submit button-->
+                <div class="form-group">
+                    <button type="submit" [disabled]="!(testdetailgetForm.valid && testdetailgetForm.dirty)"
+                        class="btn btn btn-success btn-lg">
+                        Search</button>
+                </div>
+                <hr>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="header">
+            <h5 style="text-align: center;">Test Details table</h5>
+
+            <table class="table table-primary table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Test No</th>
+                        <th>Test Name</th>
+                        <th>Test Unit</th>
+                        <th>Test Desription</th>
+                        <!--<th>Is active</th>-->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let test of testDetailService.testdetails | paginate: {itemsPerPage: 3, currentPage: page} ">
+                        <td>{{test.TestNo}}</td>
+                        <td>{{test.TestName}}</td>
+                        <td>{{test.TestName}}</td>
+                        <td>{{test.TestDesription}}</td>
+                        <!--<td>{{test.Isactive}}</td>-->
+                        <td>
+                            <button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a
+                                    style="text-decoration: none; color: #049204; font-size:100%;"
+                                    [routerLink]="'/testdetails'" (click)="populateForm(test)">Edit</a></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer" style="margin-left: 35%;margin-right:35%;">
+                <!--pagination-->
+                <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+            </div>
+        </div>
+        <div>
+            <br>
+            <button class="btn btn-md btn-primary" type="reset" (click)="back()">Back</button>
+            <button style="margin-left: 80%;" class="btn btn btn-success btn-lg"><a
+                    style="text-decoration: none; color: white; font-size:100%;" >Insert
+                    New Test Details</a></button>
+        </div>
+    </div>
+</div>

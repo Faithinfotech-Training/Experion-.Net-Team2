@@ -1,0 +1,54 @@
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h3>Welcome {{loggedUserName | titlecase}}</h3>
+                <p class="blue-text">Hope you have a great day ahead !!</p>
+                <div class="card">
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/labreport'>
+                                <button class="btn btn-primary" type="button"> New Lab Report</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/getreportlab'>
+                                <button class="btn btn-primary" type="button"> View Lab Reports</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/testlistTOne'>
+                                <button class="btn btn-primary" type="button"> View test list</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/viewtest'>
+                                <button class="btn btn-primary" type="button"> View Tests</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/testdetails'>
+                                <button class="btn btn-primary" type="button"> Add Test Details</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="nav-link" href="#" routerLink='/viewtestdetails'>
+                                <button class="btn btn-primary" type="button">View Test Details</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

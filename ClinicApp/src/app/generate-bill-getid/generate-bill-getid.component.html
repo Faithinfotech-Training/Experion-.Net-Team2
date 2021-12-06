@@ -1,0 +1,35 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Hi, {{loggedUserName | titlecase }}</h3>
+            <p class="blue-text"> Enter PatientID 
+                <br> to generate bill
+            </p>
+            <div class="card">                
+                <form class="form-card"name="billid" #form="ngForm" (ngSubmit) = "readForm(form)">
+                    <div class="row justify-content-between text-left">                        
+                        <div class="form-group form-group col-sm-8 flex-column d-flex">        
+                            <input type="number" name="bpid" id="bpid"  
+                            #bpid="ngModel" 
+                            [(ngModel)]="this.billGenerateServiceService.bpid"     
+                            class="form-control"                            
+                            required
+                            />
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <button type="submit"
+                            class="btn-block btn-primary form-control"> 
+                            Submit
+                            </button>
+                            
+                        </div>
+                        
+                    </div>
+                    <button class="btn btn-md btn-primary" type="reset" style="margin-left: 90%;" (click)="back()">Back</button>
+                </form>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
