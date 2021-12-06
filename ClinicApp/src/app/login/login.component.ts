@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   //login verify credentials
   loginCredentials(){
     this.isSubmitted=true;
-    //console.log(this.loginForm.value);
+    console.log(this.loginForm.value);
 
     //invalid
     if(this.loginForm.invalid)
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.loginVerify(this.loginForm.value).subscribe(
         data=>{
-          //console.log(data);
+          console.log(data);
 
           
 
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
           if(this.jwtResponse.rId===9){
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
 
             //logged as Admin
             //console.log("Admin");
@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
           }else if(this.jwtResponse.rId===10){
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
 
 
             //console.log("FrontOffice");
@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
           }else if (this.jwtResponse.rId === 11) {
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
 
 
             //console.log("LabTechnician");
@@ -115,7 +115,7 @@ export class LoginComponent implements OnInit {
           }else if (this.jwtResponse.rId === 12) {
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
             console.log(this.jwtResponse);
             //console.log("Doctor");
             sessionStorage.setItem("DoctorID", this.jwtResponse.uId);

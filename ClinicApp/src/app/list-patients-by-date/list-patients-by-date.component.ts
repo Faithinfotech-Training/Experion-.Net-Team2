@@ -60,6 +60,7 @@ export class ListPatientsByDateComponent implements OnInit {
   {
     // console.log(item);
     this.doctorHelperService.patientLabHistorybyId(item.PatientId);
+    //this.doctorHelperService.getLabReportById(item.PatientId);
     this.router.navigate(['patientLabHistory']);
   }
 

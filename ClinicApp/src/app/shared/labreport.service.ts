@@ -17,16 +17,20 @@ edit: boolean;
   formpat: PatientRegisterH=new PatientRegisterH();
   getReports: Labreport[];
   getPatients: PatientRegisterH[];
+  getRepo: Labreport;
 
 
   constructor(private httpClient: HttpClient) { }
 
   //get all reports
   bindListReports() {
+    console.log('Detail Lab Report');
+    console.log(environment.apiUrl + "/api/labreport/getreports");
     this.httpClient.get(environment.apiUrl + "/api/labreport/getreports")
       .toPromise().then(response =>
         this.getReports = response as Labreport[]
       );
+
   }
 
   

@@ -89,6 +89,7 @@ export class AddLoginComponent implements OnInit {
   insertLoginRecord(form?: NgForm) {
     console.log("Inserting a record...");
     //this.loginService.formData.Loginid=Number(sessionStorage.getItem("StaffID"));
+    form.value.isActive = true;
     this.loginService.insertLogin(form.value).subscribe(
       (result) => {
 

@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from '../shared/test.service';
 import { Location } from '@angular/common';
+import { TestdetailsService } from '../shared/testdetails.service';
+import { LabreportService } from '../shared/labreport.service';
+import { TestlisthService } from '../shared/testlisth.service';
 
 @Component({
   selector: 'app-test',
@@ -11,32 +14,45 @@ import { Location } from '@angular/common';
 })
 export class TestComponent implements OnInit {
 
-  constructor(public testService: TestService, private router: Router,
-    private route: ActivatedRoute, private location:Location) { }
+  constructor(public testService: TestService,
+     private router: Router,
+    private route: ActivatedRoute, private location:Location,
+    public tService: TestdetailsService, public labService: LabreportService,
+    public tstlstService: TestlisthService) { }
 
   ngOnInit(): void {
-
+    console.log("Loadin Test HTML");
     
+    //this.testService.formTest.ReportNo=this.labService.getRepo.ReportNo;
+    //console.log(this.testService.formTest.ReportNo);
+
+    this.labService.bindListReports();
+    this.testService.formTest.TestNo = this.tService.testdet.TestNo;
+   
+      
   }
   onSubmit(labForm: NgForm) {
   console.log(labForm.value);
     //from insertEmployee reached here
     let addId = this.testService.formTest.TestId;
-
+    this.testService.formTest.Isactive=true;
+   
 
     if (addId == 0 || addId == null) {
       //INSERT
-      
+      labForm.value.TestNo= this.tService.testdet.TestNo;
       this.insertTest(labForm);
       
       
     }
     else {
-      labForm.value.TestNo=Number(sessionStorage.getItem("TestNo"));
+      labForm.value.TestNo= this.tService.testdet.TestNo;
       labForm.value.ReportNo=Number(sessionStorage.getItem("ReportNo"));
       //UPDATE
       this.updateTest(labForm);
     }
+
+    
   }
 
 
@@ -44,18 +60,24 @@ export class TestComponent implements OnInit {
 
   //INSERT
   insertTest(labForm?: NgForm) {
-    console.log("Inserting a test ...");
+    
+      console.log('Inserting test list');
     //call the service
     this.testService.insertTest(labForm.value).subscribe(
       (result) => {
         console.log(result);
-        sessionStorage.setItem("ReportNo",result.toString());
+        //sessionStorage.setItem("ReportNo",result.toString());
         
         
         //at time of submit we need to call this method so go to onSubmit
       }
     );
+    
+    console.log("Inserting a test ...");
+    labForm.value.Isactive=true;
+    this.testService.GetTestListsById(this.tstlstService.formTl.TestNo);
   }
+  
 
 
 
@@ -69,7 +91,7 @@ export class TestComponent implements OnInit {
         //at time of submit we need to call this method so go to onSubmit
       }
     );
-    window.alert("Employee record has been updated");
+    window.alert("Test record has been updated");
     window.location.reload();
   }
 

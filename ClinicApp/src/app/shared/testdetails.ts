@@ -6,4 +6,5 @@ export class Testdetails {
     TestUnit: string='';
     TestDesription: string='';
     Isactive: boolean;
+    Amount: number;
 }

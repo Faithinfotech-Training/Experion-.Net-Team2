@@ -3,4 +3,5 @@ export class Testlist {
     PrescriptionId: number ;
     TestNo: number;
     Notes: string;
+    IsDone : boolean;
 }

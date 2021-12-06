@@ -21,9 +21,9 @@
         <label class="col-md-4">Gender</label>
         <select name="Gender" id="Gender" class="form-control" #Gender="ngModel" required
             [(ngModel)]="staffService.formData.Gender">
-            <option value=0 disabled>--Gender--</option>
-            <option>MALE</option>
-            <option>FEMALE</option>
+            <option selected disabled value="Select Gender">Select Gender</option>
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
         </select>
         <div class="validation-error" *ngIf="Gender.touched 
         && Gender.invalid">
