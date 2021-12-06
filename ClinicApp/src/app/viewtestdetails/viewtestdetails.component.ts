@@ -43,6 +43,8 @@ export class ViewtestdetailsComponent implements OnInit {
   populateForm(emp: Testdetails) {
     console.log(emp);
     this.testDetailService.formLabT = emp;
+    // [routerLink]="'/testdetails'"
+    this.router.navigate(['../testdetails']);
   }
 
   back(){

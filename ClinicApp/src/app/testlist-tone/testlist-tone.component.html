@@ -40,7 +40,7 @@
                     <th>Doctor Id</th>
                     <th>Prescription Date</th>
                     <th>Doctor Notes</th>
-                    <th>Notes</th>
+                    <!--<th>Notes</th>-->
                     <th>Staff Name</th>
                     <th>Department Name</th>
                     <th>Test Name</th>
@@ -55,11 +55,11 @@
                     <td>{{test.DoctorId}}</td>
                     <td >{{test.PrescriptionDate}}</td>
                     <td>{{test.DoctorNotes}}</td>
-                    <td>{{test.Notes}}</td>
+                    <!--<td>{{test.Notes}}</td>-->
                     <td>{{test.StaffName}}</td>
                     <td>{{test.DepartmentName}}</td>
                     <td>{{test.TestName}}</td>
-                    <td><button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" [routerLink]="'/test'" (click)="populateForm(test)">Generate</a></button></td>
+                    <td><button style="margin-left: 1%;" class="btn btn btn-outline-success btn-sm"><a style="text-decoration: none; color: #049204; font-size:100%;" (click)="populateForm(test)">Generate</a></button></td>
                    <!--PrescriptionId: number;
     PrescriptionDate: string;
     DoctorNotes: string;

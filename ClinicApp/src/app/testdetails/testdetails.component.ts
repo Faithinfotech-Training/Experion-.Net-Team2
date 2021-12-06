@@ -46,12 +46,17 @@ export class TestdetailsComponent implements OnInit {
   insertTestDetail(labForm?: NgForm) {
     console.log("Inserting a test detail...");
     //call the service
+    labForm.value.Isactive = true;
+    labForm.value.TestNo = 0;
+    console.log('Inserting Test Details : ' + labForm.value);
     this.testDetailService.insertTestDetail(labForm.value).subscribe(
       (result) => {
         console.log(result);
         //at time of submit we need to call this method so go to onSubmit
       }
     );
+
+    this.router.navigate(['../technicianhome']);
   }
 
 
@@ -65,8 +70,9 @@ export class TestdetailsComponent implements OnInit {
         //at time of submit we need to call this method so go to onSubmit
       }
     );
-    window.alert("Employee record has been updated");
-    window.location.reload();
+    window.alert("Test Details updated");
+    this.router.navigate(['../technicianhome']);
+    //window.location.reload();
   }
 
   back(){
