@@ -91,9 +91,18 @@ export class DoctorHelperService {
     });
   }
 
+
+
+  getLabReportById(PatientId: number): Observable<any> {
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" +PatientId)
+    return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" +PatientId);
+    }
+
+
+
   patientLabHistorybyId(patientId : number)
   {
-    //console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );
+    console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );
     this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId )
     .toPromise().then( response =>       
       this.patientLabHistory = response as PatientLabHistory[] 
@@ -235,7 +244,7 @@ export class DoctorHelperService {
               this.testlistO.PrescriptionId = Number(sessionStorage.getItem("currentPrescriptionID"));
               this.testlistO.TestNo = testList[i].value;
               this.testlistO.Notes = testNotes[i].value;
-
+              this.testlistO.IsDone = false;
               console.log('Adding Test ' + this.testlistO )
 
               this.httpClient.post(environment.apiUrl + "/api/DoctorManagePatient/AddTestList",this.testlistO)

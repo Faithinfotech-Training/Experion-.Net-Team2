@@ -26,7 +26,6 @@ export class DoctorViewLabreportByIdComponent implements OnInit {
   ngOnInit(): void {
     this.reportForm = this.formBuilder.group({
       PatientId: [, [Validators.required]]
-
     });
    
 
