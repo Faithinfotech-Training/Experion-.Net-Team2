@@ -41,8 +41,7 @@ export class DoctorService {
 
   //getlab report by id
   getLabReportById(PatientId: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" +PatientId);
-
+  return this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/LabReportsByPatientId/" +PatientId);
   }
 
   //insert a doctor
