@@ -11,6 +11,7 @@
                     <input class="form-control" type="text" placeholder="Enter Patient Id " formControlName="PatientId"
                         id="PatientId" autocomplete="off" required />
                 </div>
+                <br>
                 <div *ngIf="isSubmitted && formControls.PatientId.errors">
                     <div *ngIf="formControls.PatientId.errors.required" style="color: red; text-align: left;">
                         Patient Id is required
