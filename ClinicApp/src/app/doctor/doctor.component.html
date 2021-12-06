@@ -11,8 +11,8 @@
 <div class="form-group">
     <label class="col-md-4">Department</label>
     <select name="DepartmentId" id="DepartmentId" class="form-control" #DepartmentId="ngModel" required
-        [(ngModel)]="doctorService.formData1.DepartmentId">
-        <option value=0 disabled>Choose Department</option>
+        [(ngModel)]="doctorService.formData1.DepartmentId" >
+        <option selected disabled value=0 >Choose Department</option>
         <option *ngFor="let dept of doctorService.departments"
          value="{{dept.DepartmentId}}">{{dept.DepartmentName}}</option>
         
@@ -23,7 +23,7 @@
     </div>
 </div>
 
- <!--Is Active-->
+ <!--Is Active>
  <br>
  <div class="form-group">
      <div class="form-check">
@@ -31,7 +31,7 @@
          <input type="checkbox" name="Isactive" id="Isactive" #Isactive="ngModel"
              [(ngModel)]="doctorService.formData1.Isactive" class="form-check-input">
      </div>
- </div>
+ </div>-->
 
   <!--Submit button-->
   <br>

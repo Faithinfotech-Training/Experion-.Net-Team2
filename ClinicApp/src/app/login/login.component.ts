@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("token",this.jwtResponse.token);
           //console.log(this.jwtResponse.rId);
 
-          if(this.jwtResponse.rId===1){
+          if(this.jwtResponse.rId===9){
 
             this.authService.userPresent = true;
             sessionStorage.setItem("userPresent", 'true');
@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
             
             this.router.navigateByUrl('/admin');
 
-          }else if(this.jwtResponse.rId===2){
+          }else if(this.jwtResponse.rId===10){
 
             this.authService.userPresent = true;
             sessionStorage.setItem("userPresent", 'true');
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/frontoffice');
 
-          }else if (this.jwtResponse.rId === 3) {
+          }else if (this.jwtResponse.rId === 11) {
 
             this.authService.userPresent = true;
             sessionStorage.setItem("userPresent", 'true');
@@ -112,7 +112,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/technicianhome');
 
-          }else if (this.jwtResponse.rId === 4) {
+          }else if (this.jwtResponse.rId === 12) {
 
             this.authService.userPresent = true;
             sessionStorage.setItem("userPresent", 'true');

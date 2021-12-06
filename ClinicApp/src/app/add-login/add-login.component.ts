@@ -55,20 +55,20 @@ export class AddLoginComponent implements OnInit {
     }
     console.log(form.value.RoleId);
     //this.router.navigate(['./stafflist']);
-    if (form.value.RoleId == 1) {
+    if (form.value.RoleId == 9) {
       //logged as Admin
       console.log("Admin");
       this.router.navigateByUrl('/stafflist');
 
-    } else if (form.value.RoleId == 2) {
+    } else if (form.value.RoleId == 10) {
       console.log("FrontOffice");
       this.router.navigateByUrl('/stafflist');
 
-    } else if (form.value.RoleId == 3) {
+    } else if (form.value.RoleId == 11) {
       console.log("LabTechnician");
       this.router.navigateByUrl('/labtechnician');
 
-    } else if (form.value.RoleId == 4) {
+    } else if (form.value.RoleId == 12) {
       console.log("Doctor");
       this.router.navigateByUrl('/doctor');
     }
