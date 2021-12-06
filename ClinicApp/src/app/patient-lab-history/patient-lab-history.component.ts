@@ -24,8 +24,9 @@ export class PatientLabHistoryComponent implements OnInit {
   {
     // console.log(item);
   }
+  /*
   back(){
     this.location.back();
-  }
+  }*/
 
 }

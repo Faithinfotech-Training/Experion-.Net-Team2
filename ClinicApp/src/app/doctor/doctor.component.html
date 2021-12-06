@@ -12,14 +12,14 @@
     <label class="col-md-4">Department</label>
     <select name="DepartmentId" id="DepartmentId" class="form-control" #DepartmentId="ngModel" required
         [(ngModel)]="doctorService.formData1.DepartmentId" >
-        <option selected disabled value=0 >Choose Department</option>
+        <option value=0 disabled >Choose Department</option>
         <option *ngFor="let dept of doctorService.departments"
          value="{{dept.DepartmentId}}">{{dept.DepartmentName}}</option>
         
 
     </select>
     <div class="validation-error" *ngIf="DepartmentId.touched && DepartmentId.invalid">
-        <div *ngIf="DepartmentId.errors.required">Department is required</div>
+        <div *ngIf="DepartmentId.errors.required" style="color: red; text-align: left;">Department is required</div>
     </div>
 </div>
 
@@ -39,7 +39,7 @@
       
       <button type="submit" [disabled]="!(form.valid && form.dirty)"
           class="btn-btn-lg btn-success form-control">Submit</button><br>
-          <button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+          <!--button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button-->
   </div>
 </form>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Login } from '../shared/login';
 import { LoginService } from '../shared/login.service';
 import { StaffService } from '../shared/staff.service';
@@ -16,7 +17,8 @@ export class AddLoginComponent implements OnInit {
   login: Login = new Login();
 
   constructor(public loginService: LoginService,
-    public router: Router, public route: ActivatedRoute) { }
+    public router: Router, public route: ActivatedRoute,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.loginService.BindCmbRole();
@@ -96,7 +98,7 @@ export class AddLoginComponent implements OnInit {
         console.log(result);
         console.log(this.loginService.formData);
         this.resetForm(form);
-        //this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
+        this.toastrService.success('Staff record has been inserted', 'StaffApp v2021');
       }
     );
     window.alert("Login record has been inserted")
@@ -104,8 +106,9 @@ export class AddLoginComponent implements OnInit {
   }
 
   //Back to admin page
+  /*
   back() {
     this.router.navigate(['./admin']);
-  }
+  }*/
 
 }

@@ -11,7 +11,7 @@
          && AppointmentDate.invalid }" />
         <div class="validation-error" *ngIf="AppointmentDate.touched 
         && AppointmentDate.invalid">
-            <div *ngIf="AppointmentDate.errors.required">
+            <div *ngIf="AppointmentDate.errors.required" style="color: red; text-align: left;">
                 Appointment Date is required</div>
         </div>
     </div>
@@ -24,7 +24,7 @@
          && AppointmentTime.invalid }" />
         <div class="validation-error" *ngIf="AppointmentTime.touched 
         && AppointmentTime.invalid">
-            <div *ngIf="AppointmentTime.errors.required">
+            <div *ngIf="AppointmentTime.errors.required" style="color: red; text-align: left;">
                 Appointment Time is required</div>
         </div>
     </div>
@@ -35,7 +35,7 @@
             class="form-control" placeholder="Enter amount" minlength="1" maxlength="5" required
             [ngClass]="{'is-invalid':Amount.touched && Amount.invalid}" />
         <div class="validation-error" *ngIf="Amount.touched && Amount.invalid">
-            <div *ngIf="Amount.errors.required">
+            <div *ngIf="Amount.errors.required" style="color: red; text-align: left;">
                 Amount is required
             </div>
         </div>
@@ -46,14 +46,14 @@
         <label class="col-md-4">Patient</label>
         <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
             [(ngModel)]="frontOfficeService.formData.PatientId">
-            <option value=0 disabled selected>Choose Patient</option>
+            <option value=0 disabled >Choose Patient</option>
             <option *ngFor="let patient of frontOfficeService.patients" value="{{patient.PatientId}}">
                 {{patient.PatientName}}
             </option>
         </select>
         <div class="validation-error" *ngIf="PatientId.touched 
         && PatientId.invalid">
-            <div *ngIf="PatientId.errors.required">
+            <div *ngIf="PatientId.errors.required" style="color: red; text-align: left;">
                 Patient is required</div>
         </div>
     </div>
@@ -63,13 +63,13 @@
         <label class="col-md-4">Doctor</label>
         <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
             [(ngModel)]="frontOfficeService.formData.DoctorId">
-            <option selected value=0 disabled>Choose Doctor</option>
+            <option  value=0 disabled>Choose Doctor</option>
             <option *ngFor="let doctor of frontOfficeService.doctors" value="{{doctor.DoctorId}}">{{doctor.StaffName}}
             </option>
         </select>
         <div class="validation-error" *ngIf="DoctorId.touched 
         && DoctorId.invalid">
-            <div *ngIf="DoctorId.errors.required">
+            <div *ngIf="DoctorId.errors.required" style="color: red; text-align: left;">
                 Doctor is required</div>
         </div>
     </div>

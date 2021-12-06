@@ -20,7 +20,7 @@
 
                 </select>
                 <div class="validation-error" *ngIf="DepartmentId.touched && DepartmentId.invalid">
-                    <div *ngIf="DepartmentId.errors.required">Department is required</div>
+                    <div *ngIf="DepartmentId.errors.required" style="color: red; text-align: left;">Department is required</div>
                 </div>
             </div>
 
