@@ -33,18 +33,23 @@ export class TestlistTOneComponent implements OnInit {
     {
       //console.log("Hello");
       this.tstlstService.GetTestListByPatientId(addId);
-      console.log(this.tstlstService.testlist);
-       
+      console.log(this.tstlstService.testlist);       
     }
   }
   populateForm(emp: TestListViewModel)
   {
     console.log(emp);
+    this.testService.TLIDtoModify = emp.Id;
+    console.log('---------------- ABCD --------------');
+    console.log(this.testService.TLIDtoModify);
+    console.log(emp.Id);
+
     this.tstlstService.formTl=emp;
     sessionStorage.setItem("TestNo", emp.TestNo.toString());
-    this.tService.GetTestDetailByNo(Number(sessionStorage.getItem("TestNo")));
+    this.tService.GetTestDetailByNoH(Number(sessionStorage.getItem("TestNo")));
 //console.log("Test Number"+Number(sessionStorage.getItem("TestNo")));
     //this.testService.formTest.TestNo=this.tService.testdet.TestNo;
+    //this.router.navigate(['test']);
 
   }
 

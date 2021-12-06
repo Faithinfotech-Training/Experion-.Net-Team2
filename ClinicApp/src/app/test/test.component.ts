@@ -27,10 +27,10 @@ export class TestComponent implements OnInit {
     //console.log(this.testService.formTest.ReportNo);
 
     this.labService.bindListReports();
-    this.testService.formTest.TestNo = this.tService.testdet.TestNo;
-   
-      
+    this.testService.formTest.TestNo = this.tService.testdet.TestNo;      
   }
+
+
   onSubmit(labForm: NgForm) {
   console.log(labForm.value);
     //from insertEmployee reached here
@@ -62,20 +62,21 @@ export class TestComponent implements OnInit {
   insertTest(labForm?: NgForm) {
     
       console.log('Inserting test list');
+      labForm.value.Isactive = true;
+      labForm.value.TestListNo = this.testService.TLIDtoModify;
+
+      console.log('----------- ERRORRRR ------------------');
+      console.log(labForm.value);
     //call the service
     this.testService.insertTest(labForm.value).subscribe(
       (result) => {
         console.log(result);
-        //sessionStorage.setItem("ReportNo",result.toString());
-        
-        
-        //at time of submit we need to call this method so go to onSubmit
       }
-    );
-    
+    );    
     console.log("Inserting a test ...");
     labForm.value.Isactive=true;
-    this.testService.GetTestListsById(this.tstlstService.formTl.TestNo);
+    this.testService.GetTestListsById(this.testService.TLIDtoModify);
+    this.router.navigate(['../technicianhome']);
   }
   
 

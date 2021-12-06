@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 //import { Testdetails } from './testdetails';
@@ -15,7 +16,8 @@ export class TestdetailsService {
   formLabT: Testdetails=new Testdetails();
   testdetails: Testdetails[];
   testdet: Testdetails;
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient, 
+    public router : Router) { 
 
 
   }
@@ -48,10 +50,21 @@ export class TestdetailsService {
         this.testdet = response[0] as Testdetails;
         console.log("HZH "  + this.testdet.TestName);
         }
-
-
       );
+  }
 
+
+
+  GetTestDetailByNoH(id: number) {
+    console.log(environment.apiUrl + "/api/testdetails/gettestdetail/" + id);
+    this.httpClient.get(environment.apiUrl + "/api/testdetails/gettestdetail/" + id)
+      .toPromise().then(response =>
+        {
+        this.testdet = response[0] as Testdetails;
+        console.log("HZH "  + this.testdet.TestName);
+        this.router.navigate(['test']);
+        }
+      );
   }
 
 }

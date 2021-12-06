@@ -6,6 +6,7 @@ import { AuthService } from '../shared/auth.service';
 import { Jwtresponse } from '../shared/jwtresponse';
 import { AppComponent } from '../app.component';
 import { DoctorHelperService } from '../shared/doctor-helper.service';
+import { LabtechnicianService } from '../shared/labtechnician.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     public appcomponent : AppComponent,
-    public ds : DoctorHelperService) { }
+    public ds : DoctorHelperService,
+    public lts : LabtechnicianService) { }
 
   ngOnInit(): void {
     //FormGroup
@@ -102,14 +104,14 @@ export class LoginComponent implements OnInit {
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
-
-
+            console.log(this.jwtResponse)
             //console.log("LabTechnician");
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
             localStorage.setItem("UserName", this.jwtResponse.Username);
             localStorage.setItem("ACCESS_ROLE", this.jwtResponse.rId.toString());
             sessionStorage.setItem("UserName", this.jwtResponse.Username);
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
+            this.lts.GetLabTechnisianByStaffId(Number(this.jwtResponse.uId));
             this.router.navigateByUrl('/technicianhome');
 
           }else if (this.jwtResponse.rId === 8) {
