@@ -1,6 +1,24 @@
 CREATE DATABASE ClinicManagementDB;
 USE ClinicManagementDB;
 
+delete from staff;
+delete from login
+delete from department
+delete from medicine;
+delete from doctor
+delete from patient
+delete from clinic
+
+delete from labreport
+delete from bill
+delete from appointment
+delete from testdetails
+delete from testlist
+delete from prescription
+delete from prescriptionformedicine
+delete from labtechnician
+delete from test
+
 --Role--
 CREATE TABLE ROLES(
 ROLE_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -451,3 +469,39 @@ where pn.PatientId == id &&
 pm.PrescriptionId == pn.PrescriptionId &&
 pm.MedicineId == m.MedicineId &&
 pn.DoctorId == s.StaffId
+
+from l in db.Labreport
+from p in db.Patient
+from t in db.Test
+from td in db.Testdetails
+from s in db.Staff
+where l.PatientId == patientId &&
+t.TestNo == td.TestNo && 
+l.PatientId == p.PatientId &&
+l.LabtechnicianId==s.StaffId 
+
+select l.report_no, p.patient_name, l.report_title, l.report_date, l.description,t.range, td.
+t.test_description, td.test_name, td.test_desription, t.result 
+from Labreport l, patient p, test t, testdetails td,staff s, labtechnician lb 
+where l.patient_id = 2 AND t.Report_No = l.Report_No AND t.test_no = td.test_no AND
+p.Patient_Id = l.Patient_Id AND
+l.Labtechnician_Id=lb.labtechnician_id AND
+lb.Staff_id = s.Staff_id
+
+
+select l.report_no, p.patient_name, l.report_title, l.report_date, l.description,t.range, t.test_description, td.test_name, td.test_desription, t.result 
+from Labreport l, patient p, test t, testdetails td,staff s , labtechnician lb
+where p.patient_id=2 AND t.Report_No = l.Report_No AND t.test_no = td.test_no 
+AND l.Labtechnician_Id=lb.labtechnician_id AND lb.Staff_id = s.Staff_id;
+
+select * from Labreport l, patient p, test t, testdetails td,staff s , labtechnician lb
+where l.patient_id=2 AND l.patient_id=p.patient_id AND l.Labtechnician_Id=lb.labtechnician_id AND 
+lb.Staff_id = s.Staff_id ;
+
+select * from testdetails;
+select * from labreport
+select * from test;
+select * from testlist, prescription where prescription.patient_id=2;
+
+insert into test values
+(1,'2021-12-07', 500.00,'0-100','Test Annie',13,1,400,3)
