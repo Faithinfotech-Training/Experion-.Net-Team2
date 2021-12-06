@@ -43,7 +43,10 @@ namespace CMSAPI.Repository
             return 0;
         }
 
+
+        /*
         public async Task UpdateTestList(Testlist list)
+
         {
             if (db != null)
             {
@@ -53,7 +56,9 @@ namespace CMSAPI.Repository
 
             }
         }
+        */
 
+        /*
         public async Task<Testlist> GetTestlistById(int Id)
         {
             
@@ -67,7 +72,9 @@ namespace CMSAPI.Repository
                 return null;
             
         }
+        */
 
+        
         public async Task<List<TestListViewModel>> GetTestListByIdHistory(int id)
         {
             if (db != null)
@@ -81,18 +88,22 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
 
                  */
 
+  
                 return await (from p in db.Prescription
                              from tl in db.Testlist
                              from d in db.Doctor
                              from s in db.Staff
                              from dept in db.Department
                              from td in db.Testdetails
+                             
 
                              where p.PatientId==id &&
                              p.PrescriptionId ==tl.PrescriptionId &&
                              p.DoctorId==d.DoctorId &&
                              d.DoctorId==s.StaffId &&
-                             d.DepartmentId==dept.DepartmentId &&tl.IsDone == false
+                             d.DepartmentId==dept.DepartmentId &&
+                             tl.TestNo==td.TestNo &&
+                             tl.IsDone == false
 
 
 
@@ -100,23 +111,60 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
                              {
                                   PrescriptionId=p.PrescriptionId,
                                   DoctorId=d.DoctorId,
-                                  PrescriptionDate =p.PrescriptionDate,
-                                  
+                                  PrescriptionDate =p.PrescriptionDate,  
+                                    DoctorNotes=p.DoctorNotes,
 
+                                     
 
-        DoctorNotes=p.DoctorNotes,
+                                    StaffName=s.StaffName,
 
-        Notes=tl.Notes,
+                                    DepartmentName=dept.DepartmentName,
+                                    TestNo=td.TestNo,
+                                    TestName=td.TestName,
 
-        StaffName=s.StaffName,
-
-        DepartmentName=dept.DepartmentName,
-        TestNo=td.TestNo,
-                                  TestName=td.TestName,
-                                 Id =tl.Id
-                             }).ToListAsync();
+                                    Id =tl.Id,
+                                    TestListNo=tl.Id
+                              }).ToListAsync();
             }
             return null;
         }
+    
+      
+
+        public async Task<List<Testlist>> GetTestListsById(int id)
+        {
+            if (db != null)
+            {
+                return await db.Testlist.Where(x => x.Id == id).ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<int> UpdateTestList(Testlist p)
+        {
+            if (db != null)
+            {
+                db.Testlist.Update(p);
+                await db.SaveChangesAsync();
+                //return (int)bc.Id;
+                return p.Id;
+            }
+            return 0;
+        }
+
+        public async Task<Testlist> GetTestlistById(int Id)
+        {
+            var p =db.Testlist.FirstOrDefault(em => em.Id == Id);
+
+            if (p.IsDone == true)
+            {
+                return p;
+            }
+            return null;
+        }
+
+      
+
+        
     }
 }

@@ -13,14 +13,19 @@ namespace CMSAPI.Repository
         Task <List<Testlist>> GetAllTestList();
 
         //Get test list by Id
-        Task<Testlist> GetTestlistById(int Id);
+        //Task<Testlist> GetTestlistById(int Id);
+
+        Task<List<Testlist>> GetTestListsById(int id);
 
         //Add new test list
         Task<int> AddTestList(Testlist list);
 
         //Update new test list
-        Task UpdateTestList(Testlist list);
+        
+        Task<int> UpdateTestList(Testlist p);
 
+        //custom testlist view model
         Task<List<TestListViewModel>> GetTestListByIdHistory(int id);
+
     }
 }

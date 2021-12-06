@@ -44,13 +44,13 @@ namespace CMSAPI.Controllers
 
         //Get test list by iD
         [HttpGet]
-        [Route("{id}")]
+        [Route("testlist/{id}")]
 
         public async Task<IActionResult> GetTestListById(int id)
         {
             try
             {
-                var p = await tl.GetTestlistById(id);
+                var p = await tl.GetTestListsById(id);
 
                 if (p == null)
                 {
@@ -97,6 +97,7 @@ namespace CMSAPI.Controllers
 
 
         //Update test list
+        /*
         [HttpPut]
 
         public async Task<IActionResult> UpdateTestList([FromBody] Testlist list)
@@ -121,6 +122,31 @@ namespace CMSAPI.Controllers
 
         }
 
+        */
+
+        [HttpPut]
+        [Route("Updatetest")]
+        public async Task<IActionResult> UpdatePrescription([FromBody] Testlist p)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await tl.UpdateTestList(p);
+                    if (result > 0)
+                    {
+                        return Ok(result);
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+
+
 
         //Get test list by iD-custom model
         [HttpGet]
@@ -143,5 +169,28 @@ namespace CMSAPI.Controllers
                 return BadRequest();
             }
         }
+
+
+
+        //get test lists by id
+        [HttpGet]
+        [Route("gettestlisth/{id}")]
+        public async Task<IActionResult> GetTestListsById(int id)
+        {
+            try
+            {
+                var patients = await tl.GetTestListsById(id);
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
