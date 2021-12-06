@@ -452,7 +452,10 @@ drop column doctor_id;
 
 
 
+--------------------------------------------------------------
+--------------06-12-2021 - 06-33 PM --------------------------
 
+<<<<<<< HEAD
 SELECT * FROM PRESCRIPTION;
 
 select * from PRESCRIPTION as pn, STAFF as s, PRESCRIPTIONFORMEDICINE as pm, MEDICINE as m
@@ -505,3 +508,5 @@ select * from testlist, prescription where prescription.patient_id=2;
 
 insert into test values
 (1,'2021-12-07', 500.00,'0-100','Test Annie',13,1,400,3)
+=======
+>>>>>>> 65f168635f56cc80c61bcdca22ed90a31c3c4fe1
