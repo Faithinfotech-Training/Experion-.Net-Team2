@@ -19,7 +19,9 @@ export class LabtechnicianService {
 
   departments: Department[];
   technicians: Labtechnician[];
-  viewtech: TechnicianModel[]
+  viewtech: TechnicianModel[];
+
+  labtechie : Labtechnician;
 
   constructor(private httpClient: HttpClient) { 
 
@@ -89,6 +91,26 @@ async insertTechnician(tech: Labtechnician)//: Observable<any>
       
     }   
     );
-      //);
   }
+
+
+
+
+
+  GetLabTechnisianByStaffId(techid: number)
+  {
+    // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
+    this.httpClient.get(environment.apiUrl + "/api/labtechnician/GetLabTechnisianByStaffId/" + techid)
+    .toPromise().then( (response) =>  
+    { 
+      this.labtechie = response[0] as Labtechnician;
+      console.log("Loaded Technician List");   
+    }   
+    );
+  }
+
+
+
+
+
 }

@@ -19,13 +19,12 @@ testlist: TestListViewModel[];
   //get method
   GetTestListByPatientId(patientid: number)
   {
-    // console.log(environment.apiUrl + "/api/appointment/GetAppointmentByDoctorIdAndDate/" + doctorId + "/" + date);
+    console.log("Retreiveing Test Lists " + environment.apiUrl + "/api/testlist/GetTestListByIdHistory/" + patientid);
     this.httpClient.get(environment.apiUrl + "/api/testlist/GetTestListByIdHistory/" + patientid)
     .toPromise().then( (response) =>  
     { 
       this.testlist = response as TestListViewModel[]  
-      console.log("Loaded Test List"); 
-      
+      console.log("Loaded Test List");       
     }   
     );
       //);

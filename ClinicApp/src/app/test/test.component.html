@@ -26,7 +26,7 @@
             <div class="form-group">
                 <label class="col-md-4">Test Name</label>
                 <select name="TestNo" id="TestNo" class="form-control" #TestNo="ngModel" required
-                    [(ngModel)]="testService.formTest.TestNo">
+                    [(ngModel)]="testService.formTest.TestNo" disabled>
                     <!--<option value=0 disabled>Choose Test Name</option>-->
                     <!-- *ngFor="let dept of this.tService.testdet" -->
                     <option value="{{testService.formTest.TestNo}}">
@@ -78,12 +78,12 @@
             <!--TestDescription-->
             <br>
             <div class="form-group">
-                <label for="TestDescription">Test Description</label>
+                <label for="TestDescription">Comments</label>
                 <input type="text" name="TestDescription" #TestDescription="ngModel"
                     [(ngModel)]="testService.formTest.TestDescription" class="form-control" required
                     [ngClass]="{'is-invalid': TestDescription.touched && TestDescription.invalid}" />
                 <div class="validation-errors" *ngIf="TestDescription.touched && TestDescription.invalid">
-                    <div *ngIf="TestDescription.errors.required">Test Description is required</div>
+                    <div *ngIf="TestDescription.errors.required">Comments are required</div>
                 </div>
             </div>
             <!--ReportName-->

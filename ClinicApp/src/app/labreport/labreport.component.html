@@ -81,12 +81,17 @@
             <!--ClinicId-->
             <br>
             <div class="form-group">
-                <label for="ClinicId">Clinic Id</label>
-                <input type="text" name="ClinicId" #ClinicId="ngModel" [(ngModel)]="labService.formLab.ClinicId"
-                    class="form-control" required [ngClass]="{'is-invalid': ClinicId.touched && ClinicId.invalid}" />
-                <div class="validation-errors" *ngIf="ClinicId.touched && ClinicId.invalid">
-                    <div *ngIf="ClinicId.errors.required">Clinic Id is required</div>
-                </div>
+                <!--<label for="ClinicId">Clinic Id</label>-->
+                <input type="hidden" name="ClinicId" #ClinicId="ngModel" [(ngModel)]="labService.formLab.ClinicId"
+                    class="form-control" required 
+                    [ngClass]="{'is-invalid': ClinicId.touched && ClinicId.invalid}" 
+                    value=1/>
+                
+                <!--   <div class="validation-errors" *ngIf="ClinicId.touched && ClinicId.invalid">
+                             <div *ngIf="ClinicId.errors.required">Clinic Id is required</div>
+                    
+                        </div>
+                --> 
             </div>
 
             <!--LabtechnicianId-->
@@ -106,9 +111,9 @@
             <!--Isactive-->
             <br>
             <div class="form-group">
-                <label for="Isactive">Is active</label>
-                <input type="checkbox" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
-                    [(ngModel)]="labService.formLab.Isactive" />
+                <!--<label for="Isactive">Is active</label>-->
+                <input type="hidden" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
+                    [(ngModel)]="labService.formLab.Isactive" value="true"/>
 
             </div>
 

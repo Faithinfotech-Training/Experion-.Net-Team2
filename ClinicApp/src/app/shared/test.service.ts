@@ -16,13 +16,16 @@ export class TestService {
   formTest: Test=new Test();
   test: Test[];
   testli: Testlist;
-  formT: TestListViewModel=new TestListViewModel();
+  formT: TestListViewModel = new TestListViewModel();
+  TLIDtoModify : number;
   
 
   constructor(private httpClient: HttpClient) { }
 
   //Insert method for Test
  insertTest(test: Test): Observable<any>{
+   console.log("Entering Add TEST line 27");
+   console.log(test);
   return this.httpClient.post(environment.apiUrl + "/api/test/addtest", test);
 }
 
@@ -71,7 +74,7 @@ export class TestService {
     .then(
       (val) => 
       {
-        console.log('Updating test list'+val);
+        console.log('Updating test list '+val);
         //sessionStorage.setItem("currentPrescriptionID", val.toString());
       });
   }
@@ -97,15 +100,12 @@ export class TestService {
     console.log(environment.apiUrl+"/api/testlist/gettestlisth/"+ id);
     this.httpClient.get(environment.apiUrl+"/api/testlist/gettestlisth/"+ id)
     .toPromise().then(response =>{
-
       this.testli=response[0] as Testlist
-      this.testli.IsDone=true;
-      
+      console.log(this.testli);
+      this.testli.IsDone = true;      
       console.log('Updating test list ' + this.testli.Id);
-
       this.updateTestList(this.testli);
-    }
-      
+    }      
       )
   }
   

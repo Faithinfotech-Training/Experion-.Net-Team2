@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LabreportService } from '../shared/labreport.service';
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
+import { LabtechnicianService } from '../shared/labtechnician.service';
 
 @Component({
   selector: 'app-labreport',
@@ -14,11 +15,13 @@ export class LabreportComponent implements OnInit {
 
   
   constructor(public labService: LabreportService, private router: Router,
-    private route: ActivatedRoute, private location: Location) { }
+    private route: ActivatedRoute, private location: Location,
+    public lts : LabtechnicianService) { }
 
   ngOnInit(): void {
     this.labService.bindListReports();
     this.labService.bindListPatients();
+    this.labService.formLab.LabtechnicianId = this.lts.labtechie.LabtechnicianId;
   }
 
   onSubmit(labForm: NgForm) {
@@ -28,13 +31,18 @@ export class LabreportComponent implements OnInit {
 
 
     if (addId == 0 || addId == null) {
+      labForm.value.Isactive = true;
+      labForm.value.ClinicId = 3;
+      labForm.value.LabtechnicianId = this.lts.labtechie.LabtechnicianId;
+      labForm.value.TestTotalAmount = 0;
+      console.log(labForm.value);
       this.insertLabReport(labForm);
     }
     else {
       this.updateReport(labForm);
     }
 
-    this.router.navigate[('./getreportlab')]
+    this.router.navigate(['../technicianhome']);
     //onSubmit(labgetForm: NgForm){
     //let pdId=this.labService.formLab.PatientId;
     //console.log(pdId);
