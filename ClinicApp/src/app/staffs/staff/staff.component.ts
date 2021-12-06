@@ -76,7 +76,8 @@ export class StaffComponent implements OnInit {
 
   //Insert
   insertStaffRecord(form?: NgForm) {
-    console.log("Inserting a record...");
+    console.log("Inserting a record..." + form.value);
+    form.value.Isactive = true;
     this.staffService.insertStaff(form.value).subscribe(
       (result) => {
         console.log(result);

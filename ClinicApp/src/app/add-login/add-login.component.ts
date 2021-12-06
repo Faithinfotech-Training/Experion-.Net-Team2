@@ -55,20 +55,20 @@ export class AddLoginComponent implements OnInit {
     }
     console.log(form.value.RoleId);
     //this.router.navigate(['./stafflist']);
-    if (form.value.RoleId == 1) {
+    if (form.value.RoleId == 5) {
       //logged as Admin
       console.log("Admin");
       this.router.navigateByUrl('/stafflist');
 
-    } else if (form.value.RoleId == 2) {
+    } else if (form.value.RoleId == 6) {
       console.log("FrontOffice");
       this.router.navigateByUrl('/stafflist');
 
-    } else if (form.value.RoleId == 3) {
+    } else if (form.value.RoleId == 7) {
       console.log("LabTechnician");
       this.router.navigateByUrl('/labtechnician');
 
-    } else if (form.value.RoleId == 4) {
+    } else if (form.value.RoleId == 8) {
       console.log("Doctor");
       this.router.navigateByUrl('/doctor');
     }
@@ -89,6 +89,7 @@ export class AddLoginComponent implements OnInit {
   insertLoginRecord(form?: NgForm) {
     console.log("Inserting a record...");
     //this.loginService.formData.Loginid=Number(sessionStorage.getItem("StaffID"));
+    form.value.isActive = true;
     this.loginService.insertLogin(form.value).subscribe(
       (result) => {
 

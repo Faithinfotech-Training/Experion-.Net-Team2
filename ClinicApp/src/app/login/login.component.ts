@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   //login verify credentials
   loginCredentials(){
     this.isSubmitted=true;
-    //console.log(this.loginForm.value);
+    console.log(this.loginForm.value);
 
     //invalid
     if(this.loginForm.invalid)
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.loginVerify(this.loginForm.value).subscribe(
         data=>{
-          //console.log(data);
+          console.log(data);
 
           
 
@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("token",this.jwtResponse.token);
           //console.log(this.jwtResponse.rId);
 
-          if(this.jwtResponse.rId===1){
+          if(this.jwtResponse.rId===5){
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
             
             this.router.navigateByUrl('/admin');
 
-          }else if(this.jwtResponse.rId===2){
+          }else if(this.jwtResponse.rId===6){
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/frontoffice');
 
-          }else if (this.jwtResponse.rId === 3) {
+          }else if (this.jwtResponse.rId === 7) {
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
@@ -112,7 +112,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/technicianhome');
 
-          }else if (this.jwtResponse.rId === 4) {
+          }else if (this.jwtResponse.rId === 8) {
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
