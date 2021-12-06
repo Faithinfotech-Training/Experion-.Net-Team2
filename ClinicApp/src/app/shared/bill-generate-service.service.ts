@@ -17,6 +17,7 @@ export class BillGenerateServiceService {
   testTotal : number = 0;
   total : number = 0;
   prescription : Prescription = new Prescription();
+  tempTotal : number;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,8 +38,7 @@ export class BillGenerateServiceService {
           Number(this.medicineModel[i].MedicineAmount)
           )}
 
-
-          console.log(environment.apiUrl + "/api/DoctorManagePatient/GetTestBillModels/" + patientId );
+      console.log(environment.apiUrl + "/api/DoctorManagePatient/GetTestBillModels/" + patientId );
       this.httpClient.get(environment.apiUrl + "/api/DoctorManagePatient/GetTestBillModels/" + patientId )
       .toPromise().then( response =>
         {       
@@ -52,7 +52,8 @@ export class BillGenerateServiceService {
               Number(this.testBillModel[i].Amount)              
               )
           }
-          this.total = this.medTotal + this.testTotal;    
+          this.total = this.medTotal + this.testTotal; 
+          this.tempTotal = this.total;   
     });
     
     });
