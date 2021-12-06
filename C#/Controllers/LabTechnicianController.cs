@@ -150,5 +150,30 @@ namespace CMSAPI.Controllers
                 return BadRequest();
             }
         }
+
+
+
+        [HttpGet]
+        [Route("GetLabTechnisianByStaffId/{id}")]
+        public async Task<IActionResult> GetLabTechnisianByStaffId(int id)
+        {
+            try
+            {
+                var p = await labtech.GetLabTechnisianByStaffId(id);
+
+                if (p == null)
+                {
+                    return NotFound();
+                }
+                return Ok(p);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+
     }
 }

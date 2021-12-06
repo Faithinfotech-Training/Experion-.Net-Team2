@@ -34,15 +34,15 @@ namespace CMSAPI.Repository
 
         //Add a new lab report
         public async Task<int> AddReport(Labreport report)
-    {
-      if (db != null)
-      {
-        await db.Labreport.AddAsync(report);
-        await db.SaveChangesAsync();
-        return report.ReportNo;
-      }
-      return 0;
-    }
+        {
+            if (db != null)
+                {
+                    await db.Labreport.AddAsync(report);
+                    await db.SaveChangesAsync();
+                    return (int)report.ReportNo;
+                }
+             return 0;
+        }
 
 
     //update a report

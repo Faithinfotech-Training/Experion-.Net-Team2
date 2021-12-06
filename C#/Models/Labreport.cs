@@ -16,8 +16,10 @@ namespace CMSAPI.Models
         public string Description { get; set; }
         public int? PatientId { get; set; }
         public int? ClinicId { get; set; }
-        public int? LabtechnicianId { get; set; }
+
         public bool? Isactive { get; set; }
+        public int? LabtechnicianId { get; set; }
+        
         public double? TestTotalAmount { get; set; }
 
         public virtual Clinic Clinic { get; set; }
