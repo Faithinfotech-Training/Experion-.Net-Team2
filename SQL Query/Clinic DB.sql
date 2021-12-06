@@ -431,23 +431,3 @@ drop constraint fk_doc3;
 
 alter table labreport
 drop column doctor_id;
-
-
-
-
-SELECT * FROM PRESCRIPTION;
-
-select * from PRESCRIPTION as pn, STAFF as s, PRESCRIPTIONFORMEDICINE as pm, MEDICINE as m
-where pn.PATIENT_ID = 2 AND
-pm.PRESCRIPTION_ID = pn.PRESCRIPTION_ID AND
-pm.MEDICINE_ID = m.MEDICINE_ID AND
-pn.DOCTOR_ID = s.Staff_Id;
-
-from pn in db.Prescription
-from s in db.Staff
-from pm in db.Prescriptionformedicine
-from m in db.Medicine
-where pn.PatientId == id &&
-pm.PrescriptionId == pn.PrescriptionId &&
-pm.MedicineId == m.MedicineId &&
-pn.DoctorId == s.StaffId
