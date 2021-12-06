@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
           if(this.jwtResponse.rId===1){
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
 
             //logged as Admin
             //console.log("Admin");
@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
           }else if(this.jwtResponse.rId===2){
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
 
 
             //console.log("FrontOffice");
@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
           }else if (this.jwtResponse.rId === 3) {
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
 
 
             //console.log("LabTechnician");
@@ -115,7 +115,7 @@ export class LoginComponent implements OnInit {
           }else if (this.jwtResponse.rId === 4) {
 
             this.authService.userPresent = true;
-            sessionStorage.setItem("userPresent", 'true');
+            localStorage.setItem("userPresent", 'true');
             console.log(this.jwtResponse);
             //console.log("Doctor");
             sessionStorage.setItem("DoctorID", this.jwtResponse.uId);
