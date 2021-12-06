@@ -46,6 +46,8 @@ namespace CMSAPI.Repository
 
     Task<List<TestBillModel>> GetTestBillModels(int patientId);
 
+    Task<int> GetDoctorIdfromStaffID(int staffid);
+
 
 
 

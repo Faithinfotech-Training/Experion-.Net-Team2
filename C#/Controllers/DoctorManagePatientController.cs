@@ -394,6 +394,26 @@ namespace CMSAPI.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetDoctorIdfromStaffID/{Id}")]
+        public async Task<IActionResult> GetDoctorIdfromStaffID(int Id)
+        {
+            try
+            {
+                var patients = await c.GetDoctorIdfromStaffID(Id);
+                if (patients == 0)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
 
 
 

@@ -81,10 +81,12 @@ namespace CMSAPI.Repository
                       from s in db.Staff
                       from pm in db.Prescriptionformedicine
                       from m in db.Medicine
+                      from d in db.Doctor
                       where pn.PatientId == id &&
                       pm.PrescriptionId == pn.PrescriptionId &&
                       pm.MedicineId == m.MedicineId &&
-                      pn.DoctorId == s.StaffId
+                      pn.DoctorId == d.DoctorId && 
+                      d.StaffId == s.StaffId
                       select new PrescriptionHistory
                       {
                         PrescriptionId = pn.PrescriptionId,
@@ -192,8 +194,10 @@ namespace CMSAPI.Repository
                               a.Isactive == true &&
                               a.PatientId == p.PatientId &&
                               a.AppointmentDate == date &&   
-                              a.DoctorId == d.DoctorId &&
-                              d.StaffId == doctorId
+                              a.DoctorId == doctorId &&
+                              d.DoctorId == a.DoctorId
+                              //a.DoctorId == d.DoctorId &&
+                              //d.StaffId == doctorId
                               select new DoctorAppointmentByDate
                               {
                                   AppointmentNo  = a.AppointmentNo,
@@ -339,6 +343,16 @@ namespace CMSAPI.Repository
                 return await db.Prescription.Where(x => x.PrescriptionId == Id && x.Isactive == true).ToListAsync();
             }
             return null;
+        }
+
+        public async Task<int> GetDoctorIdfromStaffID(int staffid)
+        {
+            if (db != null)
+            {
+                var item =  await db.Doctor.Where(x => x.StaffId == staffid && x.Isactive == true).ToListAsync();
+                return item[0].DoctorId;
+            }
+            return 0;
         }
     }
 }
