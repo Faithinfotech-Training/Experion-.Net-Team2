@@ -6,6 +6,7 @@ export class Testdetails {
     TestUnit: string;
     TestDesription: string;
     Isactive: boolean | null;
+    Amount: number;
     Prescription: Prescription[];
     Test: Test[];
 }

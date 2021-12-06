@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Testdetails } from './testdetails';
-//import { Testdetails } from './TestdetailsJ';
+//import { Testdetails } from './testdetails';
+import { Testdetails } from './TestdetailsJ';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class TestdetailsService {
 
   formLabT: Testdetails=new Testdetails();
   testdetails: Testdetails[];
+  testdet: Testdetails;
   constructor(private httpClient: HttpClient) { 
 
 
@@ -39,11 +40,15 @@ export class TestdetailsService {
 
 
   //Get test details by test no
-  GetTestDetailByNo(patientId: number) {
-    //console.log(environment.apiUrl + "/api/DoctorManagePatient/getPatientTestHistorybyId/" + patientId );
-    this.httpClient.get(environment.apiUrl + "/api/testdetails/gettestdetail/" + patientId)
+  GetTestDetailByNo(id: number) {
+    console.log(environment.apiUrl + "/api/testdetails/gettestdetail/" + id);
+    this.httpClient.get(environment.apiUrl + "/api/testdetails/gettestdetail/" + id)
       .toPromise().then(response =>
-        this.testdetails = response as Testdetails[]
+        {
+        this.testdet = response[0] as Testdetails;
+        console.log("HZH "  + this.testdet.TestName);
+        }
+
 
       );
 
