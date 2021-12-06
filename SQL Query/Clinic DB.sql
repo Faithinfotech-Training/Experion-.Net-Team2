@@ -8,7 +8,6 @@ delete from medicine;
 delete from doctor
 delete from patient
 delete from clinic
-
 delete from labreport
 delete from bill
 delete from appointment
@@ -24,12 +23,6 @@ CREATE TABLE ROLES(
 ROLE_ID INT PRIMARY KEY IDENTITY(1,1),
 ROLE_NAME NVARCHAR(50) NOT NULL);
 
-INSERT INTO ROLES VALUES
-('Admin'),
-('Front Office'),
-('Lab Technician'),
-('Doctor');
-
 select * from ROLES;
 
 --Staff--
@@ -44,17 +37,6 @@ MOBILE NVARCHAR(15),
 EXPERIENCE INT,
 EMAIL NVARCHAR(50),
 ISACTIVE BIT);
-
-
-INSERT INTO STAFF VALUES
-('Annie Abraham','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
-('Roshni AT','Female','1999-03-13','Ernakulam','2014-04-11','8787878787',6,'roshni@gmail.com',1),
-('Jyothish A','Male','1999-01-11','Kozhikode','2016-01-22','7676767676',4,'jyothish@gmail.com',1),
-('Haizon Cruz','Male','1999-04-03','Kannur','2015-12-12','6565656565',5,'haizon@gmail.com',1),
-('AnNA','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
-('Aneesh Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
-('Dennis Lab Tech','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1);
-
 
 select * from STAFF;
 
@@ -324,6 +306,7 @@ insert into test values
 insert INTO DOCTOR VALUES
 (1,4,3),
 (1,5,4);
+SELECT * FROM DOCTOR;
 
 select
 L.REPORT_NO, L.REPORT_TITLE, L.REPORT_DATE, L.DESCRIPTION, T.TEST_DATE_TIME, 
@@ -455,7 +438,7 @@ drop column doctor_id;
 --------------------------------------------------------------
 --------------06-12-2021 - 06-33 PM --------------------------
 
-<<<<<<< HEAD
+
 SELECT * FROM PRESCRIPTION;
 
 select * from PRESCRIPTION as pn, STAFF as s, PRESCRIPTIONFORMEDICINE as pm, MEDICINE as m
@@ -508,5 +491,77 @@ select * from testlist, prescription where prescription.patient_id=2;
 
 insert into test values
 (1,'2021-12-07', 500.00,'0-100','Test Annie',13,1,400,3)
-=======
->>>>>>> 65f168635f56cc80c61bcdca22ed90a31c3c4fe1
+
+---------------------------------------06/12/2021---------------------------------------------------
+INSERT INTO ROLES VALUES
+('Admin'),
+('Front Office'),
+('Lab Technician'),
+('Doctor');
+
+select * from roles;
+
+
+INSERT INTO STAFF VALUES
+('Annie Abraham','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
+('Roshni AT','Female','1999-03-13','Ernakulam','2014-04-11','8787878787',6,'roshni@gmail.com',1),
+('Jyothish A','Male','1999-01-11','Kozhikode','2016-01-22','7676767676',4,'jyothish@gmail.com',1),
+('Haizon Cruz','Male','1999-04-03','Kannur','2015-12-12','6565656565',5,'haizon@gmail.com',1);
+
+select * from staff
+
+INSERT INTO LOGIN VALUES
+(97, 'annie','annie@123',5),
+(98, 'roshni','roshni@123',6),
+(99, 'jyothish','jyothish@123',7),
+(100, 'haizon','haizon@123',8);
+
+select * from LOGIN;
+
+INSERT INTO DEPARTMENT VALUES
+('Anasthesia'),
+('Pediatrics'),
+('Dental'),
+('Orthopeadics');
+
+SELECT * from DEPARTMENT;
+
+INSERT INTO MEDICINE VALUES
+('Cough Syrup', 'Pankagakasthuri', 100, '2021-11-26', '2022-11-26', 1),
+('Morphine', 'Morphine Company', 100, '2021-11-26', '2022-11-26', 1),
+('Biotin', 'Biotin Company', 100, '2021-11-26', '2022-11-26', 1),
+('Calcium', 'Calcium Company', 100, '2021-11-26', '2022-11-26', 1),
+('Paracetomol', 'Paracetomol Company', 100, '2021-11-26', '2022-11-26', 1);
+
+SELECT * FROM MEDICINE;
+
+insert INTO DOCTOR VALUES
+(1,100,5);
+
+SELECT * FROM DOCTOR;
+
+INSERT INTO PATIENT VALUES
+('SHELBY', '1988-12-31', 'ADDRESS FOR SHELBY', 123456789, 1),
+('PENNY', '1998-12-31', 'ADDRESS FOR PENNY', 123456789, 1),
+('HOWARD', '1998-12-31', 'ADDRESS FOR HOWARD', 123456789, 1),
+('LEONARD', '2000-12-31', 'ADDRESS FOR LEONARD', 123456789, 1);
+
+SELECT * FROM PATIENT;
+
+INSERT INTO CLINIC VALUES
+('EXPERION MEDICITY', 'ASTER ROAD','123456789');
+
+SELECT * FROM CLINIC;
+
+INSERT INTO TESTDETAILS VALUES
+('SUGAR', 'MG', 'SUGAR TEST', 1, 500),
+('COVID', 'BOOLEAN', 'ANITGEN TEST', 1,1000);
+
+select * from testdetails;
+
+INSERT INTO LABTECHNICIAN VALUES
+(5,99,1);
+
+select * from LABTECHNICIAN;
+
+
