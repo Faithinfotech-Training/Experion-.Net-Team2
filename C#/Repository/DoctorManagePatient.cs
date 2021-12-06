@@ -156,6 +156,7 @@ namespace CMSAPI.Repository
                       from td in db.Testdetails
                       from s in db.Staff
                       where l.PatientId == patientId &&
+                      t.ReportNo == l.ReportNo &&
                       t.TestNo == td.TestNo && 
                       l.PatientId == p.PatientId &&
                       l.LabtechnicianId==s.StaffId                      
