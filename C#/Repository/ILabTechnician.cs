@@ -22,5 +22,7 @@ namespace CMSAPI.Repository
     Task UpdateTechnician(Labtechnician technician);
 
         Task<List<TechnicianViewModel>> GetCustomLabTechnician(int id);
+
+        Task<List<Labtechnician>> GetLabTechnisianByStaffId(int id);
     }
 }

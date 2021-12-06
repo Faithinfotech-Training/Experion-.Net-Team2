@@ -101,6 +101,15 @@ AND d.DOCTOR_ID=s.STAFF_ID AND d.DEPARTMENT_ID=dept.DEPARTMENT_ID;
             return null;
         }
         #endregion
+        public async Task<List<Labtechnician>> GetLabTechnisianByStaffId(int id)
+        {
+            if (db != null)
+            {
+                return await db.Labtechnician.Where(x => x.StaffId == id).ToListAsync();
+            }
+            return null;
+        }
+        
 
 
     }
