@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("token",this.jwtResponse.token);
           //console.log(this.jwtResponse.rId);
 
-          if(this.jwtResponse.rId===5){
+          if(this.jwtResponse.rId===9){
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
             
             this.router.navigateByUrl('/admin');
 
-          }else if(this.jwtResponse.rId===6){
+          }else if(this.jwtResponse.rId===10){
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem("UserId",this.jwtResponse.uId);
             this.router.navigateByUrl('/frontoffice');
 
-          }else if (this.jwtResponse.rId === 7) {
+          }else if (this.jwtResponse.rId === 11) {
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');
@@ -114,7 +114,7 @@ export class LoginComponent implements OnInit {
             this.lts.GetLabTechnisianByStaffId(Number(this.jwtResponse.uId));
             this.router.navigateByUrl('/technicianhome');
 
-          }else if (this.jwtResponse.rId === 8) {
+          }else if (this.jwtResponse.rId === 12) {
 
             this.authService.userPresent = true;
             localStorage.setItem("userPresent", 'true');

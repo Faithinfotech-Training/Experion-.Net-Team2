@@ -52,6 +52,9 @@ pay()
 
       
 }
+back(){
+  this.router.navigate(['./frontoffice']);
+}
 
 
 }

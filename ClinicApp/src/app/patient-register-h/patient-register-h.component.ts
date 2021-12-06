@@ -44,6 +44,7 @@ export class PatientRegisterHComponent implements OnInit {
   //INSERT
   insertPatient(labForm?: NgForm) {
     console.log("Inserting a patient ...");
+    labForm.value.Isactive=true;
     //call the service
     this.patService.insertPatient(labForm.value).subscribe(
       (result) => {

@@ -43,7 +43,8 @@ populateForm(emp: PatientRegisterH)
   }
 
   back(){
-    this.location.back();
+   // this.location.back();
+    this.router.navigate(['./frontoffice']);
   }
 
 }

@@ -57,6 +57,7 @@ export class AppointmentComponent implements OnInit {
 
     let addId = this.frontOfficeService.formData.AppointmentNo;
 
+
     //insert
     if (addId == 0 || addId == null) {
       this.insertAppointmentRecord(form);
@@ -81,6 +82,7 @@ export class AppointmentComponent implements OnInit {
   //Insert
   insertAppointmentRecord(form?: NgForm) {
     console.log("Inserting a record...");
+    form.value.Isactive = true;
     this.frontOfficeService.insertAppointment(form.value).subscribe(
       (result) => {
         console.log(result);
@@ -113,8 +115,8 @@ export class AppointmentComponent implements OnInit {
   }
   //Back to admin page
   back(){
-    //this.router.navigate(['/frontoffice']);
-    this.location.back();
+    this.router.navigate(['/frontoffice']);
+    //this.location.back();
   }
 
 }
