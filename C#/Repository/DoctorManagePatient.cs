@@ -86,7 +86,8 @@ namespace CMSAPI.Repository
                       pm.PrescriptionId == pn.PrescriptionId &&
                       pm.MedicineId == m.MedicineId &&
                       pn.DoctorId == d.DoctorId && 
-                      d.StaffId == s.StaffId
+                      d.StaffId == s.StaffId 
+                      
                       select new PrescriptionHistory
                       {
                         PrescriptionId = pn.PrescriptionId,
@@ -160,7 +161,8 @@ namespace CMSAPI.Repository
                       where l.PatientId == patientId &&
                       t.TestNo == td.TestNo && 
                       l.PatientId == p.PatientId &&
-                      l.LabtechnicianId==s.StaffId                      
+                      l.LabtechnicianId==s.StaffId &&
+                      t.ReportNo == l.ReportNo
                       select new TestHistoryView
                       {
                         ReportNo = l.ReportNo,
@@ -218,6 +220,9 @@ namespace CMSAPI.Repository
             return null;
         }
 
+
+
+        /*
         public async Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId)
         {
             return await (from l in db.Labreport
@@ -235,7 +240,8 @@ namespace CMSAPI.Repository
                           d.StaffId == s.StaffId &&
                           l.ClinicId == c.ClinicId &&
                           l.LabtechnicianId == lt.LabtechnicianId &&
-                          lt.StaffId == s2.StaffId
+                          lt.StaffId == s2.StaffId &&
+                          t.ReportNo == l.ReportNo
                           select new PatientLabHistory
                           {
                               ReportNo = l.ReportNo,
@@ -254,6 +260,34 @@ namespace CMSAPI.Repository
                               ClinicName = c.ClinicName
                             }).ToListAsync();
                             }
+
+        */
+
+
+        public async Task<List<PatientLabHistory>> getPatientTestHistorybyId(int patientId)
+        {
+            return await (from lr in db.Labreport
+                          from t in db.Test
+                          from td in db.Testdetails                          
+                          where
+                          lr.PatientId == patientId &&
+                          t.ReportNo == lr.ReportNo &&
+                          t.TestNo == td.TestNo
+                          select new PatientLabHistory
+                          {
+                              TestId = t.TestId,
+                              TestName = td.TestName,
+                              TestDesription = td.TestDesription,
+                              TestUnit = td.TestUnit,
+                              TestDateTime = t.TestDateTime,
+                              TestDescription = t.TestDescription,
+                              Result = t.Result
+                          }).ToListAsync();
+        }
+
+
+
+
 
         public async Task<List<Testdetails>> getAllTestDetails()
         {
