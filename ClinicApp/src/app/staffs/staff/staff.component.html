@@ -11,7 +11,7 @@
             placeholder="Enter full name" minlength="10" maxlength="25" required
             [ngClass]="{'is-invalid':StaffName.touched && StaffName.invalid}" />
         <div class="validation-error" *ngIf="StaffName.touched && StaffName.invalid">
-            <div *ngIf="StaffName.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="StaffName.errors.required">
                 Full Name is required</div>
         </div>
     </div>
@@ -27,7 +27,7 @@
         </select>
         <div class="validation-error" *ngIf="Gender.touched 
         && Gender.invalid">
-            <div *ngIf="Gender.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="Gender.errors.required">
                 Gender is required</div>
         </div>
     </div>
@@ -40,7 +40,7 @@
          && DateOfBirth.invalid }" />
         <div class="validation-error" *ngIf="DateOfBirth.touched 
         && DateOfBirth.invalid">
-            <div *ngIf="DateOfBirth.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="DateOfBirth.errors.required">
                 DateOfBirth is required</div>
         </div>
     </div>
@@ -52,7 +52,7 @@
             class="form-control" placeholder="Enter address" minlength="5" maxlength="25" required
             [ngClass]="{'is-invalid':Address.touched && Address.invalid}" />
         <div class="validation-error" *ngIf="Address.touched && Address.invalid">
-            <div *ngIf="Address.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="Address.errors.required">
                 Address is required</div>
         </div>
     </div>
@@ -65,7 +65,7 @@
          && DateOfJoin.invalid }" />
         <div class="validation-error" *ngIf="DateOfJoin.touched 
         && DateOfJoin.invalid">
-            <div *ngIf="DateOfJoin.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="DateOfJoin.errors.required">
                 DateOfJoin is required</div>
         </div>
     </div>
@@ -78,7 +78,7 @@
             placeholder="Enter number" minlength="1" maxlength="15" required
             [ngClass]="{'is-invalid':Mobile.touched && Mobile.invalid}" />
         <div class="validation-error" *ngIf="Mobile.touched && Mobile.invalid">
-            <div *ngIf="Mobile.errors.required">
+            <div style="color: red; text-align: left;"  *ngIf="Mobile.errors.required">
                 Mobile is required</div>
         </div>
     </div>
@@ -86,12 +86,12 @@
     <!--Experience-->
     <div class="form-group">
 
-        <label>Experience :</label>
+        <label>Experience (in months) :</label>
         <input name="Experience" #Experience="ngModel" [ngModel]="staffService.formData.Experience" class="form-control"
             placeholder="Enter experience" minlength="1" maxlength="2" required
             [ngClass]="{'is-invalid':Experience.touched && Experience.invalid}" />
         <div class="validation-error" *ngIf="Experience.touched && Experience.invalid">
-            <div *ngIf="Experience.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="Experience.errors.required">
                 Experience is required</div>
         </div>
     </div>
@@ -104,7 +104,7 @@
             placeholder="Enter email" minlength="1" maxlength="20" required
             [ngClass]="{'is-invalid':Email.touched && Email.invalid}" />
         <div class="validation-error" *ngIf="Email.touched && Email.invalid">
-            <div *ngIf="Email.errors.required">
+            <div style="color: red; text-align: left;"  *ngIf="Email.errors.required">
                 Email is required</div>
         </div>
     </div>

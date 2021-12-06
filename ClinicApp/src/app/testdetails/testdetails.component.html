@@ -29,7 +29,7 @@
                 <input type="text" name="TestName" #TestName="ngModel" [(ngModel)]="testDetailService.formLabT.TestName"
                     class="form-control" required [ngClass]="{'is-invalid': TestName.touched && TestName.invalid}" />
                 <div class="validation-errors" *ngIf="TestName.touched && TestName.invalid">
-                    <div *ngIf="TestName.errors.required">Test Name is required</div>
+                    <div  style="color: red; text-align: left;" *ngIf="TestName.errors.required">Test Name is required</div>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                 <input type="text" name="TestUnit" #TestUnit="ngModel" [(ngModel)]="testDetailService.formLabT.TestUnit"
                     class="form-control" required [ngClass]="{'is-invalid': TestUnit.touched && TestUnit.invalid}" />
                 <div class="validation-errors" *ngIf="TestUnit.touched && TestUnit.invalid">
-                    <div *ngIf="TestUnit.errors.required">Test Unit is required</div>
+                    <div  style="color: red; text-align: left;" *ngIf="TestUnit.errors.required">Test Unit is required</div>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                     [(ngModel)]="testDetailService.formLabT.TestDesription" class="form-control" required
                     [ngClass]="{'is-invalid': TestDesription.touched && TestDesription.invalid}" />
                 <div class="validation-errors" *ngIf="TestDesription.touched && TestDesription.invalid">
-                    <div *ngIf="TestDesription.errors.required">Test Desription is required</div>
+                    <div  style="color: red; text-align: left;" *ngIf="TestDesription.errors.required">Test Desription is required</div>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@
                     [(ngModel)]="testDetailService.formLabT.Amount" class="form-control" required
                     [ngClass]="{'is-invalid': Amount.touched && Amount.invalid}" />
                 <div class="validation-errors" *ngIf="Amount.touched && Amount.invalid">
-                    <div *ngIf="Amount.errors.required">Test Amount is required</div>
+                    <div  style="color: red; text-align: left;" *ngIf="Amount.errors.required">Test Amount is required</div>
                 </div>
             </div>
 

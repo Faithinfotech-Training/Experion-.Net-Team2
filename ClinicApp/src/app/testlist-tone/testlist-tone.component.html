@@ -10,7 +10,7 @@
                         class="form-control" required
                         [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
                     <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
-                        <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="PatientId.errors.required">Patient Id is required</div>
                     </div>
                 </div>
 
@@ -31,8 +31,8 @@
         <div class="header">
             <h5 style="text-align: center;">Test List table</h5>
             <br>
-            
-        <table class="table table-bordered table-striped">
+            <div class="container" style="overflow-x: auto;">
+        <table class="table table-bordered table-striped table-primary">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -82,6 +82,7 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
             <div class="footer">
                 <!--Pagination-->
                 <pagination-controls (pageChange)="page=($event)"></pagination-controls>

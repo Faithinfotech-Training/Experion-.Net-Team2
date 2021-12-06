@@ -18,6 +18,7 @@
 
                 </div>
                 <!--submit button-->
+                <br>
                 <div>
                     <button class="btn btn-md btn-success" (click)="LabReportByDate()">
                         <i class="fa fa-sign-in">
@@ -28,6 +29,7 @@
             </form>
         </div>
         <br>
+        <div class="container" style="overflow-x: auto;">
         <table class="table table-primary table-bordered table-striped">
             <thead>
                 <tr>
@@ -63,6 +65,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
         <div class="footer">
             <!--pagination-->
             <pagination-controls (pageChange)="page=($event)"></pagination-controls>

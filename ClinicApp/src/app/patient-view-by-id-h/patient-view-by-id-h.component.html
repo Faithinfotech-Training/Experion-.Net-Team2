@@ -10,7 +10,7 @@
                         [(ngModel)]="patService.formPatient.PatientId" class="form-control" required
                         [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
                     <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
-                        <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="PatientId.errors.required">Patient Id is required</div>
                     </div>
                 </div>
 

@@ -48,7 +48,7 @@
                     [(ngModel)]="testService.formTest.TestDateTime" class="form-control" required
                     [ngClass]="{'is-invalid': TestDateTime.touched && TestDateTime.invalid}" />
                 <div class="validation-errors" *ngIf="TestDateTime.touched && TestDateTime.invalid">
-                    <div *ngIf="TestDateTime.errors.required">Test Date is required</div>
+                    <div  style="color: red; text-align: left;"  *ngIf="TestDateTime.errors.required">Test Date is required</div>
                 </div>
 
             </div>
@@ -62,7 +62,7 @@
                     class="form-control" required
                     [ngClass]="{'is-invalid': TestAmount.touched && TestAmount.invalid}" />
                 <div class="validation-errors" *ngIf="TestAmount.touched && TestAmount.invalid">
-                    <div *ngIf="TestAmount.errors.required">Test No is required</div>
+                    <div  style="color: red; text-align: left;"  *ngIf="TestAmount.errors.required">Test No is required</div>
                 </div>
             </div>
             <!--Range-->
@@ -72,7 +72,7 @@
                 <input type="text" name="Range" #Range="ngModel" [(ngModel)]="testService.formTest.Range"
                     class="form-control" required [ngClass]="{'is-invalid': Range.touched && Range.invalid}" />
                 <div class="validation-errors" *ngIf="Range.touched && Range.invalid">
-                    <div *ngIf="Range.errors.required">Range is required</div>
+                    <div  style="color: red; text-align: left;"  *ngIf="Range.errors.required">Range is required</div>
                 </div>
             </div>
             <!--TestDescription-->
@@ -83,7 +83,7 @@
                     [(ngModel)]="testService.formTest.TestDescription" class="form-control" required
                     [ngClass]="{'is-invalid': TestDescription.touched && TestDescription.invalid}" />
                 <div class="validation-errors" *ngIf="TestDescription.touched && TestDescription.invalid">
-                    <div *ngIf="TestDescription.errors.required">Comments are required</div>
+                    <div  style="color: red; text-align: left;"  *ngIf="TestDescription.errors.required">Comments are required</div>
                 </div>
             </div>
             <!--ReportName-->
@@ -117,7 +117,7 @@
                 </select>        
                 <!---->        
                 <div class="validation-errors" *ngIf="ReportNo.touched && ReportNo.invalid">
-                    <div *ngIf="ReportNo.errors.required">Report No is required</div>
+                    <div  style="color: red; text-align: left;"  *ngIf="ReportNo.errors.required">Report No is required</div>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
                     [(ngModel)]="testService.formTest.Result" required
                     [ngClass]="{'is-invalid': Result.touched && Result.invalid}" />
                 <div class="validation-errors" *ngIf="Result.touched && Result.invalid">
-                    <div *ngIf="Result.errors.required">Result required</div>
+                    <div  style="color: red; text-align: left;" *ngIf="Result.errors.required">Result required</div>
                 </div>
             </div>
             <!--Submit button-->

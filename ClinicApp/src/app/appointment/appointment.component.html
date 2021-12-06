@@ -11,7 +11,7 @@
          && AppointmentDate.invalid }" />
         <div class="validation-error" *ngIf="AppointmentDate.touched 
         && AppointmentDate.invalid">
-            <div *ngIf="AppointmentDate.errors.required">
+            <div style="color: red; text-align: left;" *ngIf="AppointmentDate.errors.required">
                 Appointment Date is required</div>
         </div>
     </div>
@@ -24,7 +24,7 @@
          && AppointmentTime.invalid }" />
         <div class="validation-error" *ngIf="AppointmentTime.touched 
         && AppointmentTime.invalid">
-            <div *ngIf="AppointmentTime.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="AppointmentTime.errors.required">
                 Appointment Time is required</div>
         </div>
     </div>
@@ -35,7 +35,7 @@
             class="form-control" placeholder="Enter amount" minlength="1" maxlength="5" required
             [ngClass]="{'is-invalid':Amount.touched && Amount.invalid}" />
         <div class="validation-error" *ngIf="Amount.touched && Amount.invalid">
-            <div *ngIf="Amount.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="Amount.errors.required">
                 Amount is required
             </div>
         </div>
@@ -53,7 +53,7 @@
         </select>
         <div class="validation-error" *ngIf="PatientId.touched 
         && PatientId.invalid">
-            <div *ngIf="PatientId.errors.required">
+            <div  style="color: red; text-align: left;" *ngIf="PatientId.errors.required">
                 Patient is required</div>
         </div>
     </div>
@@ -69,7 +69,7 @@
         </select>
         <div class="validation-error" *ngIf="DoctorId.touched 
         && DoctorId.invalid">
-            <div *ngIf="DoctorId.errors.required">
+            <div  style="color: red; text-align: left;"  *ngIf="DoctorId.errors.required">
                 Doctor is required</div>
         </div>
     </div>
@@ -92,7 +92,11 @@
             <!--Appointment Button-->
     </div>
     <!--Appointment Button-->
+
+
+    <!--
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-right:80%;">
         <button type="reset" class="btn btn-md btn-secondary me-md-2" (click)="view()">View Appointments</button>
     </div>
+    -->
 </form>

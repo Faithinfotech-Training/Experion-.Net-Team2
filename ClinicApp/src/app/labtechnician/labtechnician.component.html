@@ -20,7 +20,7 @@
 
                 </select>
                 <div class="validation-error" *ngIf="DepartmentId.touched && DepartmentId.invalid">
-                    <div *ngIf="DepartmentId.errors.required">Department is required</div>
+                    <div  style="color: red; text-align: left;" *ngIf="DepartmentId.errors.required">Department is required</div>
                 </div>
             </div>
 
@@ -29,8 +29,8 @@
             <br>
             <div class="form-group">
                 <div class="form-check">
-                    <label class="form-check-label">Is Active</label>
-                    <input type="checkbox" name="Isactive" id="Isactive" #Isactive="ngModel"
+                    <!--<label class="form-check-label">Is Active</label>-->
+                    <input type="hidden" name="Isactive" id="Isactive" #Isactive="ngModel"
                         [(ngModel)]="techService.formLabT.Isactive" class="form-check-input">
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <button type="submit" [disabled]="!(labForm.valid && labForm.dirty)"
                     class="btn-btn-lg btn-success form-control">Submit</button><br>
-                    <button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+                    <!--<button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>-->
             </div>
 
         </form>

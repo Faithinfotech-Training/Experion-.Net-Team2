@@ -15,7 +15,7 @@
                     <!--<span style="color: red;"> Keep Patient Id as 0 for inserting report</span>-->
 
                     <div class="validation-errors" *ngIf="PatientId.touched && PatientId.invalid">
-                        <div *ngIf="PatientId.errors.required">Patient Id is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="PatientId.errors.required">Patient Id is required</div>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                     <!--<span style="color: red;"> Keep Report No as 0 for inserting report</span>-->
 
                     <div class="validation-errors" *ngIf="PatientName.touched && PatientName.invalid">
-                        <div *ngIf="PatientName.errors.required">Patient Name is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="PatientName.errors.required">Patient Name is required</div>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                         [(ngModel)]="patService.formPatient.DateOfBirth" class="form-control" required
                         [ngClass]="{'is-invalid': DateOfBirth.touched && DateOfBirth.invalid}" />
                     <div class="validation-errors" *ngIf="DateOfBirth.touched && DateOfBirth.invalid">
-                        <div *ngIf="DateOfBirth.errors.required">Date Of Birth is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="DateOfBirth.errors.required">Date Of Birth is required</div>
                     </div>
 
                 </div>
@@ -58,7 +58,7 @@
                     <!--<span style="color: red;"> Keep Report No as 0 for inserting report</span>-->
 
                     <div class="validation-errors" *ngIf="PatientAddress.touched && PatientAddress.invalid">
-                        <div *ngIf="PatientAddress.errors.required">Patient Address is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="PatientAddress.errors.required">Patient Address is required</div>
                     </div>
                 </div>
 
@@ -66,13 +66,13 @@
                 <br>
                 <div class="form-group">
                     <label for="PhoneNumber">Phone Number</label>
-                    <input type="text" name="PhoneNumber" #PhoneNumber="ngModel"
+                    <input type="number" name="PhoneNumber" #PhoneNumber="ngModel"
                         [(ngModel)]="patService.formPatient.PhoneNumber" class="form-control" required
                         [ngClass]="{'is-invalid': PhoneNumber.touched && PhoneNumber.invalid}" />
                     <!--<span style="color: red;"> Keep Report No as 0 for inserting report</span>-->
 
                     <div class="validation-errors" *ngIf="PhoneNumber.touched && PhoneNumber.invalid">
-                        <div *ngIf="PhoneNumber.errors.required">Phone Number is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="PhoneNumber.errors.required">Phone Number is required</div>
                     </div>
                 </div>
 
@@ -80,12 +80,12 @@
 
                 <br>
                 <div class="form-group">
-                    <label for="Isactive">Is active</label>
-                    <input type="checkbox" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
+                    <!--<label for="Isactive">Is active</label>-->
+                    <input type="hidden" style="margin-right: 1%; margin-top:1%;" name="Isactive" #Isactive="ngModel"
                         [(ngModel)]="patService.formPatient.Isactive" required
-                        [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}" />
+                        [ngClass]="{'is-invalid': Isactive.touched && Isactive.invalid}" value="true"/>
                     <div class="validation-errors" *ngIf="Isactive.touched && Isactive.invalid">
-                        <div *ngIf="Isactive.errors.required">Is active required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="Isactive.errors.required">Is active required</div>
                     </div>
                 </div>
 

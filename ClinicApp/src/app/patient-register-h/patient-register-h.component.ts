@@ -28,13 +28,15 @@ export class PatientRegisterHComponent implements OnInit {
 
     if(addId==0 || addId == null)
     {
+      labForm.value.Isactive = true;
+      labForm.value.PatientId = 0;
       this.insertPatient(labForm);
     }
     else
     {
       this.updatePatient(labForm);
     }
-    this.router.navigate(['/getpatient']);
+    this.router.navigate(['../frontoffice']);
     
   }
 

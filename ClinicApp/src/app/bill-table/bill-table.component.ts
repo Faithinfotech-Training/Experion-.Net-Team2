@@ -32,6 +32,11 @@ calc(one :any, two : any , three : any)
   return Number(one) * Number(two) * Number(three);
 }
 
+back()
+{
+  this.router.navigate(['../frontoffice']);
+}
+
 pay()
 {
   console.log("clicked");
@@ -48,7 +53,7 @@ pay()
     this.billService.paymentUpdate(this.billService.testBillModel[i].PrescriptionId);
   }
 
-  this.router.navigate(['frontoffice']);
+  this.router.navigate(['../frontoffice']);
 
       
 }

@@ -11,16 +11,18 @@
                         [(ngModel)]="labTechService.formLabT.LabtechnicianId" class="form-control" required
                         [ngClass]="{'is-invalid': LabtechnicianId.touched && LabtechnicianId.invalid}" />
                     <div class="validation-errors" *ngIf="LabtechnicianId.touched && LabtechnicianId.invalid">
-                        <div *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="LabtechnicianId.errors.required">Labtechnician Id is required</div>
                     </div>
                 </div>
 
+                <br>
                 <!--Submit button-->
                 <div class="form-group">
                     <button type="submit" [disabled]="!(testgetForm.valid && testgetForm.dirty)"
                         class="btn btn btn-success btn-mg">
                         Search</button>
                 </div>
+                <br>
             </form>
         </div>
         <div class="container">
@@ -34,7 +36,7 @@
                             <th>Technician ID</th>
                             <th>Department Name</th>
                             <th>Staff Name</th>
-                            <th>Is active</th>
+                            <!--<th>Is active</th>-->
                         </tr>
                     </thead>
                     <tbody>
@@ -43,7 +45,7 @@
                             <td>{{rep.LabtechnicianId}}</td>
                             <td>{{rep.DepartmentName}}</td>
                             <td>{{rep.StaffName}}</td>
-                            <td>{{rep.Isactive}}</td>
+                            <!--<td>{{rep.Isactive}}</td>-->
                         </tr>
                     </tbody>
                 </table>

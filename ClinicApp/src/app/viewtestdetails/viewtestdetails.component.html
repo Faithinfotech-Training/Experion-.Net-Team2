@@ -9,10 +9,10 @@
                     <input type="text" name="TestNo" #TestNo="ngModel" [(ngModel)]="testDetailService.formLabT.TestNo"
                         class="form-control" required [ngClass]="{'is-invalid': TestNo.touched && TestNo.invalid}" />
                     <div class="validation-errors" *ngIf="TestNo.touched && TestNo.invalid">
-                        <div *ngIf="TestNo.errors.required">Test No is required</div>
+                        <div  style="color: red; text-align: left;" *ngIf="TestNo.errors.required">Test No is required</div>
                     </div>
                 </div>
-
+                <br>
                 <!--Submit button-->
                 <div class="form-group">
                     <button type="submit" [disabled]="!(testdetailgetForm.valid && testdetailgetForm.dirty)"
@@ -64,9 +64,10 @@
         <div>
             <br>
             <button class="btn btn-md btn-primary" type="reset" (click)="back()">Back</button>
-            <button style="margin-left: 80%;" class="btn btn btn-success btn-lg"><a
+            <!--<button style="margin-left: 80%;" class="btn btn btn-success btn-lg"><a
                     style="text-decoration: none; color: white; font-size:100%;" >Insert
                     New Test Details</a></button>
+            -->
         </div>
     </div>
 </div>

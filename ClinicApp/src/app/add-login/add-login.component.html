@@ -14,7 +14,7 @@
         </select>
         <div class="validation-error" *ngIf="RoleId.touched 
         && RoleId.invalid">
-            <div *ngIf="RoleId.errors.required">
+            <div style="color: red; text-align: left;" *ngIf="RoleId.errors.required">
                 Role Id is required</div>
         </div>
     </div>
@@ -27,7 +27,7 @@
             placeholder="Enter username" minlength="3" maxlength="15" required
             [ngClass]="{'is-invalid':Username.touched && Username.invalid}" />
         <div class="validation-error" *ngIf="Username.touched && Username.invalid">
-            <div *ngIf="Username.errors.required">
+            <div style="color: red; text-align: left;" *ngIf="Username.errors.required">
                 Username is required</div>
         </div>
     </div>
@@ -40,7 +40,7 @@
             placeholder="Enter Password" minlength="3" maxlength="15" required
             [ngClass]="{'is-invalid':Password.touched && Password.invalid}" />
         <div class="validation-error" *ngIf="Password.touched && Password.invalid">
-            <div *ngIf="Password.errors.required">
+            <div style="color: red; text-align: left;" *ngIf="Password.errors.required">
                 Password is required</div>
         </div>
     </div>
@@ -57,7 +57,7 @@
 
     <!--Submit Button-->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>
+        <!--<button type="reset" class="btn btn-lg btn-primary me-md-2" (click)="back()">Back</button>-->
         <button type="submit" [disabled]="!(form.valid && form.dirty)"
             class="btn btn-lg btn-success me-md-2">Submit</button>
     </div>
