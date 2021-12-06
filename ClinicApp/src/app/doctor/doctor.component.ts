@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DoctorService } from '../shared/doctor.service';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-doctor',
@@ -11,7 +12,8 @@ import { Location } from '@angular/common';
 })
 export class DoctorComponent implements OnInit {
 
-  constructor(public doctorService:DoctorService,private router:Router, private location:Location) { }
+  constructor(public doctorService:DoctorService,private router:Router, private location:Location,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     //retrieving departments
@@ -23,15 +25,16 @@ export class DoctorComponent implements OnInit {
     form.value.StaffId=sessionStorage.getItem("StaffId");
     console.log(form.value);
     this.doctorService.insertDoctor(form.value);
+    this.toastrService.success('Department has been inserted');
     this.router.navigate(['./doctorlist']);
     
 
-    this.router.navigate[('/doctors')];
+    //this.router.navigate[('/doctors')];
 
   }
- 
+ /*
   back(){
     this.location.back();
-  }
+  }*/
 
 }

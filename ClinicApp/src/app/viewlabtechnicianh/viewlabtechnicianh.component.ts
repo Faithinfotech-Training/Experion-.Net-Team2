@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Labtechnician } from '../shared/labtechnician';
 import { LabtechnicianService } from '../shared/labtechnician.service';
+import { StaffService } from '../shared/staff.service';
 import { TechnicianModel } from '../shared/technician-model';
 
 @Component({
@@ -42,6 +43,9 @@ page:number=1;
     console.log(emp);
     this.labTechService.formTech=emp;
   }
+  
+
+  
 
   //Back to admin page
   back() {
