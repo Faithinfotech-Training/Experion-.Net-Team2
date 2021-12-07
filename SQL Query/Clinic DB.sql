@@ -501,6 +501,9 @@ INSERT INTO ROLES VALUES
 
 select * from roles;
 
+delete from login where loginid=101
+delete from staff where staff_id =101
+
 
 INSERT INTO STAFF VALUES
 ('Annie Abraham','Female','1999-02-23','Trivandrum','2015-05-12','9898989898',5,'annie@gmail.com',1),
